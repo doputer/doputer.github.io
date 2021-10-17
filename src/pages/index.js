@@ -87,7 +87,7 @@ export const pageQuery = graphql`
             }
           }
           frontmatter {
-            date(formatString: "YYYY-MM-DD")
+            date(formatString: "YYYY/MM/DD")
             title
             category
             draft
