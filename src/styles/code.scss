@@ -20,6 +20,10 @@
 
 blockquote {
   color: $blockquote-text-color;
+  background-color: $blockquote-background-color;
+  border-left: 4px solid $blockquote-border-color;
+  padding: 20px;
+  border-radius: 4px;
 }
 
 code[class*='language-'],

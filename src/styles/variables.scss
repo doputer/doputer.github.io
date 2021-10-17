@@ -21,11 +21,13 @@ $light-gray: #aaa;
 // blog-templates
 $navigator-text-color: #cc007a;
 $navigator-background-color: #fceff7;
-$blockquote-text-color: #999;
+$blockquote-text-color: #404040;
+$blockquote-background-color: rgba(8, 148, 226, 0.038);
+$blockquote-border-color: #0894e2;
 
 // code
-$inline-dimmed-color: #ece5f1;
-$inline-text-color: #4b2043;
+$inline-dimmed-color: #f0f2f3;
+$inline-text-color: #2876d2;
 
 // category
 $light-category-border-color: #ecf0f2;
@@ -47,6 +49,8 @@ $dark-middle-font-color: #d8d7d7;
 
 $dark-text-shadow: 0 0 0.1px rgba(255, 255, 255, 0.3);
 $dark-hover-text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+
+$dark-blockquote-text-color: #eee;
 
 $dark-category-item-color: #282c35;
 $dark-category-background-color: #24272c;
