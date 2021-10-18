@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://doputer.github.io/article/wysiwyg-draft-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://doputer.github.io/project/wysiwyg-draft-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/article/decorating-github-profile/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://doputer.github.io/article/apply-for-ict/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://doputer.github.io/retrospect/apply-for-ict/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/project/color-picker/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/project/snake-game/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/algorithm/selection-sort-vs-insertion-sort/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://doputer.github.io/article/apply-for-42-seoul/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://doputer.github.io/retrospect/apply-for-42-seoul/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/problem/boj-2839/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/article/playing-golf-with-code/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/problem/boj-1003/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -19,8 +19,8 @@
 <url> <loc>https://doputer.github.io/problem/boj-9095/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/algorithm/bubble-sort/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/algorithm/cocktail-shaker-sort/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://doputer.github.io/article/remove-files-in-git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/article/return-values-in-printf-scanf/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://doputer.github.io/article/remove-files-in-git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://doputer.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>

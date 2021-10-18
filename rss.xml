@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[DOPUTER]]></description><link>https://doputer.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 Oct 2021 19:53:42 GMT</lastBuildDate><item><title><![CDATA[WYSIWYG 에디터 draft.js의 기록 👀]]></title><description><![CDATA[위지윅(WYSIWYG)이란? 위지위그(WYSIWYG: What You See Is What You Get…]]></description><link>https://doputer.github.io/article/wysiwyg-draft-js/</link><guid isPermaLink="false">https://doputer.github.io/article/wysiwyg-draft-js/</guid><pubDate>Fri, 03 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;위지윅wysiwyg이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9C%84%EC%A7%80%EC%9C%85wysiwyg%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;위지윅wysiwyg이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;위지윅(WYSIWYG)이란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[DOPUTER]]></description><link>https://doputer.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 18 Oct 2021 20:11:53 GMT</lastBuildDate><item><title><![CDATA[WYSIWYG 에디터 draft.js의 기록 👀]]></title><description><![CDATA[위지윅(WYSIWYG)이란? 위지위그(WYSIWYG: What You See Is What You Get…]]></description><link>https://doputer.github.io/project/wysiwyg-draft-js/</link><guid isPermaLink="false">https://doputer.github.io/project/wysiwyg-draft-js/</guid><pubDate>Fri, 03 Sep 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;위지윅wysiwyg이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9C%84%EC%A7%80%EC%9C%85wysiwyg%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;위지윅wysiwyg이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;위지윅(WYSIWYG)이란?&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;위지위그(WYSIWYG: What You See Is What You Get, “보는 대로 얻는다”)는 문서 편집 과정에서 화면에 포맷된 낱말, 문장이 출력물과 동일하게 나오는 방식을 말한다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -275,7 +275,7 @@
 &lt;a href=&quot;https://github.com/mazassumnida/mazassumnida&quot;&gt;mazassumnida&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;boj 프로필을 이쁘게 보여주는 오픈 소스&lt;/p&gt;
 &lt;h2 id=&quot;5-내가-적용한-모습&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#5-%EB%82%B4%EA%B0%80-%EC%A0%81%EC%9A%A9%ED%95%9C-%EB%AA%A8%EC%8A%B5&quot; aria-label=&quot;5 내가 적용한 모습 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;5. 내가 적용한 모습&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/doputer/doputer&quot;&gt;https://github.com/doputer/doputer&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ICT 학점연계 프로젝트 인턴십에 지원하며 📑]]></title><description><![CDATA[인턴십에 지원하며 국내·외 기업에서 제안한 ICT분야 직무 중심의 프로젝트, 서비스 개발 등에 대학생이 참여하여 인턴십을 수행하고, 이를 학점으로 인정받도록 하는 이론과 실무 역량을 겸비한 문제해결형 창의인재양성 프로그램입니다. 학부생…]]></description><link>https://doputer.github.io/article/apply-for-ict/</link><guid isPermaLink="false">https://doputer.github.io/article/apply-for-ict/</guid><pubDate>Sun, 28 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;인턴십에-지원하며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%ED%84%B4%EC%8B%AD%EC%97%90-%EC%A7%80%EC%9B%90%ED%95%98%EB%A9%B0&quot; aria-label=&quot;인턴십에 지원하며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인턴십에 지원하며&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/doputer/doputer&quot;&gt;https://github.com/doputer/doputer&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ICT 학점연계 프로젝트 인턴십에 지원하며 📑]]></title><description><![CDATA[인턴십에 지원하며 국내·외 기업에서 제안한 ICT분야 직무 중심의 프로젝트, 서비스 개발 등에 대학생이 참여하여 인턴십을 수행하고, 이를 학점으로 인정받도록 하는 이론과 실무 역량을 겸비한 문제해결형 창의인재양성 프로그램입니다. 학부생…]]></description><link>https://doputer.github.io/retrospect/apply-for-ict/</link><guid isPermaLink="false">https://doputer.github.io/retrospect/apply-for-ict/</guid><pubDate>Sun, 28 Feb 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;인턴십에-지원하며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%ED%84%B4%EC%8B%AD%EC%97%90-%EC%A7%80%EC%9B%90%ED%95%98%EB%A9%B0&quot; aria-label=&quot;인턴십에 지원하며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인턴십에 지원하며&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;국내·외 기업에서 제안한 ICT분야 직무 중심의 프로젝트, 서비스 개발 등에 대학생이 참여하여 인턴십을 수행하고, 이를 학점으로 인정받도록 하는 이론과 실무 역량을 겸비한 문제해결형 창의인재양성 프로그램입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -549,87 +549,90 @@ BOOL bMouseUnHook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &l
 &lt;ol&gt;
 &lt;li&gt;Unsort&lt;/li&gt;
 &lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt; &lt;/th&gt;
-&lt;th&gt;1000&lt;/th&gt;
-&lt;th&gt;10000&lt;/th&gt;
-&lt;th&gt;100000&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Selection sort&lt;/td&gt;
-&lt;td&gt;0.00131280sec&lt;/td&gt;
-&lt;td&gt;0.09303190sec&lt;/td&gt;
-&lt;td&gt;9.10471170sec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Insertion sort&lt;/td&gt;
-&lt;td&gt;0.00068790sec&lt;/td&gt;
-&lt;td&gt;0.04695960sec&lt;/td&gt;
-&lt;td&gt;4.57803530sec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+
+      &lt;div class=&quot;remark-sticky-table&quot;&gt; 
+      &lt;div class=&quot;remark-sticky-table-wrapper&quot; style=&quot;width: 100%; height: 100%; overflow: auto;&quot;&gt;
+          &lt;table class=&quot;remark-sticky-table-table&quot;&gt;
+      
+            
+               &lt;thead class=&quot;remark-sticky-table-thead&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                     &lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt; &lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;1000&lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;10000&lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;100000&lt;/th&gt;
+                        &lt;/tr&gt; 
+                        &lt;/thead&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;Selection sort&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00131280sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.09303190sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;9.10471170sec&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;Insertion sort&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00068790sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.04695960sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;4.57803530sec&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;
+               
+        
+          &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
 &lt;p&gt;정렬 안된 상태에서는 삽입 정렬이 선택 정렬보다 두 배 가까이 빠르다.&lt;/p&gt;
 &lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;Sort&lt;/li&gt;
 &lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt; &lt;/th&gt;
-&lt;th&gt;1000&lt;/th&gt;
-&lt;th&gt;10000&lt;/th&gt;
-&lt;th&gt;100000&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Selection sort&lt;/td&gt;
-&lt;td&gt;0.00091760sec&lt;/td&gt;
-&lt;td&gt;0.09243670sec&lt;/td&gt;
-&lt;td&gt;9.11272040sec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Insertion sort&lt;/td&gt;
-&lt;td&gt;0.00000290sec&lt;/td&gt;
-&lt;td&gt;0.00002820sec&lt;/td&gt;
-&lt;td&gt;0.00027650sec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+
+      &lt;div class=&quot;remark-sticky-table&quot;&gt; 
+      &lt;div class=&quot;remark-sticky-table-wrapper&quot; style=&quot;width: 100%; height: 100%; overflow: auto;&quot;&gt;
+          &lt;table class=&quot;remark-sticky-table-table&quot;&gt;
+      
+            
+               &lt;thead class=&quot;remark-sticky-table-thead&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                     &lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt; &lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;1000&lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;10000&lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;100000&lt;/th&gt;
+                        &lt;/tr&gt; 
+                        &lt;/thead&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;Selection sort&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00091760sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.09243670sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;9.11272040sec&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;Insertion sort&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00000290sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00002820sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00027650sec&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;
+               
+        
+          &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
 &lt;p&gt;정렬된 상태에서는 삽입 정렬이 선택 정렬보다 압도적으로 빠르다.&lt;/p&gt;
 &lt;ol start=&quot;3&quot;&gt;
 &lt;li&gt;Reverse sort&lt;/li&gt;
 &lt;/ol&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt; &lt;/th&gt;
-&lt;th&gt;1000&lt;/th&gt;
-&lt;th&gt;10000&lt;/th&gt;
-&lt;th&gt;100000&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Selection sort&lt;/td&gt;
-&lt;td&gt;0.00095050sec&lt;/td&gt;
-&lt;td&gt;0.09835080sec&lt;/td&gt;
-&lt;td&gt;8.93048030sec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Insertion sort&lt;/td&gt;
-&lt;td&gt;0.00097610sec&lt;/td&gt;
-&lt;td&gt;0.09260770sec&lt;/td&gt;
-&lt;td&gt;9.19390620sec&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;역순 정렬된 상태에서는 삽입 정렬과 선택 정렬이 비슷한 속도를 보인다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[42 서울(42 Seoul)에 지원하며 📝]]></title><description><![CDATA[42 서울이란 2019년 대한민국 정부가 소프트웨어 인재 양성, 새로운 교육 시스템의 개발, 소프트웨어 개발자 생태계 활성화를 그 미션으로 하는 이노베이션 아카데미 재단을 설립했다. 프랑스에 위치한 세계적으로 유명한 IT 인재 양성 기관인 에꼴 4…]]></description><link>https://doputer.github.io/article/apply-for-42-seoul/</link><guid isPermaLink="false">https://doputer.github.io/article/apply-for-42-seoul/</guid><pubDate>Sun, 11 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;42-서울이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#42-%EC%84%9C%EC%9A%B8%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;42 서울이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;42 서울이란&lt;/h2&gt;
+
+      &lt;div class=&quot;remark-sticky-table&quot;&gt; 
+      &lt;div class=&quot;remark-sticky-table-wrapper&quot; style=&quot;width: 100%; height: 100%; overflow: auto;&quot;&gt;
+          &lt;table class=&quot;remark-sticky-table-table&quot;&gt;
+      
+            
+               &lt;thead class=&quot;remark-sticky-table-thead&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                     &lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt; &lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;1000&lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;10000&lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;100000&lt;/th&gt;
+                        &lt;/tr&gt; 
+                        &lt;/thead&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;Selection sort&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00095050sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.09835080sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;8.93048030sec&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;Insertion sort&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.00097610sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;0.09260770sec&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;9.19390620sec&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;
+               
+        
+          &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+&lt;p&gt;역순 정렬된 상태에서는 삽입 정렬과 선택 정렬이 비슷한 속도를 보인다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[42 서울(42 Seoul)에 지원하며 📝]]></title><description><![CDATA[42 서울이란 2019년 대한민국 정부가 소프트웨어 인재 양성, 새로운 교육 시스템의 개발, 소프트웨어 개발자 생태계 활성화를 그 미션으로 하는 이노베이션 아카데미 재단을 설립했다. 프랑스에 위치한 세계적으로 유명한 IT 인재 양성 기관인 에꼴 4…]]></description><link>https://doputer.github.io/retrospect/apply-for-42-seoul/</link><guid isPermaLink="false">https://doputer.github.io/retrospect/apply-for-42-seoul/</guid><pubDate>Sun, 11 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;42-서울이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#42-%EC%84%9C%EC%9A%B8%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;42 서울이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;42 서울이란&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;2019년 대한민국 정부가 소프트웨어 인재 양성, 새로운 교육 시스템의 개발, 소프트웨어 개발자 생태계 활성화를 그 미션으로 하는 이노베이션 아카데미 재단을 설립했다.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1141,28 +1144,35 @@ using namespace std&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt
 &lt;p&gt;간단한 구조체를 C++ 언어로 구현하였다. 사실 구조체와 클래스 모두 &lt;strong&gt;데이터를 묶을 수 있는 명령어&lt;/strong&gt;이다. 여기서 구조체를 클래스로 바꾸고 싶으면 &lt;strong&gt;struct&lt;/strong&gt;를 지우고 &lt;strong&gt;class&lt;/strong&gt;로 바꿔주면 된다. 그러나 바로 오류가 발생하는데 둘 다 기능도 같고, 선언도 동일한데 어디서 이런 오류가 발생했을까?&lt;/p&gt;
 &lt;h2 id=&quot;접근-제어-지시자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%91%EA%B7%BC-%EC%A0%9C%EC%96%B4-%EC%A7%80%EC%8B%9C%EC%9E%90&quot; aria-label=&quot;접근 제어 지시자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;접근 제어 지시자&lt;/h2&gt;
 &lt;p&gt;C++ 언어의 접근 제어 지시자는 다음과 같이 세 가지가 있다.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;접근 제어 지시자&lt;/th&gt;
-&lt;th&gt;허용 범위&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;public&lt;/td&gt;
-&lt;td&gt;어디서든 접근 허용&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;protected&lt;/td&gt;
-&lt;td&gt;상속 관계에서 유도 클래스의 접근 허용&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;private&lt;/td&gt;
-&lt;td&gt;클래스 내에서만 접근 허용&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+
+      &lt;div class=&quot;remark-sticky-table&quot;&gt; 
+      &lt;div class=&quot;remark-sticky-table-wrapper&quot; style=&quot;width: 100%; height: 100%; overflow: auto;&quot;&gt;
+          &lt;table class=&quot;remark-sticky-table-table&quot;&gt;
+      
+            
+               &lt;thead class=&quot;remark-sticky-table-thead&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                     &lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;접근 제어 지시자&lt;/th&gt;&lt;th class=&quot;remark-sticky-table-th&quot; style=&quot;position: sticky; display: table-cell; width: auto; min-width: auto; white-space: nowrap; top: 0px; z-index: 2;&quot;&gt;허용 범위&lt;/th&gt;
+                        &lt;/tr&gt; 
+                        &lt;/thead&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;public&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;어디서든 접근 허용&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;protected&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;상속 관계에서 유도 클래스의 접근 허용&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;&lt;tbody class=&quot;remark-sticky-table-tbody&quot;&gt;
+                     &lt;tr class=&quot;remark-sticky-table-tr&quot;&gt;
+                          &lt;td class=&quot;remark-sticky-table-td&quot;&gt;private&lt;/td&gt;&lt;td class=&quot;remark-sticky-table-td&quot;&gt;클래스 내에서만 접근 허용&lt;/td&gt;
+                         &lt;/tr&gt;
+                         &lt;/tbody&gt;
+               
+        
+          &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
 &lt;p&gt;구조체의 경우 접근 제어 지시자를 따로 선언하지 않으면 모든 객체와 메서드는 &lt;strong&gt;public&lt;/strong&gt;으로 선언된다. 클래스의 경우 접근 제어 지시자를 따로 선언하지 않으면 모든 객체와 메서드는 &lt;strong&gt;private&lt;/strong&gt;로 선언된다.&lt;/p&gt;
 &lt;p&gt;즉, 발생한 오류는 클래스의 접근 제어 지시자를 따로 명시해주지 않았기 때문에 접근이 불가능해서 생긴 오류이다. 따라서 다음과 같이 코드를 수정해주면 오류가 해결된다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;iostream&gt;&lt;/span&gt;&lt;/span&gt;
@@ -1654,15 +1664,7 @@ public&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
 &lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
 &lt;p&gt;칵테일 셰이커 정렬은 거품 정렬과 비슷한 방식으로 동작하지만 특정한 입력 데이터에 따라 속도가 조금 더 빠를 수 있다고 한다. 다만, 특정한 입력 데이터에 관한 내용은 아무리 찾아봐도 나오지 않는다.&lt;/p&gt;
 &lt;p&gt;생각해볼 수 있는 한 가지는 굉장히 긴 배열 데이터가 입력됐을 때 마지막 인덱스 탐색을 마친 후에 다시 처음 인덱스로 돌아가는 시간이 없어진다는 차이가 아닐까 싶다.&lt;/p&gt;
-&lt;p&gt;두 정렬 모두 평균 시간 복잡도가 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(n^2)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.064108em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 이라는 점과 많은 수학자들이 거품 정렬을 개선하기 위해 얼마나 많은 노력을 했는지만 알고 넘어가도 좋을 것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[깃허브에 커밋한 파일들 삭제하기 🗑️]]></title><description><![CDATA[깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자. git bash…]]></description><link>https://doputer.github.io/article/remove-files-in-git/</link><guid isPermaLink="false">https://doputer.github.io/article/remove-files-in-git/</guid><pubDate>Tue, 29 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자.&lt;/p&gt;
-&lt;p&gt;git bash에서 로컬 저장소로 이동한 뒤 다음과 같이 입력해주면 된다. 주의할 점은 원격 저장소에서 제거한 파일은 로컬 저장소에서도 역시 제거되기 때문에 백업 해두는 것이 좋다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; -r &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;파일 이름&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; // 특정 파일 삭제
-$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; commit -m &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;커밋 메시지&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;만약 모든 파일을 삭제하고 싶다면 명령어를 조금 수정하면 된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; -r &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;* // 모든 파일 삭제
-$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; commit -m &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;커밋 메시지&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[printf와 scanf에도 반환 값이 있을까? 💻]]></title><description><![CDATA[C 언어 프로그래밍을 하다 보면 입출력을 담당하는 printf 함수와 scanf 함수를 빼놓을 수가 없다. 그런데 놀랍게도 이 두 함수는 반환 값이 존재한다.   scanf 함수의 반환 값 VS2019로 scanf…]]></description><link>https://doputer.github.io/article/return-values-in-printf-scanf/</link><guid isPermaLink="false">https://doputer.github.io/article/return-values-in-printf-scanf/</guid><pubDate>Tue, 29 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;C 언어 프로그래밍을 하다 보면 입출력을 담당하는 printf 함수와 scanf 함수를 빼놓을 수가 없다.&lt;/p&gt;
+&lt;p&gt;두 정렬 모두 평균 시간 복잡도가 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(n^2)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.064108em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 이라는 점과 많은 수학자들이 거품 정렬을 개선하기 위해 얼마나 많은 노력을 했는지만 알고 넘어가도 좋을 것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[printf와 scanf에도 반환 값이 있을까? 💻]]></title><description><![CDATA[C 언어 프로그래밍을 하다 보면 입출력을 담당하는 printf 함수와 scanf 함수를 빼놓을 수가 없다. 그런데 놀랍게도 이 두 함수는 반환 값이 존재한다.   scanf 함수의 반환 값 VS2019로 scanf…]]></description><link>https://doputer.github.io/article/return-values-in-printf-scanf/</link><guid isPermaLink="false">https://doputer.github.io/article/return-values-in-printf-scanf/</guid><pubDate>Tue, 29 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;C 언어 프로그래밍을 하다 보면 입출력을 담당하는 printf 함수와 scanf 함수를 빼놓을 수가 없다.&lt;/p&gt;
 &lt;p&gt;그런데 놀랍게도 이 두 함수는 반환 값이 존재한다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -1757,7 +1759,15 @@ $ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;다음 코드의 출력 값은 13이 나온다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;printf 함수의 반환 값은 출력되는 문자의 개수&lt;/strong&gt;이다. 출력되는 문자의 개수는 공백( )과 이스케이프 시퀀스인 개행(\n), 가로 탭(\t) 등을 포함한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[Your name Thank you for reading my resume. If you want to contact me, Please send me an email.]]></description><link>https://doputer.github.io/resume-en/</link><guid isPermaLink="false">https://doputer.github.io/resume-en/</guid><pubDate>Sun, 27 Jan 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;your-name&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#your-name&quot; aria-label=&quot;your name permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Your name&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;printf 함수의 반환 값은 출력되는 문자의 개수&lt;/strong&gt;이다. 출력되는 문자의 개수는 공백( )과 이스케이프 시퀀스인 개행(\n), 가로 탭(\t) 등을 포함한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[깃허브에 커밋한 파일들 삭제하기 🗑️]]></title><description><![CDATA[깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자. git bash…]]></description><link>https://doputer.github.io/article/remove-files-in-git/</link><guid isPermaLink="false">https://doputer.github.io/article/remove-files-in-git/</guid><pubDate>Tue, 29 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자.&lt;/p&gt;
+&lt;p&gt;git bash에서 로컬 저장소로 이동한 뒤 다음과 같이 입력해주면 된다. 주의할 점은 원격 저장소에서 제거한 파일은 로컬 저장소에서도 역시 제거되기 때문에 백업 해두는 것이 좋다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; -r &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;파일 이름&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; // 특정 파일 삭제
+$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; commit -m &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;커밋 메시지&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 모든 파일을 삭제하고 싶다면 명령어를 조금 수정하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; -r &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;* // 모든 파일 삭제
+$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; commit -m &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;커밋 메시지&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[about]]></title><description><![CDATA[Your name Thank you for reading my resume. If you want to contact me, Please send me an email.]]></description><link>https://doputer.github.io/resume-en/</link><guid isPermaLink="false">https://doputer.github.io/resume-en/</guid><pubDate>Sun, 27 Jan 2019 16:21:13 GMT</pubDate><content:encoded>&lt;h1 id=&quot;your-name&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#your-name&quot; aria-label=&quot;your name permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Your name&lt;/h1&gt;
 &lt;div align=&quot;center&quot;&gt;
 &lt;p&gt;&lt;em&gt;Thank you for reading my resume. If you want to contact me, Please send me an email.&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;</content:encoded></item></channel></rss>
