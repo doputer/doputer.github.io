@@ -1,7 +1,7 @@
 ---
 title: 'Color Picker 프로젝트 🎨'
 date: 2021-01-22
-category: 'project'
+category: '프로젝트'
 draft: false
 ---
 

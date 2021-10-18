@@ -1,7 +1,7 @@
 ---
 title: '시간 복잡도 가시적으로 확인해보기 👀'
 date: 2020-10-01
-category: 'algorithm'
+category: '알고리즘'
 draft: false
 ---
 

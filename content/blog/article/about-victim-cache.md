@@ -1,7 +1,7 @@
 ---
 title: 'Victim cache에 관하여 🧱'
 date: 2020-10-06
-category: 'article'
+category: '아티클'
 draft: false
 ---
 

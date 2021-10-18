@@ -1,7 +1,7 @@
 ---
 title: 'printf와 scanf에도 반환 값이 있을까? 💻'
 date: 2020-09-29
-category: 'article'
+category: '아티클'
 draft: false
 ---
 

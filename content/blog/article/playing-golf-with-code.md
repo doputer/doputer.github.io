@@ -1,7 +1,7 @@
 ---
 title: '코드로 골프하기 ⛳'
 date: 2020-10-08
-category: 'article'
+category: '아티클'
 draft: false
 ---
 

@@ -5,15 +5,15 @@ import { TARGET_CLASS } from '../../utils/visible'
 import './index.scss'
 
 export const ThumbnailItem = ({ node }) => (
-  <Link className={`thumbnail ${TARGET_CLASS}`} to={node.fields.slug}>
-    <div key={node.fields.slug}>
+  <div className={`thumbnail ${TARGET_CLASS}`} key={node.fields.slug}>
+    <Link to={node.fields.slug}>
       <h3>{node.frontmatter.title || node.fields.slug}</h3>
-      <p
-        dangerouslySetInnerHTML={{
-          __html: node.frontmatter.date + ' • ' + node.fields.readingTime.text,
-        }}
-      />
-      <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-    </div>
-  </Link>
+    </Link>
+    <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+    <p
+      dangerouslySetInnerHTML={{
+        __html: node.frontmatter.date,
+      }}
+    />
+  </div>
 )

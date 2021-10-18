@@ -1,7 +1,7 @@
 ---
 title: 'ICT 학점연계 프로젝트 인턴십에 지원하며 📑'
 date: 2021-02-28
-category: 'article'
+category: '회고'
 draft: false
 ---
 

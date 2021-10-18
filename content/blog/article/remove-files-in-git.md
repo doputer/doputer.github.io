@@ -1,7 +1,7 @@
 ---
 title: '깃허브에 커밋한 파일들 삭제하기 🗑️'
 date: 2020-09-29
-category: 'article'
+category: '아티클'
 draft: false
 ---
 

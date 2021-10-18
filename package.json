@@ -8,6 +8,7 @@
     "url": "https://github.com/JaeYeopHan/gatsby-starter-bee/issues"
   },
   "dependencies": {
+    "@pauliescanlon/gatsby-remark-sticky-table": "^0.0.11",
     "gatsby": "^2.2.8",
     "gatsby-image": "^2.0.34",
     "gatsby-plugin-feed": "^2.1.0",
@@ -29,7 +30,6 @@
     "gatsby-remark-images-medium-zoom": "^1.7.0",
     "gatsby-remark-katex": "^3.1.25",
     "gatsby-remark-prismjs": "^3.2.6",
-    "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-remark-responsive-iframe": "^2.1.1",
     "gatsby-remark-smartypants": "^2.0.9",
     "gatsby-source-filesystem": "^2.0.28",
@@ -46,6 +46,7 @@
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
+    "react-rotating-text": "^1.4.1",
     "react-switch": "^5.0.0",
     "react-typography": "^0.16.13",
     "smooth-scroll": "^16.0.0",

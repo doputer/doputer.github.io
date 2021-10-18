@@ -1,7 +1,7 @@
 ---
 title: '거품 정렬 🧺'
 date: 2020-09-30
-category: 'algorithm'
+category: '알고리즘'
 draft: false
 ---
 

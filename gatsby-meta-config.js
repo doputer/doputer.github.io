@@ -2,8 +2,11 @@ module.exports = {
   title: `DOPUTER`,
   description: ``,
   author: `김도현`,
-  introduction: ``,
   siteUrl: `https://doputer.github.io`, // Your blog site url
+  bio: {
+    role: `개발자`,
+    description: [`끊임없이 성장하는`],
+  },
   social: {
     twitter: ``, // Your Twitter account
     github: `doputer`, // Your GitHub account
@@ -19,7 +22,7 @@ module.exports = {
     utterances: 'doputer/doputer.github.io', // Your repository for archive comment
   },
   configs: {
-    countOfInitialPost: 10, // Config your initial count of post
+    countOfInitialPost: 5, // Config your initial count of post
   },
   sponsor: {
     buyMeACoffeeId: '',

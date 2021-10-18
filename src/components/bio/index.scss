@@ -14,79 +14,27 @@
     min-width: 72px;
   }
 
-  .author-name-prefix {
-    font-size: 90%;
-    margin-right: 4px;
-  }
-
-  .author-name-content {
-    display: inline-block;
-    font-size: 95%;
-    padding: 2px 6px;
-    font-weight: bolder;
-    border-radius: 8px;
-    transform-origin: center;
-    animation: flutter 2s infinite linear;
-  }
-
   .author-introduction {
-    margin-top: 4px;
-    font-size: 80%;
+    margin: 75px 0 100px;
+    font-size: 300%;
+    font-weight: lighter;
     line-height: 1.4;
   }
-
-  .author-socials {
-    margin-top: 4px;
-  }
-
-  a {
-    margin-right: 8px;
-    font-size: 80%;
-
-    &.visited {
-      text-decoration: none;
-    }
-  }
 }
 
-@-webkit-keyframes flutter {
-  0% {
-    transform: rotate(0deg);
-  }
-  35% {
-    transform: rotate(0deg);
-  }
-  40% {
-    transform: rotate(-5deg);
-  }
-  60% {
-    transform: rotate(5deg);
-  }
-  65% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+.react-rotating-text-cursor {
+  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s
+    infinite;
 }
 
-@keyframes flutter {
+@keyframes blinking-cursor {
   0% {
-    transform: rotate(0deg);
+    opacity: 0;
   }
-  35% {
-    transform: rotate(0deg);
-  }
-  40% {
-    transform: rotate(-5deg);
-  }
-  60% {
-    transform: rotate(5deg);
-  }
-  65% {
-    transform: rotate(0deg);
+  50% {
+    opacity: 1;
   }
   100% {
-    transform: rotate(0deg);
+    opacity: 0;
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: '메모이제이션이란? 📄'
 date: 2020-10-07
-category: 'algorithm'
+category: '알고리즘'
 draft: false
 ---
 

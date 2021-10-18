@@ -82,9 +82,6 @@ export const pageQuery = graphql`
           excerpt(pruneLength: 200, truncate: true)
           fields {
             slug
-            readingTime {
-              text
-            }
           }
           frontmatter {
             date(formatString: "YYYY/MM/DD")
