@@ -97,8 +97,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://doputer.github.io',
-        sitemap: 'https://doputer.github.io/sitemap.xml',
+        host: 'https://dohyeon.dev',
+        sitemap: 'https://dohyeon.dev/sitemap.xml',
         policy: [
           {
             userAgent: '*',
