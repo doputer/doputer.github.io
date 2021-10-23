@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://doputer.github.io/sitemap.xml
-Host: https://doputer.github.io
+Sitemap: https://dohyeon.dev/sitemap.xml
+Host: https://dohyeon.dev
