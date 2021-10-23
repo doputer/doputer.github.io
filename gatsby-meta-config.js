@@ -1,6 +1,6 @@
 module.exports = {
   title: `DOPUTER`,
-  description: ``,
+  description: `끊임없이 성장하는 개발자 김도현입니다.`,
   author: `김도현`,
   siteUrl: `https://doputer.github.io`, // Your blog site url
   bio: {
