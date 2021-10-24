@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-js","path":"/tags/c/","result":{"data":{"site":{"siteMetadata":{"title":"DOPUTER"}},"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/article/return-values-in-printf-scanf/"},"frontmatter":{"title":"printf와 scanf에도 반환 값이 있을까? 💻"}}}]}},"pageContext":{"tag":"C"}}}

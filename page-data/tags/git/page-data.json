@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-js","path":"/tags/git/","result":{"data":{"site":{"siteMetadata":{"title":"DOPUTER"}},"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/article/remove-files-in-git/"},"frontmatter":{"title":"깃허브에 커밋한 파일들 삭제하기 🗑️"}}}]}},"pageContext":{"tag":"Git"}}}

@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-js","path":"/tags/game/","result":{"data":{"site":{"siteMetadata":{"title":"DOPUTER"}},"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/project/snake-game/"},"frontmatter":{"title":"Snake 게임 🐍"}}}]}},"pageContext":{"tag":"Game"}}}
