@@ -5,7 +5,7 @@ module.exports = {
   siteUrl: `https://doputer.github.io`, // Your blog site url
   bio: {
     role: `개발자`,
-    description: [`끊임없이 성장하는`],
+    description: [`끊임없이 성장하는`, `이로운 것을 만드는`],
   },
   social: {
     twitter: ``, // Your Twitter account

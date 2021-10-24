@@ -37,13 +37,15 @@ body.light {
   .thumbnail {
     h3 {
       color: $dark-gray;
-      &:hover {
-        color: #fff;
-        background-color: #0894e2;
-      }
     }
     p {
       color: $middle-gray;
+    }
+    &:hover {
+      h3 {
+        color: $thumbnail-text-color;
+        transition: 0.3s ease;
+      }
     }
   }
 
@@ -59,6 +61,13 @@ body.light {
     a {
       background-color: $navigator-background-color;
       color: $navigator-text-color;
+    }
+  }
+
+  // tag
+  .tag-content-container {
+    h1 {
+      color: $dark-gray;
     }
   }
 }

@@ -16,6 +16,29 @@
 
   h3 {
     margin-top: 13px;
+    margin-bottom: 4px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  ul {
+    overflow: auto;
+    list-style: none;
+    margin-left: 0px;
+    margin-bottom: 13px;
+
+    li {
+      float: left;
+      margin-right: 8px;
+      margin-bottom: 0px;
+      padding: 0px 4px;
+      border-radius: 4px;
+      background-color: #f0f2f3;
+      font-size: 80%;
+
+      a {
+        line-height: 24px;
+      }
+    }
   }
 }
 

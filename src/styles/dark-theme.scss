@@ -39,8 +39,8 @@ body.dark {
     h3 {
       color: $dark-light-font-color;
       &:hover {
-        color: #eee;
-        background-color: #373e47;
+        color: $thumbnail-text-color;
+        transition: 0.3s ease;
       }
     }
     p {
@@ -75,5 +75,12 @@ body.dark {
   }
   td {
     border-bottom: 1px solid #eee;
+  }
+
+  // tag
+  .tag-content-container {
+    h1 {
+      color: $dark-light-font-color;
+    }
   }
 }
