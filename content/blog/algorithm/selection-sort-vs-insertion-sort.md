@@ -2,6 +2,7 @@
 title: '선택 정렬 vs 삽입 정렬 비교 ⏱'
 date: 2020-10-13
 category: '알고리즘'
+tags: ['Time Complexity', 'Sort']
 draft: false
 ---
 

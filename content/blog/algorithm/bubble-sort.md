@@ -2,6 +2,7 @@
 title: '거품 정렬 🧺'
 date: 2020-09-30
 category: '알고리즘'
+tags: ['Sort']
 draft: false
 ---
 

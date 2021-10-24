@@ -2,6 +2,7 @@
 title: '코드로 골프하기 ⛳'
 date: 2020-10-08
 category: '아티클'
+tags: ['Golf']
 draft: false
 ---
 

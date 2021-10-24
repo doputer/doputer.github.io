@@ -2,6 +2,7 @@
 title: 'Victim cache에 관하여 🧱'
 date: 2020-10-06
 category: '아티클'
+tags: ['Memory', 'Cache']
 draft: false
 ---
 

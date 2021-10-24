@@ -2,6 +2,7 @@
 title: '메모이제이션이란? 📄'
 date: 2020-10-07
 category: '알고리즘'
+tags: ['Memoization']
 draft: false
 ---
 

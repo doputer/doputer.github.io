@@ -2,6 +2,7 @@
 title: '선택 정렬 🧺'
 date: 2020-10-01
 category: '알고리즘'
+tags: ['Sort']
 draft: false
 ---
 

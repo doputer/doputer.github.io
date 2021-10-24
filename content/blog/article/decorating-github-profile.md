@@ -2,6 +2,7 @@
 title: 'Github 프로필 꾸미기 👑'
 date: 2021-05-08
 category: '아티클'
+tags: ['Github']
 draft: false
 ---
 

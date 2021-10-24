@@ -2,6 +2,7 @@
 title: 'Color Picker 프로젝트 🎨'
 date: 2021-01-22
 category: '프로젝트'
+tags: ['CPP', 'MFC']
 draft: false
 ---
 

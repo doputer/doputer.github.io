@@ -2,6 +2,7 @@
 title: 'Snake 게임 🐍'
 date: 2020-11-10
 category: '프로젝트'
+tags: ['Game']
 draft: false
 ---
 

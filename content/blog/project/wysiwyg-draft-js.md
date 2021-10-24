@@ -2,6 +2,7 @@
 title: 'WYSIWYG 에디터 draft.js의 기록 👀'
 date: 2021-09-03
 category: '프로젝트'
+tags: ['ReactJS', 'WYSIWYG']
 draft: false
 ---
 

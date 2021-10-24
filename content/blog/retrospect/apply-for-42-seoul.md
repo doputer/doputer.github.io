@@ -2,6 +2,7 @@
 title: '42 서울(42 Seoul)에 지원하며 📝'
 date: 2020-10-11
 category: '회고'
+tags: ['42 Seoul']
 draft: false
 ---
 

@@ -2,6 +2,7 @@
 title: '구조체와 클래스의 차이 🔀'
 date: 2020-10-06
 category: '아티클'
+tags: ['Structure', 'Class']
 draft: false
 ---
 
