@@ -8,6 +8,7 @@ GitHubTheme.overrideThemeStyles = () => {
       textDecoration: `none`,
       color: `#ed2945`,
     },
+
     'a.gatsby-resp-image-link': {
       boxShadow: `none`,
       textDecoration: `none`,
@@ -21,7 +22,7 @@ GitHubTheme.overrideThemeStyles = () => {
     h1: {
       fontWeight: 800,
       lineHeight: 1.2,
-      fontFamily: 'Noto Sans KR',
+      fontFamily: 'Lato',
     },
 
     h2: {
@@ -29,7 +30,7 @@ GitHubTheme.overrideThemeStyles = () => {
       lineHeight: 1.2,
       marginTop: '56px',
       marginBottom: '20px',
-      fontFamily: 'Noto Sans KR',
+      fontFamily: 'Lato',
     },
 
     ul: {

@@ -77,6 +77,14 @@ body.dark {
     border-bottom: 1px solid #eee;
   }
 
+  .post-container {
+    p {
+      a {
+        color: $dark-middle-font-color;
+      }
+    }
+  }
+
   // tag
   .tag-content-container {
     h1 {

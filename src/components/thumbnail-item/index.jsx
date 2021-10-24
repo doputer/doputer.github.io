@@ -10,16 +10,11 @@ export const ThumbnailItem = ({ node }) => (
     <Link to={node.fields.slug}>
       <h3>{node.frontmatter.title || node.fields.slug}</h3>
     </Link>
-    <p
-      dangerouslySetInnerHTML={{
-        __html: node.frontmatter.date,
-      }}
-    />
     <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
     <ul>
       {node.frontmatter.tags.map(tag => (
         <li key={tag}>
-          <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+          <Link to={`/tags/${kebabCase(tag)}/`}>{`#${tag}`}</Link>
         </li>
       ))}
     </ul>

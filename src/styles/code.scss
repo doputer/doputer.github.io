@@ -23,7 +23,7 @@ blockquote {
   background-color: $blockquote-background-color;
   border-left: 4px solid $blockquote-border-color;
   padding: 20px;
-  border-radius: 4px;
+  font-style: italic;
 }
 
 code[class*='language-'],

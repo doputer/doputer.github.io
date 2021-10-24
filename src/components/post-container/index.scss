@@ -1,0 +1,13 @@
+.post-container {
+  p {
+    a {
+      box-shadow: 0 2px 0 0 #ed2945;
+      text-decoration: none;
+
+      &:hover {
+        box-shadow: none;
+        text-decoration: none;
+      }
+    }
+  }
+}

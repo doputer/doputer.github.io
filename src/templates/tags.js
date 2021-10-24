@@ -4,7 +4,7 @@ import React from 'react'
 import { Layout } from '../layout'
 import { TagContent } from '../components/tag-content'
 
-const Tags = ({ pageContext, data }) => {
+const Tags = ({ location, pageContext, data }) => {
   const { siteMetadata } = data.site
   const { tag } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark

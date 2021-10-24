@@ -64,6 +64,14 @@ body.light {
     }
   }
 
+  .post-container {
+    p {
+      a {
+        color: $dark-gray;
+      }
+    }
+  }
+
   // tag
   .tag-content-container {
     h1 {

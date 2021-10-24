@@ -9,15 +9,14 @@
   transition: text-shadow 0.3s, opacity 0.4s;
   opacity: 0;
 
+  h3 {
+    margin-top: 13px;
+    font-family: 'Lato', 'Noto Sans KR', sans-serif;
+  }
+
   p {
     font-size: 90%;
     line-height: 1.4;
-  }
-
-  h3 {
-    margin-top: 13px;
-    margin-bottom: 4px;
-    font-family: 'Noto Sans KR', sans-serif;
   }
 
   ul {
@@ -29,17 +28,14 @@
     li {
       float: left;
       margin-right: 8px;
-      margin-bottom: 0px;
-      padding: 0px 4px;
       border-radius: 4px;
-      background-color: #f0f2f3;
       font-size: 80%;
-
-      a {
-        line-height: 24px;
-      }
     }
   }
+}
+
+.thumbnail:not(:last-of-type) {
+  border-bottom: 1px solid rgba(214, 209, 230, 0.5);
 }
 
 .thumbnail.visible {
