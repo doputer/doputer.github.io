@@ -2,7 +2,7 @@ module.exports = {
   title: `DOPUTER`,
   description: `끊임없이 성장하는 개발자 김도현입니다.`,
   author: `김도현`,
-  siteUrl: `https://doputer.github.io`, // Your blog site url
+  siteUrl: `https://dohyeon.dev`, // Your blog site url
   bio: {
     role: `개발자`,
     description: [`끊임없이 성장하는`, `이로운 것을 만드는`],
@@ -31,5 +31,5 @@ module.exports = {
     facebookAppId: '', // Add facebookAppId for using facebook share feature v3.2
   },
   ga: '0', // Add your google analytics tranking ID
-  ad: '', // Add your google adsense publisherId `ca-pub-xxxxxxxxxx`
+  ad: 'ca-pub-6174217160814623', // Add your google adsense publisherId `ca-pub-xxxxxxxxxx`
 }
