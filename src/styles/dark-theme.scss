@@ -1,11 +1,16 @@
 body.dark {
   background-color: $dark-background-color;
-  text-shadow: $dark-text-shadow;
   color: $dark-light-font-color;
 
   // home
   .home-header {
     color: $dark-light-font-color;
+
+    &:hover {
+      a {
+        color: $dark-light-font-color;
+      }
+    }
   }
 
   .bio {
@@ -77,18 +82,16 @@ body.dark {
     border-bottom: 1px solid #eee;
   }
 
-  .post-container {
-    p {
-      a {
-        color: $dark-middle-font-color;
-      }
-    }
-  }
-
   // tag
   .tag-content-container {
     h1 {
       color: $dark-light-font-color;
     }
+  }
+
+  // inline code
+  :not(pre) > code[class*='language-'] {
+    background: rgba(115, 124, 153, 0.2);
+    color: #eee;
   }
 }

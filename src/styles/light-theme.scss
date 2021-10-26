@@ -1,10 +1,15 @@
 body.light {
   background-color: $light-background-color;
-  text-shadow: $light-text-shadow;
 
   // home
   .home-header {
     color: $dark-gray;
+
+    &:hover {
+      a {
+        color: $dark-gray;
+      }
+    }
   }
 
   .bio {
@@ -61,14 +66,6 @@ body.light {
     a {
       background-color: $navigator-background-color;
       color: $navigator-text-color;
-    }
-  }
-
-  .post-container {
-    p {
-      a {
-        color: $dark-gray;
-      }
     }
   }
 
