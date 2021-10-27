@@ -1,5 +1,6 @@
 body.light {
   background-color: $light-background-color;
+  color: $light-dark-font-color;
 
   // home
   .home-header {
@@ -42,15 +43,13 @@ body.light {
   .thumbnail {
     h3 {
       color: $dark-gray;
-    }
-    p {
-      color: $middle-gray;
-    }
-    &:hover {
-      h3 {
+      &:hover {
         color: $thumbnail-text-color;
         transition: 0.3s ease;
       }
+    }
+    p {
+      color: $middle-gray;
     }
   }
 

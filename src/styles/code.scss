@@ -19,11 +19,23 @@
 }
 
 blockquote {
-  color: $blockquote-text-color;
-  background-color: $blockquote-background-color;
-  border-left: 4px solid $blockquote-border-color;
   padding: 20px;
-  font-style: italic;
+}
+
+body.light {
+  blockquote {
+    color: $blockquote-text-color;
+    background-color: $blockquote-background-color;
+    border-left: 4px solid $blockquote-border-color;
+  }
+}
+
+body.dark {
+  blockquote {
+    color: $dark-blockquote-text-color;
+    background-color: $blockquote-background-color;
+    border-left: 4px solid rgba(255, 255, 255, 0.822);
+  }
 }
 
 code[class*='language-'],
@@ -72,11 +84,27 @@ pre[class*='language-'] {
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {
-  padding: 0.1em 0.6em;
+  padding: 0.1em 0.4em;
   border-radius: 0.2em;
   white-space: normal;
   background: $inline-dimmed-color;
   color: $inline-text-color;
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+body.light {
+  :not(pre) > code[class*='language-'] {
+    background: $inline-dimmed-color;
+    color: $inline-text-color;
+  }
+}
+
+body.dark {
+  :not(pre) > code[class*='language-'] {
+    background: $dark-inline-dimmed-color;
+    color: $dark-inline-text-color;
+  }
 }
 
 .token.comment,
