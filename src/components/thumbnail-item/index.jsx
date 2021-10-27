@@ -11,6 +11,12 @@ export const ThumbnailItem = ({ node }) => (
       <h3>{node.frontmatter.title || node.fields.slug}</h3>
     </Link>
     <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+    <p
+      className="thumbnail-date"
+      dangerouslySetInnerHTML={{
+        __html: node.frontmatter.date,
+      }}
+    />
     <ul>
       {node.frontmatter.tags.map(tag => (
         <li key={tag}>
