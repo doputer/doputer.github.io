@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 
-export function useTocScroll(headerElements, setCurrentHeaderUrl) {
+export function useTocScroll(setCurrentHeaderUrl) {
   const [scrollY, setScrollY] = useState(0)
 
   let aboveHeaderUrl
@@ -19,6 +19,8 @@ export function useTocScroll(headerElements, setCurrentHeaderUrl) {
   })
 
   useEffect(() => {
+    const headerElements = document.querySelectorAll('.anchor-header')
+
     for (const elem of headerElements) {
       const { top } = elem.getBoundingClientRect()
       const elemTop = top + scrollY

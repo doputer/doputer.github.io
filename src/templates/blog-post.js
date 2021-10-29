@@ -30,7 +30,7 @@ export default ({ data, pageContext, location }) => {
     return () => ScrollManager.destroy()
   }, [])
 
-  useTocScroll(document.querySelectorAll('.anchor-header'), setCurrentHeaderUrl)
+  useTocScroll(setCurrentHeaderUrl)
 
   const post = data.markdownRemark
   const metaData = data.site.siteMetadata
