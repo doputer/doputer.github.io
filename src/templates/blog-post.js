@@ -23,14 +23,16 @@ import '../styles/code.scss'
 import 'katex/dist/katex.min.css'
 
 export default ({ data, pageContext, location }) => {
+  let tocHeader
+
   useEffect(() => {
     ScrollManager.init()
     return () => ScrollManager.destroy()
   }, [])
 
-  const { currentHeaderUrl } = useTocScroll(
-    document.querySelectorAll('.anchor-header')
-  )
+  if (typeof document !== 'undefined') {
+    tocHeader = useTocScroll(document.querySelectorAll('.anchor-header'))
+  }
 
   const post = data.markdownRemark
   const metaData = data.site.siteMetadata
@@ -44,7 +46,7 @@ export default ({ data, pageContext, location }) => {
       <PostTitle title={postTitle} />
       <TableOfContents
         toc={post.tableOfContents}
-        currentHeaderUrl={currentHeaderUrl}
+        currentHeaderUrl={tocHeader.currentHeaderUrl}
       />
       <PostDate date={date} />
       <PostContainer html={post.html} />
