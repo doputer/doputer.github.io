@@ -28,6 +28,11 @@ $blockquote-text-color: #161616;
 $blockquote-background-color: rgba(8, 148, 226, 0.038);
 $blockquote-border-color: #4361ee;
 
+// toc
+$toc-text-color: #323232;
+$toc-hover-background-color: rgba(8, 148, 226, 0.15);
+$toc-focus-text-color: #4361ee;
+
 // code
 $inline-dimmed-color: rgba(217, 255, 125, 0.5);
 $inline-text-color: #323232;
@@ -61,6 +66,11 @@ $dark-blockquote-text-color: #eee;
 // code
 $dark-inline-dimmed-color: rgba(115, 124, 153, 0.2);
 $dark-inline-text-color: #eee;
+
+// toc
+$dark-toc-text-color: #eee;
+$dark-toc-hover-background-color: rgba(115, 124, 153, 0.2);
+$dark-toc-focus-text-color: #4361ee;
 
 // category
 $dark-category-text-color: #d8d7d7;

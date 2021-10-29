@@ -13,7 +13,11 @@ import { Bio } from '../components/bio'
 import { PostNavigator } from '../components/post-navigator'
 import { Disqus } from '../components/disqus'
 import { Utterances } from '../components/utterances'
+import TableOfContents from '../components/table-of-contents'
+
 import * as ScrollManager from '../utils/scroll'
+
+import { useTocScroll } from '../hooks/useTocScroll'
 
 import '../styles/code.scss'
 import 'katex/dist/katex.min.css'
@@ -23,6 +27,10 @@ export default ({ data, pageContext, location }) => {
     ScrollManager.init()
     return () => ScrollManager.destroy()
   }, [])
+
+  const { currentHeaderUrl } = useTocScroll(
+    document.querySelectorAll('.anchor-header')
+  )
 
   const post = data.markdownRemark
   const metaData = data.site.siteMetadata
@@ -34,6 +42,10 @@ export default ({ data, pageContext, location }) => {
     <Layout location={location} title={title}>
       <Head title={postTitle} description={post.excerpt} />
       <PostTitle title={postTitle} />
+      <TableOfContents
+        toc={post.tableOfContents}
+        currentHeaderUrl={currentHeaderUrl}
+      />
       <PostDate date={date} />
       <PostContainer html={post.html} />
       {/* <SocialShare title={postTitle} author={author} /> */}
@@ -76,6 +88,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 280)
       html
+      tableOfContents
       frontmatter {
         title
       }

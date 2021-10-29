@@ -1,0 +1,55 @@
+.toc-container {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .toc-container {
+    display: block;
+    position: sticky;
+    top: 72px;
+    margin-left: 100%;
+
+    .toc-wrapper {
+      position: absolute;
+      left: 24px;
+      width: 320px;
+
+      .toc-content {
+        .toc {
+          ul {
+            list-style: none;
+
+            li {
+              &::before {
+                display: inline-block;
+                height: 12px;
+                width: 12px;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  body.light {
+    .toc-content {
+      li {
+        &::before {
+          content: url('./chevron-right-icon/chevron-right-dark.svg');
+        }
+      }
+    }
+  }
+
+  body.dark {
+    .toc-content {
+      li {
+        &::before {
+          content: url('./chevron-right-icon/chevron-right-light.svg');
+        }
+      }
+    }
+  }
+}

@@ -68,6 +68,25 @@ body.light {
     }
   }
 
+  // toc
+  .toc {
+    ul {
+      li {
+        a {
+          color: $toc-text-color;
+
+          &:hover {
+            background: $toc-hover-background-color;
+          }
+
+          &.focus {
+            color: $toc-focus-text-color;
+          }
+        }
+      }
+    }
+  }
+
   // tag
   .tag-content-container {
     h1 {

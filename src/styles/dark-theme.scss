@@ -75,6 +75,25 @@ body.dark {
     border-bottom: 1px solid #eee;
   }
 
+  // toc
+  .toc {
+    ul {
+      li {
+        a {
+          color: $dark-toc-text-color;
+
+          &:hover {
+            background: $dark-toc-hover-background-color;
+          }
+
+          &.focus {
+            color: $dark-toc-focus-text-color;
+          }
+        }
+      }
+    }
+  }
+
   // tag
   .tag-content-container {
     h1 {
