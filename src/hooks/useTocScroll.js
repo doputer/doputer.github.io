@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 
-export function useTocScroll(headerElements) {
+export function useTocScroll(headerElements, setCurrentHeaderUrl) {
   const [scrollY, setScrollY] = useState(0)
-  const [currentHeaderUrl, setCurrentHeaderUrl] = useState('')
 
   let aboveHeaderUrl
   const HEADER_OFFSET_Y = 20
@@ -35,8 +34,4 @@ export function useTocScroll(headerElements) {
       }
     }
   })
-
-  return {
-    currentHeaderUrl,
-  }
 }

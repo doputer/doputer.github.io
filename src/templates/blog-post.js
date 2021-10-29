@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 
 import * as Elements from '../components/elements'
@@ -23,16 +23,14 @@ import '../styles/code.scss'
 import 'katex/dist/katex.min.css'
 
 export default ({ data, pageContext, location }) => {
-  let tocHeader
+  const [currentHeaderUrl, setCurrentHeaderUrl] = useState('')
 
   useEffect(() => {
     ScrollManager.init()
     return () => ScrollManager.destroy()
   }, [])
 
-  if (typeof document !== 'undefined') {
-    tocHeader = useTocScroll(document.querySelectorAll('.anchor-header'))
-  }
+  useTocScroll(document.querySelectorAll('.anchor-header'), setCurrentHeaderUrl)
 
   const post = data.markdownRemark
   const metaData = data.site.siteMetadata
@@ -46,7 +44,7 @@ export default ({ data, pageContext, location }) => {
       <PostTitle title={postTitle} />
       <TableOfContents
         toc={post.tableOfContents}
-        currentHeaderUrl={tocHeader.currentHeaderUrl}
+        currentHeaderUrl={currentHeaderUrl}
       />
       <PostDate date={date} />
       <PostContainer html={post.html} />
