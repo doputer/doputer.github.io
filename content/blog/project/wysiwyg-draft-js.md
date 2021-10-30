@@ -45,7 +45,7 @@ document.execCommand('bold')
 - Summernote
 - TinyMCE
 
-이 포스팅에서는 각 에디터를 비교하지 않기로 한다. 직접 조금씩 사용해본 결과 **Draft.js**가 가장 마음에 들어서 활용해보기로 했다.
+이 포스팅에서는 각 에디터를 비교하지 않기로 한다. 직접 조금씩 사용해본 결과 `Draft.js`가 가장 마음에 들어서 활용해보기로 했다.
 
 ## 직접 이용한 Draft.js
 

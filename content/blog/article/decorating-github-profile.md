@@ -73,7 +73,7 @@ draft: false
 ![hits](images/hits.png)
 [HITS](https://hits.seeyoufarm.com/)
 
-본인의 github 조회 수를 표시해준다. **오늘 방문자 수 / 모든 방문자 수**로 표시해준다.
+본인의 github 조회 수를 표시해준다. `오늘 방문자 수 / 모든 방문자 수`로 표시해준다.
 
 ## 4. 적용할만한 오픈 소스들
 

@@ -26,16 +26,16 @@ draft: false
 
 빅팀 캐시의 작동 원리를 케이스 별로 구분하면 다음과 같다.
 
-Case 1 : Primary cache **hit**  
+Case 1 : Primary cache `hit`  
 정상 작동한다.
 
-Case 2-1 : Primary cache **miss**, victim cache **miss**  
+Case 2-1 : Primary cache `miss`, victim cache `miss`  
 Primary cache의 블록이 비어있는 경우, primary cache에만 저장한다.
 
-Case 2-2 : Primary cache **miss**, victim cache **miss**  
+Case 2-2 : Primary cache `miss`, victim cache `miss`  
 Primary cache의 블록에 데이터가 있는 경우, 데이터를 victim cache로 이동 후 primary cache에 저장한다.
 
-Case 3 : Primary cache **miss**, victim cache **hit**
+Case 3 : Primary cache `miss`, victim cache `hit`
 
 미스가 발생한 primary cache 블록과 히트가 발생한 victim cache 블록을 스왑(swap)한다.
 
