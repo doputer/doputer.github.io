@@ -108,7 +108,7 @@
 
 COLORREF color <span class="token operator">=</span> <span class="token function">GetPixel</span><span class="token punctuation">(</span><span class="token function">GetDesktopWindow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetDC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">GetSafeHdc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pMouse<span class="token operator">-></span>pt<span class="token punctuation">.</span>x<span class="token punctuation">,</span> pMouse<span class="token operator">-></span>pt<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
 colorDlg<span class="token operator">-></span>color <span class="token operator">=</span> color<span class="token punctuation">;</span></code></pre></div>
-<p>그런데 <strong>커서가 프로그램을 벗어나는 순간 더 이상 커서에 해당하는 색상 정보를 가져오지 못했다.</strong> 이 문제를 해결하기 위해서 여러가지 방법을 시도해봤다.</p>
+<p>그런데 <code class="language-text">커서가 프로그램을 벗어나는 순간 더 이상 커서에 해당하는 색상 정보를 가져오지 못했다.</code> 이 문제를 해결하기 위해서 여러가지 방법을 시도해봤다.</p>
 <ol>
 <li>SetCapture(), ReleaseCapture()<br>
 이 방법을 사용하면 마우스가 다이얼로그 밖으로 나가도 색상 정보를 가져올 수 있었다. 다만, 마우스가 다이얼로그 안에서 눌린 상태로 밖으로 벗어났을 때만 마우스 메시지를 전달하기 때문에 내가 구현하려고 하는 프로그램에는 적합하지 않았다. 다이얼로그 밖에서 클릭했을 때 원하는 위치의 색상 정보를 가져오려고 했기 때문이다.</li>
