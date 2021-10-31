@@ -59,4 +59,4 @@ document.execCommand('bold')
 
 개발 스택은 React, TypeScript이다.
 
-[https://github.com/doputer/draft-react-ts](https://github.com/doputer/draft-react-ts)
+[doputer/draft-react-ts](https://github.com/doputer/draft-react-ts)

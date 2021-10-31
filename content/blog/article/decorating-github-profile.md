@@ -89,4 +89,4 @@ boj 프로필을 이쁘게 보여주는 오픈 소스
 
 ## 5. 내가 적용한 모습
 
-[https://github.com/doputer/doputer](https://github.com/doputer/doputer)
+[doputer/doputer](https://github.com/doputer/doputer)
