@@ -18,6 +18,7 @@ export default function TableOfContents({ toc, currentHeaderUrl }) {
     <div className="toc-container">
       <div className="toc-wrapper">
         <div className="toc-content">
+          <div className="toc-header">CONTENTS</div>
           <div
             className="toc"
             dangerouslySetInnerHTML={{ __html: replaceToc }}

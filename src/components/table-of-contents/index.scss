@@ -11,20 +11,46 @@
 
     .toc-wrapper {
       position: absolute;
-      left: 24px;
+      left: 4rem;
       width: 320px;
 
       .toc-content {
+        .toc-header {
+          &::before {
+            vertical-align: middle;
+            margin-right: 8px;
+          }
+
+          margin-bottom: 2px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
         .toc {
           ul {
             list-style: none;
+            margin: 0px;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: -24px;
+              top: 0;
+              bottom: 0;
+              width: 2px;
+              background: #d8d7d7;
+            }
 
             li {
-              &::before {
-                display: inline-block;
-                height: 12px;
-                width: 12px;
-                margin-right: 4px;
+              a.focus {
+                &::before {
+                  content: '';
+                  position: absolute;
+                  left: -24px;
+                  height: 28px;
+                  width: 2px;
+                  background: #4361ee;
+                }
               }
             }
           }
@@ -34,21 +60,17 @@
   }
 
   body.light {
-    .toc-content {
-      li {
-        &::before {
-          content: url('./chevron-right-icon/chevron-right-dark.svg');
-        }
+    .toc-header {
+      &::before {
+        content: url('../../../content/assets/toc-black.svg');
       }
     }
   }
 
   body.dark {
-    .toc-content {
-      li {
-        &::before {
-          content: url('./chevron-right-icon/chevron-right-light.svg');
-        }
+    .toc-header {
+      &::before {
+        content: url('../../../content/assets/toc-white.svg');
       }
     }
   }
