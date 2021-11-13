@@ -1,5 +1,5 @@
 ---
-title: 'about'
+title: 'resume'
 date: 2021-11-08 04:20:00
 lang: 'ko'
 ---
@@ -37,7 +37,6 @@ lang: 'ko'
 - JavaScript 동향에 관심이 많고, 관련 생태계를 좋아합니다.
 - Node.js MVC패턴을 사용해 프로젝트 해본 경험이 있습니다.
 - NestJS를 통해 배포까지 가능한 환경을 세팅할 수 있고, RESTful API를 개발할 수 있습니다.
-- 테스트 코드 관련 내용
 
 ---
 
