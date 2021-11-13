@@ -1,4 +1,6 @@
 .resume {
+  font-size: 16px;
+
   h1,
   h2,
   h3 {
@@ -20,7 +22,8 @@
 
   p,
   li {
-    font-size: 18px;
+    // font-size: 18px;
+    font-size: 1.125em;
   }
 
   h1 {
@@ -28,17 +31,20 @@
   }
 
   h2 {
-    font-size: 48px;
+    // font-size: 48px;
+    font-size: 3em;
     font-weight: 800;
   }
 
   h3 {
-    font-size: 32px;
+    // font-size: 32px;
+    font-size: 2em;
     font-weight: 700;
   }
 
   h4 {
-    font-size: 20px;
+    // font-size: 20px;
+    font-size: 1.25em;
     font-weight: 700;
   }
 
@@ -65,5 +71,15 @@
     margin: 40px 0;
     border-bottom: solid 1px #eee;
     height: 0px;
+  }
+}
+
+@media (max-width: 640px) {
+  .resume {
+    font-size: 12px;
+
+    img {
+      height: 24px;
+    }
   }
 }
