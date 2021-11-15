@@ -31,5 +31,5 @@ module.exports = {
     facebookAppId: '', // Add facebookAppId for using facebook share feature v3.2
   },
   ga: 'G-G34J3PGR8Z', // Add your google analytics tranking ID
-  ad: 'ca-pub-6174217160814623', // Add your google adsense publisherId `ca-pub-xxxxxxxxxx`
+  ad: 'pub-6174217160814623', // Add your google adsense publisherId `ca-pub-xxxxxxxxxx`
 }
