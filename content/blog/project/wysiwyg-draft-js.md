@@ -12,7 +12,7 @@ draft: false
 
 쉽게 말해서 우리가 티스토리에서 글쓰기를 눌렀을 때 나오는 에디터가 WYSIWYG 에디터이다.
 
-![tistory-editor](images/tistory-editor.png)
+![wysiwyg](images/wysiwyg/1.png)
 
 HTML `<textarea>` 태그에서 bold, italic 등을 적용할 수 있고, 적용되자마자 보인다고 생각하면 편하다.
 
@@ -49,7 +49,7 @@ document.execCommand('bold')
 
 ## 직접 이용한 Draft.js
 
-![draft-js](images/draft-js.gif)
+![wysiwyg](images/wysiwyg/2.gif)
 
 [문서](https://draftjs.org/)도 잘 되어있고, 막히는 부분은 개발 커뮤니티를 통해서 충분히 해결 가능했다. 블록 스타일과 선택 영역 스타일을 제공하는데, 기본적으로 블록 스타일에서는 `<h1>~<h6>` , `<ul>` , `<ol>` , `<blockquote>` , `<code>` 등을 제공하고, 선택 영역 스타일에서는 **bold**, _italic_, <u>underline</u>, <del>strikethrough</del> 를 제공한다. 나는 추가적 text-align이 필요했기 때문에 커스텀 블록 스타일로 left, center, right를 추가했다. 필요에 따라서 첨부 파일, 링크, 주석, 테이블 스타일을 추가할 수 있다. 문서화가 잘 되어있기 때문에 손쉽게 추가할 수 있다.
 

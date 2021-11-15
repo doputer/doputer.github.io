@@ -41,17 +41,17 @@ Case 3 : Primary cache `miss`, victim cache `hit`
 
 빅팀 캐시를 통해 conflict miss를 얼마나 개선할 수 있는지는 다음 표에서 확인할 수 있다.
 
-![entries](images/number-of-entries-in-victim-cache.png)
+![cache](images/cache/1.png)
 
 ## Vary cache size & line size
 
-![cache-size](images/cache-size-in-kb.png)
+![cache](images/cache/2.png)
 
 캐시 크기 별 전체 미스 개선을 나타낸 표이다. 라인 사이즈는 16B로 고정하고, 라인 수만 늘려서 프라이머리 캐시 크기를 조절했다.
 
 여기서 파악할 수 있는 특징 두 가지가 있다. 우선, 라인 사이즈는 고정하고, 캐시 크기만 늘렸기 때문에 상대적으로 작은 빅팀 캐시가 conflict miss를 크게 개선해주지 못한다. 그리고 발생하는 conflict miss가 줄어들면 빅팀 캐시 개선량도 줄어들고, 반대로 미스가 늘어나면 개선량도 늘어난다.
 
-![cache-line](images/cache-line-in-bytes.png)
+![cache](images/cache/3.png)
 
 라인 사이즈 별 전체 미스 개선을 나타낸 표이다. 캐시 크기는 4KB로 고정하고, 라인 사이즈만 조절했다.
 

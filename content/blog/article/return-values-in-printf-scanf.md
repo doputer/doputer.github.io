@@ -10,15 +10,15 @@ C 언어 프로그래밍을 하다 보면 입출력을 담당하는 printf 함�
 
 그런데 놀랍게도 이 두 함수는 반환 값이 존재한다.
 
-![scanf](images/scanf-return.png)
+![return](images/return/1.png)
 
-![printf](images/printf-return.png)
+![return](images/return/2.png)
 
 ## scanf 함수의 반환 값
 
 VS2019로 scanf 함수를 사용하면 반환 값이 무시되었다는 경고를 볼 수 있다.
 
-![scanf-warning](images/scanf-warning.png)
+![return](images/return/3.png)
 
 그렇다면 scanf 함수의 반환 값은 무엇일까?
 

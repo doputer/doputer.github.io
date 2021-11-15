@@ -44,11 +44,11 @@ draft: false
 
 ## 결과 발표
 
-![online-test](images/42-seoul-online-test.png)
+![42seoul](images/42seoul/1.png)
 
 결과적으로는 합격했다. 커트라인에 걸렸다는 느낌이 들긴 했지만, 합격 메일을 보고 나니 기분은 좋았다.
 
-![check-in-meeting](images/42-seoul-check-in-meeting.png)
+![42seoul](images/42seoul/2.png)
 
 근데 체크인 미팅 일정이 없다. 아직 안 열린 것 같긴 한데 언제쯤 열리는지 정보를 찾을 수가 없었다. 정말 공지가 된 게 아니면 이메일을 보내는 수밖에 없다.
 

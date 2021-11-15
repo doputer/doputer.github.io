@@ -16,15 +16,15 @@ draft: false
 
 기능은 모두 직접 구현했고, 나름 게임 룰을 정했다.
 
-![snake-game-over](images/snake-game-over.png)
+![snake-game](images/snake-game/1.png)
 
 패배 조건은 두 가지인데 벽에 닿거나, 뱀의 머리가 몸통에 닿으면 패배한다.
 
-![snake-game](images/snake-game.gif)
+![snake-game](images/snake-game/2.gif)
 
 게임은 이런 식으로 동작한다.
 
-![snake-game-error](images/snake-game-error.gif)
+![snake-game](images/snake-game/3.gif)
 
 중간에 기막힌 버그가 발생해서 캡처해놨다.
 

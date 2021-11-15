@@ -34,7 +34,7 @@ int fibonacci(int n)
 
 예를 들어 `fibonacci(5)` 의 경우에는 다음과 같은 트리가 나온다.
 
-![memoization](images/memoization-1.png)
+![memoization](images/memoization/1.png)
 
 숫자를 조금씩 늘려가면서 트리를 확인하다 보면 트리가 걷잡을 수 없이 커지는 모습을 볼 수 있다. 실제로 코드를 작성해서 n에 40만 집어넣어도 실행 시간이 굉장히 오래 걸린다. 계산은 계속하고 있지만 연산량이 많기 때문이다. 이러한 문제를 해결하기 위해서 메모이제이션을 사용한다.
 
@@ -42,7 +42,7 @@ int fibonacci(int n)
 
 앞에 예시로 사용한 트리에서 n이 5일 때 `fibonacci(3)` 이 두 번 등장한다.
 
-![memoization](images/memoization-2.png)
+![memoization](images/memoization/2.png)
 
 한번 수행한 fibonacci(3)의 결괏값을 저장해두면 다음에 다시 fibonacci(3)을 사용할 때 반복되는 연산을 줄일 수 있게 된다. 이 부분이 메모이제이션의 핵심이다. n이 커지면 커질수록 반복되는 부분이 늘어나기 때문에 메모이제이션의 효율은 크게 상승한다.
 
@@ -71,7 +71,7 @@ int fibonacci(int n)
 
 저장하는 작업은 한 번만 수행하면 다음에 같은 연산이 나왔을 때 연산량을 줄일 수 있다.
 
-![memoization](images/memoization-3.png)
+![memoization](images/memoization/3.png)
 
 ## 정리
 

@@ -16,7 +16,7 @@ draft: false
 
 ## 개발을 시작하면서
 
-![wireframe](images/color-picker-wireframe.png)
+![color-picker](images/color-picker/1.png)
 
 UI는 위에 나와 있는 것처럼 간단하게 구상했다. 메인 화면에서 Pick 버튼을 누르면 오른쪽 Pick 화면으로 변경되고, Pick 화면은 마우스 커서를 따라다니면서 커서가 위치한 곳의 색상 정보를 RGB 형식으로 보여주게 했다. 커서를 클릭하면 해당 위치의 색상 정보가 메인 화면에 뿌려지게 되고, Copy버튼을 누르면 HEX 값으로 색상 정보가 복사되게 했다. 단순히 클릭을 통해서 색상 정보만 가져오면 되기 때문에 두 시간 정도 투자하면 완성할 줄 알았다. 그런데 무려 하루나 걸렸다!
 
@@ -38,7 +38,7 @@ colorDlg->color = color;
 2.  전체 화면(SW_MAXIMIZE)과 배경 투명화(transparent)  
     메인 화면에서 Pick을 누르는 순간 메인 화면을 전체 크기로 변경하고, 배경을 투명하게 해서 마우스 커서가 화면 밖으로 벗어나지 않고 선택할 수 있게 했다. 결론적으로는 내가 생각한대로 동작했다. 그런데 Pick 버튼을 눌렀을 때 화면이 최대화 되고, 화면을 클릭했을 때 원래 크기로 돌아오면서 동작이 매우 부자연스러웠다. 화면이 깜빡거리고, 색을 고를 때 따라오는 다이얼로그의 움직임도 보기 안좋았다.
 
-![error](images/color-picker-error.gif)
+![color-picker](images/color-picker/2.gif)
 
 더 이상 방법이 없는 것 같아서 여기서 프로젝트를 마무리할까하다가 너무 찜찜해서 해결 방법을 다시 검색해봤다. 그러다가 후킹(hooking)이라는 것을 알게 되었다.
 
@@ -75,7 +75,7 @@ Pick 버튼을 누르면 SetHook 통해서 후킹을 했고, 색 선택이 완�
 
 결과적으로 내가 계획했던 프로그램대로 완성이 되었고, 버벅임 없이 잘 동작했다. 하루 동안 진행한 간단한 프로젝트지만 여러가지를 배울 수 있어서 좋았다.
 
-![color-picker](images/color-picker.gif)
+![color-picker](images/color-picker/3.gif)
 
 ## 소스코드
 

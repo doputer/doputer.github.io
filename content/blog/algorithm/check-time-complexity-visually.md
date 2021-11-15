@@ -208,7 +208,7 @@ int main(void)
 
 위 코드를 실행시켜보면 측정되는 시간은 다음과 같다.
 
-![execution-time](images/execution-time.png)
+![execution](images/execution/1.png)
 
 ## 정리
 
