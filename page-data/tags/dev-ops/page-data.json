@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-js","path":"/tags/dev-ops/","result":{"data":{"site":{"siteMetadata":{"title":"DOPUTER"}},"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/article/running-service-with-pm2/"},"frontmatter":{"title":"PM2로 서비스 운영하기 🚙"}}}]}},"pageContext":{"tag":"DevOps"}}}
