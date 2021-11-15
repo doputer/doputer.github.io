@@ -1,4 +1,296 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[끊임없이 성장하는 개발자 김도현입니다.]]></description><link>https://dohyeon.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 13 Nov 2021 16:26:30 GMT</lastBuildDate><item><title><![CDATA[resume]]></title><description><![CDATA[서버 개발자 김도현 입니다 Skills Communication 인턴십 기간 중 프로젝트를 맡아 팀원들과의 소통을 주도하였습니다. PR…]]></description><link>https://dohyeon.dev/resume/</link><guid isPermaLink="false">https://dohyeon.dev/resume/</guid><pubDate>Mon, 08 Nov 2021 04:20:00 GMT</pubDate><content:encoded>&lt;div align=&quot;center&quot;&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[끊임없이 성장하는 개발자 김도현입니다.]]></description><link>https://dohyeon.dev</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Nov 2021 04:11:39 GMT</lastBuildDate><item><title><![CDATA[GitHub Actions로 AWS S3 배포 자동화 하기 ⚙️]]></title><description><![CDATA[GitHub Actions 란?  는 GitHub에서 제공하는 CI/CD 툴이다. 다시 말해서 Workflow를 자동화할 수 있게 도와준다. GitHub Actions에 관해서는 다른 글에서 자세하게 다루도록 하고, 이 글에서는 내가 AWS S…]]></description><link>https://dohyeon.dev/article/deploy-to-s3-with-github-actions/</link><guid isPermaLink="false">https://dohyeon.dev/article/deploy-to-s3-with-github-actions/</guid><pubDate>Mon, 15 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;github-actions-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#github-actions-%EB%9E%80&quot; aria-label=&quot;github actions 란 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;GitHub Actions 란?&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;GitHub Actions&lt;/code&gt; 는 GitHub에서 제공하는 CI/CD 툴이다. 다시 말해서 Workflow를 자동화할 수 있게 도와준다.&lt;/p&gt;
+&lt;p&gt;GitHub Actions에 관해서는 다른 글에서 자세하게 다루도록 하고, 이 글에서는 내가 AWS S3에 배포 자동화를 하는 과정과 그 과정에서 발생한 문제를 해결하는 것에 관한 글을 쓰려고한다.&lt;/p&gt;
+&lt;h2 id=&quot;1-aws-iam&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-aws-iam&quot; aria-label=&quot;1 aws iam permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. AWS IAM&lt;/h2&gt;
+&lt;p&gt;우선 AWS IAM 설정을 해줘야한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;AWS IAM -&gt; 액세스 관리 -&gt; 사용자 -&gt; 사용자 추가&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAABUUlEQVQoz5VT0XKCMBDk/3+tM/0CtaUKCihCEoJAkm32MB112ofezM5Kktvc3sVsGAZorWGtRYoQwu+Iez4EOfO27fD+0XEF0zxjWRZB1vc92rbF9XoVOOfwZ9yFGcPNwU5O1rz3P8jO5zOIqqpQlqWIaq2gVQ9ext+9GdGaGdPiRJCJkHqDVPzoIuMmq+KHMUbEjb0J7G3CEu3M8xJtOTmXzpPDS3sY2asr7wN669CoOVry+G9ktHi5XO5W9doq71ZLtOcWqWiWSldM0/TEHAaZ57K6rpHnOXa7HTabDQ6HAz7zL1krjids9xVOTSvt0NoIK6XkcvK6rtF1HcZxXC3zBk6albaxUjNYlEWBum6wL444nirweamYSAEOK/HjcxPLqZmPwUGs02+iaBWTBrmdyWSKExTl99OUXx8vg71hKyhKThbTn4Bgz2mTeymP/A0cIgp6lyQKyAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/ff56e3bd22ab96201c2ad89b35e1397f/c1b63/1.png&quot;
+        srcset=&quot;/static/ff56e3bd22ab96201c2ad89b35e1397f/5a46d/1.png 300w,
+/static/ff56e3bd22ab96201c2ad89b35e1397f/0a47e/1.png 600w,
+/static/ff56e3bd22ab96201c2ad89b35e1397f/c1b63/1.png 1200w,
+/static/ff56e3bd22ab96201c2ad89b35e1397f/d61c2/1.png 1800w,
+/static/ff56e3bd22ab96201c2ad89b35e1397f/c9d77/1.png 1964w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;사용자 이름을 추가하고, &lt;code class=&quot;language-text&quot;&gt;AWS 액세스 유형 선택에서 액세스 키 - 프로그래밍 방식 액세스&lt;/code&gt; 를 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABcklEQVQoz3VS2U7DMBDM/38SHwDPFYLS0kKTJrFzOnaO2qnjwWvREoFYaeTJ7mQPr6NpmqCUwjiOcM6B7Haube270cd9i22qPFtg5hnLsiAyxqBpGmitg4icv5P8JHOBL4sLXE0zRn0NFeg/ikVSSnDOQZ1ScmstyEcdUxGtL7hog6ejxGc1IW0vSIVB1V9DUgIVuBWNyrJEHMcYhiEkpUBVVRBCoO979P46hknj4bXDJlHYZR0OlQZX9rvnHwsjS6lQ+gS3CnY18lp4H9fD2iWA/DQR+WgimizKeI23YwKW5ygLjoIzVGXhFyUDqMOmrpHnmddk4CwPGtITCn9dnDG87/eovS4qmw7HU4zN8zO2HxkOCcMp5Tiz8o4kL8J5PKV43R0CP5zO2Lxs8ZGkXs8QZxxtpxANhrZl0PpO0s4i72aIaYHU7g/E5OO1hBivgbOmRyEGNL1B5+OXq6NnoyHa1i+hg7Pz/Xn8D6w0+PXt8AXWd7XReTMQKQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/eb13b0ef7a1610c300a2ee74d5f040ef/c1b63/2.png&quot;
+        srcset=&quot;/static/eb13b0ef7a1610c300a2ee74d5f040ef/5a46d/2.png 300w,
+/static/eb13b0ef7a1610c300a2ee74d5f040ef/0a47e/2.png 600w,
+/static/eb13b0ef7a1610c300a2ee74d5f040ef/c1b63/2.png 1200w,
+/static/eb13b0ef7a1610c300a2ee74d5f040ef/d61c2/2.png 1800w,
+/static/eb13b0ef7a1610c300a2ee74d5f040ef/263f4/2.png 1996w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;권한 설정에서 기존 정책 직접 연결&lt;/code&gt; 을 선택하고, &lt;code class=&quot;language-text&quot;&gt;AmazonS3FullAccess&lt;/code&gt; 를 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABRUlEQVQoz42Sy3KEIBBF/f8vym9kl4njKzriiKKg+ADlpkWTmuyyOHW6uy6FIME0agxygCbD4X8c2h02u8EYezTIG423d45gNBrSDJj3BaszWEG49cJcrH99ZZb9YPH1aGbU44CgWQWSPkNap3h2TxQ8RyUYnn0F1pYomwfNGar2sjhmhfcJAyO4rDFYiWDeZyjdI0w+EeeRJylizz0LERUZ4oohLArcy8fJ46w/s8TnszKFnHooS1+o6LhyVYTEQPVoR+9fqFdWe6Q5PXgmb2UUFK0/1kmqg67rkNPurRDYHV30vpOJ/ZXN464/4ijn3JlzV79d2aBtW6RfGZI4AeccvOanX6FZwxtEUYQwDFGWJRhjno/bDXle+JxoBYLFrBBjj0lPsNbSMzDer/zM+r5HXdcQdJrjZFrTNSi6pmmhJ3RmvwFop2Td4NYOEgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/db468e0770c56c503bb443ae40daca50/c1b63/3.png&quot;
+        srcset=&quot;/static/db468e0770c56c503bb443ae40daca50/5a46d/3.png 300w,
+/static/db468e0770c56c503bb443ae40daca50/0a47e/3.png 600w,
+/static/db468e0770c56c503bb443ae40daca50/c1b63/3.png 1200w,
+/static/db468e0770c56c503bb443ae40daca50/d61c2/3.png 1800w,
+/static/db468e0770c56c503bb443ae40daca50/e53e8/3.png 1982w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;뒤로 넘기다가 완료가 되면 &lt;code class=&quot;language-text&quot;&gt;.csv 다운로드&lt;/code&gt; 를 선택해서 액세스 키를 다운로드 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;비밀 키는 다시 다운로드 할 수 없고 분실한 경우 새로 발급 받아야한다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2-github-secrets&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-github-secrets&quot; aria-label=&quot;2 github secrets permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. GitHub Secrets&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;GitHub repository -&gt; Settings -&gt; Secrets -&gt; New repository secret&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABB0lEQVQoz32RiWoDMQxE9/8/s7QJLSRen/K505GStA2BGgat1vKzxtr2EBFiNpXaUNug+ovkH9l+7ehjYnt7P+F0/sLH+RMpCwsGwf1FdrBPapi0Tuxy1t/V+H9LvcDXiF0CXPGoo0HXcRy/Yj7nhA8BMambhEo3uw+4uB3iI/LVYa6FLbeCKAmxZiSqNOHGfAZScy7kXFBEUIqwm2554AWNsfISAyrI5d268xJx5fdgN7rWE3Ai8lAuhU+TabVZp44zUJjs4QZUiKfdncBLcgQ6i32OH+uPGHhYLaf0B0jbBnT+Bmyj27vV3iC9mjTXTe1wreMeFxoHo1ZVgxNVqPAtB2OXajXfstkhxn+BVTQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/b99b8184f5550a7a6cbc7de4ac810e4a/c1b63/4.png&quot;
+        srcset=&quot;/static/b99b8184f5550a7a6cbc7de4ac810e4a/5a46d/4.png 300w,
+/static/b99b8184f5550a7a6cbc7de4ac810e4a/0a47e/4.png 600w,
+/static/b99b8184f5550a7a6cbc7de4ac810e4a/c1b63/4.png 1200w,
+/static/b99b8184f5550a7a6cbc7de4ac810e4a/29007/4.png 1600w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;AWS IAM에서 발급한 액세스 키 ID와 비밀 액세스 키를 등록한다.&lt;/p&gt;
+&lt;h2 id=&quot;3-github-actions&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-github-actions&quot; aria-label=&quot;3 github actions permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. GitHub Actions&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;GitHub repository -&gt; Actions -&gt; set up a workflow yourself&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# main-deploy.yml&lt;/span&gt;
+
+&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deploy to Production
+
+&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; main
+
+&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;18.04&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Checkout source code
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@master
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Cache node modules
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/cache@v1
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; node_modules
+          &lt;span class=&quot;token key atrule&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; runner.OS &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;build&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;$&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; hashFiles(&apos;&lt;span class=&quot;token important&quot;&gt;**/package-lock.json&apos;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;restore-keys&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install Dependencies
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm install
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run build
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deploy
+        &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_ACCESS_KEY_ID&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_ACCESS_KEY_ID &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;AWS_SECRET_ACCESS_KEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.AWS_SECRET_ACCESS_KEY &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+          aws s3 cp \
+            --recursive \
+            --region ap-northeast-2 \
+            build s3://S3-Bucket-Name&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;제일 밑에 S3-Bucket-Name에는 본인의 Bucket 이름을 적으면 된다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;4-배포-테스트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%B0%B0%ED%8F%AC-%ED%85%8C%EC%8A%A4%ED%8A%B8&quot; aria-label=&quot;4 배포 테스트 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 배포 테스트&lt;/h2&gt;
+&lt;p&gt;이제 main 브랜치에 푸시를 하면 자동으로 배포가 된다.&lt;/p&gt;
+&lt;p&gt;라고 생각했지만 나는 안됐다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 9.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAaUlEQVQI103NSw6AIAwEUO9/TRUxkY9YjAJlhLrQJpN2MXkd1DhB6RWL1pjVAuc9mBkpZ+SWfnOtoPvd9Zc+BxHCQbhTQmndwRiLzVoY6+Cch98DKEZJjCdKKQKFq4H8YYIL2LunPO7gA/ypm5aC0fYDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/3886deefe93a412ae1c4d51e3a7fa27f/c1b63/5.png&quot;
+        srcset=&quot;/static/3886deefe93a412ae1c4d51e3a7fa27f/5a46d/5.png 300w,
+/static/3886deefe93a412ae1c4d51e3a7fa27f/0a47e/5.png 600w,
+/static/3886deefe93a412ae1c4d51e3a7fa27f/c1b63/5.png 1200w,
+/static/3886deefe93a412ae1c4d51e3a7fa27f/d61c2/5.png 1800w,
+/static/3886deefe93a412ae1c4d51e3a7fa27f/e216b/5.png 1904w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;원인 분석을 위해 실패가 발생한 항목에 들어가서 로그를 확인해봤다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 30%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA40lEQVQY04WRaY6DMAyFc5fptKVAEtYQIIWytNP7H+jVNmI00mw/nl7kxJ+XqEhXaMKCMD/hhxX+uiB3AackxzHOxHcdIoO3sxb/TYqBLswI0xNVO6Ib70jzBrGtEekSSeZEMWkH/iXFSa6f0N8+oAv/qYSgpmw3GMEvpsL7xf4r6dBWHYrmClv3ci79IGOzczwnZXS3g3kCXbTi/F5T4b24OqeFgDiJAwwx1KGlB7bsBLSBh2186wTKeYcf9qkcLXutOyyU1BP0fntgHR+YaA0z7XahT/LUSUOwr17TZOaUftMLfdy91gtwEnUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/e455106437973889bdcccba7b63da260/c1b63/7.png&quot;
+        srcset=&quot;/static/e455106437973889bdcccba7b63da260/5a46d/7.png 300w,
+/static/e455106437973889bdcccba7b63da260/0a47e/7.png 600w,
+/static/e455106437973889bdcccba7b63da260/c1b63/7.png 1200w,
+/static/e455106437973889bdcccba7b63da260/61946/7.png 1546w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 936px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAeElEQVQI1z3LzQ6CMBAEYN5FSdADGKz8bHG3tFAi4vs/ztjtgcNksplvi37ykPULchEkK2xqWXZ0doZu2iMvGN4BHD45hhymectWje7PgdEYQsHp+ZVAZ30GChWRRJhRMnTxgN9+sGnjsKPtGddbg/L+OKP3parxB6fcQ7n0yPSNAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/6060e5fc7168c1fd30273298746692e7/6d2da/8.png&quot;
+        srcset=&quot;/static/6060e5fc7168c1fd30273298746692e7/5a46d/8.png 300w,
+/static/6060e5fc7168c1fd30273298746692e7/0a47e/8.png 600w,
+/static/6060e5fc7168c1fd30273298746692e7/6d2da/8.png 936w&quot;
+        sizes=&quot;(max-width: 936px) 100vw, 936px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;process.env.CI&lt;/code&gt; 가 true 설정되어 있어서 경고들이 오류로 간주된다는 내용이었다. 이 부분을 해결하기 위해 위에서 작성한 &lt;code class=&quot;language-text&quot;&gt;main-deploy.yml&lt;/code&gt; 을 수정했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 수정 전&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run build
+
+&lt;span class=&quot;token comment&quot;&gt;# 수정 후&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run build
+  &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;CI&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 GitHub Action이 정상적으로 작동한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 9%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAbUlEQVQI12XM3Q6DIAyGYe//LveHGnXAMsRBy7viyQ7WtEm/pH0G50buD8c0z7hx4nK9EUJEVRFRoLEXJVfbW7P+jYgQ4ot3StRaz59h3Z4s64Y3xPtAz/E82vmUQq9kYEf/QAM6mPOBWlZtfAHT6ptKVlRA2gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/266651cd63ffd284ae24caff46a7daff/c1b63/6.png&quot;
+        srcset=&quot;/static/266651cd63ffd284ae24caff46a7daff/5a46d/6.png 300w,
+/static/266651cd63ffd284ae24caff46a7daff/0a47e/6.png 600w,
+/static/266651cd63ffd284ae24caff46a7daff/c1b63/6.png 1200w,
+/static/266651cd63ffd284ae24caff46a7daff/d61c2/6.png 1800w,
+/static/266651cd63ffd284ae24caff46a7daff/8963a/6.png 1918w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;환경변수-설정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;환경변수 설정 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;환경변수 설정&lt;/h2&gt;
+&lt;p&gt;위에서 언급한 과정으로 GitHub Actions를 이용할 수 있지만 환경 변수를 적용하려면 어떻게 해야할까?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABB0lEQVQoz32RiWoDMQxE9/8/s7QJLSRen/K505GStA2BGgat1vKzxtr2EBFiNpXaUNug+ovkH9l+7ehjYnt7P+F0/sLH+RMpCwsGwf1FdrBPapi0Tuxy1t/V+H9LvcDXiF0CXPGoo0HXcRy/Yj7nhA8BMambhEo3uw+4uB3iI/LVYa6FLbeCKAmxZiSqNOHGfAZScy7kXFBEUIqwm2554AWNsfISAyrI5d268xJx5fdgN7rWE3Ai8lAuhU+TabVZp44zUJjs4QZUiKfdncBLcgQ6i32OH+uPGHhYLaf0B0jbBnT+Bmyj27vV3iC9mjTXTe1wreMeFxoHo1ZVgxNVqPAtB2OXajXfstkhxn+BVTQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;AWS&quot;
+        title=&quot;AWS&quot;
+        src=&quot;/static/b99b8184f5550a7a6cbc7de4ac810e4a/c1b63/4.png&quot;
+        srcset=&quot;/static/b99b8184f5550a7a6cbc7de4ac810e4a/5a46d/4.png 300w,
+/static/b99b8184f5550a7a6cbc7de4ac810e4a/0a47e/4.png 600w,
+/static/b99b8184f5550a7a6cbc7de4ac810e4a/c1b63/4.png 1200w,
+/static/b99b8184f5550a7a6cbc7de4ac810e4a/29007/4.png 1600w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;빌드 파일에서 사용할 환경 변수를 GitHub Secrets에 등록해준다. 나는 ReactJS에서 서버에 요청하는 BASE_URL이 개발 환경과 배포 환경에서 각각 달랐기 때문에 이걸로 예를 들어보려고 한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;main-deploy.yml&lt;/code&gt; 을 다시 한번 수정해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# 수정 전&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run build
+  &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;CI&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# 수정 후&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Build
+  &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run build
+  &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;CI&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;REACT_APP_SERVER_BASE_URL&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.REACT_APP_SERVER_BASE_URL &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[resume]]></title><description><![CDATA[서버 개발자 김도현 입니다 Skills Communication 인턴십 기간 중 프로젝트를 맡아 팀원들과의 소통을 주도하였습니다. PR…]]></description><link>https://dohyeon.dev/resume/</link><guid isPermaLink="false">https://dohyeon.dev/resume/</guid><pubDate>Mon, 08 Nov 2021 04:20:00 GMT</pubDate><content:encoded>&lt;div align=&quot;center&quot;&gt;
 &lt;img src=&quot;https://ghchart.rshah.org/doputer&quot; style=&quot;width:100%; height:100%; margin: 40px 0px&quot;&gt;
 &lt;/div&gt;
 &lt;h2 id=&quot;서버-개발자-김도현-입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B2%84-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B9%80%EB%8F%84%ED%98%84-%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;서버 개발자 김도현 입니다 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서버 개발자 김도현 입니다&lt;/h2&gt;

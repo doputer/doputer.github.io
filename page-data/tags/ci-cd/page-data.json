@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-js","path":"/tags/ci-cd/","result":{"data":{"site":{"siteMetadata":{"title":"DOPUTER"}},"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/article/deploy-to-s3-with-github-actions/"},"frontmatter":{"title":"GitHub Actions로 AWS S3 배포 자동화 하기 ⚙️"}}}]}},"pageContext":{"tag":"CI/CD"}}}
