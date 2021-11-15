@@ -10,7 +10,7 @@ draft: false
 
 git bash에서 로컬 저장소로 이동한 뒤 다음과 같이 입력해주면 된다. 주의할 점은 원격 저장소에서 제거한 파일은 로컬 저장소에서도 역시 제거되기 때문에 백업 해두는 것이 좋다.
 
-```bash
+```shell session
 $ git rm -r [파일 이름] // 특정 파일 삭제
 $ git commit -m [커밋 메시지]
 $ git push
@@ -18,7 +18,7 @@ $ git push
 
 만약 모든 파일을 삭제하고 싶다면 명령어를 조금 수정하면 된다.
 
-```bash
+```shell session
 $ git rm -r \* // 모든 파일 삭제
 $ git commit -m [커밋 메시지]
 $ git push
