@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[끊임없이 성장하는 개발자 김도현입니다.]]></description><link>https://dohyeon.dev</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Nov 2021 04:11:39 GMT</lastBuildDate><item><title><![CDATA[GitHub Actions로 AWS S3 배포 자동화 하기 ⚙️]]></title><description><![CDATA[GitHub Actions 란?  는 GitHub에서 제공하는 CI/CD 툴이다. 다시 말해서 Workflow를 자동화할 수 있게 도와준다. GitHub Actions에 관해서는 다른 글에서 자세하게 다루도록 하고, 이 글에서는 내가 AWS S…]]></description><link>https://dohyeon.dev/article/deploy-to-s3-with-github-actions/</link><guid isPermaLink="false">https://dohyeon.dev/article/deploy-to-s3-with-github-actions/</guid><pubDate>Mon, 15 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;github-actions-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#github-actions-%EB%9E%80&quot; aria-label=&quot;github actions 란 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;GitHub Actions 란?&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[끊임없이 성장하는 개발자 김도현입니다.]]></description><link>https://dohyeon.dev</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Nov 2021 04:28:42 GMT</lastBuildDate><item><title><![CDATA[GitHub Actions로 AWS S3 배포 자동화 하기 ⚙️]]></title><description><![CDATA[GitHub Actions 란?  는 GitHub에서 제공하는 CI/CD 툴이다. 다시 말해서 Workflow를 자동화할 수 있게 도와준다. GitHub Actions에 관해서는 다른 글에서 자세하게 다루도록 하고, 이 글에서는 내가 AWS S…]]></description><link>https://dohyeon.dev/article/deploy-to-s3-with-github-actions/</link><guid isPermaLink="false">https://dohyeon.dev/article/deploy-to-s3-with-github-actions/</guid><pubDate>Mon, 15 Nov 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;github-actions-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#github-actions-%EB%9E%80&quot; aria-label=&quot;github actions 란 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;GitHub Actions 란?&lt;/h2&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;GitHub Actions&lt;/code&gt; 는 GitHub에서 제공하는 CI/CD 툴이다. 다시 말해서 Workflow를 자동화할 수 있게 도와준다.&lt;/p&gt;
 &lt;p&gt;GitHub Actions에 관해서는 다른 글에서 자세하게 다루도록 하고, 이 글에서는 내가 AWS S3에 배포 자동화를 하는 과정과 그 과정에서 발생한 문제를 해결하는 것에 관한 글을 쓰려고한다.&lt;/p&gt;
 &lt;h2 id=&quot;1-aws-iam&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-aws-iam&quot; aria-label=&quot;1 aws iam permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. AWS IAM&lt;/h2&gt;
@@ -427,12 +427,12 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;tistory-editor&quot;
-        title=&quot;tistory-editor&quot;
-        src=&quot;/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/tistory-editor.png&quot;
-        srcset=&quot;/static/439aa615c91e2ea898bb5bb6f9e97ba0/5a46d/tistory-editor.png 300w,
-/static/439aa615c91e2ea898bb5bb6f9e97ba0/0a47e/tistory-editor.png 600w,
-/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/tistory-editor.png 960w&quot;
+        alt=&quot;wysiwyg&quot;
+        title=&quot;wysiwyg&quot;
+        src=&quot;/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/1.png&quot;
+        srcset=&quot;/static/439aa615c91e2ea898bb5bb6f9e97ba0/5a46d/1.png 300w,
+/static/439aa615c91e2ea898bb5bb6f9e97ba0/0a47e/1.png 600w,
+/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/1.png 960w&quot;
         sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -457,7 +457,7 @@
 &lt;/ul&gt;
 &lt;p&gt;이 포스팅에서는 각 에디터를 비교하지 않기로 한다. 직접 조금씩 사용해본 결과 &lt;code class=&quot;language-text&quot;&gt;Draft.js&lt;/code&gt;가 가장 마음에 들어서 활용해보기로 했다.&lt;/p&gt;
 &lt;h2 id=&quot;직접-이용한-draftjs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A7%81%EC%A0%91-%EC%9D%B4%EC%9A%A9%ED%95%9C-draftjs&quot; aria-label=&quot;직접 이용한 draftjs permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;직접 이용한 Draft.js&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/fa25b8e4c6cec7ebb8f95701e2e22d2c/draft-js.gif&quot; alt=&quot;draft-js&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/fa25b8e4c6cec7ebb8f95701e2e22d2c/2.gif&quot; alt=&quot;wysiwyg&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://draftjs.org/&quot;&gt;문서&lt;/a&gt;도 잘 되어있고, 막히는 부분은 개발 커뮤니티를 통해서 충분히 해결 가능했다. 블록 스타일과 선택 영역 스타일을 제공하는데, 기본적으로 블록 스타일에서는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;h1&gt;~&amp;lt;h6&gt;&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;&amp;lt;ul&gt;&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;&amp;lt;ol&gt;&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;&amp;lt;blockquote&gt;&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;&amp;lt;code&gt;&lt;/code&gt; 등을 제공하고, 선택 영역 스타일에서는 &lt;strong&gt;bold&lt;/strong&gt;, &lt;em&gt;italic&lt;/em&gt;, &lt;u&gt;underline&lt;/u&gt;, &lt;del&gt;strikethrough&lt;/del&gt; 를 제공한다. 나는 추가적 text-align이 필요했기 때문에 커스텀 블록 스타일로 left, center, right를 추가했다. 필요에 따라서 첨부 파일, 링크, 주석, 테이블 스타일을 추가할 수 있다. 문서화가 잘 되어있기 때문에 손쉽게 추가할 수 있다.&lt;/p&gt;
 &lt;p&gt;작성한 내용을 추출하거나(html 혹은 markdown), 추출된 내용을 다시 에디터로 불러오는 부분은 외부 패키지를 이용하면 된다. 나는 &lt;a href=&quot;https://www.npmjs.com/package/draftjs-to-html&quot;&gt;draftjs-to-html&lt;/a&gt;과 &lt;a href=&quot;https://www.npmjs.com/package/html-to-draftjs&quot;&gt;html-to-draftjs&lt;/a&gt;를 이용해서 추출한 내용을 DB에 저장하고, 불러왔다.&lt;/p&gt;
 &lt;h2 id=&quot;소스코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C&quot; aria-label=&quot;소스코드 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소스코드&lt;/h2&gt;
@@ -473,13 +473,13 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;profile-ex&quot;
-        title=&quot;profile-ex&quot;
-        src=&quot;/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/c1b63/github-profile-ex.png&quot;
-        srcset=&quot;/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/5a46d/github-profile-ex.png 300w,
-/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/0a47e/github-profile-ex.png 600w,
-/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/c1b63/github-profile-ex.png 1200w,
-/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/8affb/github-profile-ex.png 1254w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/c1b63/1.png&quot;
+        srcset=&quot;/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/5a46d/1.png 300w,
+/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/0a47e/1.png 600w,
+/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/c1b63/1.png 1200w,
+/static/3929b19bfaa1d5ea1a1ba0f6bbf9ae6f/8affb/1.png 1254w&quot;
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -496,13 +496,13 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;profile&quot;
-        title=&quot;profile&quot;
-        src=&quot;/static/32a7c501b9499f88605d363d1964ef12/c1b63/github-profile-image.png&quot;
-        srcset=&quot;/static/32a7c501b9499f88605d363d1964ef12/5a46d/github-profile-image.png 300w,
-/static/32a7c501b9499f88605d363d1964ef12/0a47e/github-profile-image.png 600w,
-/static/32a7c501b9499f88605d363d1964ef12/c1b63/github-profile-image.png 1200w,
-/static/32a7c501b9499f88605d363d1964ef12/91608/github-profile-image.png 1251w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/32a7c501b9499f88605d363d1964ef12/c1b63/2.png&quot;
+        srcset=&quot;/static/32a7c501b9499f88605d363d1964ef12/5a46d/2.png 300w,
+/static/32a7c501b9499f88605d363d1964ef12/0a47e/2.png 600w,
+/static/32a7c501b9499f88605d363d1964ef12/c1b63/2.png 1200w,
+/static/32a7c501b9499f88605d363d1964ef12/91608/2.png 1251w&quot;
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -521,12 +521,12 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;github-setting&quot;
-        title=&quot;github-setting&quot;
-        src=&quot;/static/9b0a1b2d6907a99d5291550e20bcf758/cecac/github-setting.png&quot;
-        srcset=&quot;/static/9b0a1b2d6907a99d5291550e20bcf758/5a46d/github-setting.png 300w,
-/static/9b0a1b2d6907a99d5291550e20bcf758/0a47e/github-setting.png 600w,
-/static/9b0a1b2d6907a99d5291550e20bcf758/cecac/github-setting.png 728w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/9b0a1b2d6907a99d5291550e20bcf758/cecac/3.png&quot;
+        srcset=&quot;/static/9b0a1b2d6907a99d5291550e20bcf758/5a46d/3.png 300w,
+/static/9b0a1b2d6907a99d5291550e20bcf758/0a47e/3.png 600w,
+/static/9b0a1b2d6907a99d5291550e20bcf758/cecac/3.png 728w&quot;
         sizes=&quot;(max-width: 728px) 100vw, 728px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -548,12 +548,12 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;github-markdown&quot;
-        title=&quot;github-markdown&quot;
-        src=&quot;/static/33d1c2006e59c322b11ff324efc713c3/8b69f/github-markdown.png&quot;
-        srcset=&quot;/static/33d1c2006e59c322b11ff324efc713c3/5a46d/github-markdown.png 300w,
-/static/33d1c2006e59c322b11ff324efc713c3/0a47e/github-markdown.png 600w,
-/static/33d1c2006e59c322b11ff324efc713c3/8b69f/github-markdown.png 912w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/33d1c2006e59c322b11ff324efc713c3/8b69f/4.png&quot;
+        srcset=&quot;/static/33d1c2006e59c322b11ff324efc713c3/5a46d/4.png 300w,
+/static/33d1c2006e59c322b11ff324efc713c3/0a47e/4.png 600w,
+/static/33d1c2006e59c322b11ff324efc713c3/8b69f/4.png 912w&quot;
         sizes=&quot;(max-width: 912px) 100vw, 912px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -570,12 +570,12 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;capsule-render&quot;
-        title=&quot;capsule-render&quot;
-        src=&quot;/static/dbb41c50fb2b68e2092afe96a0205ef6/47ff6/capsule-render.png&quot;
-        srcset=&quot;/static/dbb41c50fb2b68e2092afe96a0205ef6/5a46d/capsule-render.png 300w,
-/static/dbb41c50fb2b68e2092afe96a0205ef6/0a47e/capsule-render.png 600w,
-/static/dbb41c50fb2b68e2092afe96a0205ef6/47ff6/capsule-render.png 852w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/dbb41c50fb2b68e2092afe96a0205ef6/47ff6/5.png&quot;
+        srcset=&quot;/static/dbb41c50fb2b68e2092afe96a0205ef6/5a46d/5.png 300w,
+/static/dbb41c50fb2b68e2092afe96a0205ef6/0a47e/5.png 600w,
+/static/dbb41c50fb2b68e2092afe96a0205ef6/47ff6/5.png 852w&quot;
         sizes=&quot;(max-width: 852px) 100vw, 852px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -593,11 +593,11 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;shields&quot;
-        title=&quot;shields&quot;
-        src=&quot;/static/3850f0fdda7647c3edd77fa8f2e48af3/52211/shields.png&quot;
-        srcset=&quot;/static/3850f0fdda7647c3edd77fa8f2e48af3/5a46d/shields.png 300w,
-/static/3850f0fdda7647c3edd77fa8f2e48af3/52211/shields.png 525w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/3850f0fdda7647c3edd77fa8f2e48af3/52211/6.png&quot;
+        srcset=&quot;/static/3850f0fdda7647c3edd77fa8f2e48af3/5a46d/6.png 300w,
+/static/3850f0fdda7647c3edd77fa8f2e48af3/52211/6.png 525w&quot;
         sizes=&quot;(max-width: 525px) 100vw, 525px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -630,10 +630,10 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;hits&quot;
-        title=&quot;hits&quot;
-        src=&quot;/static/e7ef721594ee7f219d34dfb71bd86c98/a6b04/hits.png&quot;
-        srcset=&quot;/static/e7ef721594ee7f219d34dfb71bd86c98/a6b04/hits.png 143w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/e7ef721594ee7f219d34dfb71bd86c98/a6b04/7.png&quot;
+        srcset=&quot;/static/e7ef721594ee7f219d34dfb71bd86c98/a6b04/7.png 143w&quot;
         sizes=&quot;(max-width: 143px) 100vw, 143px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -652,13 +652,13 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;github-readme-stats&quot;
-        title=&quot;github-readme-stats&quot;
-        src=&quot;/static/26edac173d72d7163c1bab43235e8699/c1b63/github-readme-stats.png&quot;
-        srcset=&quot;/static/26edac173d72d7163c1bab43235e8699/5a46d/github-readme-stats.png 300w,
-/static/26edac173d72d7163c1bab43235e8699/0a47e/github-readme-stats.png 600w,
-/static/26edac173d72d7163c1bab43235e8699/c1b63/github-readme-stats.png 1200w,
-/static/26edac173d72d7163c1bab43235e8699/21b4d/github-readme-stats.png 1280w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/26edac173d72d7163c1bab43235e8699/c1b63/8.png&quot;
+        srcset=&quot;/static/26edac173d72d7163c1bab43235e8699/5a46d/8.png 300w,
+/static/26edac173d72d7163c1bab43235e8699/0a47e/8.png 600w,
+/static/26edac173d72d7163c1bab43235e8699/c1b63/8.png 1200w,
+/static/26edac173d72d7163c1bab43235e8699/21b4d/8.png 1280w&quot;
         sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -676,11 +676,11 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;mazassumnida&quot;
-        title=&quot;mazassumnida&quot;
-        src=&quot;/static/27d82b9db63e0677ec1bfadeb26b6dc8/e0cdb/mazassumnida.png&quot;
-        srcset=&quot;/static/27d82b9db63e0677ec1bfadeb26b6dc8/5a46d/mazassumnida.png 300w,
-/static/27d82b9db63e0677ec1bfadeb26b6dc8/e0cdb/mazassumnida.png 369w&quot;
+        alt=&quot;github&quot;
+        title=&quot;github&quot;
+        src=&quot;/static/27d82b9db63e0677ec1bfadeb26b6dc8/e0cdb/9.png&quot;
+        srcset=&quot;/static/27d82b9db63e0677ec1bfadeb26b6dc8/5a46d/9.png 300w,
+/static/27d82b9db63e0677ec1bfadeb26b6dc8/e0cdb/9.png 369w&quot;
         sizes=&quot;(max-width: 369px) 100vw, 369px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -806,11 +806,11 @@
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;wireframe&quot;
-        title=&quot;wireframe&quot;
-        src=&quot;/static/c35e3c66d3d4caebd3a2d8bc9b6a3fc7/9b7bd/color-picker-wireframe.png&quot;
-        srcset=&quot;/static/c35e3c66d3d4caebd3a2d8bc9b6a3fc7/5a46d/color-picker-wireframe.png 300w,
-/static/c35e3c66d3d4caebd3a2d8bc9b6a3fc7/9b7bd/color-picker-wireframe.png 444w&quot;
+        alt=&quot;color-picker&quot;
+        title=&quot;color-picker&quot;
+        src=&quot;/static/c35e3c66d3d4caebd3a2d8bc9b6a3fc7/9b7bd/1.png&quot;
+        srcset=&quot;/static/c35e3c66d3d4caebd3a2d8bc9b6a3fc7/5a46d/1.png 300w,
+/static/c35e3c66d3d4caebd3a2d8bc9b6a3fc7/9b7bd/1.png 444w&quot;
         sizes=&quot;(max-width: 444px) 100vw, 444px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -830,7 +830,7 @@ colorDlg&lt;span class=&quot;token operator&quot;&gt;-&gt;&lt;/span&gt;color &lt
 &lt;li&gt;전체 화면(SW_MAXIMIZE)과 배경 투명화(transparent)&lt;br&gt;
 메인 화면에서 Pick을 누르는 순간 메인 화면을 전체 크기로 변경하고, 배경을 투명하게 해서 마우스 커서가 화면 밖으로 벗어나지 않고 선택할 수 있게 했다. 결론적으로는 내가 생각한대로 동작했다. 그런데 Pick 버튼을 눌렀을 때 화면이 최대화 되고, 화면을 클릭했을 때 원래 크기로 돌아오면서 동작이 매우 부자연스러웠다. 화면이 깜빡거리고, 색을 고를 때 따라오는 다이얼로그의 움직임도 보기 안좋았다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;/55c8a5f064235648ee77734f469ce5dd/color-picker-error.gif&quot; alt=&quot;error&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/55c8a5f064235648ee77734f469ce5dd/2.gif&quot; alt=&quot;color-picker&quot;&gt;&lt;/p&gt;
 &lt;p&gt;더 이상 방법이 없는 것 같아서 여기서 프로젝트를 마무리할까하다가 너무 찜찜해서 해결 방법을 다시 검색해봤다. 그러다가 후킹(hooking)이라는 것을 알게 되었다.&lt;/p&gt;
 &lt;h2 id=&quot;후킹hooking&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9B%84%ED%82%B9hooking&quot; aria-label=&quot;후킹hooking permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;후킹(Hooking)&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -859,7 +859,7 @@ BOOL bMouseUnHook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &l
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Pick 버튼을 누르면 SetHook 통해서 후킹을 했고, 색 선택이 완료되면 UnHook을 통해서 후킹을 해제했다. UnHook을 하지 않으면 Pick 버튼을 누를 때마다 후킹을 해서 윈도우 자체가 느려지기 때문에 반드시 UnHook을 해줬다. 사실 지금 사용한 후킹은 가장 낮은 단계에 후킹이라고 한다. 그래도 내가 설계한 프로그램을 구현하는데는 큰 문제가 없었다. 나중에 기회가 되면 다른 후킹도 한번 공부해봐야겠다.&lt;/p&gt;
 &lt;p&gt;결과적으로 내가 계획했던 프로그램대로 완성이 되었고, 버벅임 없이 잘 동작했다. 하루 동안 진행한 간단한 프로젝트지만 여러가지를 배울 수 있어서 좋았다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/fe6a8c4b1c8d3cd63e3fb0380a8d0e8b/color-picker.gif&quot; alt=&quot;color-picker&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/fe6a8c4b1c8d3cd63e3fb0380a8d0e8b/3.gif&quot; alt=&quot;color-picker&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;소스코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C&quot; aria-label=&quot;소스코드 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소스코드&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/doputer/ColorPicker&quot;&gt;doputer/ColorPicker&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Snake 게임 🐍]]></title><description><![CDATA[Snake 게임? 심심하기도 하고, 자바스크립트 감을 되살려 볼 겸 Snake 게임을 만들기로 했다. 밋밋한 캔버스에 만들고 싶지는 않아서 검색하다가 고전 게임스러운 UI…]]></description><link>https://dohyeon.dev/project/snake-game/</link><guid isPermaLink="false">https://dohyeon.dev/project/snake-game/</guid><pubDate>Tue, 10 Nov 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;snake-게임&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#snake-%EA%B2%8C%EC%9E%84&quot; aria-label=&quot;snake 게임 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Snake 게임?&lt;/h2&gt;
 &lt;p&gt;심심하기도 하고, 자바스크립트 감을 되살려 볼 겸 Snake 게임을 만들기로 했다. 밋밋한 캔버스에 만들고 싶지는 않아서 검색하다가 고전 게임스러운 UI를 발견해서 참고했다.&lt;/p&gt;
@@ -876,20 +876,20 @@ BOOL bMouseUnHook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &l
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;snake-game-over&quot;
-        title=&quot;snake-game-over&quot;
-        src=&quot;/static/788b3f10038e7c5b66aabc4bdac28fe7/efc6e/snake-game-over.png&quot;
-        srcset=&quot;/static/788b3f10038e7c5b66aabc4bdac28fe7/5a46d/snake-game-over.png 300w,
-/static/788b3f10038e7c5b66aabc4bdac28fe7/efc6e/snake-game-over.png 441w&quot;
+        alt=&quot;snake-game&quot;
+        title=&quot;snake-game&quot;
+        src=&quot;/static/788b3f10038e7c5b66aabc4bdac28fe7/efc6e/1.png&quot;
+        srcset=&quot;/static/788b3f10038e7c5b66aabc4bdac28fe7/5a46d/1.png 300w,
+/static/788b3f10038e7c5b66aabc4bdac28fe7/efc6e/1.png 441w&quot;
         sizes=&quot;(max-width: 441px) 100vw, 441px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;패배 조건은 두 가지인데 벽에 닿거나, 뱀의 머리가 몸통에 닿으면 패배한다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/9129fa76e5c9c83cdec985533ac2530d/snake-game.gif&quot; alt=&quot;snake-game&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/9129fa76e5c9c83cdec985533ac2530d/2.gif&quot; alt=&quot;snake-game&quot;&gt;&lt;/p&gt;
 &lt;p&gt;게임은 이런 식으로 동작한다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/eb924c40ad6834bb9718195459d83af6/snake-game-error.gif&quot; alt=&quot;snake-game-error&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/eb924c40ad6834bb9718195459d83af6/3.gif&quot; alt=&quot;snake-game&quot;&gt;&lt;/p&gt;
 &lt;p&gt;중간에 기막힌 버그가 발생해서 캡처해놨다.&lt;/p&gt;
 &lt;p&gt;처음에 뱀을 설계할 때 배열(1 X 2)로 만들어서 사과를 먹을 때마다 뱀의 좌표(x, y)를 배열에 shift 해줬다. 그런데 사과를 기준으로 뱀이 어느 방향에서 다가오는지 일일이 계산하기에는 복잡했고, 뱀의 움직임을 헤드가 움직였을 때 몸통이 따라서 움직이도록 만들었기 때문에 위와 같은 버그가 발생했다.&lt;/p&gt;
 &lt;p&gt;그래서 먼저 뱀이 다음으로 이동할 좌표를 계산해서 배열에 unshift 해주고, 테일을 pop 해주는 방식으로 움직임을 구현했다.&lt;/p&gt;
@@ -1141,11 +1141,11 @@ BOOL bMouseUnHook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &l
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;online-test&quot;
-        title=&quot;online-test&quot;
-        src=&quot;/static/058d31eed3d7d89774c6fb51ad2c3cd0/85ff8/42-seoul-online-test.png&quot;
-        srcset=&quot;/static/058d31eed3d7d89774c6fb51ad2c3cd0/5a46d/42-seoul-online-test.png 300w,
-/static/058d31eed3d7d89774c6fb51ad2c3cd0/85ff8/42-seoul-online-test.png 467w&quot;
+        alt=&quot;42seoul&quot;
+        title=&quot;42seoul&quot;
+        src=&quot;/static/058d31eed3d7d89774c6fb51ad2c3cd0/85ff8/1.png&quot;
+        srcset=&quot;/static/058d31eed3d7d89774c6fb51ad2c3cd0/5a46d/1.png 300w,
+/static/058d31eed3d7d89774c6fb51ad2c3cd0/85ff8/1.png 467w&quot;
         sizes=&quot;(max-width: 467px) 100vw, 467px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -1162,12 +1162,12 @@ BOOL bMouseUnHook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &l
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;check-in-meeting&quot;
-        title=&quot;check-in-meeting&quot;
-        src=&quot;/static/aba80de675082a4c94cc627f4a441332/ebf47/42-seoul-check-in-meeting.png&quot;
-        srcset=&quot;/static/aba80de675082a4c94cc627f4a441332/5a46d/42-seoul-check-in-meeting.png 300w,
-/static/aba80de675082a4c94cc627f4a441332/0a47e/42-seoul-check-in-meeting.png 600w,
-/static/aba80de675082a4c94cc627f4a441332/ebf47/42-seoul-check-in-meeting.png 688w&quot;
+        alt=&quot;42seoul&quot;
+        title=&quot;42seoul&quot;
+        src=&quot;/static/aba80de675082a4c94cc627f4a441332/ebf47/2.png&quot;
+        srcset=&quot;/static/aba80de675082a4c94cc627f4a441332/5a46d/2.png 300w,
+/static/aba80de675082a4c94cc627f4a441332/0a47e/2.png 600w,
+/static/aba80de675082a4c94cc627f4a441332/ebf47/2.png 688w&quot;
         sizes=&quot;(max-width: 688px) 100vw, 688px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -1391,9 +1391,9 @@ fibonacci(3)은 fibonacci(2)와 fibonacci(1)의 결과를 얻고, 2를 리턴한
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;memoization&quot;
         title=&quot;memoization&quot;
-        src=&quot;/static/61cd73f538173a347bb85f3b1722969d/38070/memoization-1.png&quot;
-        srcset=&quot;/static/61cd73f538173a347bb85f3b1722969d/5a46d/memoization-1.png 300w,
-/static/61cd73f538173a347bb85f3b1722969d/38070/memoization-1.png 451w&quot;
+        src=&quot;/static/61cd73f538173a347bb85f3b1722969d/38070/1.png&quot;
+        srcset=&quot;/static/61cd73f538173a347bb85f3b1722969d/5a46d/1.png 300w,
+/static/61cd73f538173a347bb85f3b1722969d/38070/1.png 451w&quot;
         sizes=&quot;(max-width: 451px) 100vw, 451px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -1414,9 +1414,9 @@ fibonacci(3)은 fibonacci(2)와 fibonacci(1)의 결과를 얻고, 2를 리턴한
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;memoization&quot;
         title=&quot;memoization&quot;
-        src=&quot;/static/39172341f150b85d334f6b91dbcccdf8/f816d/memoization-2.png&quot;
-        srcset=&quot;/static/39172341f150b85d334f6b91dbcccdf8/5a46d/memoization-2.png 300w,
-/static/39172341f150b85d334f6b91dbcccdf8/f816d/memoization-2.png 461w&quot;
+        src=&quot;/static/39172341f150b85d334f6b91dbcccdf8/f816d/2.png&quot;
+        srcset=&quot;/static/39172341f150b85d334f6b91dbcccdf8/5a46d/2.png 300w,
+/static/39172341f150b85d334f6b91dbcccdf8/f816d/2.png 461w&quot;
         sizes=&quot;(max-width: 461px) 100vw, 461px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -1454,16 +1454,107 @@ fibonacci(3)은 fibonacci(2)와 fibonacci(1)의 결과를 얻고, 2를 리턴한
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;memoization&quot;
         title=&quot;memoization&quot;
-        src=&quot;/static/bcddced46ee5d2cd4f6111a2b2294de0/9144d/memoization-3.png&quot;
-        srcset=&quot;/static/bcddced46ee5d2cd4f6111a2b2294de0/5a46d/memoization-3.png 300w,
-/static/bcddced46ee5d2cd4f6111a2b2294de0/9144d/memoization-3.png 401w&quot;
+        src=&quot;/static/bcddced46ee5d2cd4f6111a2b2294de0/9144d/3.png&quot;
+        srcset=&quot;/static/bcddced46ee5d2cd4f6111a2b2294de0/5a46d/3.png 300w,
+/static/bcddced46ee5d2cd4f6111a2b2294de0/9144d/3.png 401w&quot;
         sizes=&quot;(max-width: 401px) 100vw, 401px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
-&lt;p&gt;동적 계획법은 복잡한 문제를 간단한 여러 개의 문제로 나눠서 푸는 방법이다. 예시로 들었던 피보나치 수열을 생각하면 좋다. 여기에 메모이제이션을 통해 다른 공간을 만들어 이용하면 더욱 빠르게 문제를 해결할 수 있다. 피보나치 수열을 다시 예로 들면 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msup&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(2^n)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.664392em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 시간 복잡도가 걸리던 문제를 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(n)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 시간 복잡도로 풀 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[2752번] 세수정렬 3️⃣]]></title><description><![CDATA[문제 문제 동규는 세수를 하다가 정렬이 하고싶어졌다. 숫자 세 개를 생각한 뒤에, 이를 오름차순으로 정렬하고 싶어 졌다. 숫자 세 개가 주어졌을 때, 가장 작은 수, 그 다음 수, 가장 큰 수를 출력하는 프로그램을 작성하시오. 입력 3 1 2 출력…]]></description><link>https://dohyeon.dev/problem/boj-2752/</link><guid isPermaLink="false">https://dohyeon.dev/problem/boj-2752/</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제&lt;/h2&gt;
+&lt;p&gt;동적 계획법은 복잡한 문제를 간단한 여러 개의 문제로 나눠서 푸는 방법이다. 예시로 들었던 피보나치 수열을 생각하면 좋다. 여기에 메모이제이션을 통해 다른 공간을 만들어 이용하면 더욱 빠르게 문제를 해결할 수 있다. 피보나치 수열을 다시 예로 들면 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/msup&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(2^n)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.664392em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 시간 복잡도가 걸리던 문제를 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(n)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 시간 복잡도로 풀 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Victim cache에 관하여 🧱]]></title><description><![CDATA[Summary 빠르게 발전하는 프로세서의 속도를 메모리가 따라잡지 못했다. 프로세서의 처리 속도가 아무리 빨라도 메모리가 이 속도를 따라오지 못하면 결국 전체 시스템의 속도는 느려진다. 이를 개선하기 위해 프로세서와 메모리 사이에 캐시(cache…]]></description><link>https://dohyeon.dev/article/about-victim-cache/</link><guid isPermaLink="false">https://dohyeon.dev/article/about-victim-cache/</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;summary&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#summary&quot; aria-label=&quot;summary permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Summary&lt;/h2&gt;
+&lt;p&gt;빠르게 발전하는 프로세서의 속도를 메모리가 따라잡지 못했다. 프로세서의 처리 속도가 아무리 빨라도 메모리가 이 속도를 따라오지 못하면 결국 전체 시스템의 속도는 느려진다. 이를 개선하기 위해 프로세서와 메모리 사이에 캐시(cache)를 도입했다.&lt;/p&gt;
+&lt;p&gt;캐시는 프로세서와 메모리 사이에서 동작하는 작고 빠른 메모리이다. 프로세서가 메모리에 있는 데이터를 가져오는데 걸리는 시간을 줄이기 위해서 사용할 정보를 캐시에 미리 저장해놓고 꺼내다 사용한다.&lt;/p&gt;
+&lt;h2 id=&quot;conflict-miss&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conflict-miss&quot; aria-label=&quot;conflict miss permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conflict miss&lt;/h2&gt;
+&lt;p&gt;캐시에 필요한 데이터가 없으면 미스(miss)라고 한다. 이런 경우 다음 캐시나 메모리에 접근해서 데이터를 가져와야한다. 반면에 필요한 데이터가 있는 경우는 히트(hit)라고 한다.&lt;/p&gt;
+&lt;p&gt;미스는 크게 네 가지로 분류하는데 그 중 가장 많이 발생하는 것이 conflict miss이다. 저장할 데이터들이 캐시의 같은 주소에 할당되어서 생기는 미스이다.&lt;/p&gt;
+&lt;p&gt;미스의 증가는 성능에 큰 영향을 주기 때문에 이를 줄이기 위해 여러 방법들이 제시됐다.&lt;/p&gt;
+&lt;h2 id=&quot;victim-cache&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#victim-cache&quot; aria-label=&quot;victim cache permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Victim cache&lt;/h2&gt;
+&lt;p&gt;그 중 하나가 바로 conflict miss를 개선하기 위한 victim cache이다. 빅팀 캐시는 direct-mapped cache와 next lower cache 사이에 위치하는 작은 fully-associative cache이다. direct-mapped cache의 부족한 웨이(way)를 보충해주는 역할을 한다.&lt;/p&gt;
+&lt;p&gt;빅팀 캐시의 작동 원리를 케이스 별로 구분하면 다음과 같다.&lt;/p&gt;
+&lt;p&gt;Case 1 : Primary cache &lt;code class=&quot;language-text&quot;&gt;hit&lt;/code&gt;&lt;br&gt;
+정상 작동한다.&lt;/p&gt;
+&lt;p&gt;Case 2-1 : Primary cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;, victim cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;&lt;br&gt;
+Primary cache의 블록이 비어있는 경우, primary cache에만 저장한다.&lt;/p&gt;
+&lt;p&gt;Case 2-2 : Primary cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;, victim cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;&lt;br&gt;
+Primary cache의 블록에 데이터가 있는 경우, 데이터를 victim cache로 이동 후 primary cache에 저장한다.&lt;/p&gt;
+&lt;p&gt;Case 3 : Primary cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;, victim cache &lt;code class=&quot;language-text&quot;&gt;hit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;미스가 발생한 primary cache 블록과 히트가 발생한 victim cache 블록을 스왑(swap)한다.&lt;/p&gt;
+&lt;p&gt;빅팀 캐시를 통해 conflict miss를 얼마나 개선할 수 있는지는 다음 표에서 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 364px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsSAAALEgHS3X78AAACnElEQVQ4y13U106cQQwF4Hn/V0DiAoFEB1FDEW1pS+8l9N6WDgEBu5uPdSCb+GI0/3jsc3zs+VOxWLy5ubm8vLR5e3t7fX21Fktmw3V/f3/3Zbe3t7FxaJ9cur6+np2dnZycXFtbOzk52djY6Ojo6OnpmZmZOTg4uLi42N3d3d7e3tnZ+Vky15aXl8fGxj6DZZqfn7+6upLl5eVFTG1tbXNzs8/Hx8fz83MZrS6cnp7K5RwjGOlXyfb399GQfmpqamJiwgaamIeHB+ny+Xzxy9Qii8iRkZG0uLiogK2tLWX39/cPDAyIcalQKJQHAICJ6o+SKaqxsTHNzc3xnZ2dIdPV1TU9PR2RHx8fEba5uYlLd3d3b28vpMPDQ2W+v7+jllZXVxFzhHZ7e7t7EWaVV/rBwUF3crmcgCASpNSf6IzS8fExYdva2uj89PTEgRhMnSuWWaFkIYH7aWlpyQ0c1CzGKeWrq6ufn58jIP+vRUWExDGNjo6CAkInDRgfH6dHxHzjlIsncn19HcHOzs5EIapQm2Bor6ysfEeWV0gULiMghuY+aZFMTCA3NTVls9nySKukcLTdKlj2vr4+l6Woqan5S7u+vl73A40KR0dHe3t76ADJfplWGSfI5NTXhIkeSCwL2YXFhFZWVrpBAjNHQt0irU9stRAXn581E1Yk2jTjIKPRM0/6Bx/zTCYzPDwMwCzgRepQIcX30NAQtznzAOgncUtLS+DE88KWVy4p0PbCeD9fFbZ1dXWm2sbEV1VVNTQ0cOtKvO3orb3VOJg2hxRJMS6kQ7u1tbWiooIwuZJBw9zTXVhYAOgZh2Aw4i2l6ArOylawfqgQVSc28UIZb+hnY/VI/vwM/pteOBwGVgkmHwIJ4JNXFr34vvkbuBIZIxBUYqQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cache&quot;
+        title=&quot;cache&quot;
+        src=&quot;/static/bff5fc4884702edce00b55dbeab5d5c3/e45a9/1.png&quot;
+        srcset=&quot;/static/bff5fc4884702edce00b55dbeab5d5c3/5a46d/1.png 300w,
+/static/bff5fc4884702edce00b55dbeab5d5c3/e45a9/1.png 364w&quot;
+        sizes=&quot;(max-width: 364px) 100vw, 364px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;vary-cache-size--line-size&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vary-cache-size--line-size&quot; aria-label=&quot;vary cache size  line size permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vary cache size &amp;#x26; line size&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 370px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAACcUlEQVQ4y32UWU9iQRCF7/9/I/EJno1EEl8IGuISUJZABEQIgoIgO7IoCIhsNfPVpO9ccZhKOn1puqvOOX2qLfkdb29vcnt7K5VKRbrdrj16vZ60223pdDo6N5tNe240Grpu/mPu9/tikXC5XOpCMBiUbDYr6/VahsOhPD8/a+KXlxcJBAISj8fl4uJCzs/PJRaLydfXl3x+furgu9Vq/Um42Wwkk8nogon393cpl8uasFqtytnZmbIIh8Nyc3OjhXcDRtZqtdKEpVJJoZv4+PiQ0WikM0j9fr8kEglNFolE9JtzxHa71RmWFpXQ8PHxURdMQOH19dUu5vP5FN3p6amEQiE5OTlRLQ1DGyGVQFKr1ZQeUa/X5e7uTikmk0mVYjweK1qkmM1mMplMZLFY/ESYz+d1M2gY5pJAyAGS/C9I9i1hNBrV64aWk/K+g7vDifAbZW7SIEQTNpl596Dz2+wjnp6exEIjKGNU5y3vo7Xvez6fSyqVEiudTitltDSXwq1jbnxIsX20nZ4lIQyt6+truxvu7+9lOp1qCzKziZn/jUV2A1bIZWuISamQy+V+uJ9kBLdNK3Lj2ItWY80gcyZXytAiYaFQUI8hLrYxcphAfJDiQRhRxGlsTWg20+w0PdYBNQe9Xq+iNmbed2Em1Idm4erqStATPWgvUNAhDH4fHR3pGh2EFOhlitAIBJ62EwIXyuiDLshgnqdisahPG718cHAgl5eX4na79cE4Pj4Wl8ul8hweHv5NyItCQhDxUAwGA3l4eNBCfEMHhHgNdPiXQmgPA87zVlr/6gKeNBN4y+PxKBIOgpSBT80ZQxlWvwA1VIoCxxDCvgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cache&quot;
+        title=&quot;cache&quot;
+        src=&quot;/static/d43f177b0d4936700ecc593af76de039/1efb2/2.png&quot;
+        srcset=&quot;/static/d43f177b0d4936700ecc593af76de039/5a46d/2.png 300w,
+/static/d43f177b0d4936700ecc593af76de039/1efb2/2.png 370w&quot;
+        sizes=&quot;(max-width: 370px) 100vw, 370px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;캐시 크기 별 전체 미스 개선을 나타낸 표이다. 라인 사이즈는 16B로 고정하고, 라인 수만 늘려서 프라이머리 캐시 크기를 조절했다.&lt;/p&gt;
+&lt;p&gt;여기서 파악할 수 있는 특징 두 가지가 있다. 우선, 라인 사이즈는 고정하고, 캐시 크기만 늘렸기 때문에 상대적으로 작은 빅팀 캐시가 conflict miss를 크게 개선해주지 못한다. 그리고 발생하는 conflict miss가 줄어들면 빅팀 캐시 개선량도 줄어들고, 반대로 미스가 늘어나면 개선량도 늘어난다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 369px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 94.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsSAAALEgHS3X78AAACS0lEQVQ4y2WTxY4CURBF+/8/gD0LEnaQsECCuwQLENxhcHftOU0NzWSmFi9P6ta9JU9RVXU0GgUCAdbxeDyfz9lMp9PJZMKRzXq9Xq1Wy+VysVhw+fW2/X6vAD4ej8lk8nw+t1qtcDjMkbderwe4WCy63e5UKpVIJHhqt9u32w3Pw+GAjwa+Xq9Op5Pb+/3OLcdGo1GtVqFFkdlsdjgcdrvdYrHU63X1ZXgiUHk8HuwIDEYe2CxeBkM0GrXZbKx+vx+CcrksPjANBgMlm82STyQS4ay+TbLdbDbxeNxoNKLc5XJZrVaPx9Pv94VPY0YYfvl8XmeGkxJkMhmoAJNnrVYbDofdbhckTwLmRkEwzJVKRQcjAU6KzP3lclF/2W63AyM+GjgYDCKAehJM/WfPl7GhhdBCIEfAWrW9Xi86C4XC75yfb5PCbrdbNKMCcKfTkUvqopADb7lcTmTrGFkRRcJyBEwjyeXDTBuQRMH+yKYqBCV5NiAh5MioxWIxAWvV9vl8gBkJkU08nKgWcyIzM5vNZGwweouDgDXZROKZbguY/AGD4Y0jQ4psbigK5FQbwg8zrUIM/RTZkiqd555ApENeOJRKJY6SwmfCZJdOp/U+812YHIPBQAgKCTNx+S0g9eg/fZZhJnOZBwaQYeQzgdQr/98I9/OrMLxJjCuTycTXEXl8DCLKH3y8TFJjA59WMAFTsGazSeUoDCt7lCOMdEgeklAoREfIk4HnFTLuFf0bisLT6cRKqkhgfpg/EmF4+VKAeaJ48OPPtHwDTEkP3q4VnJQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cache&quot;
+        title=&quot;cache&quot;
+        src=&quot;/static/de8c386ab390e91353813b1efb1cb0ca/e0cdb/3.png&quot;
+        srcset=&quot;/static/de8c386ab390e91353813b1efb1cb0ca/5a46d/3.png 300w,
+/static/de8c386ab390e91353813b1efb1cb0ca/e0cdb/3.png 369w&quot;
+        sizes=&quot;(max-width: 369px) 100vw, 369px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;라인 사이즈 별 전체 미스 개선을 나타낸 표이다. 캐시 크기는 4KB로 고정하고, 라인 사이즈만 조절했다.&lt;/p&gt;
+&lt;p&gt;캐시 크기를 고정하고 라인 사이즈만 늘리게 되면 블록 수가 줄어든다. 이런 경우 공간적 지역성(spatial locality)이 감소하기 때문에 라인이 일정 이상 커지게 되면 미스가 증가하는 것을 확인할 수 있다. 미스가 증가하면 빅팀 캐시의 개선량이 같이 증가한다.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conclusion&quot; aria-label=&quot;conclusion permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;위에 두 가지 그래프를 보고 오해하면 안되는 점이 있다. 빅팀 캐시의 미스 제거율이 높다고 해서 컴퓨터의 성능이 무조건 좋다고 말할 수 없다. 오히려 빅팀 캐시의 역할이 커지는 것은 프라이머리 캐시의 미스가 커진다는 것과 같은 말이다.&lt;/p&gt;
+&lt;p&gt;컴퓨터 성능 향상을 위해서는 여러가지 요소들을 종합적으로 바라봐야한다. 만약에 빅팀 캐시를 구현하려고 한다면 캐시 크기, 라인 사이즈 등의 trade-off를 고려해서 주어진 상황에 맞는 최적의 조건을 찾는 것이 중요하다.&lt;/p&gt;
+&lt;h2 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Norman P. Jouppi, “Improving Direct-Mapped Cache Performance by the Addition of a Small Fully-Associative Cache and Prefetch Buffers”, IEEE, 1990.&lt;/li&gt;
+&lt;li&gt;David Patterson, John Hennenssy, “Computer Organization and Design : The Hardware and Software Interface 5th Ed”, MK, 2014.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[2752번] 세수정렬 3️⃣]]></title><description><![CDATA[문제 문제 동규는 세수를 하다가 정렬이 하고싶어졌다. 숫자 세 개를 생각한 뒤에, 이를 오름차순으로 정렬하고 싶어 졌다. 숫자 세 개가 주어졌을 때, 가장 작은 수, 그 다음 수, 가장 큰 수를 출력하는 프로그램을 작성하시오. 입력 3 1 2 출력…]]></description><link>https://dohyeon.dev/problem/boj-2752/</link><guid isPermaLink="false">https://dohyeon.dev/problem/boj-2752/</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;[문제]&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;동규는 세수를 하다가 정렬이 하고싶어졌다.&lt;/p&gt;
@@ -1509,98 +1600,7 @@ fibonacci(3)은 fibonacci(2)와 fibonacci(1)의 결과를 얻고, 2를 리턴한
 &lt;h2 id=&quot;여담&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%AC%EB%8B%B4&quot; aria-label=&quot;여담 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;여담&lt;/h2&gt;
 &lt;p&gt;세 수를 정렬하는데 많이 사용되는 깔끔한 테크닉이다.&lt;/p&gt;
 &lt;h2 id=&quot;출처&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B6%9C%EC%B2%98&quot; aria-label=&quot;출처 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;출처&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2752&quot;&gt;https://www.acmicpc.net/problem/2752&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Victim cache에 관하여 🧱]]></title><description><![CDATA[Summary 빠르게 발전하는 프로세서의 속도를 메모리가 따라잡지 못했다. 프로세서의 처리 속도가 아무리 빨라도 메모리가 이 속도를 따라오지 못하면 결국 전체 시스템의 속도는 느려진다. 이를 개선하기 위해 프로세서와 메모리 사이에 캐시(cache…]]></description><link>https://dohyeon.dev/article/about-victim-cache/</link><guid isPermaLink="false">https://dohyeon.dev/article/about-victim-cache/</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;summary&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#summary&quot; aria-label=&quot;summary permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Summary&lt;/h2&gt;
-&lt;p&gt;빠르게 발전하는 프로세서의 속도를 메모리가 따라잡지 못했다. 프로세서의 처리 속도가 아무리 빨라도 메모리가 이 속도를 따라오지 못하면 결국 전체 시스템의 속도는 느려진다. 이를 개선하기 위해 프로세서와 메모리 사이에 캐시(cache)를 도입했다.&lt;/p&gt;
-&lt;p&gt;캐시는 프로세서와 메모리 사이에서 동작하는 작고 빠른 메모리이다. 프로세서가 메모리에 있는 데이터를 가져오는데 걸리는 시간을 줄이기 위해서 사용할 정보를 캐시에 미리 저장해놓고 꺼내다 사용한다.&lt;/p&gt;
-&lt;h2 id=&quot;conflict-miss&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conflict-miss&quot; aria-label=&quot;conflict miss permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conflict miss&lt;/h2&gt;
-&lt;p&gt;캐시에 필요한 데이터가 없으면 미스(miss)라고 한다. 이런 경우 다음 캐시나 메모리에 접근해서 데이터를 가져와야한다. 반면에 필요한 데이터가 있는 경우는 히트(hit)라고 한다.&lt;/p&gt;
-&lt;p&gt;미스는 크게 네 가지로 분류하는데 그 중 가장 많이 발생하는 것이 conflict miss이다. 저장할 데이터들이 캐시의 같은 주소에 할당되어서 생기는 미스이다.&lt;/p&gt;
-&lt;p&gt;미스의 증가는 성능에 큰 영향을 주기 때문에 이를 줄이기 위해 여러 방법들이 제시됐다.&lt;/p&gt;
-&lt;h2 id=&quot;victim-cache&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#victim-cache&quot; aria-label=&quot;victim cache permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Victim cache&lt;/h2&gt;
-&lt;p&gt;그 중 하나가 바로 conflict miss를 개선하기 위한 victim cache이다. 빅팀 캐시는 direct-mapped cache와 next lower cache 사이에 위치하는 작은 fully-associative cache이다. direct-mapped cache의 부족한 웨이(way)를 보충해주는 역할을 한다.&lt;/p&gt;
-&lt;p&gt;빅팀 캐시의 작동 원리를 케이스 별로 구분하면 다음과 같다.&lt;/p&gt;
-&lt;p&gt;Case 1 : Primary cache &lt;code class=&quot;language-text&quot;&gt;hit&lt;/code&gt;&lt;br&gt;
-정상 작동한다.&lt;/p&gt;
-&lt;p&gt;Case 2-1 : Primary cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;, victim cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;&lt;br&gt;
-Primary cache의 블록이 비어있는 경우, primary cache에만 저장한다.&lt;/p&gt;
-&lt;p&gt;Case 2-2 : Primary cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;, victim cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;&lt;br&gt;
-Primary cache의 블록에 데이터가 있는 경우, 데이터를 victim cache로 이동 후 primary cache에 저장한다.&lt;/p&gt;
-&lt;p&gt;Case 3 : Primary cache &lt;code class=&quot;language-text&quot;&gt;miss&lt;/code&gt;, victim cache &lt;code class=&quot;language-text&quot;&gt;hit&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;미스가 발생한 primary cache 블록과 히트가 발생한 victim cache 블록을 스왑(swap)한다.&lt;/p&gt;
-&lt;p&gt;빅팀 캐시를 통해 conflict miss를 얼마나 개선할 수 있는지는 다음 표에서 확인할 수 있다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 364px;&quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 99.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsSAAALEgHS3X78AAACnElEQVQ4y13U106cQQwF4Hn/V0DiAoFEB1FDEW1pS+8l9N6WDgEBu5uPdSCb+GI0/3jsc3zs+VOxWLy5ubm8vLR5e3t7fX21Fktmw3V/f3/3Zbe3t7FxaJ9cur6+np2dnZycXFtbOzk52djY6Ojo6OnpmZmZOTg4uLi42N3d3d7e3tnZ+Vky15aXl8fGxj6DZZqfn7+6upLl5eVFTG1tbXNzs8/Hx8fz83MZrS6cnp7K5RwjGOlXyfb399GQfmpqamJiwgaamIeHB+ny+Xzxy9Qii8iRkZG0uLiogK2tLWX39/cPDAyIcalQKJQHAICJ6o+SKaqxsTHNzc3xnZ2dIdPV1TU9PR2RHx8fEba5uYlLd3d3b28vpMPDQ2W+v7+jllZXVxFzhHZ7e7t7EWaVV/rBwUF3crmcgCASpNSf6IzS8fExYdva2uj89PTEgRhMnSuWWaFkIYH7aWlpyQ0c1CzGKeWrq6ufn58jIP+vRUWExDGNjo6CAkInDRgfH6dHxHzjlIsncn19HcHOzs5EIapQm2Bor6ysfEeWV0gULiMghuY+aZFMTCA3NTVls9nySKukcLTdKlj2vr4+l6Woqan5S7u+vl73A40KR0dHe3t76ADJfplWGSfI5NTXhIkeSCwL2YXFhFZWVrpBAjNHQt0irU9stRAXn581E1Yk2jTjIKPRM0/6Bx/zTCYzPDwMwCzgRepQIcX30NAQtznzAOgncUtLS+DE88KWVy4p0PbCeD9fFbZ1dXWm2sbEV1VVNTQ0cOtKvO3orb3VOJg2hxRJMS6kQ7u1tbWiooIwuZJBw9zTXVhYAOgZh2Aw4i2l6ArOylawfqgQVSc28UIZb+hnY/VI/vwM/pteOBwGVgkmHwIJ4JNXFr34vvkbuBIZIxBUYqQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;entries&quot;
-        title=&quot;entries&quot;
-        src=&quot;/static/bff5fc4884702edce00b55dbeab5d5c3/e45a9/number-of-entries-in-victim-cache.png&quot;
-        srcset=&quot;/static/bff5fc4884702edce00b55dbeab5d5c3/5a46d/number-of-entries-in-victim-cache.png 300w,
-/static/bff5fc4884702edce00b55dbeab5d5c3/e45a9/number-of-entries-in-victim-cache.png 364w&quot;
-        sizes=&quot;(max-width: 364px) 100vw, 364px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;vary-cache-size--line-size&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vary-cache-size--line-size&quot; aria-label=&quot;vary cache size  line size permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Vary cache size &amp;#x26; line size&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 370px;&quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAABYlAAAWJQFJUiTwAAACcUlEQVQ4y32UWU9iQRCF7/9/I/EJno1EEl8IGuISUJZABEQIgoIgO7IoCIhsNfPVpO9ccZhKOn1puqvOOX2qLfkdb29vcnt7K5VKRbrdrj16vZ60223pdDo6N5tNe240Grpu/mPu9/tikXC5XOpCMBiUbDYr6/VahsOhPD8/a+KXlxcJBAISj8fl4uJCzs/PJRaLydfXl3x+furgu9Vq/Um42Wwkk8nogon393cpl8uasFqtytnZmbIIh8Nyc3OjhXcDRtZqtdKEpVJJoZv4+PiQ0WikM0j9fr8kEglNFolE9JtzxHa71RmWFpXQ8PHxURdMQOH19dUu5vP5FN3p6amEQiE5OTlRLQ1DGyGVQFKr1ZQeUa/X5e7uTikmk0mVYjweK1qkmM1mMplMZLFY/ESYz+d1M2gY5pJAyAGS/C9I9i1hNBrV64aWk/K+g7vDifAbZW7SIEQTNpl596Dz2+wjnp6exEIjKGNU5y3vo7Xvez6fSyqVEiudTitltDSXwq1jbnxIsX20nZ4lIQyt6+truxvu7+9lOp1qCzKziZn/jUV2A1bIZWuISamQy+V+uJ9kBLdNK3Lj2ItWY80gcyZXytAiYaFQUI8hLrYxcphAfJDiQRhRxGlsTWg20+w0PdYBNQe9Xq+iNmbed2Em1Idm4erqStATPWgvUNAhDH4fHR3pGh2EFOhlitAIBJ62EwIXyuiDLshgnqdisahPG718cHAgl5eX4na79cE4Pj4Wl8ul8hweHv5NyItCQhDxUAwGA3l4eNBCfEMHhHgNdPiXQmgPA87zVlr/6gKeNBN4y+PxKBIOgpSBT80ZQxlWvwA1VIoCxxDCvgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;cache-size&quot;
-        title=&quot;cache-size&quot;
-        src=&quot;/static/d43f177b0d4936700ecc593af76de039/1efb2/cache-size-in-kb.png&quot;
-        srcset=&quot;/static/d43f177b0d4936700ecc593af76de039/5a46d/cache-size-in-kb.png 300w,
-/static/d43f177b0d4936700ecc593af76de039/1efb2/cache-size-in-kb.png 370w&quot;
-        sizes=&quot;(max-width: 370px) 100vw, 370px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;캐시 크기 별 전체 미스 개선을 나타낸 표이다. 라인 사이즈는 16B로 고정하고, 라인 수만 늘려서 프라이머리 캐시 크기를 조절했다.&lt;/p&gt;
-&lt;p&gt;여기서 파악할 수 있는 특징 두 가지가 있다. 우선, 라인 사이즈는 고정하고, 캐시 크기만 늘렸기 때문에 상대적으로 작은 빅팀 캐시가 conflict miss를 크게 개선해주지 못한다. 그리고 발생하는 conflict miss가 줄어들면 빅팀 캐시 개선량도 줄어들고, 반대로 미스가 늘어나면 개선량도 늘어난다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 369px;&quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 94.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAIAAAAf7rriAAAACXBIWXMAAAsSAAALEgHS3X78AAACS0lEQVQ4y2WTxY4CURBF+/8/gD0LEnaQsECCuwQLENxhcHftOU0NzWSmFi9P6ta9JU9RVXU0GgUCAdbxeDyfz9lMp9PJZMKRzXq9Xq1Wy+VysVhw+fW2/X6vAD4ej8lk8nw+t1qtcDjMkbderwe4WCy63e5UKpVIJHhqt9u32w3Pw+GAjwa+Xq9Op5Pb+/3OLcdGo1GtVqFFkdlsdjgcdrvdYrHU63X1ZXgiUHk8HuwIDEYe2CxeBkM0GrXZbKx+vx+CcrksPjANBgMlm82STyQS4ay+TbLdbDbxeNxoNKLc5XJZrVaPx9Pv94VPY0YYfvl8XmeGkxJkMhmoAJNnrVYbDofdbhckTwLmRkEwzJVKRQcjAU6KzP3lclF/2W63AyM+GjgYDCKAehJM/WfPl7GhhdBCIEfAWrW9Xi86C4XC75yfb5PCbrdbNKMCcKfTkUvqopADb7lcTmTrGFkRRcJyBEwjyeXDTBuQRMH+yKYqBCV5NiAh5MioxWIxAWvV9vl8gBkJkU08nKgWcyIzM5vNZGwweouDgDXZROKZbguY/AGD4Y0jQ4psbigK5FQbwg8zrUIM/RTZkiqd555ApENeOJRKJY6SwmfCZJdOp/U+812YHIPBQAgKCTNx+S0g9eg/fZZhJnOZBwaQYeQzgdQr/98I9/OrMLxJjCuTycTXEXl8DCLKH3y8TFJjA59WMAFTsGazSeUoDCt7lCOMdEgeklAoREfIk4HnFTLuFf0bisLT6cRKqkhgfpg/EmF4+VKAeaJ48OPPtHwDTEkP3q4VnJQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;cache-line&quot;
-        title=&quot;cache-line&quot;
-        src=&quot;/static/de8c386ab390e91353813b1efb1cb0ca/e0cdb/cache-line-in-bytes.png&quot;
-        srcset=&quot;/static/de8c386ab390e91353813b1efb1cb0ca/5a46d/cache-line-in-bytes.png 300w,
-/static/de8c386ab390e91353813b1efb1cb0ca/e0cdb/cache-line-in-bytes.png 369w&quot;
-        sizes=&quot;(max-width: 369px) 100vw, 369px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;라인 사이즈 별 전체 미스 개선을 나타낸 표이다. 캐시 크기는 4KB로 고정하고, 라인 사이즈만 조절했다.&lt;/p&gt;
-&lt;p&gt;캐시 크기를 고정하고 라인 사이즈만 늘리게 되면 블록 수가 줄어든다. 이런 경우 공간적 지역성(spatial locality)이 감소하기 때문에 라인이 일정 이상 커지게 되면 미스가 증가하는 것을 확인할 수 있다. 미스가 증가하면 빅팀 캐시의 개선량이 같이 증가한다.&lt;/p&gt;
-&lt;h2 id=&quot;conclusion&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conclusion&quot; aria-label=&quot;conclusion permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;위에 두 가지 그래프를 보고 오해하면 안되는 점이 있다. 빅팀 캐시의 미스 제거율이 높다고 해서 컴퓨터의 성능이 무조건 좋다고 말할 수 없다. 오히려 빅팀 캐시의 역할이 커지는 것은 프라이머리 캐시의 미스가 커진다는 것과 같은 말이다.&lt;/p&gt;
-&lt;p&gt;컴퓨터 성능 향상을 위해서는 여러가지 요소들을 종합적으로 바라봐야한다. 만약에 빅팀 캐시를 구현하려고 한다면 캐시 크기, 라인 사이즈 등의 trade-off를 고려해서 주어진 상황에 맞는 최적의 조건을 찾는 것이 중요하다.&lt;/p&gt;
-&lt;h2 id=&quot;reference&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Reference&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Norman P. Jouppi, “Improving Direct-Mapped Cache Performance by the Addition of a Small Fully-Associative Cache and Prefetch Buffers”, IEEE, 1990.&lt;/li&gt;
-&lt;li&gt;David Patterson, John Hennenssy, “Computer Organization and Design : The Hardware and Software Interface 5th Ed”, MK, 2014.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[구조체와 클래스의 차이 🔀]]></title><description><![CDATA[C 언어를 공부하다가 구조체라는 개념을 접하게 되고, C++ 언어를 공부하다가 클래스라는 개념을 접하게 된다. 절차 지향 언어에서 객체 지향 언어로 넘어가게 되면 클래스와 객체가 아주 중요한 개념이라는 것을 알게 되는데 사실 C…]]></description><link>https://dohyeon.dev/article/difference-between-structure-and-class/</link><guid isPermaLink="false">https://dohyeon.dev/article/difference-between-structure-and-class/</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;C 언어를 공부하다가 구조체라는 개념을 접하게 되고, C++ 언어를 공부하다가 클래스라는 개념을 접하게 된다. 절차 지향 언어에서 객체 지향 언어로 넘어가게 되면 클래스와 객체가 아주 중요한 개념이라는 것을 알게 되는데 사실 C 언어에서 배운 구조체와 큰 차이가 없다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2752&quot;&gt;https://www.acmicpc.net/problem/2752&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[구조체와 클래스의 차이 🔀]]></title><description><![CDATA[C 언어를 공부하다가 구조체라는 개념을 접하게 되고, C++ 언어를 공부하다가 클래스라는 개념을 접하게 된다. 절차 지향 언어에서 객체 지향 언어로 넘어가게 되면 클래스와 객체가 아주 중요한 개념이라는 것을 알게 되는데 사실 C…]]></description><link>https://dohyeon.dev/article/difference-between-structure-and-class/</link><guid isPermaLink="false">https://dohyeon.dev/article/difference-between-structure-and-class/</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;C 언어를 공부하다가 구조체라는 개념을 접하게 되고, C++ 언어를 공부하다가 클래스라는 개념을 접하게 된다. 절차 지향 언어에서 객체 지향 언어로 넘어가게 되면 클래스와 객체가 아주 중요한 개념이라는 것을 알게 되는데 사실 C 언어에서 배운 구조체와 큰 차이가 없다.&lt;/p&gt;
 &lt;h2 id=&quot;구조체와-클래스&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B5%AC%EC%A1%B0%EC%B2%B4%EC%99%80-%ED%81%B4%EB%9E%98%EC%8A%A4&quot; aria-label=&quot;구조체와 클래스 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;구조체와 클래스&lt;/h2&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;iostream&gt;&lt;/span&gt;&lt;/span&gt;
 using namespace std&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -1840,11 +1840,11 @@ public&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;execution-time&quot;
-        title=&quot;execution-time&quot;
-        src=&quot;/static/3cd471a8619bb7858fb660fbf400eb8c/f687d/execution-time.png&quot;
-        srcset=&quot;/static/3cd471a8619bb7858fb660fbf400eb8c/5a46d/execution-time.png 300w,
-/static/3cd471a8619bb7858fb660fbf400eb8c/f687d/execution-time.png 423w&quot;
+        alt=&quot;execution&quot;
+        title=&quot;execution&quot;
+        src=&quot;/static/3cd471a8619bb7858fb660fbf400eb8c/f687d/1.png&quot;
+        srcset=&quot;/static/3cd471a8619bb7858fb660fbf400eb8c/5a46d/1.png 300w,
+/static/3cd471a8619bb7858fb660fbf400eb8c/f687d/1.png 423w&quot;
         sizes=&quot;(max-width: 423px) 100vw, 423px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -1906,70 +1906,7 @@ public&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
 	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
-&lt;p&gt;선택 정렬과 거품 정렬은 언뜻 비슷해보인다. 그러나 거품 정렬은 최악의 경우 인접한 모든 원소마다 자리 교환이 일어나지만, 선택 정렬은 비교만 거품 정렬과 동일하게 할 뿐 교환은 순회 당 한 번이다. 이러한 이유로 선택 정렬이 거품 정렬 보다 항상 우수하다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[9095번] 1, 2, 3 더하기 ➕]]></title><description><![CDATA[문제 문제 정수 4를 1, 2, 3의 합으로 나타내는 방법은 총 7가지가 있다. 합을 나타낼 때는 수를 1개 이상 사용해야 한다. 1+1+1+1
-1+1+2
-1+2+1
-2+1+1
-2+2
-1+3
-3+1 정수 n이 주어졌을 때, n을 1, 2,…]]></description><link>https://dohyeon.dev/problem/boj-9095/</link><guid isPermaLink="false">https://dohyeon.dev/problem/boj-9095/</guid><pubDate>Wed, 30 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[문제]&lt;/p&gt;
-&lt;p&gt;정수 4를 1, 2, 3의 합으로 나타내는 방법은 총 7가지가 있다. 합을 나타낼 때는 수를 1개 이상 사용해야 한다.&lt;/p&gt;
-&lt;p&gt;1+1+1+1
-1+1+2
-1+2+1
-2+1+1
-2+2
-1+3
-3+1&lt;/p&gt;
-&lt;p&gt;정수 n이 주어졌을 때, n을 1, 2, 3의 합으로 나타내는 방법의 수를 구하는 프로그램을 작성하시오.&lt;/p&gt;
-&lt;p&gt;[입력]&lt;/p&gt;
-&lt;p&gt;첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고, 정수 n이 주어진다. n은 양수이며 11보다 작다.&lt;/p&gt;
-&lt;p&gt;[출력]&lt;/p&gt;
-&lt;p&gt;각 테스트 케이스마다, n을 1, 2, 3의 합으로 나타내는 방법의 수를 출력한다.&lt;/p&gt;
-&lt;p&gt;[알고리즘 분류]&lt;/p&gt;
-&lt;p&gt;다이나믹 프로그래밍&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;풀이&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%92%80%EC%9D%B4&quot; aria-label=&quot;풀이 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;풀이&lt;/h2&gt;
-&lt;p&gt;정수 1, 2, 3을 문제의 규칙대로 나누면 다음과 같다.&lt;/p&gt;
-&lt;p&gt;1 - 1 : 1개&lt;/p&gt;
-&lt;p&gt;2 - 1 + 1, 2 : 2개&lt;/p&gt;
-&lt;p&gt;3 - 1 + 1 + 1, 1 + 2, 2 + 1, 3 : 4개&lt;/p&gt;
-&lt;p&gt;입력 받은 정수 n을 1, 2, 3의 케이스로 쪼개서 방법 수의 합을 구하면 된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-	&lt;span class=&quot;token function&quot;&gt;scanf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;T&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;token function&quot;&gt;scanf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2 id=&quot;여담&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%AC%EB%8B%B4&quot; aria-label=&quot;여담 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;여담&lt;/h2&gt;
-&lt;p&gt;각 방법마다 어떻게 더해지는지 확인해보려고 했는데 바보같은 짓이었다.&lt;/p&gt;
-&lt;h2 id=&quot;출처&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B6%9C%EC%B2%98&quot; aria-label=&quot;출처 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;출처&lt;/h2&gt;
-&lt;p&gt;[https://www.acmicpc.net/problem/9095]&lt;a href=&quot;https://www.acmicpc.net/problem/9095&quot;&gt;https://www.acmicpc.net/problem/9095&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[거품 정렬 🧺]]></title><description><![CDATA[소개 Bubble sort…]]></description><link>https://dohyeon.dev/algorithm/bubble-sort/</link><guid isPermaLink="false">https://dohyeon.dev/algorithm/bubble-sort/</guid><pubDate>Wed, 30 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h2&gt;
+&lt;p&gt;선택 정렬과 거품 정렬은 언뜻 비슷해보인다. 그러나 거품 정렬은 최악의 경우 인접한 모든 원소마다 자리 교환이 일어나지만, 선택 정렬은 비교만 거품 정렬과 동일하게 할 뿐 교환은 순회 당 한 번이다. 이러한 이유로 선택 정렬이 거품 정렬 보다 항상 우수하다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[거품 정렬 🧺]]></title><description><![CDATA[소개 Bubble sort…]]></description><link>https://dohyeon.dev/algorithm/bubble-sort/</link><guid isPermaLink="false">https://dohyeon.dev/algorithm/bubble-sort/</guid><pubDate>Wed, 30 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;소개 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;소개&lt;/h2&gt;
 &lt;p&gt;Bubble sort(거품 정렬)는 인접한 두 원소를 검사하여 정렬하는 방법이다. 시간 복잡도가 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(n^2)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.064108em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 로 상당히 느리지만, 코드가 단순해서 자주 사용된다. 이름의 유래는 원소의 이동이 거품이 수면으로 올라오는 듯한 모습을 보이기 때문에 지어졌다.&lt;/p&gt;
 &lt;h2 id=&quot;정렬-과정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A0%AC-%EA%B3%BC%EC%A0%95&quot; aria-label=&quot;정렬 과정 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정렬 과정&lt;/h2&gt;
 &lt;p&gt;다음과 같이 다섯 개의 정수가 주어졌을 때, &lt;code class=&quot;language-text&quot;&gt;Bubble sort&lt;/code&gt;로 오름 차순으로 정렬해보겠다.&lt;/p&gt;
@@ -2142,7 +2079,70 @@ public&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
 &lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
 &lt;p&gt;칵테일 셰이커 정렬은 거품 정렬과 비슷한 방식으로 동작하지만 특정한 입력 데이터에 따라 속도가 조금 더 빠를 수 있다고 한다. 다만, 특정한 입력 데이터에 관한 내용은 아무리 찾아봐도 나오지 않는다.&lt;/p&gt;
 &lt;p&gt;생각해볼 수 있는 한 가지는 굉장히 긴 배열 데이터가 입력됐을 때 마지막 인덱스 탐색을 마친 후에 다시 처음 인덱스로 돌아가는 시간이 없어진다는 차이가 아닐까 싶다.&lt;/p&gt;
-&lt;p&gt;두 정렬 모두 평균 시간 복잡도가 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(n^2)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.064108em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 이라는 점과 많은 수학자들이 거품 정렬을 개선하기 위해 얼마나 많은 노력을 했는지만 알고 넘어가도 좋을 것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[깃허브에 커밋한 파일들 삭제하기 🗑️]]></title><description><![CDATA[깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자. git bash…]]></description><link>https://dohyeon.dev/article/remove-files-in-git/</link><guid isPermaLink="false">https://dohyeon.dev/article/remove-files-in-git/</guid><pubDate>Tue, 29 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자.&lt;/p&gt;
+&lt;p&gt;두 정렬 모두 평균 시간 복잡도가 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;O(n^2)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.064108em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 이라는 점과 많은 수학자들이 거품 정렬을 개선하기 위해 얼마나 많은 노력을 했는지만 알고 넘어가도 좋을 것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[9095번] 1, 2, 3 더하기 ➕]]></title><description><![CDATA[문제 문제 정수 4를 1, 2, 3의 합으로 나타내는 방법은 총 7가지가 있다. 합을 나타낼 때는 수를 1개 이상 사용해야 한다. 1+1+1+1
+1+1+2
+1+2+1
+2+1+1
+2+2
+1+3
+3+1 정수 n이 주어졌을 때, n을 1, 2,…]]></description><link>https://dohyeon.dev/problem/boj-9095/</link><guid isPermaLink="false">https://dohyeon.dev/problem/boj-9095/</guid><pubDate>Wed, 30 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[문제]&lt;/p&gt;
+&lt;p&gt;정수 4를 1, 2, 3의 합으로 나타내는 방법은 총 7가지가 있다. 합을 나타낼 때는 수를 1개 이상 사용해야 한다.&lt;/p&gt;
+&lt;p&gt;1+1+1+1
+1+1+2
+1+2+1
+2+1+1
+2+2
+1+3
+3+1&lt;/p&gt;
+&lt;p&gt;정수 n이 주어졌을 때, n을 1, 2, 3의 합으로 나타내는 방법의 수를 구하는 프로그램을 작성하시오.&lt;/p&gt;
+&lt;p&gt;[입력]&lt;/p&gt;
+&lt;p&gt;첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 한 줄로 이루어져 있고, 정수 n이 주어진다. n은 양수이며 11보다 작다.&lt;/p&gt;
+&lt;p&gt;[출력]&lt;/p&gt;
+&lt;p&gt;각 테스트 케이스마다, n을 1, 2, 3의 합으로 나타내는 방법의 수를 출력한다.&lt;/p&gt;
+&lt;p&gt;[알고리즘 분류]&lt;/p&gt;
+&lt;p&gt;다이나믹 프로그래밍&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;풀이&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%92%80%EC%9D%B4&quot; aria-label=&quot;풀이 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;풀이&lt;/h2&gt;
+&lt;p&gt;정수 1, 2, 3을 문제의 규칙대로 나누면 다음과 같다.&lt;/p&gt;
+&lt;p&gt;1 - 1 : 1개&lt;/p&gt;
+&lt;p&gt;2 - 1 + 1, 2 : 2개&lt;/p&gt;
+&lt;p&gt;3 - 1 + 1 + 1, 1 + 2, 2 + 1, 3 : 4개&lt;/p&gt;
+&lt;p&gt;입력 받은 정수 n을 1, 2, 3의 케이스로 쪼개서 방법 수의 합을 구하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; n&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token function&quot;&gt;scanf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;T&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; T&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; i&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;scanf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;%d&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;%d\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;dp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;여담&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%AC%EB%8B%B4&quot; aria-label=&quot;여담 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;여담&lt;/h2&gt;
+&lt;p&gt;각 방법마다 어떻게 더해지는지 확인해보려고 했는데 바보같은 짓이었다.&lt;/p&gt;
+&lt;h2 id=&quot;출처&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B6%9C%EC%B2%98&quot; aria-label=&quot;출처 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;출처&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/9095&quot;&gt;https://www.acmicpc.net/problem/9095&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[깃허브에 커밋한 파일들 삭제하기 🗑️]]></title><description><![CDATA[깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자. git bash…]]></description><link>https://dohyeon.dev/article/remove-files-in-git/</link><guid isPermaLink="false">https://dohyeon.dev/article/remove-files-in-git/</guid><pubDate>Tue, 29 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;깃허브에 열심히 커밋 하다보면 잘못 올린 파일이나 불필요해진 파일들로 저장소가 지저분해진다. 그런 파일들은 제외하고 커밋해도 저장소에 계속 남아있는데 이런 경우에 이것들을 완전히 삭제하는 방법을 알아보자.&lt;/p&gt;
 &lt;p&gt;git bash에서 로컬 저장소로 이동한 뒤 다음과 같이 입력해주면 된다. 주의할 점은 원격 저장소에서 제거한 파일은 로컬 저장소에서도 역시 제거되기 때문에 백업 해두는 것이 좋다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; -r &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;파일 이름&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; // 특정 파일 삭제
 $ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; commit -m &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;커밋 메시지&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
@@ -2162,10 +2162,10 @@ $ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;scanf&quot;
-        title=&quot;scanf&quot;
-        src=&quot;/static/a9b7326c06c7eabeb302546291ea1997/908b1/scanf-return.png&quot;
-        srcset=&quot;/static/a9b7326c06c7eabeb302546291ea1997/908b1/scanf-return.png 280w&quot;
+        alt=&quot;return&quot;
+        title=&quot;return&quot;
+        src=&quot;/static/a9b7326c06c7eabeb302546291ea1997/908b1/1.png&quot;
+        srcset=&quot;/static/a9b7326c06c7eabeb302546291ea1997/908b1/1.png 280w&quot;
         sizes=&quot;(max-width: 280px) 100vw, 280px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -2181,10 +2181,10 @@ $ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;printf&quot;
-        title=&quot;printf&quot;
-        src=&quot;/static/5bf33fab32ff0a5e4ef6f768b5c507b1/6b1e2/printf-return.png&quot;
-        srcset=&quot;/static/5bf33fab32ff0a5e4ef6f768b5c507b1/6b1e2/printf-return.png 281w&quot;
+        alt=&quot;return&quot;
+        title=&quot;return&quot;
+        src=&quot;/static/5bf33fab32ff0a5e4ef6f768b5c507b1/6b1e2/2.png&quot;
+        srcset=&quot;/static/5bf33fab32ff0a5e4ef6f768b5c507b1/6b1e2/2.png 281w&quot;
         sizes=&quot;(max-width: 281px) 100vw, 281px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -2202,11 +2202,11 @@ $ &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push&lt;/code&gt
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;scanf-warning&quot;
-        title=&quot;scanf-warning&quot;
-        src=&quot;/static/c3ef56e725f29d8af06b9316015db0ea/67145/scanf-warning.png&quot;
-        srcset=&quot;/static/c3ef56e725f29d8af06b9316015db0ea/5a46d/scanf-warning.png 300w,
-/static/c3ef56e725f29d8af06b9316015db0ea/67145/scanf-warning.png 316w&quot;
+        alt=&quot;return&quot;
+        title=&quot;return&quot;
+        src=&quot;/static/c3ef56e725f29d8af06b9316015db0ea/67145/3.png&quot;
+        srcset=&quot;/static/c3ef56e725f29d8af06b9316015db0ea/5a46d/3.png 300w,
+/static/c3ef56e725f29d8af06b9316015db0ea/67145/3.png 316w&quot;
         sizes=&quot;(max-width: 316px) 100vw, 316px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;

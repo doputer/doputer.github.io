@@ -91,12 +91,12 @@
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="tistory-editor"
-        title="tistory-editor"
-        src="/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/tistory-editor.png"
-        srcset="/static/439aa615c91e2ea898bb5bb6f9e97ba0/5a46d/tistory-editor.png 300w,
-/static/439aa615c91e2ea898bb5bb6f9e97ba0/0a47e/tistory-editor.png 600w,
-/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/tistory-editor.png 960w"
+        alt="wysiwyg"
+        title="wysiwyg"
+        src="/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/1.png"
+        srcset="/static/439aa615c91e2ea898bb5bb6f9e97ba0/5a46d/1.png 300w,
+/static/439aa615c91e2ea898bb5bb6f9e97ba0/0a47e/1.png 600w,
+/static/439aa615c91e2ea898bb5bb6f9e97ba0/d9199/1.png 960w"
         sizes="(max-width: 960px) 100vw, 960px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -121,7 +121,7 @@
 </ul>
 <p>이 포스팅에서는 각 에디터를 비교하지 않기로 한다. 직접 조금씩 사용해본 결과 <code class="language-text">Draft.js</code>가 가장 마음에 들어서 활용해보기로 했다.</p>
 <h2 id="직접-이용한-draftjs" style="position:relative;"><a href="#%EC%A7%81%EC%A0%91-%EC%9D%B4%EC%9A%A9%ED%95%9C-draftjs" aria-label="직접 이용한 draftjs permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>직접 이용한 Draft.js</h2>
-<p><img src="/fa25b8e4c6cec7ebb8f95701e2e22d2c/draft-js.gif" alt="draft-js"></p>
+<p><img src="/fa25b8e4c6cec7ebb8f95701e2e22d2c/2.gif" alt="wysiwyg"></p>
 <p><a href="https://draftjs.org/">문서</a>도 잘 되어있고, 막히는 부분은 개발 커뮤니티를 통해서 충분히 해결 가능했다. 블록 스타일과 선택 영역 스타일을 제공하는데, 기본적으로 블록 스타일에서는 <code class="language-text">&lt;h1>~&lt;h6></code> , <code class="language-text">&lt;ul></code> , <code class="language-text">&lt;ol></code> , <code class="language-text">&lt;blockquote></code> , <code class="language-text">&lt;code></code> 등을 제공하고, 선택 영역 스타일에서는 <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <del>strikethrough</del> 를 제공한다. 나는 추가적 text-align이 필요했기 때문에 커스텀 블록 스타일로 left, center, right를 추가했다. 필요에 따라서 첨부 파일, 링크, 주석, 테이블 스타일을 추가할 수 있다. 문서화가 잘 되어있기 때문에 손쉽게 추가할 수 있다.</p>
 <p>작성한 내용을 추출하거나(html 혹은 markdown), 추출된 내용을 다시 에디터로 불러오는 부분은 외부 패키지를 이용하면 된다. 나는 <a href="https://www.npmjs.com/package/draftjs-to-html">draftjs-to-html</a>과 <a href="https://www.npmjs.com/package/html-to-draftjs">html-to-draftjs</a>를 이용해서 추출한 내용을 DB에 저장하고, 불러왔다.</p>
 <h2 id="소스코드" style="position:relative;"><a href="#%EC%86%8C%EC%8A%A4%EC%BD%94%EB%93%9C" aria-label="소스코드 permalink" class="anchor-header before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>소스코드</h2>
