@@ -1,0 +1,147 @@
+---
+title: 'GitHub Actions로 AWS S3 배포 자동화 하기 ⚙️'
+date: 2021-11-15
+category: '아티클'
+tags: ['Github', 'CI/CD']
+draft: false
+---
+
+## GitHub Actions 란?
+
+`GitHub Actions` 는 GitHub에서 제공하는 CI/CD 툴이다. 다시 말해서 Workflow를 자동화할 수 있게 도와준다.
+
+GitHub Actions에 관해서는 다른 글에서 자세하게 다루도록 하고, 이 글에서는 내가 AWS S3에 배포 자동화를 하는 과정과 그 과정에서 발생한 문제를 해결하는 것에 관한 글을 쓰려고한다.
+
+## 1. AWS IAM
+
+우선 AWS IAM 설정을 해줘야한다.
+
+`AWS IAM -> 액세스 관리 -> 사용자 -> 사용자 추가`
+
+![AWS](/images/aws/1.png)
+
+사용자 이름을 추가하고, `AWS 액세스 유형 선택에서 액세스 키 - 프로그래밍 방식 액세스` 를 선택한다.
+
+![AWS](/images/aws/2.png)
+
+`권한 설정에서 기존 정책 직접 연결` 을 선택하고, `AmazonS3FullAccess` 를 선택한다.
+
+![AWS](/images/aws/3.png)
+
+뒤로 넘기다가 완료가 되면 `.csv 다운로드` 를 선택해서 액세스 키를 다운로드 한다.
+
+> 비밀 키는 다시 다운로드 할 수 없고 분실한 경우 새로 발급 받아야한다!
+
+## 2. GitHub Secrets
+
+`GitHub repository -> Settings -> Secrets -> New repository secret`
+
+![AWS](/images/aws/4.png)
+
+AWS IAM에서 발급한 액세스 키 ID와 비밀 액세스 키를 등록한다.
+
+## 3. GitHub Actions
+
+`GitHub repository -> Actions -> set up a workflow yourself`
+
+```yml
+# main-deploy.yml
+
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@master
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp \
+            --recursive \
+            --region ap-northeast-2 \
+            build s3://S3-Bucket-Name
+```
+
+> 제일 밑에 S3-Bucket-Name에는 본인의 Bucket 이름을 적으면 된다!
+
+## 4. 배포 테스트
+
+이제 main 브랜치에 푸시를 하면 자동으로 배포가 된다.
+
+라고 생각했지만 나는 안됐다.
+
+![AWS](images/aws/5.png)
+
+원인 분석을 위해 실패가 발생한 항목에 들어가서 로그를 확인해봤다.
+
+![AWS](images/aws/7.png)
+
+![AWS](images/aws/8.png)
+
+`process.env.CI` 가 true 설정되어 있어서 경고들이 오류로 간주된다는 내용이었다. 이 부분을 해결하기 위해 위에서 작성한 `main-deploy.yml` 을 수정했다.
+
+```yml
+# 수정 전
+- name: Build
+  run: npm run build
+
+# 수정 후
+- name: Build
+  run: npm run build
+  env:
+    CI: ''
+```
+
+이제 GitHub Action이 정상적으로 작동한다.
+
+![AWS](images/aws/6.png)
+
+## 환경변수 설정
+
+위에서 언급한 과정으로 GitHub Actions를 이용할 수 있지만 환경 변수를 적용하려면 어떻게 해야할까?
+
+![AWS](/images/aws/4.png)
+
+빌드 파일에서 사용할 환경 변수를 GitHub Secrets에 등록해준다. 나는 ReactJS에서 서버에 요청하는 BASE_URL이 개발 환경과 배포 환경에서 각각 달랐기 때문에 이걸로 예를 들어보려고 한다.
+
+`main-deploy.yml` 을 다시 한번 수정해준다.
+
+```yml
+# 수정 전
+- name: Build
+  run: npm run build
+  env:
+    CI: ''
+
+# 수정 후
+- name: Build
+  run: npm run build
+  env:
+    CI: ''
+    REACT_APP_SERVER_BASE_URL: ${{ secrets.REACT_APP_SERVER_BASE_URL }}
+```
