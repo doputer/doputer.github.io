@@ -1,6 +1,6 @@
 ---
 title: 'GitHub Actions로 AWS S3 배포 자동화 하기 ⚙️'
-date: 2021-11-15
+date: 2021-11-15 13:00:00
 category: '아티클'
 tags: ['Github', 'CI/CD']
 draft: false
