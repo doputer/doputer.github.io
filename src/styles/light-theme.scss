@@ -1,6 +1,7 @@
 body.light {
   background-color: $light-background-color;
   color: $light-dark-font-color;
+  text-shadow: $light-text-shadow;
 
   // home
   .home-header {
