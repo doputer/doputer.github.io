@@ -1,4 +1,166 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[끊임없이 성장하는 개발자 김도현입니다.]]></description><link>https://dohyeon.dev</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 15 Nov 2021 13:28:10 GMT</lastBuildDate><item><title><![CDATA[PM2로 서비스 운영하기 🚙]]></title><description><![CDATA[Node.js로 프로젝트를 마친 뒤에 서비스를 운영하려고 하면 크게 두 가지 고민에 빠진다. 무중단 서비스 하기 싱글 스레드 기반의 Node.js를 멀티 스레딩 혹은 하이퍼 스레딩으로 사용하기 이러한 고민을 PM2를 통해서 해결할 수 있다. PM…]]></description><link>https://dohyeon.dev/article/running-service-with-pm2/</link><guid isPermaLink="false">https://dohyeon.dev/article/running-service-with-pm2/</guid><pubDate>Mon, 15 Nov 2021 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Node.js로 프로젝트를 마친 뒤에 서비스를 운영하려고 하면 크게 두 가지 고민에 빠진다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[DOPUTER]]></title><description><![CDATA[끊임없이 성장하는 개발자 김도현입니다.]]></description><link>https://dohyeon.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 27 Nov 2021 17:02:51 GMT</lastBuildDate><item><title><![CDATA[NestJS에서 FTP 사용하기 📦]]></title><description><![CDATA[프로젝트를 하다가 FTP를 사용해서 내가 가진 게이트웨이에 파일을 보낼 일이 생겼다. FTP의 개념부터 클라이언트(NestJS)와 서버(ESL Gateway)를 연결하면서 내가 작업한 과정을 정리해보려고 한다. FTP 관련 프로토콜로 FTPS…]]></description><link>https://dohyeon.dev/article/using-ftp-in-nodejs/</link><guid isPermaLink="false">https://dohyeon.dev/article/using-ftp-in-nodejs/</guid><pubDate>Sat, 27 Nov 2021 22:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로젝트를 하다가 FTP를 사용해서 내가 가진 게이트웨이에 파일을 보낼 일이 생겼다. FTP의 개념부터 클라이언트(NestJS)와 서버(ESL Gateway)를 연결하면서 내가 작업한 과정을 정리해보려고 한다.&lt;/p&gt;
+&lt;p&gt;FTP 관련 프로토콜로 FTPS, SFTP가 있지만 여기서는 &lt;code class=&quot;language-text&quot;&gt;FTP&lt;/code&gt; 에 관해서만 다루려고 한다.&lt;/p&gt;
+&lt;h2 id=&quot;ftp-란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ftp-%EB%9E%80&quot; aria-label=&quot;ftp 란 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;FTP 란?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;파일 전송 프로토콜(File Transfer Protocol, FTP)은 TCP/IP 프로토콜을 가지고 서버와 클라이언트 사이의 파일 전송을 하기 위한 프로토콜이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;예전에는 많이 사용한 프로토콜이지만, 지금은 보안상의 위험으로 많이 사용하지 않는다. FTPS나 SFTP로 대체된 것 같다.&lt;/p&gt;
+&lt;p&gt;FTP는 두 가지 모드로 동작하는데 &lt;code class=&quot;language-text&quot;&gt;Active Mode와 Passive Mode&lt;/code&gt; 이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 88.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsSAAALEgHS3X78AAACCklEQVQ4y32Uh44rMQhF/f8fFaVKaVJ6b0rvvVd2DyuPnEneQ7I8ZjBwLxgjv7Lb7aTX60m329W1WCzk+XyKldfr9fG9Wq2k3+9799brteoNBtvtVpbLpcxmM12cH4+H58BdCME2m406xX46neqZO2Y4HKoCsU6IVq1W5Xg8yjexQa1zBNv5fC6mUqlo2u7Pw+Eg0WhUzueznk+nk4zHY80IaTQa3rfNGoelUkkMmUwmk7efOM5ms3K9XmU0GkkoFJJEIqE6HEUikQ+Hl8tF0um0mFarpUVw+UKCwaCSDTyyw4YsCFYulz3I1v52u0mxWBTTbDYV+7cM7dmtMsIdiuD+A02hUPjukD2VSmlbDAYDyWQyegY+mQDtvw5pGRcy1eYnvHAmYwpFN2ALHf90SMWoMpfv97sHCz7Q2VZypdPpeI1sO+PNIYuIZEDFgRYIBCSXy+mitdgpRrvdlng8/tGjOPaKYlsAJRnBUz6f132/32ulCQQSeCUYSaAnODsPBJ7VIQp/lYnmUuBKvV73INs7BKRX36rsDgTguYQzQCzMWq2mvckLAgF6AkCLOrSNjfDc4JNodgBANmdgYsuzpDB2qOAM/uldfXrJZFIN4YMdIxyQOcZ+6ECmjfxFAZWhaamcO22AGovFPuagpYQE7Pu3OqCHw+G/8eV/6DiGCjeAu/PG4dQ/HJgLPxSxVva4NpahAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ftp&quot;
+        title=&quot;ftp&quot;
+        src=&quot;/static/bafd0daff81ffc0ce067f110656a0656/c1b63/1.png&quot;
+        srcset=&quot;/static/bafd0daff81ffc0ce067f110656a0656/5a46d/1.png 300w,
+/static/bafd0daff81ffc0ce067f110656a0656/0a47e/1.png 600w,
+/static/bafd0daff81ffc0ce067f110656a0656/c1b63/1.png 1200w,
+/static/bafd0daff81ffc0ce067f110656a0656/b4904/1.png 1768w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;우선, Active Mode의 동작을 나타낸 그림인데 다음과 같은 순서로 동작한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 서버의 21번 포트로 접속한 후, 클라이언트에서 사용할 포트를 알려준다.&lt;/li&gt;
+&lt;li&gt;서버가 클라이언트의 요청에 응답한다.&lt;/li&gt;
+&lt;li&gt;서버의 20번 포트가 클라이언트에서 알려준 포트로 접속한다.&lt;/li&gt;
+&lt;li&gt;클라이언트가 서버의 요청에 응답한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;그림에서 볼 수 있듯이 &lt;code class=&quot;language-text&quot;&gt;서버에서 클라이언트에 접속&lt;/code&gt; 하는 구조이다.&lt;/p&gt;
+&lt;p&gt;클라이언트에서 방화벽 등으로 외부 접속이 불가능한 상황이라면 접속이 불가능하고, 접속이 되더라도 정상적인 데이터 목록을 불러오지 못 할 수도 있다. 클라이언트는 방화벽 인바운드 허용, 서버는 방화벽 아웃바운드 허용을 통해서 해결해야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 88.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsSAAALEgHS3X78AAACFUlEQVQ4y5WUV6vjQAyF/f//UJ5COiE9pHfSe+9du59AxrvJw70C45mxdHR0pLEjf22/30u/35der6fPcrmU1+slZu/3+2O9Xq9lMBi4cZvNRs8dHHa7naxWK1ksFjKfz3X/fD5dAO+DkWy73Soo/rPZTPfEOKPRSA+w6/WqQWSr1WpyOp3km1lSA8fwhZBTrVaVNjYejxWUj9FoVNfY8XjUpFZWs9lUdl4JiCmXy+LAZDKZ6GE+n9dgW5/PZ90nk0kJhUKqGfpGIpEPQJKn02lx2u22loBxcDgcdB0IBJQ5DQMEjQmixEql4pZsgPf7XUqlkjitVssF5MB0g+HtdlOG0+lU0Ppyueg3YmiCFxDfYrH4L2ChUHABYVuv1yWRSEgqldJ9NptVnXn/GpCPOFknYQdTykdPa5B1mZH5CmhNoXzvcHut0Wi4Whs7moRMHxraqLCmLDoLQC6X07GgIT6fT6yZTAiseSOFAtpgo1On09G93+8XZhQwdKNcAGAGMF3HHo+HW7rbZQNEfIKNofcOe41m/agpaAB9G2a70zQARjY23BTm02suIB+NIToNh0MVOBaLuRqhWyaT0fJJhlb4MRE2CQy2AqIZrDACzYHg/0tmz3UEnFtEBZAhMTLE43FxKBNQLBgMqhMCM2tk9f7CbIwA5M/i1RAJwuGwOFC3jqEnOuHEWHz7J2LdbtfV0NsUYv4Am2BOILMLXDIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ftp&quot;
+        title=&quot;ftp&quot;
+        src=&quot;/static/2971d38d3d178b0cd23f57abbc193d63/c1b63/2.png&quot;
+        srcset=&quot;/static/2971d38d3d178b0cd23f57abbc193d63/5a46d/2.png 300w,
+/static/2971d38d3d178b0cd23f57abbc193d63/0a47e/2.png 600w,
+/static/2971d38d3d178b0cd23f57abbc193d63/c1b63/2.png 1200w,
+/static/2971d38d3d178b0cd23f57abbc193d63/a2498/2.png 1764w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;다음은 Passive Mode의 동작을 나타낸 그림인데 다음과 같은 순서로 동작한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;클라이언트가 서버의 21번 포트로 Passive 접속을 시도한다.&lt;/li&gt;
+&lt;li&gt;서버에서 사용할 포트를 클라이언트에 알려준다.&lt;/li&gt;
+&lt;li&gt;클라이언트는 서버에서 알려준 포트로 접속을 시도한다.&lt;/li&gt;
+&lt;li&gt;서버가 클라이언트의 요청에 응답한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;위에서 언급한 Active Mode와는 반대로 &lt;code class=&quot;language-text&quot;&gt;클라이언트에서 서버에 접속&lt;/code&gt; 하는 구조이다.&lt;/p&gt;
+&lt;p&gt;서버의 데이터 포트가 막혀 있는 경우 연결이 불가능하다. 데이터 포트의 범위는 별도로 지정하지 않는 경우 1024 ~ 65535번 포트를 사용하기 때문에 방화벽 인바운드를 모두 열어놔야 하는데, 데이터 포트의 범위를 지정해놓으면 이러한 문제를 어느 정도 해결할 수 있다고 한다.&lt;/p&gt;
+&lt;h2 id=&quot;ftp-client-nestjs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ftp-client-nestjs&quot; aria-label=&quot;ftp client nestjs permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;FTP Client (NestJS)&lt;/h2&gt;
+&lt;p&gt;프로젝트에서 서버 스택은 &lt;code class=&quot;language-text&quot;&gt;NestJS&lt;/code&gt; 를 사용했는데 일정 시간 마다 ESL Gateway에 csv 파일을 FTP 통신을 통해서 보내야했다. 일정 시간 간격으로 보내기 위해서 Cron을 사용했는데 이것과 관련된 내용은 다른 글에서 다루기로 하고 이번에는 FTP 연결에 초점을 맞추려고 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// task.module.ts&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; FtpModule &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;nestjs-ftp&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Module&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  imports&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    FtpModule&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forRootFtpAsync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      inject&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;ConfigService&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token function-variable function&quot;&gt;useFactory&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;configService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; ConfigService&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          host&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; configService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;FTP_HOST&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          port&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; configService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getNumber&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;FTP_PORT&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          user&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; configService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;FTP_USER&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          password&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; configService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;FTP_PASSWORD&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          secure&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; configService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getBoolean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;FTP_SECURE&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;내가 이용한 패키지는 &lt;code class=&quot;language-text&quot;&gt;nestjs-ftp&lt;/code&gt; 이다.&lt;/p&gt;
+&lt;p&gt;코드 상에서는 &lt;code class=&quot;language-text&quot;&gt;.env&lt;/code&gt; 환경 변수에서 설정 값을 읽어올 수 있도록 직접 구현한 ConfigService를 이용했지만 직접 입력해놔도 된다. 이렇게 클라이언트 설정이 끝나면 서비스 코드에서 파일을 보내주는 작업을 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// task.service.ts&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ftpService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;originPath&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;file&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;destinationPath&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;file&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;226&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;loggerService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ftp success&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;code &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;loggerService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ftp failed&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;loggerService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ftp unknown response&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;error&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;error&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;finally&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;unlinkSync&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;originPath&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;file&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;우선 전송할 파일을 생성해준다. 이후 &lt;code class=&quot;language-text&quot;&gt;upload(origin, destination)&lt;/code&gt; 를 이용해서 생성한 파일을 보내준다. &lt;code class=&quot;language-text&quot;&gt;nestjs-ftp&lt;/code&gt; 는 응답으로 code와 message가 도착하는데 직접 테스트 해보니 226이 오면 전송 성공, 0이 오면 전송 실패였다. 다른 코드가 오는 경우를 대비해서 예외 처리를 한번 더 해줬다. 마지막으로 finally 문에서 생성한 파일을 삭제해줬다.&lt;/p&gt;
+&lt;p&gt;클라이언트 설정(연결)만 제대로 되면 큰 문제 없이 FTP를 통해서 파일을 전송할 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;ftp-server-esl-gateway&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ftp-server-esl-gateway&quot; aria-label=&quot;ftp server esl gateway permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;FTP Server (ESL Gateway)&lt;/h2&gt;
+&lt;p&gt;ESL Gateway는 내가 직접 만든 것은 아니고 FTP 포트 설정이 되어있는 게이트웨이이다. 다만, 외부에서 접속하기 때문에 공유기 포트 포워딩 설정을 해줬다.&lt;/p&gt;
+&lt;p&gt;내가 사용 중인 공유기는 ipTIME 이고, 포트 포워딩 설정은 다른 공유기들도 비슷할거라고 생각한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;ipTime 관리도구 -&gt; 고급 설정 -&gt; NAT/라우터 관리 -&gt; 포트포워드 설정&lt;/code&gt; 순으로 들어가준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 647px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsSAAALEgHS3X78AAAArUlEQVQY0z2PWQ6AIBBDuf+tvIKKKEQl7guo4QI1nUQ/3sdsbUfN8wyyLAvO88R93z/jOCKEgJSScF0X9n1H3/domkZm3DuOA13X4XkeqLquURSFHK/rKgcU37ZNesYYWGtFgDOack4+QYplWQZnHRSLtm1FjHCJCUiMEcMwSN85JwZMw5pCTExYc58migdVVQlsaq1RlqW45nn+pyMxRDGhCD/w3mOaJvDLL9gLWP8k94Da6E8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ftp&quot;
+        title=&quot;ftp&quot;
+        src=&quot;/static/5ba07787602dbcc2cfdaaee86b2f57dd/ca12d/3.png&quot;
+        srcset=&quot;/static/5ba07787602dbcc2cfdaaee86b2f57dd/5a46d/3.png 300w,
+/static/5ba07787602dbcc2cfdaaee86b2f57dd/0a47e/3.png 600w,
+/static/5ba07787602dbcc2cfdaaee86b2f57dd/ca12d/3.png 647w&quot;
+        sizes=&quot;(max-width: 647px) 100vw, 647px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이후 &lt;code class=&quot;language-text&quot;&gt;새규칙 추가&lt;/code&gt; 를 통해서 외부 포트를 설정하고 FTP Server에 해당하는 내부 IP주소와 내부 포트를 설정해주면 된다.&lt;/p&gt;
+&lt;h2 id=&quot;ftp-server가-비정규-포트를-사용하는-경우&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ftp-server%EA%B0%80-%EB%B9%84%EC%A0%95%EA%B7%9C-%ED%8F%AC%ED%8A%B8%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%BD%EC%9A%B0&quot; aria-label=&quot;ftp server가 비정규 포트를 사용하는 경우 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;FTP Server가 비정규 포트를 사용하는 경우&lt;/h2&gt;
+&lt;p&gt;일반적으로 위 과정까지 마무리하면 접속과 파일 송수신이 원활하게 이루어진다. 다만, 나는 ESL Gateway를 받았을 때 FTP 포트 설정이 21번 정규 포트가 아니라 다른 포트를 사용하는 비정규 포트로 되어있었다. 위에서 설명한 것처럼 FTP 통신 시에 21번 포트는 &lt;code class=&quot;language-text&quot;&gt;Command&lt;/code&gt; 포트이고, 20번 포트는 &lt;code class=&quot;language-text&quot;&gt;Data&lt;/code&gt; 포트이다. 정해진 규약이기 때문에 일반적으로 공유기나 방화벽에서 21번 포트를 열면 20번 포트도 같이 열리게 된다.&lt;/p&gt;
+&lt;p&gt;하지만 비정규 포트를 사용하는 경우에는 &lt;code class=&quot;language-text&quot;&gt;FTP 연결이 되어도 디렉토리와 파일 목록이 보이지 않거나 데이터를 전송할 수 없다.&lt;/code&gt; 이를 해결하기 위해서 공유기에서 추가 작업을 해줘야한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;ipTime 관리도구 -&gt; 고급 설정 -&gt; NAT/라우터 관리 -&gt; 고급 NAT 설정 -&gt; FTP 비정규 포트&lt;/code&gt; 순으로 들어가준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 548px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 15%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeklEQVQI142NSQpEIQxEvf/ZBFFwIaK0CN95uEE1Eb70shdFKkPlsRgjhBDgnCN8AvbemHNijHFE/h/13k9l3ntYa++AntRaYYyBc+4AaEd6Ib+iTCkFSimklMBCCNBa43kerLXu0QtqrV1Iq+305AmQcz4Z6qWU58cXzAbe1BynYJcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ftp&quot;
+        title=&quot;ftp&quot;
+        src=&quot;/static/75aa8f125aba50dcc7e8556db6d0f523/a58fe/4.png&quot;
+        srcset=&quot;/static/75aa8f125aba50dcc7e8556db6d0f523/5a46d/4.png 300w,
+/static/75aa8f125aba50dcc7e8556db6d0f523/a58fe/4.png 548w&quot;
+        sizes=&quot;(max-width: 548px) 100vw, 548px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이후 이미지처럼 사용하기를 원하는 비정규 포트를 추가해주면 정상적으로 사용이 가능하다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[PM2로 서비스 운영하기 🚙]]></title><description><![CDATA[Node.js로 프로젝트를 마친 뒤에 서비스를 운영하려고 하면 크게 두 가지 고민에 빠진다. 무중단 서비스 하기 싱글 스레드 기반의 Node.js를 멀티 스레딩 혹은 하이퍼 스레딩으로 사용하기 이러한 고민을 PM2를 통해서 해결할 수 있다. PM…]]></description><link>https://dohyeon.dev/article/running-service-with-pm2/</link><guid isPermaLink="false">https://dohyeon.dev/article/running-service-with-pm2/</guid><pubDate>Mon, 15 Nov 2021 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Node.js로 프로젝트를 마친 뒤에 서비스를 운영하려고 하면 크게 두 가지 고민에 빠진다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;무중단 서비스 하기&lt;/li&gt;
 &lt;li&gt;싱글 스레드 기반의 Node.js를 멀티 스레딩 혹은 하이퍼 스레딩으로 사용하기&lt;/li&gt;
