@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-tags-js","path":"/tags/o-auth/","result":{"data":{"site":{"siteMetadata":{"title":"DOPUTER"}},"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"fields":{"slug":"/article/oauth/"},"frontmatter":{"title":"OAuth 2.0이란? 🔑"}}}]}},"pageContext":{"tag":"OAuth"}}}

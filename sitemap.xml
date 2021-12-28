@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://dohyeon.dev/article/oauth/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/article/using-ftp-in-nodejs/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/article/running-service-with-pm2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/article/deploy-to-s3-with-github-actions/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -15,15 +16,15 @@
 <url> <loc>https://dohyeon.dev/problem/boj-1003/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/algorithm/what-is-memoization/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/problem/boj-2752/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://dohyeon.dev/article/about-victim-cache/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/article/difference-between-structure-and-class/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dohyeon.dev/article/about-victim-cache/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/algorithm/check-time-complexity-visually/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/algorithm/selection-sort/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/problem/boj-9095/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/algorithm/cocktail-shaker-sort/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/algorithm/bubble-sort/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://dohyeon.dev/article/return-values-in-printf-scanf/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/article/remove-files-in-git/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dohyeon.dev/article/return-values-in-printf-scanf/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/42-seoul/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/boj/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/c/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -43,6 +44,7 @@
 <url> <loc>https://dohyeon.dev/tags/memoization/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/memory/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/nest-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://dohyeon.dev/tags/o-auth/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/port-forwarding/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/react-js/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://dohyeon.dev/tags/sort/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
