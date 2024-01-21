@@ -26,6 +26,7 @@ const config: GatsbyConfig = {
               classPrefix: 'language-',
             },
           },
+          'gatsby-remark-copy-linked-files',
         ],
       },
     },
