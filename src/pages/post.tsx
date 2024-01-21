@@ -3,7 +3,7 @@ import { ChevronRightIcon } from '@radix-ui/react-icons';
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/seo';
-import h2 from '@/components/typography/h2';
+import typography from '@/components/typography';
 
 interface PostPageProps {
   data: Queries.PageQuery;
@@ -22,7 +22,7 @@ function PostPage({ data, children }: PostPageProps) {
       </div>
       <h1 className="mb-12 text-4xl font-extrabold tracking-tight">{title}</h1>
       <div>
-        <MDXProvider components={{ h2 }}>{children}</MDXProvider>
+        <MDXProvider components={typography}>{children}</MDXProvider>
       </div>
     </>
   );

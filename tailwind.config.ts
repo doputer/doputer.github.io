@@ -5,11 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        idle: '#d1d5db',
-        pick: '#ffadad',
-        hold: '#99d98c',
-        flag: '#f4a261',
-        done: '#7fc8f8',
+        muted: '#f4f4f5',
       },
     },
   },
