@@ -20,6 +20,12 @@ const config: GatsbyConfig = {
               maxWidth: 768,
             },
           },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+            },
+          },
         ],
       },
     },
