@@ -37,9 +37,9 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     }
 
     type Frontmatter {
-      type: String!
+      category: String!
       title: String!
-      tags: [String!]!
+      date: String!
     }
   `);
 };
@@ -66,11 +66,6 @@ export const createPages = async ({ graphql, actions }) => {
         nodes {
           fields {
             slug
-          }
-          body
-          frontmatter {
-            type
-            title
           }
           internal {
             contentFilePath

@@ -1,5 +1,4 @@
 import { MDXProvider } from '@mdx-js/react';
-import { ChevronRightIcon } from '@radix-ui/react-icons';
 import { graphql } from 'gatsby';
 
 import SEO from '@/components/seo';
@@ -11,14 +10,12 @@ interface PostPageProps {
 }
 
 function PostPage({ data, children }: PostPageProps) {
-  const { type, title } = data.mdx.frontmatter;
+  const { category, title, date } = data.mdx.frontmatter;
 
   return (
     <>
-      <div className="mb-2 flex items-center text-lg">
-        <div className="text-muted-foreground">{type}</div>
-        <ChevronRightIcon />
-        <div className="font-semibold">{title}</div>
+      <div className="mb-2 flex items-center gap-1 text-lg">
+        <div>{category}</div>·<div>{date}</div>
       </div>
       <h1 className="mb-12 text-4xl font-extrabold tracking-tight">{title}</h1>
       <div>
@@ -34,8 +31,9 @@ export const query = graphql`
   query Page($slug: String) {
     mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
-        type
+        category
         title
+        date(formatString: "YYYY.MM.DD")
       }
     }
   }
