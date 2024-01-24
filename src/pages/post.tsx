@@ -14,13 +14,14 @@ function PostPage({ data, children }: PostPageProps) {
 
   return (
     <>
-      <div className="mb-2 flex items-center gap-1 text-lg">
-        <div>{category}</div>·<div>{date}</div>
+      <div className="mb-12 flex flex-col gap-2">
+        <div>{category}</div>
+        <h1 className="text-4xl font-extrabold tracking-tight">{title}</h1>
+        <time>{date}</time>
       </div>
-      <h1 className="mb-12 text-4xl font-extrabold tracking-tight">{title}</h1>
-      <div>
+      <article>
         <MDXProvider components={typography}>{children}</MDXProvider>
-      </div>
+      </article>
     </>
   );
 }
