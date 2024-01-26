@@ -1,3 +1,4 @@
+import Footer from '@/components/footer';
 import Header from '@/components/header';
 
 interface LayoutProps {
@@ -6,10 +7,11 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen w-screen px-8 pt-8 text-dark transition-colors dark:bg-dark dark:text-light">
+    <div className="min-h-screen w-screen p-8 text-dark transition-colors dark:bg-dark dark:text-light">
       <div className="mx-auto my-0 max-w-2xl">
         <Header />
-        <main className="mt-8 pb-8">{children}</main>
+        <main className="my-8">{children}</main>
+        <Footer />
       </div>
     </div>
   );
