@@ -1,4 +1,4 @@
-import { GitHubLogoIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 
 import useTheme from '@/hooks/useTheme';
 
@@ -12,17 +12,9 @@ function Header() {
       </a>
       <div className="flex items-center gap-4">
         <button onClick={toggleTheme} aria-label="theme_button">
-          <SunIcon width={20} height={20} className="hidden dark:block" />
-          <MoonIcon width={20} height={20} className="dark:hidden" />
+          <SunIcon className="hidden h-6 w-6 dark:block" />
+          <MoonIcon className="h-6 w-6 dark:hidden" />
         </button>
-        <a
-          href="https://github.com/doputer"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="github_anchor"
-        >
-          <GitHubLogoIcon width={20} height={20} />
-        </a>
       </div>
     </header>
   );
