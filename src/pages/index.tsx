@@ -21,7 +21,7 @@ function IndexPage({ data }: PageProps<Queries.PagesQuery>) {
                 <span key={tag}>{tag.toUpperCase()}</span>
               ))}
             </div>
-            <div className="my-4 text-mute">{frontmatter.description}</div>
+            <div className="my-4 text-mute dark:text-background">{frontmatter.description}</div>
             <div>{frontmatter.date}</div>
           </div>
         </div>
