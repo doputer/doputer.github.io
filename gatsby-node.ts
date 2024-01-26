@@ -37,8 +37,10 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     }
 
     type Frontmatter {
-      category: String!
+      emoji: String!
       title: String!
+      description: String!
+      tags: [String!]!
       date: String!
     }
   `);

@@ -10,12 +10,11 @@ interface PostPageProps {
 }
 
 function PostPage({ data, children }: PostPageProps) {
-  const { category, title, date } = data.mdx.frontmatter;
+  const { title, date } = data.mdx.frontmatter;
 
   return (
     <>
       <div className="mb-12 flex flex-col gap-2">
-        <div>{category}</div>
         <h1 className="text-4xl font-extrabold tracking-tight">{title}</h1>
         <time>{date}</time>
       </div>
@@ -32,7 +31,6 @@ export const query = graphql`
   query Page($slug: String) {
     mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
-        category
         title
         date(formatString: "YYYY.MM.DD")
       }
