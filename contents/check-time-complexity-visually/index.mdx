@@ -1,6 +1,10 @@
 ---
-category: '개발'
-title: '시간 복잡도 가시적으로 확인해보기 👀'
+emoji: '👀'
+title: '시간 복잡도 가시적으로 확인해보기'
+description: '얼마나 정확하게 측정해 볼 수 있을까요'
+tags:
+  - algorithm
+  - time complexity
 date: 2020-10-01
 ---
 
@@ -63,8 +67,8 @@ int main(void)
 
 작동 원리는 메인보드에 고해상도의 타이머가 존재하는데 이를 이용하여 특정 실행 시점들의 CPU 클럭수들을 얻어온 후 그 차이를 이용하여 작업 시간을 구한다. clock() 함수와 달리 1us 이하의 시간까지 측정한다.
 
-- QueryPerformanceFrequency() : 타이머의 주파수(초당 진동수)를 얻는 함수
-- QueryPerformanceCounter() : 타이머의 CPU 클럭수를 얻는 함수
+- QueryPerformanceFrequency() : 타이머의 주파수(초당 진동수)를 얻는 함수
+- QueryPerformanceCounter() : 타이머의 CPU 클럭수를 얻는 함수
 
 작업 전후의 클럭수 차를 주파수로 나누면 작업 시간(s)을 구할 수 있고, ms단위로 출력하기 위해선 결과 값에 1,000을 곱해주면 된다.
 
