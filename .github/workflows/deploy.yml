@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+run-name: Gatsby Publish
+
 jobs:
   build:
     runs-on: ubuntu-latest
