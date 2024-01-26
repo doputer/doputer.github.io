@@ -31,7 +31,17 @@ const scriptElement = [
   }),
 ];
 
-export const onRenderBody = ({ setPreBodyComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
+  setHeadComponents([
+    <link
+      rel="preload"
+      href="/fonts/PretendardVariable.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+      key="pretendardFont"
+    />,
+  ]);
   setPreBodyComponents(scriptElement);
 };
 
