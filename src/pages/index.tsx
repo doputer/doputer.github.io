@@ -7,7 +7,7 @@ function IndexPage({ data }: PageProps<Queries.PagesQuery>) {
     <div className="flex flex-col gap-8">
       {data.allMdx.nodes.map(({ fields, frontmatter }, index) => (
         <div key={index} className="group flex flex-wrap items-center justify-center gap-4">
-          <div className="rounded-lg bg-background p-12 text-6xl">
+          <div className="xs:w-fit flex w-full items-center justify-center rounded-lg bg-background p-12 text-6xl">
             <div className="group-hover:animate-flip">{frontmatter.emoji}</div>
           </div>
           <div className="flex-1">

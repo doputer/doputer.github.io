@@ -11,8 +11,11 @@ export default {
         link: '#3a86ff',
         background: '#eef1f5',
       },
+      screens: {
+        xs: '480px',
+      },
       animation: {
-        flip: 'flip 1s ease-in-out infinite',
+        flip: 'flip 1s linear infinite',
       },
       keyframes: {
         flip: {
