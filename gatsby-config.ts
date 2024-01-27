@@ -38,6 +38,12 @@ const config: GatsbyConfig = {
       },
       __key: 'contents',
     },
+    {
+      resolve: 'gatsby-plugin-google-gtag',
+      options: {
+        trackingIds: ['G-G34J3PGR8Z'],
+      },
+    },
   ],
   flags: {
     DEV_SSR: true,
