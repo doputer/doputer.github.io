@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 
+import Comment from '@/components/comment';
 import SEO from '@/components/seo';
 import typography from '@/components/typography';
 
@@ -21,6 +22,9 @@ function PostPage({ data, children }: PostPageProps) {
       <article>
         <MDXProvider components={typography}>{children}</MDXProvider>
       </article>
+      <div className="my-16">
+        <Comment />
+      </div>
     </>
   );
 }
