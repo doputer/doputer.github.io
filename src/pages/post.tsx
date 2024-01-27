@@ -37,9 +37,14 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "YYYY.MM.DD")
+        description
       }
     }
   }
 `;
 
-export const Head = () => <SEO />;
+export const Head = ({ data }: PostPageProps) => {
+  const { title, description } = data.mdx.frontmatter;
+
+  return <SEO title={title} description={description} />;
+};

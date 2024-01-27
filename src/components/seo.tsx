@@ -5,7 +5,7 @@ interface SEOProps {
   description?: string;
 }
 
-function SEO({ title = 'Doputer', description = 'Doputer Blog' }: SEOProps) {
+function SEO({ title, description }: SEOProps) {
   const seo = useSiteMetadata();
 
   return (
@@ -13,6 +13,9 @@ function SEO({ title = 'Doputer', description = 'Doputer Blog' }: SEOProps) {
       <html lang="ko" />
       <title>{title || seo.title}</title>
       <meta name="description" content={description || seo.description} />
+      <meta property="og:title" content={title || seo.title} />
+      <meta property="og:description" content={description || seo.description} />
+      <meta property="og:url" content={seo.siteUrl} />
     </>
   );
 }

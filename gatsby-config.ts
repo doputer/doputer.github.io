@@ -4,6 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Doputer`,
     siteUrl: `https://dohyeon.dev`,
+    description: '개발자 김도현 블로그 입니다.',
   },
   graphqlTypegen: true,
   trailingSlash: 'never',
