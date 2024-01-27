@@ -3,7 +3,7 @@ import type { GatsbyConfig } from 'gatsby';
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Doputer`,
-    siteUrl: `https://doputer.github.io`,
+    siteUrl: `https://dohyeon.dev`,
   },
   graphqlTypegen: true,
   trailingSlash: 'never',
@@ -44,6 +44,7 @@ const config: GatsbyConfig = {
         trackingIds: ['G-G34J3PGR8Z'],
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
   flags: {
     DEV_SSR: true,
