@@ -25,6 +25,7 @@ const config: GatsbyConfig = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: 'language-',
+              noInlineHighlight: true,
             },
           },
           'gatsby-remark-copy-linked-files',
