@@ -28,6 +28,12 @@ const config: GatsbyConfig = {
               noInlineHighlight: true,
             },
           },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
+            },
+          },
           'gatsby-remark-copy-linked-files',
         ],
       },
