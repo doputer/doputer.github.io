@@ -7,7 +7,7 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen w-screen p-8 text-dark transition-colors dark:bg-dark dark:text-light">
+    <div className="min-h-screen p-8 text-dark transition-colors dark:bg-dark dark:text-light">
       <div className="mx-auto my-0 max-w-2xl">
         <Header />
         <main className="my-8">{children}</main>
