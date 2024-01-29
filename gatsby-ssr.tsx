@@ -3,6 +3,7 @@ import * as React from 'react';
 import Layout from './src/components/layout';
 
 import './src/styles/global.css';
+import 'prismjs/themes/prism-tomorrow.min.css';
 
 const scriptElement = [
   React.createElement('script', {
@@ -40,6 +41,14 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       type="font/woff2"
       crossOrigin="anonymous"
       key="pretendardFont"
+    />,
+    <link
+      rel="preload"
+      href="/fonts/JetBrainsMono.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+      key="JetBrainsMonoFont"
     />,
   ]);
   setPreBodyComponents(scriptElement);
