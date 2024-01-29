@@ -3,6 +3,10 @@ import type { Config } from 'tailwindcss';
 export default {
   content: [`./src/pages/**/*.{js,jsx,ts,tsx}`, `./src/components/**/*.{js,jsx,ts,tsx}`],
   theme: {
+    fontFamily: {
+      sans: ['Pretendard'],
+      mono: ['JetBrainsMono'],
+    },
     extend: {
       colors: {
         dark: '#24272e',
