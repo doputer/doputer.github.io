@@ -17,19 +17,19 @@ Node.js로 프로젝트를 마친 뒤에 서비스를 운영하려고 하면 크
 
 ## PM2 란?
 
-PM2는 `daemon process manager` 로 Node.js로 만들어진 프로그램의 프로세스을 편하게 관리할 수 있도록 도와준다.
+PM2는 **daemon process manager**로 Node.js로 만들어진 프로그램의 프로세스을 편하게 관리할 수 있도록 도와준다.
 
 ## PM2 설치하기
 
 간단하게 다음과 같은 명령어로 설치할 수 있다.
 
-```shell session
+```shellsession
 $ npm install -g pm2
 ```
 
 전역 설치라 권한 오류가 발생한다면 다음과 같은 명령어를 사용하면 된다.
 
-```shell session
+```shellsession
 $ sudo npm install -g pm2
 ```
 
@@ -37,7 +37,7 @@ $ sudo npm install -g pm2
 
 설치 후 다음과 같이 입력하면 현재 실행 중인 프로세스를 확인할 수 있다. 물론 처음에는 관리 중은 프로세스가 없어서 비어있는 리스트가 나타난다.
 
-```shell session
+```shellsession
 $ pm2 list
 ```
 
@@ -47,7 +47,7 @@ id, name 등의 열들은 프로세스를 시작하면 직관적으로 어떤 �
 
 이제 다른 명령어들을 알아보자.
 
-```shell session
+```shellsession
 $ pm2 start <서버 실행 파일>.js # 프로세스 실행
 $ pm2 stop <id / name> # 프로세스 중지
 $ pm2 restart <id / name> # 프로세스 재시작
@@ -56,7 +56,7 @@ $ pm2 logs # 프로세스 로그
 $ pm2 monit # 프로세스 모니터링
 ```
 
-이 중에서 `pm2 logs` 명령어는 Linux의 `tail -f` 명령어처럼 /home/ubuntu/.pm2/logs 에 존재하는 로그 파일들을 보여준다.
+이 중에서 `pm2 logs` 명령어는 Linux의 `tail -f` 명령어처럼 `/home/ubuntu/.pm2/logs`에 존재하는 로그 파일들을 보여준다.
 
 `pm2 monit` 명령어는 프로세스 별로 실시간 로그를 보여준다. 이밖에도 하단에 프로세스의 사용량과 정보들을 함께 제공한다.
 
@@ -64,13 +64,13 @@ $ pm2 monit # 프로세스 모니터링
 
 ## PM2 조금 더 유용하게 사용하기
 
-`pm2 start` 명령어를 통해서 서버를 잘 운영하고 있었는데 트래픽이 급증했다고 해보자. 아무리 서버가 죽었을 때 바로 살리고, 내부 로직을 효율적으로 구현했다고 하더라도 싱글 스레드인 Node.js의 한계가 나타나기 시작한다. 이럴 때 PM2의 `cluster` 를 이용할 수 있다.
+`pm2 start` 명령어를 통해서 서버를 잘 운영하고 있었는데 트래픽이 급증했다고 해보자. 아무리 서버가 죽었을 때 바로 살리고, 내부 로직을 효율적으로 구현했다고 하더라도 싱글 스레드인 Node.js의 한계가 나타나기 시작한다. 이럴 때 PM2의 `cluster`를 이용할 수 있다.
 
-```shell session
+```shellsession
 $ pm2 start -i <클러스터링 개수 / max> <서버 실행 파일>.js # N개 혹은 max(최대 개수)로 프로세스 실행
 ```
 
-등록한 개수만큼 PM2에 등록하고, `Load Balancing(LB)` 를 통해 부하를 분산시켜준다. Load Balancing은 `round robin(RB)` 방식으로 동작한다. 옵션 하나만 추가해주면 PM2가 알아서 프로세스를 구성해준다.
+등록한 개수만큼 PM2에 등록하고, `Load Balancing(LB)`를 통해 부하를 분산시켜준다. Load Balancing은 `round robin(RB)` 방식으로 동작한다. 옵션 하나만 추가해주면 PM2가 알아서 프로세스를 구성해준다.
 
 ![](2.png)
 
@@ -109,6 +109,6 @@ module.exports = {
 
 파일에서 옵션 설정을 해줬다면 다음과 같은 명령어로 PM2를 이용하면 된다.
 
-```shell session
+```shellsession
 $ pm2 start ecosystem.config.js
 ```

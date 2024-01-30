@@ -10,11 +10,11 @@ date: 2020-09-30
 
 ## 소개
 
-Cocktail shaker sort(칵테일 셰이커 정렬)는 거품 정렬에서 파생된 정렬 알고리즘이다. 양방향 거품 정렬 혹은 셰이커 정렬 등으로 불린다. 시간 복잡도가 $O(n^2)$ 으로 거품 정렬과 비슷하다. 정렬하는 게 마치 칵테일을 위아래로 흔드는 모습과 비슷하다 하여 이런 이름이 붙었다.
+칵테일 셰이커 정렬(Cocktail shaker sort)는 거품 정렬에서 파생된 정렬 알고리즘이다. 양방향 거품 정렬 혹은 셰이커 정렬 등으로 불린다. 시간 복잡도가 $O(n^2)$ 으로 거품 정렬과 비슷하다. 정렬하는 게 마치 칵테일을 위아래로 흔드는 모습과 비슷하다 하여 이런 이름이 붙었다.
 
 ## 정렬 과정
 
-다음과 같이 다섯 개의 정수가 주어졌을 때, `Cocktail shaker sort`로 오름 차순으로 정렬해보겠다.
+다음과 같이 다섯 개의 정수가 주어졌을 때, 오름 차순으로 정렬해보겠다.
 
 ```sh
 +-----+-----+-----+-----+-----+
@@ -121,38 +121,32 @@ Cocktail shaker sort(칵테일 셰이커 정렬)는 거품 정렬에서 파생�
 앞 선 예제를 코드로 구현하면 다음과 같다.
 
 ```c
-void cocktail_shaker_sort(int *array)
-{
-	int left = 0, right = SIZE - 1, temp;
+void cocktail_shaker_sort(int *array) {
+  int left = 0, right = SIZE - 1, temp;
 
-	while (1)
-	{
-		for (int i = left; i < right; i++)
-		{
-			if (array[i] > array[i + 1])
-			{
-				temp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = temp;
-			}
-			if (left + 1 == right)
-				return;
-		}
-		right--;
+  while (1) {
+    for (int i = left; i < right; i++) {
+      if (array[i] > array[i + 1]) {
+        temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+      }
+      if (left + 1 == right)
+        return;
+    }
+    right--;
 
-		for (int i = right; i > left; i--)
-		{
-			if (array[i - 1] > array[i])
-			{
-				temp = array[i - 1];
-				array[i - 1] = array[i];
-				array[i] = temp;
-			}
-			if (left + 1 == right)
-				return;
-		}
-		left++;
-	}
+    for (int i = right; i > left; i--) {
+      if (array[i - 1] > array[i]) {
+        temp = array[i - 1];
+        array[i - 1] = array[i];
+        array[i] = temp;
+      }
+      if (left + 1 == right)
+        return;
+    }
+    left++;
+  }
 }
 ```
 

@@ -10,11 +10,11 @@ date: 2020-10-01
 
 ## 소개
 
-Selection sort(선택 정렬)는 제자리 정렬 알고리즘의 하나로 가장 작은(혹은 가장 큰) 원소를 찾아서 교체하는 알고리즘이다. 말 그대로 원소를 선택해서 정렬한다.
+선택 정렬(Selection sort)는 제자리 정렬 알고리즘의 하나로 가장 작은(혹은 가장 큰) 원소를 찾아서 교체하는 알고리즘이다. 말 그대로 원소를 선택해서 정렬한다.
 
 ## 정렬 과정
 
-다음과 같이 다섯 개의 정수가 주어졌을 때, `Selection sort`로 오름 차순으로 정렬해보겠다.
+다음과 같이 다섯 개의 정수가 주어졌을 때, 오름 차순으로 정렬해보겠다.
 
 ```sh
 +-----+-----+-----+-----+-----+
@@ -73,24 +73,21 @@ Selection sort(선택 정렬)는 제자리 정렬 알고리즘의 하나로 가�
 ## 구현
 
 ```c
-void selection_sort(int *array)
-{
-	int temp, minIndex;
+void selection_sort(int *array) {
+  int temp, minIndex;
 
-	for (int i = 0; i < SIZE - 1; i++)
-	{
-		minIndex = i;
-		for (int j = i + 1; j < SIZE; j++)
-		{
-			if (array[minIndex] > array[j])
-				minIndex = j;
-			print_array(array);
-		}
+  for (int i = 0; i < SIZE - 1; i++) {
+    minIndex = i;
+    for (int j = i + 1; j < SIZE; j++) {
+      if (array[minIndex] > array[j])
+        minIndex = j;
+      print_array(array);
+    }
 
-		temp = array[i];
-		array[i] = array[minIndex];
-		array[minIndex] = temp;
-	}
+    temp = array[i];
+    array[i] = array[minIndex];
+    array[minIndex] = temp;
+  }
 }
 ```
 
