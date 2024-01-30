@@ -7,7 +7,7 @@ function IndexPage({ data }: PageProps<Queries.PagesQuery>) {
     <div className="flex flex-col gap-8">
       {data.allMdx.nodes.map(({ fields, frontmatter }, index) => (
         <div key={index} className="group flex flex-wrap items-center justify-center gap-4">
-          <div className="xs:w-fit flex w-full items-center justify-center rounded-lg bg-background p-12 text-6xl">
+          <div className="flex w-full items-center justify-center rounded-lg bg-background p-12 text-6xl xs:w-fit">
             <div className="group-hover:animate-flip">{frontmatter.emoji}</div>
           </div>
           <div className="flex-1">
@@ -16,12 +16,14 @@ function IndexPage({ data }: PageProps<Queries.PagesQuery>) {
                 {frontmatter.title}
               </a>
             </div>
-            <div className="flex gap-2 text-sm text-link">
+            <div className="flex gap-2 text-sm text-link-light dark:text-link-dark">
               {frontmatter.tags.map((tag) => (
                 <span key={tag}>{tag.toUpperCase()}</span>
               ))}
             </div>
-            <div className="my-4 text-mute dark:text-background">{frontmatter.description}</div>
+            <div className="my-4 text-mute-light dark:text-mute-dark">
+              {frontmatter.description}
+            </div>
             <div>{frontmatter.date}</div>
           </div>
         </div>

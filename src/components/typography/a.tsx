@@ -1,6 +1,10 @@
 function p(props: React.HtmlHTMLAttributes<HTMLAnchorElement>) {
   return (
-    <a className="font-medium text-link underline underline-offset-4" target="_blank" {...props} />
+    <a
+      className="font-medium text-link-light underline underline-offset-4 dark:text-link-dark"
+      target="_blank"
+      {...props}
+    />
   );
 }
 

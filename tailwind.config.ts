@@ -9,10 +9,16 @@ export default {
     },
     extend: {
       colors: {
-        dark: '#24272e',
         light: '#f4f4f5',
-        mute: '#808080',
-        link: '#3a86ff',
+        dark: '#24272e',
+        mute: {
+          light: '#595959',
+          dark: '#b3b3b3',
+        },
+        link: {
+          light: '#004ec7',
+          dark: '#69b8fc',
+        },
         background: '#eef1f5',
       },
       screens: {
