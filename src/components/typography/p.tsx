@@ -1,5 +1,5 @@
 function p(props: React.HtmlHTMLAttributes<HTMLParagraphElement>) {
-  return <p className="mb-4 leading-loose [&:not(:first-child)]:mt-4" {...props} />;
+  return <p className="my-4 text-lg" {...props} />;
 }
 
 export default p;

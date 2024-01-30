@@ -1,6 +1,9 @@
 function blockquote(props: React.HtmlHTMLAttributes<HTMLQuoteElement>) {
   return (
-    <blockquote className="mt-4 border-l-2 border-dark pl-4 italic dark:border-light" {...props} />
+    <blockquote
+      className="my-4 rounded-lg bg-background-light p-4 italic dark:bg-background-dark [&>p]:m-0"
+      {...props}
+    />
   );
 }
 

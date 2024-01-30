@@ -19,7 +19,10 @@ export default {
           light: '#004ec7',
           dark: '#69b8fc',
         },
-        background: '#eef1f5',
+        background: {
+          light: '#eef1f5',
+          dark: '#2d2d2d',
+        },
       },
       screens: {
         xs: '480px',
