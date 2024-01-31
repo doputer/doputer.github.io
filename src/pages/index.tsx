@@ -1,4 +1,4 @@
-import { graphql, PageProps } from 'gatsby';
+import { graphql, Link, PageProps } from 'gatsby';
 
 import SEO from '@/components/seo';
 
@@ -11,11 +11,9 @@ function IndexPage({ data }: PageProps<Queries.PagesQuery>) {
             <div className="group-hover:animate-flip">{frontmatter.emoji}</div>
           </div>
           <div className="flex-1">
-            <div>
-              <a href={fields.slug} className="text-2xl font-semibold">
-                {frontmatter.title}
-              </a>
-            </div>
+            <Link to={fields.slug} className="text-2xl font-semibold">
+              {frontmatter.title}
+            </Link>
             <div className="flex gap-2 text-sm text-link-light dark:text-link-dark">
               {frontmatter.tags.map((tag) => (
                 <span key={tag}>{tag.toUpperCase()}</span>
