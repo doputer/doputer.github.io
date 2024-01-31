@@ -76,15 +76,34 @@ export const createPages = async ({ graphql, actions }) => {
       }
     }
   `);
+  const posts = result.data.allMdx.nodes;
 
   const postTemplate = path.resolve(__dirname, `src/pages/post.tsx`);
 
-  result.data.allMdx.nodes.forEach((node) => {
+  posts.forEach((node) => {
     createPage({
       path: node.fields.slug,
       component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         slug: node.fields.slug,
+      },
+    });
+  });
+
+  const postsPerPage = 5;
+  const numPages = Math.ceil(posts.length / postsPerPage);
+
+  const pageTemplate = path.resolve(__dirname, 'src/templates/page.tsx');
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: `/pages/${i + 1}`,
+      component: pageTemplate,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
       },
     });
   });
