@@ -15,11 +15,11 @@ export const onCreateWebpackConfig = ({ actions }) => {
 
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
   actions.createTypes(`
-    type PagesQuery {
+    type PostsQuery {
       allMdx: AllMdx!
     }
 
-    type PageQuery {
+    type PostQuery {
       mdx: Nodes!
     }
 

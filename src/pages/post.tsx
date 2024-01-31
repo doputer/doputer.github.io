@@ -1,17 +1,12 @@
 import { MDXProvider } from '@mdx-js/react';
-import { graphql } from 'gatsby';
+import { graphql, type HeadProps, type PageProps } from 'gatsby';
 
 import Comment from '@/components/comment';
 import SEO from '@/components/seo';
 import typography from '@/components/typography';
 
-interface PostPageProps {
-  data: Queries.PageQuery;
-  children: JSX.Element;
-}
-
-function PostPage({ data, children }: PostPageProps) {
-  const { title, date } = data.mdx.frontmatter;
+function PostPage({ data: { mdx }, children }: PageProps<Queries.PostQuery>) {
+  const { title, date } = mdx.frontmatter;
 
   return (
     <>
@@ -32,7 +27,7 @@ function PostPage({ data, children }: PostPageProps) {
 export default PostPage;
 
 export const query = graphql`
-  query Page($slug: String) {
+  query Post($slug: String) {
     mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
@@ -43,7 +38,7 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({ data }: PostPageProps) => {
+export const Head = ({ data }: HeadProps<Queries.PostQuery>) => {
   const { title, description } = data.mdx.frontmatter;
 
   return <SEO title={title} description={description} />;

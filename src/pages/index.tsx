@@ -1,11 +1,11 @@
-import { graphql, Link, PageProps } from 'gatsby';
+import { graphql, Link, type PageProps } from 'gatsby';
 
 import SEO from '@/components/seo';
 
-function IndexPage({ data }: PageProps<Queries.PagesQuery>) {
+function IndexPage({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
   return (
     <div className="flex flex-col gap-8">
-      {data.allMdx.nodes.map(({ fields, frontmatter }, index) => (
+      {allMdx.nodes.map(({ fields, frontmatter }, index) => (
         <div key={index} className="group flex flex-wrap items-center justify-center gap-4">
           <div className="flex w-full items-center justify-center rounded-lg bg-background-light p-12 text-6xl dark:bg-background-dark xs:w-fit">
             <div className="group-hover:animate-flip">{frontmatter.emoji}</div>
@@ -33,7 +33,7 @@ function IndexPage({ data }: PageProps<Queries.PagesQuery>) {
 export default IndexPage;
 
 export const query = graphql`
-  query Pages {
+  query Posts {
     allMdx(sort: { fields: { slug: DESC } }) {
       nodes {
         fields {
