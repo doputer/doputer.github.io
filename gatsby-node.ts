@@ -78,7 +78,7 @@ export const createPages = async ({ graphql, actions }) => {
   `);
   const posts = result.data.allMdx.nodes;
 
-  const postTemplate = path.resolve(__dirname, `src/pages/post.tsx`);
+  const postTemplate = path.resolve(__dirname, `src/templates/post.tsx`);
 
   posts.forEach((node) => {
     createPage({

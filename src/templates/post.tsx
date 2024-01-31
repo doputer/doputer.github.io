@@ -5,7 +5,7 @@ import Comment from '@/components/comment';
 import SEO from '@/components/seo';
 import typography from '@/components/typography';
 
-function PostPage({ data: { mdx }, children }: PageProps<Queries.PostQuery>) {
+function PostTemplate({ data: { mdx }, children }: PageProps<Queries.PostQuery>) {
   const { title, date } = mdx.frontmatter;
 
   return (
@@ -24,7 +24,7 @@ function PostPage({ data: { mdx }, children }: PageProps<Queries.PostQuery>) {
   );
 }
 
-export default PostPage;
+export default PostTemplate;
 
 export const query = graphql`
   query Post($slug: String) {
