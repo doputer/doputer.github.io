@@ -25,6 +25,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
     type AllMdx {
       nodes: [Nodes!]!
+      totalCount: Int!
     }
 
     type Nodes {
@@ -42,6 +43,13 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       description: String!
       tags: [String!]!
       date: String!
+    }
+
+    type PageContext {
+      limit: Int!
+      skip: Int!
+      numPages: Int!
+      currentPage: Int!
     }
   `);
 };

@@ -1,5 +1,6 @@
 import { graphql, Link, type PageProps } from 'gatsby';
 
+import Pagination from '@/components/pagination';
 import SEO from '@/components/seo';
 
 function IndexPage({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
@@ -26,6 +27,7 @@ function IndexPage({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
           </div>
         </div>
       ))}
+      <Pagination numPages={Math.ceil(allMdx.totalCount / 5)} />
     </div>
   );
 }
@@ -34,7 +36,7 @@ export default IndexPage;
 
 export const query = graphql`
   query Posts {
-    allMdx(sort: { fields: { slug: DESC } }) {
+    allMdx(sort: { fields: { slug: DESC } }, limit: 5, skip: 0) {
       nodes {
         fields {
           slug
@@ -47,6 +49,7 @@ export const query = graphql`
           date(formatString: "YYYY.MM.DD")
         }
       }
+      totalCount
     }
   }
 `;

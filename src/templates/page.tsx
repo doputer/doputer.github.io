@@ -1,8 +1,12 @@
 import { graphql, Link, type PageProps } from 'gatsby';
 
+import Pagination from '@/components/pagination';
 import SEO from '@/components/seo';
 
-function PageTemplate({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
+function PageTemplate({
+  data: { allMdx },
+  pageContext,
+}: PageProps<Queries.PostsQuery, Queries.PageContext>) {
   return (
     <div className="flex flex-col gap-8">
       {allMdx.nodes.map(({ fields, frontmatter }, index) => (
@@ -26,6 +30,7 @@ function PageTemplate({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
           </div>
         </div>
       ))}
+      <Pagination numPages={pageContext.numPages} />
     </div>
   );
 }
