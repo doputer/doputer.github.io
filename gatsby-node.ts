@@ -25,6 +25,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
 
     type AllMdx {
       nodes: [Nodes!]!
+      totalCount: Int!
     }
 
     type Nodes {

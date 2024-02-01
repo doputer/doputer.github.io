@@ -1,5 +1,6 @@
 import { graphql, Link, type PageProps } from 'gatsby';
 
+import Counter from '@/components/counter';
 import Pagination from '@/components/pagination';
 import SEO from '@/components/seo';
 
@@ -9,6 +10,7 @@ function PageTemplate({
 }: PageProps<Queries.PostsQuery, Queries.PageContext>) {
   return (
     <div className="flex flex-col gap-8">
+      <Counter count={allMdx.totalCount} />
       {allMdx.nodes.map(({ fields, frontmatter }, index) => (
         <div key={index} className="group flex flex-wrap items-center justify-center gap-4">
           <div className="flex w-full items-center justify-center rounded-lg bg-background-light p-12 text-6xl dark:bg-background-dark xs:w-fit">
@@ -52,6 +54,7 @@ export const query = graphql`
           date(formatString: "YYYY.MM.DD")
         }
       }
+      totalCount
     }
   }
 `;
