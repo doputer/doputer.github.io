@@ -5,7 +5,7 @@ import SEO from '@/components/seo';
 
 function PageTemplate({
   data: { allMdx },
-  pageContext,
+  pageContext: { currentPage },
 }: PageProps<Queries.PostsQuery, Queries.PageContext>) {
   return (
     <div className="flex flex-col gap-8">
@@ -26,11 +26,11 @@ function PageTemplate({
             <div className="my-4 text-mute-light dark:text-mute-dark">
               {frontmatter.description}
             </div>
-            <div>{frontmatter.date}</div>
+            <time>{frontmatter.date}</time>
           </div>
         </div>
       ))}
-      <Pagination numPages={pageContext.numPages} />
+      <Pagination currentPage={currentPage} />
     </div>
   );
 }

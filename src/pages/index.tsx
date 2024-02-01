@@ -27,7 +27,7 @@ function IndexPage({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
           </div>
         </div>
       ))}
-      <Pagination numPages={Math.ceil(allMdx.totalCount / 5)} />
+      <Pagination />
     </div>
   );
 }
@@ -49,7 +49,6 @@ export const query = graphql`
           date(formatString: "YYYY.MM.DD")
         }
       }
-      totalCount
     }
   }
 `;
