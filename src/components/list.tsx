@@ -12,7 +12,7 @@ function List({ allMdx }: Queries.PostsQuery) {
             <Link to={fields.slug} className="text-2xl font-semibold">
               {frontmatter.title}
             </Link>
-            <div className="flex gap-2 text-sm text-link-light dark:text-link-dark">
+            <div className="flex flex-wrap gap-2 text-sm text-link-light dark:text-link-dark">
               {frontmatter.tags.map((tag) => (
                 <Link key={tag} to={`/tags/${tag}`}>
                   {tag.toUpperCase()}
