@@ -51,6 +51,11 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       numPages: Int!
       currentPage: Int!
     }
+
+    type TagContext {
+      tag: String!
+      totalCount: Int!
+    }
   `);
 };
 
@@ -80,6 +85,10 @@ export const createPages = async ({ graphql, actions }) => {
           internal {
             contentFilePath
           }
+        }
+        tags: group(field: { frontmatter: { tags: SELECT } }) {
+          tag: fieldValue
+          totalCount
         }
       }
     }
@@ -112,6 +121,21 @@ export const createPages = async ({ graphql, actions }) => {
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+      },
+    });
+  });
+
+  const tags = result.data.allMdx.tags;
+
+  const tagTemplate = path.resolve(__dirname, 'src/templates/tag.tsx');
+
+  tags.forEach(({ tag, totalCount }) => {
+    createPage({
+      path: `/tags/${tag}`,
+      component: tagTemplate,
+      context: {
+        tag,
+        totalCount,
       },
     });
   });
