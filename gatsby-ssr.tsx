@@ -19,13 +19,13 @@ const scriptElement = [
             else document.body.classList.remove('dark');
 
             localStorage.setItem('theme', newTheme);
+            window.__theme = newTheme;
           }
 
           darkQuery.addListener((event) => {
             window.__setTheme(event.matches ? 'dark' : 'light');
           });
 
-          window.__theme = theme;
           window.__setTheme(theme);
         } catch (e) {}
       `,
