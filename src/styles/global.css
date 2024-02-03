@@ -29,7 +29,7 @@
     @apply my-4 rounded-lg;
   }
 
-  pre[class*='language-'] * {
+  code[class*='language-'] {
     @apply font-mono;
   }
 }

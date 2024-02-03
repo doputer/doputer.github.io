@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import Layout from './src/components/layout';
 
-import './src/styles/global.css';
 import 'katex/dist/katex.min.css';
 import 'prismjs/themes/prism-tomorrow.min.css';
+import './src/styles/global.css';
 
 const scriptElement = [
   React.createElement('script', {
