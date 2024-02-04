@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     description: '개발자 김도현 블로그 입니다.',
   },
   graphqlTypegen: true,
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-sharp',
