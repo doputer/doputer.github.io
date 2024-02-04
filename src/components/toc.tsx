@@ -19,7 +19,7 @@ function TOC({ mdx }: Queries.PostQuery) {
   return (
     <nav className="absolute left-full hidden h-full xl:block">
       <ul className="sticky top-32 ml-8 flex flex-col gap-1 text-nowrap">
-        {mdx.tableOfContents.items.map((el) => (
+        {mdx.tableOfContents.items?.map((el) => (
           <li
             key={el.url}
             className={`cursor-pointer ${el.url === activeHeadingId ? 'text-link-light dark:text-link-dark' : ''}`}
