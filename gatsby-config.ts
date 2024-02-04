@@ -34,6 +34,16 @@ const config: GatsbyConfig = {
               strict: `ignore`,
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon: false,
+              maintainCase: false,
+              removeAccents: true,
+              isIconAfterHeader: true,
+              elements: [`h2`],
+            },
+          },
           'gatsby-remark-copy-linked-files',
         ],
       },

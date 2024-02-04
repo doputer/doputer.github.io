@@ -3,6 +3,7 @@ import { graphql, type HeadProps, type PageProps } from 'gatsby';
 
 import Comment from '@/components/comment';
 import SEO from '@/components/seo';
+import TOC from '@/components/toc';
 import typography from '@/components/typography';
 
 function PostTemplate({ data: { mdx }, children }: PageProps<Queries.PostQuery>) {
@@ -14,8 +15,11 @@ function PostTemplate({ data: { mdx }, children }: PageProps<Queries.PostQuery>)
         <h1 className="text-4xl font-extrabold tracking-tight">{title}</h1>
         <time>{date}</time>
       </div>
-      <article>
-        <MDXProvider components={typography}>{children}</MDXProvider>
+      <article className="relative">
+        <MDXProvider components={typography}>
+          <TOC mdx={mdx} />
+          {children}
+        </MDXProvider>
       </article>
       <div className="my-16">
         <Comment />
@@ -34,6 +38,7 @@ export const query = graphql`
         date(formatString: "YYYY.MM.DD")
         description
       }
+      tableOfContents
     }
   }
 `;

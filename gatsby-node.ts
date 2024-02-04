@@ -31,6 +31,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     type Nodes {
       fields: Fields!
       frontmatter: Frontmatter!
+      tableOfContents: TableOfContents!
     }
 
     type Fields {
@@ -50,6 +51,15 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       skip: Int!
       numPages: Int!
       currentPage: Int!
+    }
+
+    type TableOfContents {
+      items: [Item!]!
+    }
+
+    type Item {
+      url: String!
+      title: String!
     }
 
     type TagContext {
