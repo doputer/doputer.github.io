@@ -17,7 +17,7 @@ function Menu({ links }: MenuProps) {
   }, [open]);
 
   return (
-    <div className="relative xs:hidden">
+    <div className="relative z-10 xs:hidden">
       {open ? (
         <>
           <div className="fixed left-0 top-0 h-screen w-screen bg-dimmed backdrop-blur-sm"></div>

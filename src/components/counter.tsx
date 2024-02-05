@@ -7,7 +7,7 @@ function Counter({ label = 'all', count }: CounterProps) {
   return (
     <div className="text-4xl font-extrabold tracking-tight">
       {label.charAt(0).toUpperCase() + label.slice(1)}
-      <sup className="-z-10">{count}</sup>
+      <sup>{count}</sup>
     </div>
   );
 }
