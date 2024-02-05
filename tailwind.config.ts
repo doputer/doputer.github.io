@@ -13,8 +13,8 @@ export default {
     },
     extend: {
       colors: {
-        light: '#f4f4f5',
-        dark: '#24272e',
+        light: '#e6edf3',
+        dark: '#191c1f',
         mute: {
           light: '#595959',
           dark: '#b3b3b3',
