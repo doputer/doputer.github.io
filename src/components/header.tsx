@@ -1,23 +1,30 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import { Link } from 'gatsby';
 
+import Menu from '@/components/menu';
 import useTheme from '@/hooks/useTheme';
 
 function Header() {
   const [toggleTheme] = useTheme();
+  const links = ['About', 'Tags'];
 
   return (
     <header className="flex items-center justify-between">
       <Link to="/" className="text-xl font-bold tracking-tight">
         Doputer
       </Link>
-      <div className="flex gap-4">
-        <Link to="/tags">Tags</Link>
-        <button className="flex items-center gap-4" onClick={toggleTheme} aria-label="theme_button">
+      <nav className="flex gap-4">
+        {links.map((link) => (
+          <Link key={link} to={`/${link.toLowerCase()}`} className="hidden xs:block">
+            {link}
+          </Link>
+        ))}
+        <button className="flex items-center" onClick={toggleTheme} aria-label="theme_button">
           <SunIcon className="hidden h-6 w-6 dark:block" />
           <MoonIcon className="h-6 w-6 dark:hidden" />
         </button>
-      </div>
+        <Menu links={links} />
+      </nav>
     </header>
   );
 }

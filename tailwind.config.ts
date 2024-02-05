@@ -27,6 +27,7 @@ export default {
           light: '#eef1f5',
           dark: '#2d2d2d',
         },
+        dimmed: '#00000066',
       },
       screens: {
         xs: '480px',
