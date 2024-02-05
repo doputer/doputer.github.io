@@ -14,13 +14,17 @@ function Menu({ links }: MenuProps) {
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [open]);
 
   return (
     <div className="relative z-10 xs:hidden">
       {open ? (
         <>
-          <div className="fixed left-0 top-0 h-screen w-screen bg-dimmed backdrop-blur-sm"></div>
+          <div className="fixed left-0 top-0 h-full w-full bg-dimmed backdrop-blur-sm"></div>
           <div className="relative">
             <button className="flex items-center" onClick={toggleMenu} aria-label="close_button">
               <XMarkIcon className="h-6 w-6 text-white" />
