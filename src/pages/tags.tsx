@@ -3,7 +3,7 @@ import { graphql, Link, PageProps } from 'gatsby';
 import Counter from '@/components/counter';
 import SEO from '@/components/seo';
 
-function Tags({ data: { allMdx } }: PageProps<Queries.TagsQuery>) {
+function TagsPage({ data: { allMdx } }: PageProps<Queries.TagsQuery>) {
   return (
     <div className="flex flex-col gap-8">
       <Counter label="tags" count={allMdx.tags.length} />
@@ -22,7 +22,7 @@ function Tags({ data: { allMdx } }: PageProps<Queries.TagsQuery>) {
   );
 }
 
-export default Tags;
+export default TagsPage;
 
 export const query = graphql`
   query Tags {
