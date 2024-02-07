@@ -1,9 +1,26 @@
 import path from 'path';
 
-import { GatsbyNode } from 'gatsby';
+import { type GatsbyNode } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 
-export const onCreateWebpackConfig = ({ actions }) => {
+interface T {
+  allMdx: {
+    nodes: {
+      fields: {
+        slug: string;
+      };
+      internal: {
+        contentFilePath: string;
+      };
+    }[];
+    tags: {
+      tag: string;
+      totalCount: number;
+    }[];
+  };
+}
+
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -68,7 +85,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
   `);
 };
 
-export const onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
@@ -82,9 +99,9 @@ export const onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-export const createPages = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const result = await graphql(`
+  const { data } = (await graphql(`
     query Node {
       allMdx {
         nodes {
@@ -101,9 +118,9 @@ export const createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
-  const posts = result.data.allMdx.nodes;
-  const tags = result.data.allMdx.tags;
+  `)) as { data: T };
+  const posts = data.allMdx.nodes;
+  const tags = data.allMdx.tags;
 
   const postTemplate = path.resolve(__dirname, `src/templates/post.tsx`);
   const tagTemplate = path.resolve(__dirname, 'src/templates/tag.tsx');

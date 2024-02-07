@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { type GatsbySSR } from 'gatsby';
+
 import Layout from './src/components/layout';
 
 import 'katex/dist/katex.min.css';
@@ -33,7 +35,10 @@ const scriptElement = [
   }),
 ];
 
-export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+  setHeadComponents,
+  setPreBodyComponents,
+}) => {
   setHeadComponents([
     <link
       rel="preload"
@@ -41,7 +46,7 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
-      key="pretendardFont"
+      key="PretendardFont"
     />,
     <link
       rel="preload"
@@ -55,6 +60,6 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   setPreBodyComponents(scriptElement);
 };
 
-export const wrapPageElement = ({ element, props }) => {
+export const wrapPageElement: GatsbySSR['wrapPageElement'] = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;
 };
