@@ -1,11 +1,9 @@
 import type { GatsbyConfig } from 'gatsby';
 
+import metaConfig from './gatsby-meta-config';
+
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: `Doputer`,
-    siteUrl: `https://dohyeon.dev`,
-    description: '개발자 김도현 블로그 입니다.',
-  },
+  siteMetadata: metaConfig,
   graphqlTypegen: true,
   trailingSlash: 'always',
   plugins: [
@@ -18,7 +16,7 @@ const config: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 768,
+              maxWidth: 672,
             },
           },
           {
@@ -59,7 +57,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingIds: ['G-G34J3PGR8Z'],
+        trackingIds: metaConfig.gtag.trackingIds,
       },
     },
     `gatsby-plugin-sitemap`,

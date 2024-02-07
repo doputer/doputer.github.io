@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import Giscus from '@giscus/react';
 
+import metaConfig from '../../gatsby-meta-config';
+
 export default function Comment() {
   const [theme, setTheme] = useState('');
 
@@ -22,10 +24,10 @@ export default function Comment() {
   return (
     <Giscus
       id="comments"
-      repo="doputer/doputer.github.io"
-      repoId="R_kgDOGOk5Dg"
-      category="Comments"
-      categoryId="DIC_kwDOGOk5Ds4CcufD"
+      repo={metaConfig.comment.repo}
+      repoId={metaConfig.comment.repoId}
+      category={metaConfig.comment.category}
+      categoryId={metaConfig.comment.categoryId}
       mapping="pathname"
       strict="0"
       reactionsEnabled="1"

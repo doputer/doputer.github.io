@@ -49,7 +49,6 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     type PageContext {
       limit: Int!
       skip: Int!
-      numPages: Int!
       currentPage: Int!
     }
 
@@ -104,8 +103,11 @@ export const createPages = async ({ graphql, actions }) => {
     }
   `);
   const posts = result.data.allMdx.nodes;
+  const tags = result.data.allMdx.tags;
 
   const postTemplate = path.resolve(__dirname, `src/templates/post.tsx`);
+  const tagTemplate = path.resolve(__dirname, 'src/templates/tag.tsx');
+  const pageTemplate = path.resolve(__dirname, 'src/templates/page.tsx');
 
   posts.forEach((node) => {
     createPage({
@@ -117,28 +119,6 @@ export const createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const postsPerPage = 5;
-  const numPages = Math.ceil(posts.length / postsPerPage);
-
-  const pageTemplate = path.resolve(__dirname, 'src/templates/page.tsx');
-
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: `/pages/${i + 1}`,
-      component: pageTemplate,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
-    });
-  });
-
-  const tags = result.data.allMdx.tags;
-
-  const tagTemplate = path.resolve(__dirname, 'src/templates/tag.tsx');
-
   tags.forEach(({ tag, totalCount }) => {
     createPage({
       path: `/tags/${tag}`,
@@ -146,6 +126,18 @@ export const createPages = async ({ graphql, actions }) => {
       context: {
         tag,
         totalCount,
+      },
+    });
+  });
+
+  Array.from({ length: Math.ceil(posts.length / 5) }).forEach((_, i) => {
+    createPage({
+      path: `/pages/${i + 1}`,
+      component: pageTemplate,
+      context: {
+        limit: 5,
+        skip: i * 5,
+        currentPage: i + 1,
       },
     });
   });
