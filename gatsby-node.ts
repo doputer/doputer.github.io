@@ -100,7 +100,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
 };
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createSlice } = actions;
   const { data } = (await graphql(`
     query Node {
       allMdx {
@@ -157,5 +157,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         currentPage: i + 1,
       },
     });
+  });
+
+  createSlice({
+    id: 'header',
+    component: path.resolve(__dirname, 'src/components/header.tsx'),
+  });
+
+  createSlice({
+    id: 'footer',
+    component: path.resolve(__dirname, 'src/components/footer.tsx'),
   });
 };
