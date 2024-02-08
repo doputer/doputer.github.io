@@ -1,10 +1,25 @@
 import { useEffect, useState } from 'react';
 
 import Giscus from '@giscus/react';
-
-import metaConfig from '../../gatsby-meta-config';
+import { graphql, useStaticQuery } from 'gatsby';
 
 export default function Comment() {
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          comment {
+            repo
+            repoId
+            category
+            categoryId
+          }
+        }
+      }
+    }
+  `);
   const [theme, setTheme] = useState('');
 
   useEffect(() => {
@@ -24,10 +39,10 @@ export default function Comment() {
   return (
     <Giscus
       id="comments"
-      repo={metaConfig.comment.repo}
-      repoId={metaConfig.comment.repoId}
-      category={metaConfig.comment.category}
-      categoryId={metaConfig.comment.categoryId}
+      repo={siteMetadata.comment.repo}
+      repoId={siteMetadata.comment.repoId}
+      category={siteMetadata.comment.category}
+      categoryId={siteMetadata.comment.categoryId}
       mapping="pathname"
       strict="0"
       reactionsEnabled="1"
