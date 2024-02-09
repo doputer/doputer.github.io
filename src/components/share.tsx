@@ -14,7 +14,7 @@ function Share({ title, description }: ShareProps) {
     };
 
     if (navigator.canShare && navigator.canShare(shareData)) {
-      window.navigator.share();
+      window.navigator.share(shareData);
     } else {
       navigator.clipboard.writeText(decodeURI(window.location.href));
     }
