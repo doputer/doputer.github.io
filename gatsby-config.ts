@@ -20,6 +20,9 @@ const config: GatsbyConfig = {
             },
           },
           {
+            resolve: 'gatsby-remark-gifs',
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               classPrefix: 'language-',
@@ -42,7 +45,6 @@ const config: GatsbyConfig = {
               elements: [`h2`],
             },
           },
-          'gatsby-remark-copy-linked-files',
         ],
       },
     },
