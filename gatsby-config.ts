@@ -60,6 +60,12 @@ const config: GatsbyConfig = {
         trackingIds: metaConfig.gtag.trackingIds,
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: metaConfig.siteUrl,
+      },
+    },
     `gatsby-plugin-sitemap`,
   ],
   flags: {
