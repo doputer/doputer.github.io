@@ -10,11 +10,11 @@ function PageTemplate({
   pageContext: { currentPage },
 }: PageProps<Queries.PostsQuery, Queries.PageContext>) {
   return (
-    <div className="flex flex-col gap-8">
+    <>
       <Counter count={allMdx.totalCount} />
       <List allMdx={allMdx} />
       <Pagination currentPage={currentPage} />
-    </div>
+    </>
   );
 }
 

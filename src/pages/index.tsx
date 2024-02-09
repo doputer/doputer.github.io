@@ -7,11 +7,11 @@ import SEO from '@/components/seo';
 
 function IndexPage({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
   return (
-    <div className="flex flex-col gap-8">
+    <>
       <Counter count={allMdx.totalCount} />
       <List allMdx={allMdx} />
       <Pagination />
-    </div>
+    </>
   );
 }
 

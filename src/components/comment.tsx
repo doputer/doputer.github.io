@@ -37,20 +37,22 @@ export default function Comment() {
   }, []);
 
   return (
-    <Giscus
-      id="comments"
-      repo={siteMetadata.comment.repo}
-      repoId={siteMetadata.comment.repoId}
-      category={siteMetadata.comment.category}
-      categoryId={siteMetadata.comment.categoryId}
-      mapping="title"
-      strict="0"
-      reactionsEnabled="1"
-      emitMetadata="0"
-      inputPosition="top"
-      theme={theme}
-      lang="ko"
-      loading="lazy"
-    />
+    <div>
+      <Giscus
+        id="comments"
+        repo={siteMetadata.comment.repo}
+        repoId={siteMetadata.comment.repoId}
+        category={siteMetadata.comment.category}
+        categoryId={siteMetadata.comment.categoryId}
+        mapping="title"
+        strict="0"
+        reactionsEnabled="1"
+        emitMetadata="0"
+        inputPosition="top"
+        theme={theme}
+        lang="ko"
+        loading="lazy"
+      />
+    </div>
   );
 }

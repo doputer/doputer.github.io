@@ -9,10 +9,10 @@ function TagTemplate({
   pageContext: { tag, totalCount },
 }: PageProps<Queries.PostsQuery, Queries.TagContext>) {
   return (
-    <div className="flex flex-col gap-8">
+    <>
       <Counter label={tag} count={totalCount} />
       <List allMdx={allMdx} />
-    </div>
+    </>
   );
 }
 

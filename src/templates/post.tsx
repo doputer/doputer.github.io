@@ -12,22 +12,16 @@ function PostTemplate({ data: { mdx }, children }: PageProps<Queries.PostQuery>)
 
   return (
     <>
-      <div className="mb-12 flex flex-col gap-2">
+      <div className="space-y-2">
         <h1 className="text-4xl font-extrabold tracking-tight">{title}</h1>
-        <time>{date}</time>
+        <time className="block">{date}</time>
       </div>
       <article className="relative">
-        <MDXProvider components={typography}>
-          <TOC mdx={mdx} />
-          {children}
-        </MDXProvider>
+        <TOC mdx={mdx} />
+        <MDXProvider components={typography}>{children}</MDXProvider>
       </article>
-      <div className="my-16">
-        <Share title={title} description={description} />
-      </div>
-      <div className="my-16">
-        <Comment />
-      </div>
+      <Share title={title} description={description} />
+      <Comment />
     </>
   );
 }
