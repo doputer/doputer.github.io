@@ -43,7 +43,7 @@ export default function Comment() {
       repoId={siteMetadata.comment.repoId}
       category={siteMetadata.comment.category}
       categoryId={siteMetadata.comment.categoryId}
-      mapping="og:title"
+      mapping="title"
       strict="0"
       reactionsEnabled="1"
       emitMetadata="0"
