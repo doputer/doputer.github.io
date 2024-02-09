@@ -3,11 +3,12 @@ import { graphql, type HeadProps, type PageProps } from 'gatsby';
 
 import Comment from '@/components/comment';
 import SEO from '@/components/seo';
+import Share from '@/components/share';
 import TOC from '@/components/toc';
 import typography from '@/components/typography';
 
 function PostTemplate({ data: { mdx }, children }: PageProps<Queries.PostQuery>) {
-  const { title, date } = mdx.frontmatter;
+  const { title, description, date } = mdx.frontmatter;
 
   return (
     <>
@@ -21,6 +22,9 @@ function PostTemplate({ data: { mdx }, children }: PageProps<Queries.PostQuery>)
           {children}
         </MDXProvider>
       </article>
+      <div className="my-16">
+        <Share title={title} description={description} />
+      </div>
       <div className="my-16">
         <Comment />
       </div>
