@@ -18,8 +18,8 @@ function IndexPage({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
 export default IndexPage;
 
 export const query = graphql`
-  query Posts {
-    allMdx(sort: { fields: { slug: DESC } }, limit: 5, skip: 0) {
+  query {
+    allMdx(sort: { internal: { contentFilePath: DESC } }, limit: 5, skip: 0) {
       nodes {
         fields {
           slug

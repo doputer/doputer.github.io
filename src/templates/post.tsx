@@ -31,7 +31,7 @@ function PostTemplate({ data: { mdx }, children }: PageProps<Queries.PostQuery>)
 export default PostTemplate;
 
 export const query = graphql`
-  query Post($slug: String) {
+  query ($slug: String) {
     mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title

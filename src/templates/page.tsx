@@ -21,8 +21,8 @@ function PageTemplate({
 export default PageTemplate;
 
 export const query = graphql`
-  query Posts($skip: Int!, $limit: Int!) {
-    allMdx(sort: { fields: { slug: DESC } }, limit: $limit, skip: $skip) {
+  query ($skip: Int!, $limit: Int!) {
+    allMdx(sort: { internal: { contentFilePath: DESC } }, limit: $limit, skip: $skip) {
       nodes {
         fields {
           slug

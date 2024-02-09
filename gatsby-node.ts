@@ -1,24 +1,8 @@
 import path from 'path';
 
 import { type GatsbyNode } from 'gatsby';
-import { createFilePath } from 'gatsby-source-filesystem';
 
-interface T {
-  allMdx: {
-    nodes: {
-      fields: {
-        slug: string;
-      };
-      internal: {
-        contentFilePath: string;
-      };
-    }[];
-    tags: {
-      tag: string;
-      totalCount: number;
-    }[];
-  };
-}
+import slugify from './src/utils/slugify';
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions }) => {
   actions.setWebpackConfig({
@@ -85,23 +69,21 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
   `);
 };
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
+export const onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode });
-
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: `/${slugify(node.frontmatter.title)}`,
     });
   }
 };
 
-export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
+export const createPages = async ({ graphql, actions }) => {
   const { createPage, createSlice } = actions;
-  const { data } = (await graphql(`
+  const { data } = await graphql(`
     query Node {
       allMdx {
         nodes {
@@ -118,7 +100,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         }
       }
     }
-  `)) as { data: T };
+  `);
   const posts = data.allMdx.nodes;
   const tags = data.allMdx.tags;
 

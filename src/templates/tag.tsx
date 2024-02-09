@@ -19,8 +19,11 @@ function TagTemplate({
 export default TagTemplate;
 
 export const query = graphql`
-  query Posts($tag: String) {
-    allMdx(sort: { fields: { slug: DESC } }, filter: { frontmatter: { tags: { in: [$tag] } } }) {
+  query ($tag: String) {
+    allMdx(
+      sort: { internal: { contentFilePath: DESC } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
       nodes {
         fields {
           slug

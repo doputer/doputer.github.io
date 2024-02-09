@@ -5,7 +5,7 @@ import metaConfig from './gatsby-meta-config';
 const config: GatsbyConfig = {
   siteMetadata: metaConfig,
   graphqlTypegen: true,
-  trailingSlash: 'always',
+  trailingSlash: 'never',
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-sharp',
