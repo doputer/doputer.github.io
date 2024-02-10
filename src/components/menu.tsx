@@ -13,7 +13,7 @@ function Menu({ links }: MenuProps) {
 
   useEffect(() => {
     if (open) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'auto';
+    else document.body.style.overflow = 'visible';
 
     return () => {
       document.body.style.overflow = 'unset';
