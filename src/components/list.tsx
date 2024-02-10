@@ -9,7 +9,7 @@ function List({ allMdx }: Queries.PostsQuery) {
           className="group flex flex-wrap items-center justify-center gap-4"
         >
           <div className="flex w-full items-center justify-center rounded-lg bg-background-light p-12 text-6xl dark:bg-background-dark xs:w-fit">
-            <div className="group-hover:animate-flip">{frontmatter.emoji}</div>
+            <div className="pointer-events-none group-hover:animate-flip">{frontmatter.emoji}</div>
           </div>
           <div className="flex-1">
             <Link to={fields.slug} className="text-2xl font-semibold">
@@ -25,7 +25,7 @@ function List({ allMdx }: Queries.PostsQuery) {
             <div className="my-4 text-mute-light dark:text-mute-dark">
               {frontmatter.description}
             </div>
-            <div>{frontmatter.date}</div>
+            <time>{frontmatter.date}</time>
           </div>
         </div>
       ))}
