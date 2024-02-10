@@ -8,24 +8,32 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Pretendard'],
-      mono: ['JetBrainsMono'],
+      sans: ['Pretendard', 'sans-serif'],
+      mono: ['JetBrainsMono', 'consolas'],
     },
     extend: {
       colors: {
-        light: '#e6edf3',
-        dark: '#191c1f',
-        mute: {
-          light: '#595959',
-          dark: '#b3b3b3',
+        light: {
+          DEFAULT: '#dddddd',
+          mute: '#595959',
+          link: '#004ec7',
+          background: '#eef1f5',
+          line: '#e5e7eb',
+          code: {
+            DEFAULT: '#ea580c',
+            background: '#fb923c1a',
+          },
         },
-        link: {
-          light: '#004ec7',
-          dark: '#69b8fc',
-        },
-        background: {
-          light: '#eef1f5',
-          dark: '#2d2d2d',
+        dark: {
+          DEFAULT: '#191c1f',
+          mute: '#b3b3b3',
+          link: '#10b981',
+          background: '#222527',
+          line: '#3a3e42',
+          code: {
+            DEFAULT: '#a78bfa',
+            background: '#f3e8ff1a',
+          },
         },
         dimmed: '#00000066',
       },
@@ -37,8 +45,8 @@ export default {
       },
       keyframes: {
         flip: {
-          '0%, 100%': { transform: 'rotateY(0)' },
-          '50%': { transform: 'rotateY(180deg)' },
+          '0%': { transform: 'rotateY(0)' },
+          '100%': { transform: 'rotateY(360deg)' },
         },
       },
     },

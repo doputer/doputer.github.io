@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <footer className="flex justify-center border-t border-background-light pt-8 text-sm text-mute-light dark:border-background-dark dark:text-mute-dark">
-      ⓒ 2024. 김도현
+    <footer className="flex justify-center border-t border-light-line pt-8 text-sm text-light-mute dark:border-dark-line dark:text-dark-mute">
+      ⓒ 2024. 김도현. All Rights Reserved.
     </footer>
   );
 }

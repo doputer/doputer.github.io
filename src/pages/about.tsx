@@ -7,7 +7,7 @@ function AboutPage() {
       <p className="mb-8 text-center text-lg">안녕하세요. 개발자 김도현 입니다.</p>
       <p className="flex justify-center gap-8 text-center text-lg">
         <a
-          className="text-link-light dark:text-link-dark"
+          className="text-light-link dark:text-dark-link"
           href="https://github.com/doputer"
           target="_blank"
           rel="noreferrer"
@@ -16,7 +16,7 @@ function AboutPage() {
           GitHub
         </a>
         <a
-          className="text-link-light dark:text-link-dark"
+          className="text-light-link dark:text-dark-link"
           href="mailto:swputer@gmail.com"
           target="_blank"
           rel="noreferrer"

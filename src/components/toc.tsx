@@ -22,7 +22,7 @@ function TOC({ mdx }: Queries.PostQuery) {
         {mdx.tableOfContents.items?.map((el) => (
           <li
             key={el.url}
-            className={`cursor-pointer ${el.url === activeHeadingId ? 'text-link-light dark:text-link-dark' : ''}`}
+            className={`cursor-pointer ${el.url === activeHeadingId ? 'text-light-link dark:text-dark-link' : ''}`}
             onClick={() => handleHeadingClick(el.url)}
           >
             {el.title}

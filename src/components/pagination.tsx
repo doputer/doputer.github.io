@@ -28,7 +28,7 @@ function Pagination({ currentPage = 1 }: PaginationProps) {
         <Link
           key={i}
           to={`/pages/${i + 1 + startPage}`}
-          className={`text-lg ${currentPage === i + 1 + startPage ? 'text-link-light dark:text-link-dark' : ''}`}
+          className={`text-lg ${currentPage === i + 1 + startPage ? 'text-light-link dark:text-dark-link' : ''}`}
         >
           {i + 1 + startPage}
         </Link>

@@ -1,7 +1,7 @@
 function code(props: React.HtmlHTMLAttributes<HTMLElement>) {
   return (
     <code
-      className="rounded bg-background-light px-1 py-0.5 font-sans text-base font-semibold dark:bg-background-dark"
+      className="rounded bg-light-code-background px-1 py-0.5 font-sans text-light-code dark:bg-dark-code-background dark:text-dark-code"
       {...props}
     />
   );

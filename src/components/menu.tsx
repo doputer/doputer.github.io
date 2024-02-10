@@ -34,7 +34,7 @@ function Menu({ links }: MenuProps) {
                 <li key={link} className="text-lg" onClick={toggleMenu}>
                   <Link
                     to={`/${link.toLowerCase()}`}
-                    className="block w-full rounded-lg px-4 py-2 hover:bg-background-light"
+                    className="block w-full rounded-lg px-4 py-2 hover:bg-light-background"
                   >
                     {link}
                   </Link>
