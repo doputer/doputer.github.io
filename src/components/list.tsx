@@ -3,8 +3,11 @@ import { Link } from 'gatsby';
 function List({ allMdx }: Queries.PostsQuery) {
   return (
     <>
-      {allMdx.nodes.map(({ fields, frontmatter }, index) => (
-        <div key={index} className="group flex flex-wrap items-center justify-center gap-4">
+      {allMdx.nodes.map(({ fields, frontmatter }) => (
+        <div
+          key={frontmatter.title}
+          className="group flex flex-wrap items-center justify-center gap-4"
+        >
           <div className="flex w-full items-center justify-center rounded-lg bg-background-light p-12 text-6xl dark:bg-background-dark xs:w-fit">
             <div className="group-hover:animate-flip">{frontmatter.emoji}</div>
           </div>
