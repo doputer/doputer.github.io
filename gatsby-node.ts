@@ -76,7 +76,7 @@ export const onCreateNode = ({ node, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `/${slugify(node.frontmatter.title)}`,
+      value: `/${slugify(node.frontmatter.title)}/`,
     });
   }
 };
