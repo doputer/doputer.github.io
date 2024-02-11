@@ -1,7 +1,7 @@
 ---
 emoji: '🔍'
 title: 'Full Text Search를 활용한 검색 기능 개발기'
-description: '편리한 ORM은 항상 좋을까요'
+description: 'LIKE절 보다 뛰어납니다'
 tags:
   - article
   - database
@@ -22,7 +22,7 @@ date: 2022-12-16
 
 ## LIKE절은 어떨까?
 
-데이터베이스에서 문자열을 찾는 쿼리를 날릴 때 가장 먼저 떠오르는 것은 `LIKE 절`이다. 초기에 LIKE 절을 사용한 쿼리로 구현하고, 추후에는 조회 시에 인덱스를 타게해서 성능을 개선해볼 여지도 있었다.
+데이터베이스에서 문자열을 찾는 쿼리를 날릴 때 가장 먼저 떠오르는 것은 `LIKE절`이다. 초기에 LIKE절을 사용한 쿼리로 구현하고, 추후에는 조회 시에 인덱스를 타게해서 성능을 개선해볼 여지도 있었다.
 
 그러나 LIKE 절은 와일드카드(%)를 사용할 때 항상 인덱스를 타지 않는다.
 
@@ -95,7 +95,7 @@ N-gram 파서는 지정된 토큰 사이즈를 기준으로 키워드를 추출�
 
 이제 Full-Text Search에 대한 충분한 설명이 된 것 같으니 실제로 어떻게 사용하는지 알아보자.
 
-Full-Text Index가 걸려있는 컬럼에 한해서 `MATCH … AGAINST 절`을 사용해서 검색을 이용할 수 있다.
+Full-Text Index가 걸려있는 컬럼에 한해서 `MATCH … AGAINST절`을 사용해서 검색을 이용할 수 있다.
 
 ```sql
 SELECT ...
@@ -177,4 +177,4 @@ const articles = await prisma.article.findMany({
 });
 ```
 
-`WHERE 절`에서 `search` 키워드를 통해 Full-Text Search를 사용할 수 있고, `ORDER BY 절`에서 `_relevance` 키워드를 통해 관련성 순으로 정렬할 수 있다.
+`WHERE절`에서 `search` 키워드를 통해 Full-Text Search를 사용할 수 있고, `ORDER BY절`에서 `_relevance` 키워드를 통해 관련성 순으로 정렬할 수 있다.
