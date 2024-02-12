@@ -5,8 +5,8 @@ interface CounterProps {
 
 function Counter({ label = 'all', count }: CounterProps) {
   return (
-    <div className="text-4xl font-extrabold tracking-tight">
-      {label.charAt(0).toUpperCase() + label.slice(1)}
+    <div className="text-4xl font-extrabold capitalize tracking-tight">
+      {label}
       <sup>{count}</sup>
     </div>
   );

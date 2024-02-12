@@ -12,9 +12,9 @@ function TagsPage({ data: { allMdx } }: PageProps<Queries.TagsQuery>) {
           <Link
             key={tag}
             to={`/tags/${tag}`}
-            className="rounded-lg bg-light-background px-2 py-1 text-sm dark:bg-dark-background"
+            className="rounded-lg bg-light-background px-2 py-1 text-sm uppercase dark:bg-dark-background"
           >
-            {tag?.toUpperCase()} ({totalCount})
+            {tag} ({totalCount})
           </Link>
         ))}
       </div>
