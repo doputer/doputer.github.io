@@ -6,6 +6,7 @@ import img from '@/components/typography/img';
 import ol from '@/components/typography/ol';
 import p from '@/components/typography/p';
 import strong from '@/components/typography/strong';
+import table from '@/components/typography/table';
 import ul from '@/components/typography/ul';
 
-export default { a, blockquote, code, h2, img, ol, p, strong, ul };
+export default { a, blockquote, code, h2, img, ol, p, strong, table, ul };
