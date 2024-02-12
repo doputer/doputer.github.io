@@ -3,7 +3,7 @@ const metaConfig = {
   siteUrl: 'https://dohyeon.dev',
   description: '개발자 김도현 블로그 입니다.',
   comment: {
-    repo: 'doputer/doputer.github.io' as `${string}/${string}`,
+    repo: 'doputer/doputer.github.io',
     repoId: 'R_kgDOGOk5Dg',
     category: 'Comments',
     categoryId: 'DIC_kwDOGOk5Ds4CcufD',

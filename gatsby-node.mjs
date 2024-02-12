@@ -1,10 +1,11 @@
-import path from 'path';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-import { type GatsbyNode } from 'gatsby';
+import slugify from './src/utils/slugify.mjs';
 
-import slugify from './src/utils/slugify';
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions }) => {
+export const onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -14,7 +15,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ act
   });
 };
 
-export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
+export const createSchemaCustomization = ({ actions }) => {
   actions.createTypes(`
     type PostsQuery {
       allMdx: AllMdx!

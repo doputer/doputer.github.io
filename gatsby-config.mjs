@@ -1,8 +1,8 @@
-import { type GatsbyConfig } from 'gatsby';
+import remarkGfm from 'remark-gfm';
 
-import metaConfig from './gatsby-meta-config';
+import metaConfig from './gatsby-meta-config.mjs';
 
-const config: GatsbyConfig = {
+const config = {
   siteMetadata: metaConfig,
   graphqlTypegen: true,
   plugins: [
@@ -45,6 +45,9 @@ const config: GatsbyConfig = {
             },
           },
         ],
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
       },
     },
     {
