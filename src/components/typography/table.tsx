@@ -1,4 +1,4 @@
-function table(props: React.HtmlHTMLAttributes<HTMLTableElement>) {
+function table(props: React.TableHTMLAttributes<HTMLTableElement>) {
   return (
     <div className="my-4 w-full overflow-y-auto">
       <table

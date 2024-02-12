@@ -1,4 +1,4 @@
-function img(props: React.HtmlHTMLAttributes<HTMLImageElement>) {
+function img(props: React.ImgHTMLAttributes<HTMLImageElement>) {
   return <img className="m-auto my-4" {...props} />;
 }
 

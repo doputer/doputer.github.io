@@ -1,4 +1,4 @@
-function strong(props: React.HtmlHTMLAttributes<HTMLElement>) {
+function strong(props: React.HTMLAttributes<HTMLElement>) {
   return <strong className="font-bold" {...props} />;
 }
 
