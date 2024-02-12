@@ -17,8 +17,8 @@ function List({ allMdx }: Queries.PostsQuery) {
             </Link>
             <div className="flex flex-wrap gap-2 text-sm uppercase text-light-link dark:text-dark-link">
               {frontmatter.tags.map((tag) => (
-                <Link key={tag} to={`/tags/${tag}`}>
-                  #{tag}
+                <Link key={tag} to={`/tags/${tag.replace(/\s/g, '-')}`}>
+                  {tag}
                 </Link>
               ))}
             </div>

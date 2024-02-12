@@ -28,6 +28,7 @@ export const createSchemaCustomization = ({ actions }) => {
     type AllMdx {
       nodes: [Nodes!]!
       totalCount: Int!
+      tags: [TagContext!]!
     }
 
     type Nodes {
@@ -121,7 +122,7 @@ export const createPages = async ({ graphql, actions }) => {
 
   tags.forEach(({ tag, totalCount }) => {
     createPage({
-      path: `/tags/${tag}`,
+      path: `/tags/${tag.replace(/\s/g, '-')}`,
       component: tagTemplate,
       context: {
         tag,
