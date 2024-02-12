@@ -1,4 +1,4 @@
-function p(props: React.HtmlHTMLAttributes<HTMLAnchorElement>) {
+function a(props: React.HtmlHTMLAttributes<HTMLAnchorElement>) {
   return (
     <a
       className="font-medium text-light-link underline underline-offset-4 dark:text-dark-link"
@@ -8,4 +8,4 @@ function p(props: React.HtmlHTMLAttributes<HTMLAnchorElement>) {
   );
 }
 
-export default p;
+export default a;
