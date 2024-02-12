@@ -1,12 +1,14 @@
 ### Feature
 
+- Responsive Design
 - Dark Theme
 - TOC
-- Responsive Design
-- SEO
+- MDX
+- GFM (GitHub Flavored Markdown)
 - CD (GitHub Actions)
 - Syntax Highlighting (PrismJS)
 - Comment (Giscus)
 - Math Typesetting (KaTeX)
+- SEO
 - GA
 - Config
