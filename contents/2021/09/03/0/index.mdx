@@ -20,7 +20,7 @@ HTML `<textarea>` 태그에서 bold, italic 등을 적용할 수 있고, 적용�
 
 ## 위지윅 에디터를 이용하기에 앞서
 
-처음 개발 프로젝트에서 위지윅 에디터가 필요해서 직접 구현하려고 했다. 보통 웹에서 에디터를 개발할 때는 [contentEditable](https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/contenteditable)과 [document.execCommand()](https://developer.mozilla.org/ko/docs/Web/API/Document/execCommand)를 이용한다.
+처음 개발 프로젝트에서 위지윅 에디터가 필요해서 직접 구현하려고 했다. 보통 웹에서 에디터를 개발할 때는 [contentEditable](https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/contenteditable)과 [document.execCommand()](https://developer.mozilla.org/ko/docs/Web/API/Document/execCommand)를 이용한다.
 
 ```html
 <div contenteditable="true"></div>
@@ -29,7 +29,7 @@ HTML `<textarea>` 태그에서 bold, italic 등을 적용할 수 있고, 적용�
 
 ```js
 document.execCommand('bold');
-/* 선택영역(텍스트를 드래그 한 영역)의 양쪽에 <b> 태그 혹은 <strong> 태그를 삽입한다. */
+// 선택영역(텍스트를 드래그 한 영역)의 양쪽에 <b> 태그 혹은 <strong> 태그를 삽입한다.
 ```
 
 그런데 `contentEditable`은 표준이 아니기 때문에 브라우저마다 다르게 동작한다. 예를 들어 브라우저마다 bold를 표시할 때 `<b>` 태그를 사용하기도 하고, `<strong>` 태그를 사용하기도 한다. 그뿐만 아니라 줄 바꿈 또한 `<br>`와 `<div>`를 사용하는 등 마찬가지이다. 심지어 `document.execCommand()`의 명령어 동작도 브라우저마다 다르다고 한다.
@@ -53,7 +53,11 @@ document.execCommand('bold');
 
 ![](1.gif)
 
-[문서](https://draftjs.org/)도 잘 되어있고, 막히는 부분은 개발 커뮤니티를 통해서 충분히 해결 가능했다. 블록 스타일과 선택 영역 스타일을 제공하는데, 기본적으로 블록 스타일에서는 `<h1>~<h6>`, `<ul>`, `<ol>`, `<blockquote>`, `<code>` 등을 제공하고, 선택 영역 스타일에서는 **bold**, _italic_, <u>underline</u>, <del>strikethrough</del> 를 제공한다.
+[문서](https://draftjs.org/)도 잘 되어있고, 막히는 부분은 개발 커뮤니티를 통해서 충분히 해결 가능했다. 기본적으로 다양한 블록 스타일과 선택 영역 스타일을 제공한다.
+
+> 블록 스타일: h1~h6, ul, ol, blockquote, code
+>
+> 선택 영역 스타일: bold, italic, underline, strikethrough
 
 나는 추가적으로 `text-align`이 필요했기 때문에 커스텀 블록 스타일로 left, center, right를 추가했다. 필요에 따라서 첨부 파일, 링크, 주석, 테이블 스타일을 추가할 수 있다. 문서화가 잘 되어있기 때문에 손쉽게 추가할 수 있다.
 
