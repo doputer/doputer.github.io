@@ -62,6 +62,7 @@ export const createSchemaCustomization = ({ actions }) => {
     type Item {
       url: String!
       title: String!
+      items: [Item!]!
     }
 
     type TagContext {

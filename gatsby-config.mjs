@@ -41,7 +41,7 @@ const config = {
               maintainCase: false,
               removeAccents: true,
               isIconAfterHeader: true,
-              elements: [`h2`],
+              elements: [`h2`, `h3`],
             },
           },
         ],

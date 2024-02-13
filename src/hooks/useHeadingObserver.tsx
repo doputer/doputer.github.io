@@ -5,7 +5,7 @@ const useHeadingObserver = () => {
   const [activeHeadingId, setActiveHeadingId] = useState<string>('');
 
   useEffect(() => {
-    setHeadings(Array.from(document.querySelectorAll('h2')));
+    setHeadings(Array.from(document.querySelectorAll('h2, h3')));
   }, []);
 
   useEffect(() => {
