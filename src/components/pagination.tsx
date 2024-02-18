@@ -21,7 +21,7 @@ function Pagination({ currentPage = 1 }: PaginationProps) {
 
   return (
     <div className="flex items-center justify-center gap-4">
-      <Link to={`/pages/${startPage}`} className={`h-4 w-4 ${startPage === 0 ? 'invisible' : ''}`}>
+      <Link to={`/pages/${startPage}`} className={`size-4 ${startPage === 0 ? 'invisible' : ''}`}>
         <ChevronLeftIcon />
       </Link>
       {Array.from({ length: endPage - startPage }).map((_, i) => (
@@ -35,7 +35,7 @@ function Pagination({ currentPage = 1 }: PaginationProps) {
       ))}
       <Link
         to={`/pages/${endPage + 1}`}
-        className={`h-4 w-4 ${endPage === numPages ? 'invisible' : ''}`}
+        className={`size-4 ${endPage === numPages ? 'invisible' : ''}`}
       >
         <ChevronRightIcon />
       </Link>

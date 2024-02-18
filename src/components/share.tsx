@@ -28,7 +28,7 @@ function Share({ title, description }: ShareProps) {
         aria-label="share_button"
       >
         공유하기
-        <ShareIcon className="h-6 w-6" />
+        <ShareIcon className="size-6" />
       </button>
     </div>
   );

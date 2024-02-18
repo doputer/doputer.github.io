@@ -20,8 +20,8 @@ function Header() {
           </Link>
         ))}
         <button className="flex items-center" onClick={toggleTheme} aria-label="theme_button">
-          <SunIcon className="hidden h-6 w-6 dark:block" />
-          <MoonIcon className="h-6 w-6 dark:hidden" />
+          <SunIcon className="hidden size-6 dark:block" />
+          <MoonIcon className="size-6 dark:hidden" />
         </button>
         <Menu links={links} />
       </nav>

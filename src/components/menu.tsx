@@ -27,7 +27,7 @@ function Menu({ links }: MenuProps) {
           <div className="fixed left-0 top-0 h-full w-full bg-dimmed backdrop-blur-sm"></div>
           <div className="relative">
             <button className="flex items-center" onClick={toggleMenu} aria-label="close_button">
-              <XMarkIcon className="h-6 w-6 text-white" />
+              <XMarkIcon className="size-6 text-white" />
             </button>
             <ul className="absolute right-0 top-full mt-2 flex min-w-48 flex-col rounded-lg bg-white p-2 dark:text-dark">
               {links.map((link) => (
@@ -45,7 +45,7 @@ function Menu({ links }: MenuProps) {
         </>
       ) : (
         <button className="flex items-center" onClick={toggleMenu} aria-label="menu_button">
-          <Bars3Icon className="h-6 w-6" />
+          <Bars3Icon className="size-6" />
         </button>
       )}
     </div>
