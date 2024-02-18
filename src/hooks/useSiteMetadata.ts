@@ -8,6 +8,12 @@ const useSiteMetadata = () => {
           title
           description
           siteUrl
+          comment {
+            repo
+            repoId
+            category
+            categoryId
+          }
         }
       }
     }

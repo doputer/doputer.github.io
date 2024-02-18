@@ -1,25 +1,11 @@
 import { useEffect, useState } from 'react';
 
 import Giscus from '@giscus/react';
-import { graphql, useStaticQuery } from 'gatsby';
+
+import useSiteMetadata from '@/hooks/useSiteMetadata';
 
 export default function Comment() {
-  const {
-    site: { siteMetadata },
-  } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          comment {
-            repo
-            repoId
-            category
-            categoryId
-          }
-        }
-      }
-    }
-  `);
+  const siteMetadata = useSiteMetadata();
   const [theme, setTheme] = useState('');
 
   useEffect(() => {

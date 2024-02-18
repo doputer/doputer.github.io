@@ -2,16 +2,18 @@ import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import { Link } from 'gatsby';
 
 import Menu from '@/components/menu';
+import useSiteMetadata from '@/hooks/useSiteMetadata';
 import useTheme from '@/hooks/useTheme';
 
 function Header() {
+  const siteMetadata = useSiteMetadata();
   const [toggleTheme] = useTheme();
   const links = ['About', 'Tags'];
 
   return (
     <header className="flex items-center justify-between">
       <Link to="/" className="text-xl font-bold tracking-tight">
-        Doputer
+        {siteMetadata.title}
       </Link>
       <nav className="flex gap-4">
         {links.map((link) => (
