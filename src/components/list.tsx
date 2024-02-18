@@ -9,7 +9,9 @@ function List({ allMdx }: Queries.PostsQuery) {
           className="group flex flex-wrap items-center justify-center gap-4"
         >
           <div className="flex w-full items-center justify-center rounded-lg bg-light-background p-12 text-6xl dark:bg-dark-background xs:w-fit">
-            <div className="pointer-events-none group-hover:animate-flip">{frontmatter.emoji}</div>
+            <div className="pointer-events-none select-none group-hover:animate-flip">
+              {frontmatter.emoji}
+            </div>
           </div>
           <div className="flex-1">
             <Link to={fields.slug} className="text-2xl font-semibold">
