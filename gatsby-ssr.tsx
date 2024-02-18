@@ -4,12 +4,9 @@ import { type GatsbySSR } from 'gatsby';
 
 import Layout from './src/components/layout';
 
-import 'katex/dist/katex.min.css';
-import 'prismjs/themes/prism-tomorrow.min.css';
-import './src/styles/global.css';
-
 const scriptElement = [
   React.createElement('script', {
+    key: 'ThemeScript',
     dangerouslySetInnerHTML: {
       __html: `
         try {
