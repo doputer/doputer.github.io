@@ -22,14 +22,26 @@
   body {
     @apply font-sans;
   }
-}
 
-@layer components {
   pre[class*='language-'] {
     @apply my-4 rounded-lg;
   }
 
   code[class*='language-'] {
     @apply font-mono;
+  }
+}
+
+@layer components {
+  .box {
+    @apply rounded-lg bg-light-background dark:bg-dark-background;
+  }
+
+  .link {
+    @apply text-light-link dark:text-dark-link;
+  }
+
+  .mute {
+    @apply text-light-mute dark:text-dark-mute;
   }
 }

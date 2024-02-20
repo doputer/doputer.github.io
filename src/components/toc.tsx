@@ -22,7 +22,7 @@ function TOC({ mdx }: Queries.PostQuery) {
         {mdx.tableOfContents.items?.map((h1) => (
           <Fragment key={h1.url}>
             <li
-              className={`cursor-pointer ${h1.url === activeHeadingId ? 'text-light-link dark:text-dark-link' : ''}`}
+              className={`cursor-pointer ${h1.url === activeHeadingId ? 'link' : ''}`}
               onClick={() => handleHeadingClick(h1.url)}
             >
               {h1.title}
@@ -31,7 +31,7 @@ function TOC({ mdx }: Queries.PostQuery) {
               h1.items.map((h2) => (
                 <li
                   key={h2.url}
-                  className={`cursor-pointer pl-4 ${h2.url === activeHeadingId ? 'text-light-link dark:text-dark-link' : ''}`}
+                  className={`cursor-pointer pl-4 ${h2.url === activeHeadingId ? 'link' : ''}`}
                   onClick={() => handleHeadingClick(h2.url)}
                 >
                   {h2.title}

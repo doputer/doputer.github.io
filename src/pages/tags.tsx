@@ -12,7 +12,7 @@ function TagsPage({ data: { allMdx } }: PageProps<Queries.PostsQuery>) {
           <Link
             key={tag}
             to={`/tags/${tag.replace(/\s/g, '-')}`}
-            className="rounded-lg bg-light-background px-2 py-1 text-sm uppercase dark:bg-dark-background"
+            className="box px-2 py-1 text-sm uppercase"
           >
             {tag} ({totalCount})
           </Link>
