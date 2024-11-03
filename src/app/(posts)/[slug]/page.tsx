@@ -1,11 +1,12 @@
-import { getMdxContent } from '@/lib/mdx';
+import { parseMDX, readMDXFile } from '@/lib/mdx';
 
 interface PageProps {
   params: { slug: string };
 }
 
 const Page = async ({ params }: PageProps) => {
-  const { frontmatter, MDXContent } = await getMdxContent(params.slug);
+  const markdown = await readMDXFile(decodeURI(params.slug));
+  const { MDXContent } = await parseMDX(markdown);
 
   return (
     <>

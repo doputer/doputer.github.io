@@ -1,4 +1,4 @@
-import { access, readFile } from 'fs/promises';
+import { access, readdir, readFile } from 'fs/promises';
 import path from 'path';
 
 import * as runtime from 'react/jsx-runtime';
@@ -10,10 +10,16 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
 import type { Frontmatter } from '@/lib/types';
 
-const POSTS_FOLDER = path.join(process.cwd(), 'src/contents');
+const MDX_DIR = path.join(process.cwd(), 'src/contents');
 
-const readContentFile = async (slug: string) => {
-  const filePath = path.resolve(path.join(POSTS_FOLDER, `${slug}.mdx`));
+const readMDXDir = async () => {
+  const filePaths = await readdir(MDX_DIR);
+
+  return filePaths.map((filePath) => filePath.split('.')[0]);
+};
+
+const readMDXFile = async (name: string) => {
+  const filePath = path.resolve(path.join(MDX_DIR, `${name}.mdx`));
 
   try {
     await access(filePath);
@@ -26,9 +32,7 @@ const readContentFile = async (slug: string) => {
   return fileContent;
 };
 
-const getMdxContent = async (fileName: string) => {
-  const markdown = await readContentFile(fileName);
-
+const parseMDX = async (markdown: string) => {
   const code = String(
     await compile(markdown, {
       remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'frontmatter' }]],
@@ -44,4 +48,4 @@ const getMdxContent = async (fileName: string) => {
   return { frontmatter: frontmatter as Frontmatter, MDXContent };
 };
 
-export { getMdxContent };
+export { readMDXDir, readMDXFile, parseMDX };
