@@ -7,7 +7,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>{children}</body>
+      <body className="min-h-screen px-4 py-8 text-dark transition-colors dark:bg-dark dark:text-light">
+        <main className="mx-auto max-w-2xl space-y-8">{children}</main>
+      </body>
     </html>
   );
 }
