@@ -1,7 +1,7 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 
-import Menu from '@/components/menu';
+import Menu from '@/components/Header/Menu';
+import Switcher from '@/components/Header/ThemeSwitcher';
 import meta from '@/configs/metadata.json';
 
 const LINKS = ['About', 'Tags'];
@@ -18,10 +18,7 @@ function Header() {
             {link}
           </Link>
         ))}
-        <button className="flex items-center" aria-label="theme_button">
-          <SunIcon className="hidden size-6 dark:block" />
-          <MoonIcon className="size-6 dark:hidden" />
-        </button>
+        <Switcher />
         <Menu links={LINKS} />
       </nav>
     </header>
