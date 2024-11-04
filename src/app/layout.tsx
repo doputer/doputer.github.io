@@ -1,11 +1,25 @@
 import '@/app/globals.css';
 
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ThemeScript from '@/components/Header/ThemeScript';
 import meta from '@/configs/metadata.json';
+
+const pretendard = localFont({
+  src: './fonts/PretendardVariable.woff2',
+  display: 'swap',
+  variable: '--font-pretendard',
+  preload: true,
+});
+
+const jetbrains = localFont({
+  src: './fonts/JetBrainsMono.woff2',
+  display: 'swap',
+  variable: '--font-jetbrains',
+});
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -18,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
+    <html className={`${pretendard.variable} ${jetbrains.variable}`}>
       <head>
         <ThemeScript />
       </head>

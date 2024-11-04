@@ -4,8 +4,8 @@ const config: Config = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     fontFamily: {
-      sans: ['Pretendard', 'sans-serif'],
-      mono: ['JetBrainsMono', 'consolas'],
+      sans: ['var(--font-pretendard)', 'sans-serif'],
+      mono: ['var(--font-jetbrains)', 'consolas'],
     },
     extend: {
       colors: {
