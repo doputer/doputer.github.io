@@ -15,7 +15,7 @@ const DIR = path.join(process.cwd(), 'src/contents');
 const getMDXFiles = async () => {
   const filePaths = await readdir(DIR);
 
-  return filePaths.map((filePath) => filePath.split('.')[0]);
+  return filePaths.filter((path) => path.endsWith('.mdx')).map((path) => path.split('.')[0]);
 };
 
 const readMDXFile = async (name: string) => {

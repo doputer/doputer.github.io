@@ -1,3 +1,4 @@
+import * as typography from '@/components/Typography';
 import { getPost } from '@/lib/mdx';
 
 interface PageProps {
@@ -10,7 +11,7 @@ const Page = async ({ params }: PageProps) => {
   return (
     <>
       <article>
-        <MDX />
+        <MDX components={typography} />
       </article>
     </>
   );
