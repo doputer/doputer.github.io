@@ -1,9 +1,11 @@
+import { Post } from '@/lib/types';
 import Link from 'next/link';
 
-import { getPosts } from '@/lib/mdx';
+interface ListProps {
+  posts: Post[];
+}
 
-const List = async () => {
-  const posts = await getPosts();
+const List = async ({ posts }: ListProps) => {
   const sortedPosts = posts.sort((a, b) => {
     return new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1;
   });

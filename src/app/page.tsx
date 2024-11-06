@@ -1,9 +1,14 @@
+import Counter from '@/components/Counter';
 import List from '@/components/List';
+import { getPosts } from '@/lib/mdx';
 
 const Home = async () => {
+  const posts = await getPosts();
+
   return (
     <>
-      <List />
+      <Counter count={posts.length} />
+      <List posts={posts} />
     </>
   );
 };
