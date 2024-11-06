@@ -1,5 +1,6 @@
+import Post from '@/components/Post';
+import Header from '@/components/Post/header';
 import Share from '@/components/Share';
-import * as typography from '@/components/Typography';
 import { getPost } from '@/lib/mdx';
 
 interface PageProps {
@@ -8,13 +9,12 @@ interface PageProps {
 
 const Page = async ({ params }: PageProps) => {
   const { frontmatter, MDX } = await getPost(decodeURI(params.slug));
-  const { title, description } = frontmatter;
+  const { title, description, date } = frontmatter;
 
   return (
     <>
-      <article>
-        <MDX components={typography} />
-      </article>
+      <Header title={title} date={date} />
+      <Post MDX={MDX} />
       <Share title={title} description={description} />
     </>
   );

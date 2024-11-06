@@ -1,5 +1,6 @@
-import { Post } from '@/lib/types';
 import Link from 'next/link';
+
+import { Post } from '@/lib/types';
 
 interface ListProps {
   posts: Post[];
