@@ -19,6 +19,7 @@ const jetbrains = localFont({
   src: './fonts/JetBrainsMono.woff2',
   display: 'swap',
   variable: '--font-jetbrains',
+  preload: false,
 });
 
 export const metadata: Metadata = {

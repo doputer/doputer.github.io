@@ -1,12 +1,14 @@
 import Link from 'next/link';
 
-import type { Frontmatter } from '@/lib/types';
+import { getPosts } from '@/lib/mdx';
 
-interface ListProps {
-  frontmatters: Frontmatter[];
-}
+const List = async () => {
+  const posts = await getPosts();
+  const sortedPosts = posts.sort((a, b) => {
+    return new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1;
+  });
+  const frontmatters = sortedPosts.map((post) => post.frontmatter);
 
-function List({ frontmatters }: ListProps) {
   return (
     <>
       {frontmatters.map((frontmatter) => (
@@ -37,6 +39,6 @@ function List({ frontmatters }: ListProps) {
       ))}
     </>
   );
-}
+};
 
 export default List;

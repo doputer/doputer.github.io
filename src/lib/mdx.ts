@@ -10,16 +10,16 @@ import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
 import type { Frontmatter } from '@/lib/types';
 
-const MDX_DIR = path.join(process.cwd(), 'src/contents');
+const DIR = path.join(process.cwd(), 'src/contents');
 
-const readMDXDir = async () => {
-  const filePaths = await readdir(MDX_DIR);
+const getMDXFiles = async () => {
+  const filePaths = await readdir(DIR);
 
   return filePaths.map((filePath) => filePath.split('.')[0]);
 };
 
 const readMDXFile = async (name: string) => {
-  const filePath = path.resolve(path.join(MDX_DIR, `${name}.mdx`));
+  const filePath = path.resolve(path.join(DIR, `${name}.mdx`));
 
   try {
     await access(filePath);
@@ -40,12 +40,26 @@ const parseMDX = async (markdown: string) => {
     })
   );
 
-  const { default: MDXContent, frontmatter } = await run(code, {
+  const { default: MDX, frontmatter } = await run(code, {
     ...runtime,
     baseUrl: import.meta.url,
   });
 
-  return { frontmatter: frontmatter as Frontmatter, MDXContent };
+  return { frontmatter: frontmatter as Frontmatter, MDX };
 };
 
-export { readMDXDir, readMDXFile, parseMDX };
+const getPost = async (name: string) => {
+  const content = await readMDXFile(name);
+  const post = await parseMDX(content);
+
+  return post;
+};
+
+const getPosts = async () => {
+  const allFile = await getMDXFiles();
+  const allPost = await Promise.all(allFile.map(getPost));
+
+  return allPost;
+};
+
+export { getPost, getPosts };
