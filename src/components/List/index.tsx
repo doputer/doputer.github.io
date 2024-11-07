@@ -25,7 +25,7 @@ const List = async ({ posts }: ListProps) => {
             </div>
           </div>
           <div className="flex-1">
-            <Link href={encodeURI(frontmatter.title)} className="text-2xl font-semibold">
+            <Link href={'/' + encodeURI(frontmatter.title)} className="text-2xl font-semibold">
               {frontmatter.title}
             </Link>
             <div className="link flex flex-wrap gap-2 text-sm uppercase">
