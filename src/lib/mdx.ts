@@ -4,7 +4,6 @@ import path from 'path';
 import * as runtime from 'react/jsx-runtime';
 
 import { compile, run } from '@mdx-js/mdx';
-import { notFound } from 'next/navigation';
 import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
@@ -26,12 +25,6 @@ const getMDXFiles = async () => {
 const readMDXFile = async (name: string) => {
   const filePath = path.resolve(path.join(DIR, `${name}.mdx`));
 
-  try {
-    await access(filePath);
-  } catch {
-    notFound();
-  }
-
   const fileContent = await readFile(filePath, { encoding: 'utf8' });
 
   return fileContent;
@@ -47,6 +40,12 @@ const parseMDX = async (markdown: string) => {
   const { frontmatter, toc, default: MDX } = MDXModule;
 
   return { frontmatter, toc, MDX } as Post;
+};
+
+const accessPost = async (name: string) => {
+  const filePath = path.resolve(path.join(DIR, `${name}.mdx`));
+
+  return await access(filePath);
 };
 
 const getPost = async (name: string) => {
@@ -66,4 +65,4 @@ const getPosts = async () => {
   return allSortedPost;
 };
 
-export { getPost, getPosts };
+export { accessPost, getPost, getPosts };
