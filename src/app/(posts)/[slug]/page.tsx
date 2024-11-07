@@ -1,3 +1,4 @@
+import Comment from '@/components/Comment';
 import Post from '@/components/Post';
 import Header from '@/components/Post/header';
 import Share from '@/components/Share';
@@ -16,6 +17,7 @@ const Page = async ({ params }: PageProps) => {
       <Header title={title} date={date} />
       <Post toc={toc} MDX={MDX} />
       <Share title={title} description={description} />
+      <Comment />
     </>
   );
 };
