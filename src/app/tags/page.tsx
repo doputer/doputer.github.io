@@ -16,7 +16,7 @@ const Page = async () => {
 
   return (
     <div className="flex flex-col gap-8">
-      <Counter label="tags" count={tags.length} />
+      <Counter label="tags" count={Object.keys(tagsObject).length} />
       <div className="flex flex-wrap gap-4">
         {Object.entries(tagsObject).map(([tag, totalCount]) => (
           <Link
