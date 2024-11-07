@@ -8,13 +8,13 @@ interface PageProps {
 }
 
 const Page = async ({ params }: PageProps) => {
-  const { frontmatter, MDX } = await getPost(decodeURI(params.slug));
+  const { frontmatter, toc, MDX } = await getPost(decodeURI(params.slug));
   const { title, description, date } = frontmatter;
 
   return (
     <>
       <Header title={title} date={date} />
-      <Post MDX={MDX} />
+      <Post toc={toc} MDX={MDX} />
       <Share title={title} description={description} />
     </>
   );

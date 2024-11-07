@@ -1,13 +1,16 @@
+import TOC from '@/components/TOC';
 import * as typography from '@/components/Typography';
 import type { Post } from '@/lib/types';
 
 interface PostProps {
+  toc: Post['toc'];
   MDX: Post['MDX'];
 }
 
-const Post = ({ MDX }: PostProps) => {
+const Post = ({ toc, MDX }: PostProps) => {
   return (
-    <article>
+    <article className="relative">
+      <TOC toc={toc} />
       <MDX components={typography} />
     </article>
   );

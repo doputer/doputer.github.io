@@ -12,7 +12,14 @@ export interface Frontmatter {
   date: string;
 }
 
+export interface TOC {
+  id: string;
+  text: string;
+  depth: number;
+}
+
 export interface Post {
   frontmatter: Frontmatter;
+  toc: TOC[];
   MDX: MDXContent;
 }

@@ -5,10 +5,12 @@ import * as runtime from 'react/jsx-runtime';
 
 import { compile, run } from '@mdx-js/mdx';
 import { notFound } from 'next/navigation';
+import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
-import type { Frontmatter } from '@/lib/types';
+import remarkToc from '@/lib/remark-toc';
+import type { Post } from '@/lib/types';
 
 const DIR = path.join(process.cwd(), 'src/contents');
 
@@ -33,19 +35,15 @@ const readMDXFile = async (name: string) => {
 };
 
 const parseMDX = async (markdown: string) => {
-  const code = String(
-    await compile(markdown, {
-      remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: 'frontmatter' }]],
-      outputFormat: 'function-body',
-    })
-  );
-
-  const { default: MDX, frontmatter } = await run(code, {
-    ...runtime,
-    baseUrl: import.meta.url,
+  const VFile = await compile(markdown, {
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkToc],
+    rehypePlugins: [rehypeSlug],
+    outputFormat: 'function-body',
   });
+  const MDXModule = await run(String(VFile), { ...runtime, baseUrl: import.meta.url });
+  const { frontmatter, toc, default: MDX } = MDXModule;
 
-  return { frontmatter: frontmatter as Frontmatter, MDX };
+  return { frontmatter, toc, MDX } as Post;
 };
 
 const getPost = async (name: string) => {
