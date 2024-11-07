@@ -58,8 +58,11 @@ const getPost = async (name: string) => {
 const getPosts = async () => {
   const allFile = await getMDXFiles();
   const allPost = await Promise.all(allFile.map(getPost));
+  const allSortedPost = allPost.sort((a, b) => {
+    return new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1;
+  });
 
-  return allPost;
+  return allSortedPost;
 };
 
 export { getPost, getPosts };

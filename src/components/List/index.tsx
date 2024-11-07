@@ -7,14 +7,9 @@ interface ListProps {
 }
 
 const List = async ({ posts }: ListProps) => {
-  const sortedPosts = posts.sort((a, b) => {
-    return new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1;
-  });
-  const frontmatters = sortedPosts.map((post) => post.frontmatter);
-
   return (
     <>
-      {frontmatters.map((frontmatter) => (
+      {posts.map(({ frontmatter }) => (
         <div
           key={frontmatter.title}
           className="group flex flex-wrap items-center justify-center gap-4"
