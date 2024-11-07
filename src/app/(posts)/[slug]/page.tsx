@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import Comment from '@/components/Comment';
@@ -29,5 +30,12 @@ const Page = async ({ params }: PageProps) => {
     </>
   );
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { frontmatter } = await getPost(decodeURI((await params).slug));
+  const { title, description } = frontmatter;
+
+  return { title, description };
+}
 
 export default Page;
