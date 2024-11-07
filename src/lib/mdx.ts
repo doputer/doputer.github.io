@@ -7,6 +7,7 @@ import { compile, run } from '@mdx-js/mdx';
 import { notFound } from 'next/navigation';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
+import remarkGfm from 'remark-gfm';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
 import remarkToc from '@/lib/remark-toc';
@@ -36,7 +37,7 @@ const readMDXFile = async (name: string) => {
 
 const parseMDX = async (markdown: string) => {
   const VFile = await compile(markdown, {
-    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkToc],
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm, remarkToc],
     rehypePlugins: [rehypeSlug],
     outputFormat: 'function-body',
   });
