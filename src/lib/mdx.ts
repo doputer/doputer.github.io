@@ -5,9 +5,11 @@ import * as runtime from 'react/jsx-runtime';
 
 import { compile, run } from '@mdx-js/mdx';
 import { notFound } from 'next/navigation';
+import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
 import remarkToc from '@/lib/remark-toc';
@@ -37,8 +39,8 @@ const readMDXFile = async (name: string) => {
 
 const parseMDX = async (markdown: string) => {
   const VFile = await compile(markdown, {
-    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm, remarkToc],
-    rehypePlugins: [rehypeSlug],
+    remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm, remarkMath, remarkToc],
+    rehypePlugins: [rehypeSlug, rehypeKatex],
     outputFormat: 'function-body',
   });
   const MDXModule = await run(String(VFile), { ...runtime, baseUrl: import.meta.url });
