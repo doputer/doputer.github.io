@@ -12,6 +12,7 @@
     "@giscus/react": "^3.0.0",
     "@heroicons/react": "^2.1.5",
     "@mdx-js/mdx": "^3.1.0",
+    "@next/third-parties": "^15.0.3",
     "bright": "^0.8.5",
     "next": "14.2.16",
     "react": "^18",
