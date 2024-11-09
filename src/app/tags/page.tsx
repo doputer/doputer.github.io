@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import Counter from '@/components/Counter';
 import { getPosts } from '@/lib/mdx';
+import { encode } from '@/utils/uri';
 
 const Page = async () => {
   const posts = await getPosts();
@@ -19,11 +20,7 @@ const Page = async () => {
       <Counter label="tags" count={Object.keys(tagsObject).length} />
       <div className="flex flex-wrap gap-4">
         {Object.entries(tagsObject).map(([tag, totalCount]) => (
-          <Link
-            key={tag}
-            href={`/tags/${tag.replace(/\s/g, '-')}`}
-            className="box px-2 py-1 text-sm uppercase"
-          >
+          <Link key={tag} href={`/tags/${encode(tag)}`} className="box px-2 py-1 text-sm uppercase">
             {tag} ({totalCount})
           </Link>
         ))}
