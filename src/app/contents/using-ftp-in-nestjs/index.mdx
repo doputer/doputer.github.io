@@ -51,9 +51,7 @@ FTP는 두 가지 모드로 동작하는데 **Active Mode와 Passive Mode**입�
 
 프로젝트에서 서버 스택은 `NestJS`를 사용했는데 일정 시간 마다 ESL Gateway에 csv 파일을 FTP 통신을 통해서 보내야했습니다.
 
-```ts
-// task.module.ts
-
+```task.module.ts
 import { FtpModule } from 'nestjs-ftp';
 
 @Module({
@@ -78,9 +76,7 @@ import { FtpModule } from 'nestjs-ftp';
 
 코드 상에서는 `.env` 환경 변수에서 설정 값을 읽어올 수 있도록 직접 구현한 `ConfigService`를 이용했지만 직접 입력해놔도 됩니다. 이렇게 클라이언트 설정이 끝나면 서비스 코드에서 파일을 보내주는 작업을 합니다.
 
-```ts
-// task.service.ts
-
+```task.service.ts
 try {
   const response = await this.ftpService.upload(
     `${originPath}${file}`,

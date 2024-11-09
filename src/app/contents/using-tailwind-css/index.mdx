@@ -93,9 +93,7 @@ CSS의 이름에 의미를 부여한다는 것은 당연한 것이었습니다.
 
 그렇다면 Tailwind CSS를 사용하면서 의미론적인 요소를 포기하게 되는 것일까요? 그렇지 않습니다. 이제는 **컴포넌트**가 그 역할을 대신해주고 있기 때문입니다.
 
-```tsx
-// FruitItem.tsx
-
+```FruitItem.jsx
 function FruitItem() {
   return <li class="text-orange">Orange</li>;
 }
@@ -115,9 +113,7 @@ function FruitItem() {
 
 반면에 Tailwind CSS는 [PostCSS](https://postcss.org/)와 같은 전처리기를 거쳐서 스타일 시트를 생성하게 됩니다. 덕분에 인라인 스타일에서 할 수 없었던 것들을 할 수 있게 됩니다.
 
-```html
-// index.html
-
+```index.html
 <li class="hover:text-orange">Orange</li>
 ```
 
@@ -141,9 +137,7 @@ function FruitItem() {
 yarn add -D prettier-plugin-tailwindcss
 ```
 
-```json
-// .prettierrc
-
+```.prettierrc.json
 {
   ...,
   "plugins": ["prettier-plugin-tailwindcss"]
@@ -154,9 +148,7 @@ yarn add -D prettier-plugin-tailwindcss
 
 Tailwind CSS에서 충분히 많은 기본적인 스타일을 지원하지만 필요에 따라서 [커스텀 스타일](https://tailwindcss.com/docs/adding-custom-styles)을 추가해야되는 경우가 있습니다. 저는 이 블로그를 개발하면서 다양한 색을 사용했는데 [arbitrary values](https://tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) 없이 개발하고자 했기 때문에 모든 색을 등록해서 사용했습니다.
 
-```ts
-// tailwind.config.ts
-
+```tailwind.config.ts
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -209,9 +201,7 @@ export default {
 
 이 뿐만 아니라 애니메이션도 등록해서 사용할 수 있습니다. 블로그 메인 페이지에서 글 리스트에 마우스를 호버하면 이모지가 회전하는 걸 구현하기 위해서 사용했습니다.
 
-```ts
-// tailwind.config.ts
-
+```tailwind.config.ts
 export default {
   ...,
   animation: {
@@ -226,9 +216,7 @@ export default {
 } satisfies Config;
 ```
 
-```tsx
-// list.tsx
-
+```list.tsx
 <div className="group-hover:animate-flip ...">{frontmatter.emoji}</div>
 ```
 
@@ -236,17 +224,13 @@ export default {
 
 다크 모드는 정말 손쉽게 추가할 수 있었습니다. 아무 설정을 건들지 않아도 클래스 앞에 `dark:`만 붙여주면 다크 모드에서 동작하는 스타일을 정의할 수 있었습니다.
 
-```tsx
-// footer.tsx
-
+```footer.tsx
 <footer className="dark:border-dark-line ...">ⓒ 2024. 김도현. All Rights Reserved.</footer>
 ```
 
 기본적으로는 [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)에 맞춰서 동작하게 됩니다. 만약 클래스를 통해서 직접 조작하려면 `darkMode: 'selector'` 설정 한 줄만 추가해주면 됩니다.
 
-```ts
-// tailwind.config.ts
-
+```tailwind.config.ts
 import type { Config } from 'tailwindcss';
 
 export default {
@@ -263,9 +247,7 @@ export default {
 
 `@apply`를 통해 `CSS` 안에서 정의된 Tailwind CSS의 유틸리티 클래스를 사용할 수 있습니다.
 
-```css
-// global.css
-
+```global.css
 @layer components {
   .box {
     @apply rounded-lg bg-light-background dark:bg-dark-background;

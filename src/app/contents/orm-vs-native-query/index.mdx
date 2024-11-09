@@ -54,9 +54,7 @@ ORM은 분명 편리한 도구입니다. 실제로 한 프로젝트에서는 Nat
 
 아래는 ORM을 사용하지 않는 프로젝트에서 MySQL 간단하게 쓰기 위해 구현해본 코드입니다.
 
-```js
-// lib/database.js
-
+```lib/database.js
 import mysql from 'mysql2/promise';
 
 const db = await mysql.createConnection(dbConfig);
@@ -86,9 +84,7 @@ export default db;
 
 `lib/database.js`에서 데이터베이스에 연결하고, 테이블이 존재하지 않으면 생성해주는 초기화 로직을 작성했습니다.
 
-```js
-// core/model.js
-
+```core/model.js
 import db from 'lib/database.js';
 import { BadRequestError } from 'errors/error.js';
 
@@ -154,9 +150,7 @@ export default class Model {
 
 이후 `core/model.js`에서 기본적인 CRUD를 할 수 있는 로직을 추상화해서 구현했습니다.
 
-```js
-// models/roomModel.js
-
+```models/roomModel.js
 import Model from 'core/model.js';
 
 export default class RoomModel extends Model {
@@ -164,9 +158,9 @@ export default class RoomModel extends Model {
     super('room');
   }
 }
+```
 
-// services/roomService.js
-
+```services/roomService.js
 import RoomModel from 'models/roomModel.js';
 
 const rooms = await roomModel.getMany(

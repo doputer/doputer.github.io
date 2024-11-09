@@ -18,9 +18,9 @@ Node.js로 프로젝트를 마친 뒤 서비스로 운영하기 위해서 클라
 
 `node app.js` 명령어는 프로세스를 포그라운드(Foreground Process)로 실행하기 때문에 프로세스가 실행 중인 터미널에서 다른 명령어를 이용할 수 없습니다. 포그라운드 프로세스는 터미널과 키보드를 통해 사용자와 대화하는데 입력한 명령이 실행되고 결과가 출력될 때까지 기다리기 때문입니다.
 
-```shellsession
-$ node app.js
-server is running...
+```shell
+node app.js
+> server is running...
 ```
 
 프로세스가 끝나지 않고 동작 중이기 때문에 다른 명령어를 입력할 수 없습니다. 뿐만 아니라 터미널이 종료되거나 접속 세션이 끊기면 프로세스가 종료됩니다.
@@ -31,13 +31,13 @@ server is running...
 
 앞서 실행한 명령어 뒤에 &(ampersand)를 붙여주면 백그라운드로 실행할 수 있습니다. 이제 `node app.js &` 명령어를 통해서 프로세스를 실행해보겠습니다.
 
-```shellsession
-$ node app.js &
-[1] 40313
-$
+```shell
+node app.js &
+> [1] 40313
+
 ```
 
-이어서 $ 프롬프트가 나오는 것을 볼 수 있는데 이어서 다른 명령어를 입력할 수 있습니다. 이제 서버 프로세스를 백그라운드로 실행해놓고 끝내고 싶지만 다른 문제가 발생합니다. 백그라운드 프로세스도 마찬가지로 터미널이 종료되거나, 접속 세션이 끊기면 프로세스도 종료됩니다.
+이어서 프롬프트가 나오는 것을 볼 수 있는데 이어서 다른 명령어를 입력할 수 있습니다. 이제 서버 프로세스를 백그라운드로 실행해놓고 끝내고 싶지만 다른 문제가 발생합니다. 백그라운드 프로세스도 마찬가지로 터미널이 종료되거나, 접속 세션이 끊기면 프로세스도 종료됩니다.
 
 ## 프로세스가 종료되는 이유
 
@@ -63,29 +63,29 @@ PPID가 1이라는 의미는 무엇일까요? PID가 1인 프로세스는 시스
 
 이 부분을 가시적으로 확인하기 위해서 터미널에서 `ps` 명령어를 이용하면 됩니다. Process Status를 확인할 수 있는 명령어로 확인에 필요한 일부 옵션만 사용하려고 합니다.
 
-```shellsession
-$ ps --help all
+```shell
+ps --help all
 
-Usage:
-ps [options]
+> Usage:
+> ps [options]
 
-Basic options:
--A, -e                all processes
+> Basic options:
+> -A, -e                all processes
 
-Output formats:
--f                    full-format, including command lines
+> Output formats:
+> -f                    full-format, including command lines
 ```
 
 백그라운드 프로세스를 실행 한 뒤 `ps -ef` 명령어를 통해서 PID와 PPID를 확인해보자 결과가 여러 개 나오기 때문에 `grep` 명령어를 함께 이용했습니다.
 
-```shellsession
-$ node app.js &
-[1] 40313
+```shell
+node app.js &
+> [1] 40313
 
-$ ps -ef | grep 30473
-UID   PID  PPID C  STIME     TTY    TIME         CMD
-501 30473 30472 0 4:36AM ttys001 0:03.87 -zsh
-501 40313 30473 0 4:40AM ttys002 0:01.26 node app.js
+ps -ef | grep 30473
+> UID   PID  PPID C  STIME     TTY    TIME         CMD
+> 501 30473 30472 0 4:36AM ttys001 0:03.87 -zsh
+> 501 40313 30473 0 4:40AM ttys002 0:01.26 node app.js
 ```
 
 결과를 확인해보면 node app.js PPID가 이 프로세스를 실행한 -zsh 쉘의 PID와 동일한 것을 볼 수 있습니다.
@@ -94,23 +94,23 @@ UID   PID  PPID C  STIME     TTY    TIME         CMD
 
 [nohup](https://ko.wikipedia.org/wiki/Nohup)은 "no hang up" 이라는 의미로 앞서 설명한 HUP을 무시하도록 해주는 명령어입니다. 엄밀하게 말하면 데몬 프로세스를 만들어주는 것은 아니고 데몬 프로세스처럼 동작하게 해줍니다. 터미널이 종료될 때 보내는 SIGHUP 신호를 거부합니다.
 
-```shellsession
-$ nohup node app.js &
-[1] 43330
-$ ps -ef | grep 40967
-UID   PID  PPID C  STIME     TTY    TIME           CMD
-501 42967 42966 0 6:18PM ttys001 0:00.44 -zsh
-501 43330 42967 0 6:18PM ttys001 0:01.00 node app.js &
+```shell
+nohup node app.js &
+> [1] 43330
+ps -ef | grep 40967
+> UID   PID  PPID C  STIME     TTY    TIME           CMD
+> 501 42967 42966 0 6:18PM ttys001 0:00.44 -zsh
+> 501 43330 42967 0 6:18PM ttys001 0:01.00 node app.js &
 ```
 
 반면에 [PM2](https://pm2.keymetrics.io/)는 데몬 프로세스로 만들어줍니다.
 
-```shellsession
-$ pm2 start app.js
-$ ps -ef | grep 873
-   UID    PID PPID C STIME TTY     TIME                                        CMD
-ubuntu    873    1 0  2021   ? 00:46:23 PM2 v5.1.0: God Daemon (/home/ubuntu/.pm2)
-ubuntu 196447  873 0  2021   ? 00:54:10 node app.js
+```shell
+pm2 start app.js
+ps -ef | grep 873
+>    UID    PID PPID C STIME TTY     TIME                                        CMD
+> ubuntu    873    1 0  2021   ? 00:46:23 PM2 v5.1.0: God Daemon (/home/ubuntu/.pm2)
+> ubuntu 196447  873 0  2021   ? 00:54:10 node app.js
 ```
 
 부모 프로세스가 PPID 1을 가지는 데몬 프로세스이므로 자식도 데몬 프로세스입니다.

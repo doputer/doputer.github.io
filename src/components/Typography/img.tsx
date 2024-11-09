@@ -7,7 +7,7 @@ type ImageProps = React.HTMLAttributes<HTMLImageElement> & {
 function img(props: Omit<ImageProps, 'alt'>) {
   return (
     <Image
-      className="m-auto my-4 h-auto w-fit"
+      className="m-auto my-4 h-auto w-fit max-w-screen-xs"
       width={0}
       height={0}
       sizes="100vw"
