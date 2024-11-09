@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    font-synthesis: none;
+  }
+}
+
 @layer components {
   .box {
     @apply rounded-lg bg-light-background dark:bg-dark-background;
