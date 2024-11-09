@@ -1,4 +1,5 @@
 import createMDX from '@next/mdx';
+
 import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
