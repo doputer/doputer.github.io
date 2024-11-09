@@ -16,8 +16,8 @@ const config: Config = {
           background: '#eef1f5',
           line: '#e5e7eb',
           code: {
-            DEFAULT: '#ea580c',
-            background: '#fb923c1a',
+            DEFAULT: '#16a34a',
+            background: '#4ade801a',
           },
         },
         dark: {
