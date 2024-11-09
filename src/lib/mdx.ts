@@ -1,4 +1,4 @@
-import { access, readdir, readFile } from 'fs/promises';
+import { access, constants, readdir, readFile } from 'fs/promises';
 import path from 'path';
 
 import * as runtime from 'react/jsx-runtime';
@@ -15,19 +15,20 @@ import remarkImage from '@/lib/remark-image';
 import remarkToc from '@/lib/remark-toc';
 import type { Post } from '@/lib/types';
 
-const DIR = path.join(process.cwd(), 'src/contents');
+const DIR = path.join(process.cwd(), 'contents');
 
-const getMDXFiles = async () => {
-  const filePaths = await readdir(DIR);
+const getMDXDirs = async () => {
+  const entries = await readdir(DIR, { withFileTypes: true });
+  const dirs = entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
 
-  return filePaths;
+  return dirs;
 };
 
 const readMDXFile = async (slug: string) => {
   const filePath = path.resolve(path.join(DIR, slug, 'index.mdx'));
-  const fileContent = await readFile(filePath, { encoding: 'utf8' });
+  const mdx = await readFile(filePath, { encoding: 'utf8' });
 
-  return fileContent;
+  return mdx;
 };
 
 const parseMDX = async (mdx: string, slug: string) => {
@@ -52,7 +53,7 @@ const parseMDX = async (mdx: string, slug: string) => {
 const accessPost = async (slug: string) => {
   const filePath = path.resolve(path.join(DIR, slug, 'index.mdx'));
 
-  return await access(filePath);
+  return await access(filePath, constants.F_OK);
 };
 
 const getPost = async (slug: string) => {
@@ -63,8 +64,8 @@ const getPost = async (slug: string) => {
 };
 
 const getPosts = async () => {
-  const allFile = await getMDXFiles();
-  const allPost = await Promise.all(allFile.map(getPost));
+  const allDir = await getMDXDirs();
+  const allPost = await Promise.all(allDir.map(getPost));
   const allSortedPost = allPost.sort((a, b) => {
     return new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1;
   });
