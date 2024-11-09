@@ -6,7 +6,7 @@ import Giscus from '@giscus/react';
 
 import meta from '@/configs/metadata.json';
 
-function Comment() {
+const Comment = () => {
   const [theme, setTheme] = useState('');
 
   useEffect(() => {
@@ -42,6 +42,6 @@ function Comment() {
       />
     </div>
   );
-}
+};
 
 export default Comment;

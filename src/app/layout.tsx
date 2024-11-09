@@ -28,11 +28,7 @@ export const metadata: Metadata = {
   description: meta.description,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html className={`${pretendard.variable} ${jetbrains.variable}`}>
       <head>
@@ -48,4 +44,6 @@ export default function RootLayout({
       <GoogleAnalytics gaId={meta.gtag} />
     </html>
   );
-}
+};
+
+export default RootLayout;

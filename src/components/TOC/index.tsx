@@ -9,7 +9,7 @@ interface TOCProps {
   toc: Post['toc'];
 }
 
-function TOC({ toc }: TOCProps) {
+const TOC = ({ toc }: TOCProps) => {
   const { activeHeadingId } = useObserver();
 
   const handleHeadingClick = useCallback((id: string) => {
@@ -38,6 +38,6 @@ function TOC({ toc }: TOCProps) {
       </ul>
     </nav>
   );
-}
+};
 
 export default TOC;

@@ -3,12 +3,24 @@
   "plugins": ["prettier", "import"],
   "rules": {
     "prettier/prettier": "error",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "import/order": [
       "error",
       {
         "groups": ["builtin", "external", "internal", ["parent", "sibling"], "index"],
         "pathGroups": [
+          {
+            "pattern": "{next*,next*/**,@next*,@next*/**}",
+            "group": "external",
+            "position": "before"
+          },
           {
             "pattern": "{react*,react*/**}",
             "group": "external",

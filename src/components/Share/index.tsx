@@ -7,7 +7,7 @@ interface ShareProps {
   description: string;
 }
 
-function Share({ title, description }: ShareProps) {
+const Share = ({ title, description }: ShareProps) => {
   const handleShareClick = () => {
     const shareData = {
       title: title,
@@ -34,6 +34,6 @@ function Share({ title, description }: ShareProps) {
       </button>
     </div>
   );
-}
+};
 
 export default Share;

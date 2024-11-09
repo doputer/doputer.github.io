@@ -1,12 +1,13 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 import Link from 'next/link';
+
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 
 interface PaginationProps {
   totalCount: number;
   currentPage?: number;
 }
 
-function Pagination({ totalCount, currentPage = 1 }: PaginationProps) {
+const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
   const numPages = Math.ceil(totalCount / 5);
   const startPage = (Math.ceil(currentPage / 5) - 1) * 5;
   const endPage = Math.min(startPage + 5, numPages);
@@ -33,6 +34,6 @@ function Pagination({ totalCount, currentPage = 1 }: PaginationProps) {
       </Link>
     </div>
   );
-}
+};
 
 export default Pagination;

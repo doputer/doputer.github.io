@@ -1,15 +1,16 @@
 'use client';
 
+import Link from 'next/link';
+
 import { useEffect, useState } from 'react';
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import Link from 'next/link';
 
 interface MenuProps {
   links: string[];
 }
 
-function Menu({ links }: MenuProps) {
+const Menu = ({ links }: MenuProps) => {
   const [open, setOpen] = useState(false);
   const toggleMenu = () => setOpen(!open);
 
@@ -52,6 +53,6 @@ function Menu({ links }: MenuProps) {
       )}
     </div>
   );
-}
+};
 
 export default Menu;

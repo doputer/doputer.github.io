@@ -2,17 +2,20 @@
   "name": "doputer.github.io",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "predev": "node ./scripts/pre.mjs",
-    "dev": "next dev",
     "prebuild": "node ./scripts/pre.mjs",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "predev": "node ./scripts/pre.mjs",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
-    "@doputer/remark-toc": "*",
     "@doputer/remark-image": "*",
+    "@doputer/remark-toc": "*",
     "@giscus/react": "^3.0.0",
     "@heroicons/react": "^2.1.5",
     "@mdx-js/loader": "^3.1.0",
@@ -43,11 +46,9 @@
     "eslint-plugin-prettier": "^5.2.1",
     "postcss": "^8",
     "prettier": "^3.3.3",
+    "prettier-plugin-packagejson": "^2.5.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }

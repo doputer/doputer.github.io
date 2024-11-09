@@ -10,5 +10,5 @@
   "endOfLine": "lf",
   "bracketSpacing": true,
   "proseWrap": "preserve",
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-packagejson", "prettier-plugin-tailwindcss"]
 }

@@ -6,7 +6,7 @@ import meta from '@/configs/metadata.json';
 
 const LINKS = ['About', 'Tags'];
 
-function Header() {
+const Header = () => {
   return (
     <header className="flex items-center justify-between">
       <Link href="/" className="text-xl font-bold tracking-tight">
@@ -23,6 +23,6 @@ function Header() {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;
