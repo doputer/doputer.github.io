@@ -9,6 +9,11 @@ interface TOCProps {
   toc: Post['toc'];
 }
 
+const paddingVariants: Record<number, string> = {
+  2: 'pl-0',
+  3: 'pl-4',
+};
+
 const TOC = ({ toc }: TOCProps) => {
   const { activeHeadingId } = useObserver();
 
@@ -29,7 +34,7 @@ const TOC = ({ toc }: TOCProps) => {
         {toc.map(({ id, text, depth }) => (
           <li
             key={id}
-            className={`pl-${(depth - 2) * 4} cursor-pointer ${id === activeHeadingId ? 'link' : ''}`}
+            className={`${paddingVariants[depth]} cursor-pointer ${id === activeHeadingId ? 'link' : ''}`}
             onClick={() => handleHeadingClick(id)}
           >
             {text}
