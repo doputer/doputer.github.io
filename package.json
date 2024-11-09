@@ -3,17 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node ./src/scripts/pre.mjs",
+    "predev": "node ./scripts/pre.mjs",
     "dev": "next dev",
-    "prebuild": "node ./src/scripts/pre.mjs",
+    "prebuild": "node ./scripts/pre.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@doputer/remark-toc": "*",
+    "@doputer/remark-image": "*",
     "@giscus/react": "^3.0.0",
     "@heroicons/react": "^2.1.5",
+    "@mdx-js/loader": "^3.1.0",
     "@mdx-js/mdx": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.0.3",
     "@next/third-parties": "^15.0.3",
     "bright": "^0.8.5",
     "next": "14.2.16",
@@ -27,6 +32,7 @@
     "remark-mdx-frontmatter": "^5.0.0"
   },
   "devDependencies": {
+    "@types/mdx": "^2.0.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -40,5 +46,8 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

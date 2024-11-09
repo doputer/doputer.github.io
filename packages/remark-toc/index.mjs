@@ -1,17 +1,14 @@
 import { valueToEstree } from 'estree-util-value-to-estree';
 import GithubSlugger from 'github-slugger';
-import type { Heading, Root } from 'mdast';
 import { visit } from 'unist-util-visit';
-
-import type { TOC } from '@/lib/types';
 
 const slugs = new GithubSlugger();
 
 const remarkToc = () => {
-  return (tree: Root) => {
-    const toc: TOC[] = [];
+  return (tree) => {
+    const toc = [];
 
-    visit(tree, 'heading', (node: Heading) => {
+    visit(tree, 'heading', (node) => {
       slugs.reset();
 
       const text = node.children

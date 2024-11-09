@@ -1,7 +1,7 @@
 import { access, constants, copyFile, mkdir, readdir, rm } from 'fs/promises';
 import path from 'path';
 
-const SOURCE_DIR = path.join(process.cwd(), 'contents');
+const SOURCE_DIR = path.join(process.cwd(), 'src/app/contents');
 const TARGET_DIR = path.join(process.cwd(), 'public/images');
 
 const exists = async (path) => {
