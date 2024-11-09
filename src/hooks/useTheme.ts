@@ -1,12 +1,5 @@
 import { useEffect, useState } from 'react';
 
-declare global {
-  interface Window {
-    __theme: string;
-    __setTheme: (theme: string) => void;
-  }
-}
-
 const useTheme = (): [() => void] => {
   const [theme, setTheme] = useState('');
 

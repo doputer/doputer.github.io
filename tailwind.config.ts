@@ -1,15 +1,11 @@
 import type { Config } from 'tailwindcss';
 
-export default {
-  content: [
-    `./src/pages/**/*.{js,jsx,ts,tsx}`,
-    `./src/components/**/*.{js,jsx,ts,tsx}`,
-    `./src/templates/**/*.{js,jsx,ts,tsx}`,
-  ],
+const config: Config = {
+  content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     fontFamily: {
-      sans: ['Pretendard', 'sans-serif'],
-      mono: ['JetBrainsMono', 'consolas'],
+      sans: ['var(--font-pretendard)', 'sans-serif'],
+      mono: ['var(--font-jetbrains)', 'consolas'],
     },
     extend: {
       colors: {
@@ -20,8 +16,8 @@ export default {
           background: '#eef1f5',
           line: '#e5e7eb',
           code: {
-            DEFAULT: '#ea580c',
-            background: '#fb923c1a',
+            DEFAULT: '#16a34a',
+            background: '#4ade801a',
           },
         },
         dark: {
@@ -54,3 +50,5 @@ export default {
   darkMode: 'selector',
   plugins: [],
 } satisfies Config;
+
+export default config;
