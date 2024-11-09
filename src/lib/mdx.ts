@@ -16,6 +16,8 @@ const parseMDX = async (slug: string) => {
   const MDXModule = await import(`@/app/contents/${slug}/index.mdx`);
   const { frontmatter, toc, default: MDX } = MDXModule;
 
+  frontmatter.date = frontmatter.date.replace(/-/g, '.');
+
   return { frontmatter, toc, slug, MDX } as Post;
 };
 
