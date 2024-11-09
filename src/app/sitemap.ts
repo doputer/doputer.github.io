@@ -7,7 +7,7 @@ const generatePostSitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const { siteUrl } = meta;
   const posts = await getPosts();
   const sitemap = posts.map((post) => ({
-    url: siteUrl + '/' + encodeURI(post.frontmatter.title),
+    url: siteUrl + '/' + post.slug,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,

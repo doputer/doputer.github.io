@@ -21,5 +21,6 @@ export interface TOC {
 export interface Post {
   frontmatter: Frontmatter;
   toc: TOC[];
+  slug: string;
   MDX: MDXContent;
 }

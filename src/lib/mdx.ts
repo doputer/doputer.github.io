@@ -47,7 +47,7 @@ const parseMDX = async (mdx: string, slug: string) => {
   const MDXModule = await run(String(VFile), { ...runtime, baseUrl: import.meta.url });
   const { frontmatter, toc, default: MDX } = MDXModule;
 
-  return { frontmatter, toc, MDX } as Post;
+  return { frontmatter, toc, slug, MDX } as Post;
 };
 
 const accessPost = async (slug: string) => {

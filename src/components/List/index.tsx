@@ -9,7 +9,7 @@ interface ListProps {
 const List = async ({ posts }: ListProps) => {
   return (
     <>
-      {posts.map(({ frontmatter }) => (
+      {posts.map(({ frontmatter, slug }) => (
         <div
           key={frontmatter.title}
           className="group flex flex-wrap items-center justify-center gap-4"
@@ -20,7 +20,7 @@ const List = async ({ posts }: ListProps) => {
             </div>
           </div>
           <div className="flex-1">
-            <Link href={'/' + encodeURI(frontmatter.title)} className="text-2xl font-semibold">
+            <Link href={`/${slug}`} className="text-2xl font-semibold">
               {frontmatter.title}
             </Link>
             <div className="link flex flex-wrap gap-2 text-sm uppercase">
