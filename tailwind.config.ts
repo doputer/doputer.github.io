@@ -13,6 +13,7 @@ const language = {
   sql: '#e38c00',
   c: '#555555',
   cpp: '#f34b7d',
+  text: '#808080',
 };
 
 const config: Config = {

@@ -27,6 +27,7 @@ const Pre: Extension['Pre'] = (props) => {
 
 const beforeHighlight: Extension['beforeHighlight'] = (props, annotations) => {
   if (!props.title) props.title = ' ';
+  if (!props.lang) props.lang = 'txt';
 
   if (annotations.length > 0) return { ...props, title: annotations[0].query };
   return { ...props };
