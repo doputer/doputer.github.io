@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import Counter from '@/components/Counter';
 import List from '@/components/List';
 import Pagination from '@/components/Pagination';
@@ -10,6 +12,8 @@ interface PageProps {
 const Page = async ({ params: { page } }: PageProps) => {
   const posts = await getPosts();
   const slicedPosts = posts.slice((+page - 1) * 5, (+page - 1) * 5 + 5);
+
+  if (slicedPosts.length === 0) notFound();
 
   return (
     <>
