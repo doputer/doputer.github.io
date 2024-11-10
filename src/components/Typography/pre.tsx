@@ -1,12 +1,7 @@
-import { Code } from 'bright';
-
-Code.theme = {
-  dark: 'one-dark-pro',
-  light: 'one-dark-pro',
-};
+import Code from '@/lib/Code';
 
 const pre = (props: React.HTMLAttributes<HTMLPreElement>) => {
-  return <Code className="!rounded-lg" {...props} />;
+  return <Code {...props} />;
 };
 
 export default pre;
