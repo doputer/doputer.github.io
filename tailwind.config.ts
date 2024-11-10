@@ -47,7 +47,7 @@ const config: Config = {
       },
     },
   },
-  darkMode: 'selector',
+  darkMode: ['selector', '[data-theme="dark"]'],
   plugins: [],
 } satisfies Config;
 

@@ -1,34 +1,49 @@
+type Theme = 'light' | 'dark';
+
 declare global {
   interface Window {
-    __theme: string;
-    __setTheme: (theme: string) => void;
+    __theme: Theme;
+    __setTheme: (theme: Theme) => void;
+    __setPreferredTheme: (theme: Theme) => void;
   }
 }
 
-const script = () => {
-  try {
-    window.addEventListener('DOMContentLoaded', () => {
-      const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      const theme = localStorage.getItem('theme') || (darkQuery.matches ? 'dark' : 'light');
+const script = function () {
+  window.__setTheme = function () {};
 
-      window.__setTheme = (newTheme) => {
-        if (newTheme === 'dark') document.body.classList.add('dark');
-        else document.body.classList.remove('dark');
-
-        localStorage.setItem('theme', newTheme);
-
-        window.__theme = newTheme;
-      };
-
-      darkQuery.addEventListener('change', (event) => {
-        window.__setTheme(event.matches ? 'dark' : 'light');
-      });
-
-      window.__setTheme(theme);
-    });
-  } catch (error) {
-    console.log(error);
+  function setTheme(newTheme: Theme) {
+    window.__theme = newTheme;
+    preferredTheme = newTheme;
+    document.documentElement.dataset.theme = newTheme;
+    window.__setTheme(newTheme);
   }
+
+  let preferredTheme: Theme;
+
+  try {
+    preferredTheme = localStorage.getItem('theme') as Theme;
+  } catch (error) {
+    console.error(error);
+    return;
+  }
+
+  window.__setPreferredTheme = function (newTheme) {
+    setTheme(newTheme);
+
+    try {
+      localStorage.setItem('theme', newTheme);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  darkQuery.addEventListener('change', function (e) {
+    window.__setPreferredTheme(e.matches ? 'dark' : 'light');
+  });
+
+  setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
 };
 
 const ThemeScript = () => {

@@ -1,10 +1,12 @@
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import Menu from '@/components/Header/Menu';
-import Switcher from '@/components/Header/ThemeSwitcher';
 import meta from '@/configs/metadata.json';
 
 const LINKS = ['About', 'Tags'];
+
+const Switcher = dynamic(() => import('@/components/Header/ThemeSwitcher'));
 
 const Header = () => {
   return (
