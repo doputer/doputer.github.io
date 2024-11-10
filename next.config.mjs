@@ -15,7 +15,7 @@ import { redirects } from './scripts/redirects.mjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   redirects,
-  pageExtensions: ['tsx', 'mdx'],
+  pageExtensions: ['ts', 'tsx', 'mdx'],
 };
 
 const withMDX = createMDX({

@@ -46,7 +46,7 @@ AWS IAM에서 발급한 액세스 키 ID와 비밀 액세스 키를 등록합니
 
 **GitHub repository -> Actions -> set up a workflow yourself**
 
-```main-deploy.yml
+```main-deploy.yaml
 name: Deploy to Production
 
 on:
@@ -105,7 +105,7 @@ jobs:
 
 `process.env.CI`가 true 설정되어 있어서 경고들이 오류로 간주된다는 내용이었습니다. 이 부분을 해결하기 위해 위에서 작성한 `main-deploy.yml`을 수정했습니다.
 
-```yml
+```yaml
 # 수정 전
 - name: Build
   run: npm run build
@@ -129,9 +129,9 @@ jobs:
 
 빌드 파일에서 사용할 환경 변수를 GitHub Secrets에 등록해줍니다. 저는 ReactJS에서 서버에 요청하는 BASE_URL이 개발 환경과 배포 환경에서 각각 달랐기 때문에 이걸로 예를 들어보려고 합니다.
 
-`main-deploy.yml`을 다시 한번 수정해줍니다.
+`main-deploy.yaml`을 다시 한번 수정해줍니다.
 
-```yml
+```yaml
 # 수정 전
 - name: Build
   run: npm run build

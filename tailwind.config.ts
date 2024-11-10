@@ -1,7 +1,24 @@
 import type { Config } from 'tailwindcss';
 
+const language = {
+  html: '#e34c26',
+  css: '#563d7c',
+  js: '#f1e05a',
+  jsx: '#f1e05a',
+  ts: '#3178c6',
+  tsx: '#3178c6',
+  shell: '#89e051',
+  yaml: '#cb171e',
+  json: '#cb171e',
+  sql: '#e38c00',
+  c: '#a8b9cc',
+  cpp: '#f34b7d',
+  text: '#808080',
+};
+
 const config: Config = {
   content: ['./src/components/**/*.{ts,tsx}', './src/app/**/*.{ts,tsx}', './src/lib/**/*.{ts,tsx}'],
+  safelist: [{ pattern: new RegExp(Object.keys(language).join('|')) }],
   theme: {
     fontFamily: {
       sans: ['var(--font-pretendard)', 'sans-serif'],
@@ -32,6 +49,7 @@ const config: Config = {
           },
         },
         dimmed: '#00000066',
+        language,
       },
       screens: {
         xs: '480px',
