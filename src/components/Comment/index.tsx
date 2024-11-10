@@ -7,19 +7,21 @@ import Giscus from '@giscus/react';
 import meta from '@/configs/metadata.json';
 
 const Comment = () => {
-  const [theme, setTheme] = useState('');
+  const [theme, setTheme] = useState(global.window?.__theme || 'light');
 
   useEffect(() => {
-    setTheme(window.__theme);
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          setTheme(global.window?.__theme);
+        }
+      });
+    });
 
-    const handleStorageChange = (event: StorageEvent) => {
-      setTheme(event.key || window.__theme);
-    };
-
-    window.addEventListener('storage', handleStorageChange);
+    observer.observe(document.documentElement, { attributes: true });
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      observer.disconnect();
     };
   }, []);
 
