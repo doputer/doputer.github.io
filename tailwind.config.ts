@@ -11,7 +11,7 @@ const language = {
   yaml: '#cb171e',
   json: '#cb171e',
   sql: '#e38c00',
-  c: '#555555',
+  c: '#a8b9cc',
   cpp: '#f34b7d',
   text: '#808080',
 };
