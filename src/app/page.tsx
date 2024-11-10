@@ -3,7 +3,7 @@ import List from '@/components/List';
 import Pagination from '@/components/Pagination';
 import { getPosts } from '@/lib/mdx';
 
-const Home = async () => {
+const Page = async () => {
   const posts = await getPosts();
   const slicedPosts = posts.slice(0, 5);
 
@@ -16,4 +16,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default Page;
