@@ -3,7 +3,7 @@ import path from 'path';
 
 import type { Post } from '@/lib/types';
 
-const DIR = path.join(process.cwd(), 'src/app/contents');
+const DIR = path.join(process.cwd(), 'contents');
 
 const getMDXDirs = async () => {
   const entries = await readdir(DIR, { withFileTypes: true });
@@ -13,7 +13,7 @@ const getMDXDirs = async () => {
 };
 
 const parseMDX = async (slug: string) => {
-  const MDXModule = await import(`@/app/contents/${slug}/index.mdx`);
+  const MDXModule = await import(`/contents/${slug}/index.mdx`);
   const { frontmatter, toc, default: MDX } = MDXModule;
 
   frontmatter.date = frontmatter.date.replace(/-/g, '.');
