@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Counter from '@/components/Counter';
 import List from '@/components/List';
 import Pagination from '@/components/Pagination';
-import { getPosts } from '@/lib/mdx';
+import { getPosts } from '@/lib/MDX';
 
 interface PageProps {
   params: { page: string };

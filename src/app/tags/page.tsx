@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Counter from '@/components/Counter';
-import { getPosts } from '@/lib/mdx';
+import { getPosts } from '@/lib/MDX';
 import { encode } from '@/utils/uri';
 
 const Page = async () => {

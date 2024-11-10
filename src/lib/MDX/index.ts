@@ -1,7 +1,7 @@
 import { access, constants, readdir } from 'fs/promises';
 import path from 'path';
 
-import type { Post } from '@/lib/types';
+import type { Post } from '@/lib/MDX/types';
 
 const DIR = path.join(process.cwd(), 'contents');
 

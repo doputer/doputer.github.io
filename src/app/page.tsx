@@ -1,7 +1,7 @@
 import Counter from '@/components/Counter';
 import List from '@/components/List';
 import Pagination from '@/components/Pagination';
-import { getPosts } from '@/lib/mdx';
+import { getPosts } from '@/lib/MDX';
 
 const Page = async () => {
   const posts = await getPosts();

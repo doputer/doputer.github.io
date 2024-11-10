@@ -1,4 +1,4 @@
-import type { Frontmatter } from '@/lib/types';
+import type { Frontmatter } from '@/lib/MDX/types';
 
 interface HeaderProps {
   title: Frontmatter['title'];

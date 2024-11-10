@@ -5,7 +5,7 @@ import Comment from '@/components/Comment';
 import Post from '@/components/Post';
 import Header from '@/components/Post/header';
 import Share from '@/components/Share';
-import { accessPost, getPost } from '@/lib/mdx';
+import { accessPost, getPost } from '@/lib/MDX';
 
 interface PageProps {
   params: { slug: string };

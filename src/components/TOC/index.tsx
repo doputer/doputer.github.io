@@ -3,7 +3,7 @@
 import { useCallback } from 'react';
 
 import useObserver from '@/hooks/useObserver';
-import type { Post } from '@/lib/types';
+import type { Post } from '@/lib/MDX/types';
 
 interface TOCProps {
   toc: Post['toc'];

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 import meta from '@/configs/metadata.json';
-import { getPosts } from '@/lib/mdx';
+import { getPosts } from '@/lib/MDX';
 
 const generatePostSitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const { siteUrl } = meta;

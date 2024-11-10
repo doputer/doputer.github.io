@@ -1,6 +1,6 @@
 import TOC from '@/components/TOC';
 import * as typography from '@/components/Typography';
-import type { Post } from '@/lib/types';
+import type { Post } from '@/lib/MDX/types';
 
 interface PostProps {
   toc: Post['toc'];

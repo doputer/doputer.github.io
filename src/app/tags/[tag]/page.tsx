@@ -1,6 +1,6 @@
 import Counter from '@/components/Counter';
 import List from '@/components/List';
-import { getPosts } from '@/lib/mdx';
+import { getPosts } from '@/lib/MDX';
 import { decode } from '@/utils/uri';
 
 interface PageProps {
