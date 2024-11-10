@@ -14,6 +14,7 @@ function img(props: Omit<ImageProps, 'alt'>) {
       loading="eager"
       src={props.src as string}
       alt=""
+      unoptimized={/.gif$/.test(props.src as string)}
       {...props}
     />
   );
