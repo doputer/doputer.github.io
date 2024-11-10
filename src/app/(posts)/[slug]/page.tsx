@@ -5,7 +5,7 @@ import Comment from '@/components/Comment';
 import Post from '@/components/Post';
 import Header from '@/components/Post/header';
 import Share from '@/components/Share';
-import { accessPost, getPost } from '@/lib/MDX';
+import { accessPost, getPost, getPosts } from '@/lib/MDX';
 
 interface PageProps {
   params: { slug: string };
@@ -26,6 +26,12 @@ const Page = async ({ params }: PageProps) => {
     </>
   );
 };
+
+export async function generateStaticParams() {
+  const posts = await getPosts();
+
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   if (!(await accessPost(params.slug))) notFound();
