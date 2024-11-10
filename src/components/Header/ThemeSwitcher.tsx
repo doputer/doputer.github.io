@@ -1,18 +1,26 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 
-import useTheme from '@/hooks/useTheme';
+const SetTheme = () => {
+  const [theme, setTheme] = useState(global.window?.__theme || 'light');
 
-const ThemeSwitcher = () => {
-  const [toggleTheme] = useTheme();
+  const toggleTheme = () => {
+    global.window?.__setPreferredTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  useEffect(() => {
+    global.window.__setTheme = setTheme;
+  }, []);
 
   return (
-    <button className="flex items-center" onClick={toggleTheme} aria-label="theme_button">
+    <button onClick={toggleTheme}>
       <SunIcon className="hidden size-6 dark:block" />
       <MoonIcon className="size-6 dark:hidden" />
     </button>
   );
 };
 
-export default ThemeSwitcher;
+export default SetTheme;
