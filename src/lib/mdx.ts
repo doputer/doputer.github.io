@@ -22,9 +22,14 @@ const parseMDX = async (slug: string) => {
 };
 
 const accessPost = async (slug: string) => {
-  const filePath = path.resolve(path.join(DIR, slug, 'index.mdx'));
+  const filePath = path.resolve(path.join(DIR, slug));
 
-  return await access(filePath, constants.F_OK);
+  try {
+    await access(filePath, constants.F_OK);
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 const getPost = async (slug: string) => {

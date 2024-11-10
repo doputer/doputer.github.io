@@ -12,13 +12,9 @@ interface PageProps {
 }
 
 const Page = async ({ params }: PageProps) => {
-  try {
-    await accessPost(decodeURI(params.slug));
-  } catch {
-    notFound();
-  }
+  if (!(await accessPost(params.slug))) notFound();
 
-  const { frontmatter, toc, MDX } = await getPost(decodeURI(params.slug));
+  const { frontmatter, toc, MDX } = await getPost(params.slug);
   const { title, description, date } = frontmatter;
 
   return (
@@ -32,7 +28,9 @@ const Page = async ({ params }: PageProps) => {
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { frontmatter } = await getPost(decodeURI((await params).slug));
+  if (!(await accessPost(params.slug))) notFound();
+
+  const { frontmatter } = await getPost(params.slug);
   const { title, description } = frontmatter;
 
   return { title, description };
