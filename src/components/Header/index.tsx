@@ -4,9 +4,11 @@ import Link from 'next/link';
 import Menu from '@/components/Header/Menu';
 import meta from '@/configs/metadata.json';
 
+const Switcher = dynamic(() => import('@/components/Header/ThemeSwitcher'));
+
 const LINKS = ['About', 'Tags'];
 
-const Switcher = dynamic(() => import('@/components/Header/ThemeSwitcher'));
+if (process.env.NODE_ENV === 'development') LINKS.unshift('Playground');
 
 const Header = () => {
   return (
