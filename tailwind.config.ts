@@ -1,19 +1,19 @@
 import type { Config } from 'tailwindcss';
 
 const language = {
-  html: '#e34c26',
-  css: '#563d7c',
-  js: '#f1e05a',
-  jsx: '#f1e05a',
-  ts: '#3178c6',
-  tsx: '#3178c6',
-  shell: '#89e051',
-  yaml: '#cb171e',
-  json: '#cb171e',
-  sql: '#e38c00',
-  c: '#a8b9cc',
-  cpp: '#f34b7d',
-  text: '#808080',
+  html: '#e34c2680',
+  css: '#563d7c80',
+  js: '#f1e05a80',
+  jsx: '#f1e05a80',
+  ts: '#3178c680',
+  tsx: '#3178c680',
+  shell: '#89e05180',
+  yaml: '#cb171e80',
+  json: '#cb171e80',
+  sql: '#e38c0080',
+  c: '#a8b9cc80',
+  cpp: '#f34b7d80',
+  text: '#80808080',
 };
 
 const config: Config = {
@@ -32,10 +32,6 @@ const config: Config = {
           link: '#004ec7',
           background: '#eef1f5',
           line: '#e5e7eb',
-          code: {
-            DEFAULT: '#16a34a',
-            background: '#4ade801a',
-          },
         },
         dark: {
           DEFAULT: '#191c1f',
@@ -43,10 +39,6 @@ const config: Config = {
           link: '#10b981',
           background: '#222527',
           line: '#3a3e42',
-          code: {
-            DEFAULT: '#a78bfa',
-            background: '#f3e8ff1a',
-          },
         },
         dimmed: '#00000066',
         language,

@@ -1,10 +1,5 @@
 function code(props: React.HTMLAttributes<HTMLElement>) {
-  return (
-    <code
-      className="rounded bg-light-code-background px-1 py-0.5 font-sans text-base text-light-code dark:bg-dark-code-background dark:text-dark-code"
-      {...props}
-    />
-  );
+  return <code className="font-sans text-light-link dark:text-dark-link" {...props} />;
 }
 
 export default code;
