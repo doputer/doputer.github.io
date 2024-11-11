@@ -32,10 +32,6 @@ const config: Config = {
           link: '#004ec7',
           background: '#eef1f5',
           line: '#e5e7eb',
-          code: {
-            DEFAULT: '#16a34a',
-            background: '#4ade801a',
-          },
         },
         dark: {
           DEFAULT: '#191c1f',
@@ -43,10 +39,6 @@ const config: Config = {
           link: '#10b981',
           background: '#222527',
           line: '#3a3e42',
-          code: {
-            DEFAULT: '#a78bfa',
-            background: '#f3e8ff1a',
-          },
         },
         dimmed: '#00000066',
         language,
