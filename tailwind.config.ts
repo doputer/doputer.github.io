@@ -1,19 +1,19 @@
 import type { Config } from 'tailwindcss';
 
 const language = {
-  html: '#e34c26',
-  css: '#563d7c',
-  js: '#f1e05a',
-  jsx: '#f1e05a',
-  ts: '#3178c6',
-  tsx: '#3178c6',
-  shell: '#89e051',
-  yaml: '#cb171e',
-  json: '#cb171e',
-  sql: '#e38c00',
-  c: '#a8b9cc',
-  cpp: '#f34b7d',
-  text: '#808080',
+  html: '#e34c2680',
+  css: '#563d7c80',
+  js: '#f1e05a80',
+  jsx: '#f1e05a80',
+  ts: '#3178c680',
+  tsx: '#3178c680',
+  shell: '#89e05180',
+  yaml: '#cb171e80',
+  json: '#cb171e80',
+  sql: '#e38c0080',
+  c: '#a8b9cc80',
+  cpp: '#f34b7d80',
+  text: '#80808080',
 };
 
 const config: Config = {
