@@ -20,7 +20,7 @@ const Pre: Extension['Pre'] = (props) => {
   const Pre = Code.Pre as NonNullable<Extension['Pre']>;
 
   return (
-    <div className="relative [&>pre]:!pt-8">
+    <div className="group relative [&>pre]:!pt-8">
       <CopyButton text={props.code} />
       <Pre {...props} />
     </div>
