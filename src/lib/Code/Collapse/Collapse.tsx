@@ -17,6 +17,7 @@ const Collapse = ({ query, children }: PropsWithChildren<CollapseProps>) => {
       <button
         className="absolute left-0 m-0 border-none bg-transparent p-0"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Expand"
       >
         {isOpen ? (
           <ChevronDownIcon className="inline-block size-4 align-middle" />
