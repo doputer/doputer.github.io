@@ -2,6 +2,8 @@
 
 import { useCallback } from 'react';
 
+import clsx from 'clsx';
+
 import useObserver from '@/hooks/useObserver';
 import type { Post } from '@/lib/MDX/types';
 
@@ -9,23 +11,15 @@ interface TOCProps {
   toc: Post['toc'];
 }
 
-const paddingVariants: Record<number, string> = {
-  2: 'pl-0',
-  3: 'pl-4',
-};
-
 const TOC = ({ toc }: TOCProps) => {
-  const { activeHeadingId } = useObserver();
+  const activeId = useObserver();
 
-  const handleHeadingClick = useCallback((id: string) => {
+  const handleClick = useCallback((id: string) => {
     const element = document.querySelector<HTMLHeadingElement>('#' + id);
 
     if (!(element instanceof HTMLHeadingElement)) return;
 
-    window.scrollTo({
-      top: element.offsetTop + 180,
-      behavior: 'smooth',
-    });
+    element.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
   return (
@@ -34,8 +28,8 @@ const TOC = ({ toc }: TOCProps) => {
         {toc.map(({ id, text, depth }) => (
           <li
             key={id}
-            className={`${paddingVariants[depth]} cursor-pointer ${id === activeHeadingId ? 'link' : ''}`}
-            onClick={() => handleHeadingClick(id)}
+            className={clsx('cursor-pointer', { link: id === activeId, 'pl-4': depth === 3 })}
+            onClick={() => handleClick(id)}
           >
             {text}
           </li>
