@@ -11,7 +11,7 @@ const jetbrains = localFont({
   src: './JetBrainsMono.woff2',
   display: 'swap',
   variable: '--font-jetbrains',
-  preload: false,
+  preload: true,
 });
 
 export { pretendard, jetbrains };

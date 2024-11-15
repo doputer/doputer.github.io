@@ -8,7 +8,7 @@ const TitleBarContent: Extension['TitleBarContent'] = (props) => {
   if (title === ' ') return <Language lang={lang} />;
 
   return (
-    <div className="relative px-4 py-2">
+    <div className="relative px-4 py-2 font-mono">
       {title}
       <Language lang={lang} />
     </div>
