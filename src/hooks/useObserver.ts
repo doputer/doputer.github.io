@@ -10,11 +10,12 @@ const useObserver = () => {
       });
     };
 
-    const headings = Array.from(document.querySelectorAll('h2, h3'));
-    const options = { root: null, rootMargin: `-32px 0px -80% 0px` };
+    const headings = document.querySelectorAll('h2, h3');
+    const rootMarginBottom = -(window.innerHeight - 36);
+    const options: IntersectionObserverInit = { rootMargin: `0px 0px ${rootMarginBottom}px` };
     const observer = new IntersectionObserver(handleObserver, options);
 
-    headings.forEach((element) => observer.observe(element));
+    headings.forEach((heading) => observer.observe(heading));
 
     return () => observer.disconnect();
   }, []);
