@@ -15,7 +15,7 @@ const paddingVariants: Record<number, string> = {
 };
 
 const TOC = ({ toc }: TOCProps) => {
-  const { activeHeadingId } = useObserver();
+  const activeId = useObserver();
 
   const handleHeadingClick = useCallback((id: string) => {
     const element = document.querySelector<HTMLHeadingElement>('#' + id);
@@ -34,7 +34,7 @@ const TOC = ({ toc }: TOCProps) => {
         {toc.map(({ id, text, depth }) => (
           <li
             key={id}
-            className={`${paddingVariants[depth]} cursor-pointer ${id === activeHeadingId ? 'link' : ''}`}
+            className={`${paddingVariants[depth]} cursor-pointer ${id === activeId ? 'link' : ''}`}
             onClick={() => handleHeadingClick(id)}
           >
             {text}
