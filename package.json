@@ -24,6 +24,7 @@
     "@next/mdx": "^15.0.3",
     "@next/third-parties": "^15.0.3",
     "bright": "^0.8.5",
+    "clsx": "^2.1.1",
     "next": "14.2.16",
     "react": "^18",
     "react-dom": "^18",
