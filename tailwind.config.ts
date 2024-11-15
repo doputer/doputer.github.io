@@ -1,24 +1,7 @@
 import type { Config } from 'tailwindcss';
 
-const language = {
-  html: '#e34c2680',
-  css: '#563d7c80',
-  js: '#f1e05a80',
-  jsx: '#f1e05a80',
-  ts: '#3178c680',
-  tsx: '#3178c680',
-  shell: '#89e05180',
-  yaml: '#cb171e80',
-  json: '#cb171e80',
-  sql: '#e38c0080',
-  c: '#a8b9cc80',
-  cpp: '#f34b7d80',
-  text: '#80808080',
-};
-
 const config: Config = {
   content: ['./src/components/**/*.{ts,tsx}', './src/app/**/*.{ts,tsx}', './src/lib/**/*.{ts,tsx}'],
-  safelist: [{ pattern: new RegExp(Object.keys(language).join('|')) }],
   theme: {
     fontFamily: {
       sans: ['var(--font-pretendard)', 'sans-serif'],
@@ -30,7 +13,11 @@ const config: Config = {
           DEFAULT: '#dddddd',
           mute: '#595959',
           link: '#004ec7',
-          background: '#eef1f5',
+          background: {
+            DEFAULT: '#f2f4f6',
+            pre: '#f6f8fa',
+            code: '#818b981f',
+          },
           line: '#e5e7eb',
           ellipsis: '#0000001a',
         },
@@ -38,12 +25,15 @@ const config: Config = {
           DEFAULT: '#191c1f',
           mute: '#b3b3b3',
           link: '#10b981',
-          background: '#222527',
+          background: {
+            DEFAULT: '#222527',
+            pre: '#262c36',
+            code: '#656c7633',
+          },
           line: '#3a3e42',
           ellipsis: '#ffffff1a',
         },
         dimmed: '#00000066',
-        language,
       },
       screens: {
         xs: '480px',
