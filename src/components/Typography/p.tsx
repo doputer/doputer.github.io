@@ -1,5 +1,5 @@
 function p(props: React.HTMLAttributes<HTMLParagraphElement>) {
-  return <p className="my-4 text-lg" {...props} />;
+  return <p className="my-4 leading-8" {...props} />;
 }
 
 export default p;
