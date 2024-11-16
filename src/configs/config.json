@@ -1,12 +1,15 @@
 {
   "title": "Doputer",
-  "siteUrl": "https://dohyeon.dev",
   "description": "개발자 김도현 블로그 입니다.",
+  "siteUrl": "https://dohyeon.dev",
   "comment": {
     "repo": "doputer/doputer.github.io",
     "repoId": "R_kgDOGOk5Dg",
     "category": "Comments",
     "categoryId": "DIC_kwDOGOk5Ds4CcufD"
+  },
+  "social": {
+    "github": "https://github.com/doputer"
   },
   "gtag": "G-G34J3PGR8Z"
 }

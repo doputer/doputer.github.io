@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import GNB from '@/components/Header/GNB';
 import Menu from '@/components/Header/Menu';
 import config from '@/configs/config.json';
+import Github from '@/components/Icon/github';
 
 const ThemeSwitcher = dynamic(() => import('@/components/Header/ThemeSwitcher'));
 
@@ -20,6 +21,9 @@ const Header = () => {
       <GNB links={navList} />
       <div className="flex gap-4">
         <ThemeSwitcher />
+        <a href={config.social.github} target="_blank">
+          <Github className="size-6" />
+        </a>
         <Menu links={navList} />
       </div>
     </header>
