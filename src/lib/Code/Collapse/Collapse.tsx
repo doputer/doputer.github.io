@@ -2,7 +2,7 @@
 
 import { Children, PropsWithChildren, useState } from 'react';
 
-import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 
 interface CollapseProps {
   query?: string;
@@ -20,9 +20,9 @@ const Collapse = ({ query, children }: PropsWithChildren<CollapseProps>) => {
         aria-label="Expand"
       >
         {isOpen ? (
-          <ChevronDownIcon className="inline-block size-4 align-middle" />
+          <ChevronDown className="inline-block size-4 align-middle" />
         ) : (
-          <ChevronRightIcon className="inline-block size-4 align-middle" />
+          <ChevronRight className="inline-block size-4 align-middle" />
         )}
       </button>
       {isOpen ? children : <div>{firstLine}</div>}

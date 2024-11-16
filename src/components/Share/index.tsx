@@ -1,6 +1,6 @@
 'use client';
 
-import { ShareIcon } from '@heroicons/react/24/solid';
+import { Share2 } from 'lucide-react';
 
 interface ShareProps {
   title: string;
@@ -30,7 +30,7 @@ const Share = ({ title, description }: ShareProps) => {
         aria-label="share_button"
       >
         공유하기
-        <ShareIcon className="size-6" />
+        <Share2 className="size-6" />
       </button>
     </div>
   );

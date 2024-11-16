@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import clsx from 'clsx';
 
 interface PaginationProps {
   totalCount: number;
@@ -13,24 +14,23 @@ const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
   const endPage = Math.min(startPage + 5, numPages);
 
   return (
-    <div className="flex items-center justify-center gap-4">
-      <Link href={`/pages/${startPage}`} className={`size-4 ${startPage === 0 ? 'invisible' : ''}`}>
-        <ChevronLeftIcon />
+    <div className="flex items-center justify-center gap-1">
+      <Link href={`/pages/${startPage}`} className={clsx({ invisible: startPage === 0 })}>
+        <ChevronLeft className="size-6" />
       </Link>
-      {Array.from({ length: endPage - startPage }).map((_, i) => (
-        <Link
-          key={i}
-          href={`/pages/${i + 1 + startPage}`}
-          className={`text-lg ${currentPage === i + 1 + startPage ? 'link' : ''}`}
-        >
-          {i + 1 + startPage}
-        </Link>
-      ))}
-      <Link
-        href={`/pages/${endPage + 1}`}
-        className={`size-4 ${endPage === numPages ? 'invisible' : ''}`}
-      >
-        <ChevronRightIcon />
+      <div className="space-x-1">
+        {Array.from({ length: endPage - startPage }).map((_, i) => (
+          <Link
+            key={i}
+            href={`/pages/${i + 1 + startPage}`}
+            className={clsx('px-2 text-lg', { link: currentPage === i + 1 + startPage })}
+          >
+            {i + 1 + startPage}
+          </Link>
+        ))}
+      </div>
+      <Link href={`/pages/${endPage + 1}`} className={clsx({ invisible: endPage === numPages })}>
+        <ChevronRight className="size-6" />
       </Link>
     </div>
   );

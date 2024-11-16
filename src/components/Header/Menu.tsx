@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 import { useEffect, useState } from 'react';
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-
 import type { Nav } from '@/components/Header';
+
+import { AlignJustify, X } from 'lucide-react';
 
 interface MenuProps {
   links: Nav[];
@@ -33,7 +33,7 @@ const Menu = ({ links }: MenuProps) => {
           <div className="fixed left-0 top-0 h-full w-full bg-dimmed backdrop-blur-sm"></div>
           <div className="relative">
             <button className="flex items-center" onClick={toggleMenu} aria-label="Close">
-              <XMarkIcon className="size-6 text-white" />
+              <X className="size-6 text-white" />
             </button>
             <ul className="absolute right-0 top-full mt-2 flex min-w-48 flex-col rounded-lg bg-white p-2 dark:text-dark">
               {restLinks.map(({ name, href }) => (
@@ -51,7 +51,7 @@ const Menu = ({ links }: MenuProps) => {
         </>
       ) : (
         <button className="flex items-center" onClick={toggleMenu} aria-label="Open">
-          <Bars3Icon className="size-6" />
+          <AlignJustify className="size-6" />
         </button>
       )}
     </div>
