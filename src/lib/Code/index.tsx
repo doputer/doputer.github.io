@@ -2,12 +2,13 @@ import { Code as Bright } from 'bright';
 
 import { collapse } from '@/lib/Code/Collapse';
 import { fold } from '@/lib/Code/Fold';
+import { mark } from '@/lib/Code/Mark';
 import { titlebar } from '@/lib/Code/Titlebar';
 
 Bright.theme = { light: 'github-light', dark: 'github-dark-dimmed' };
 
 const code = (props: React.HTMLAttributes<HTMLPreElement>) => {
-  const extensions = [titlebar, fold, collapse];
+  const extensions = [titlebar, mark, fold, collapse];
 
   return (
     <Bright
