@@ -15,7 +15,11 @@ const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
 
   return (
     <div className="flex items-center justify-center gap-1">
-      <Link href={`/pages/${startPage}`} className={clsx({ invisible: startPage === 0 })}>
+      <Link
+        href={`/pages/${startPage}`}
+        className={clsx({ invisible: startPage === 0 })}
+        aria-label="Prev Page Link"
+      >
         <ChevronLeft className="size-6" />
       </Link>
       <div className="space-x-1">
@@ -29,7 +33,11 @@ const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
           </Link>
         ))}
       </div>
-      <Link href={`/pages/${endPage + 1}`} className={clsx({ invisible: endPage === numPages })}>
+      <Link
+        href={`/pages/${endPage + 1}`}
+        className={clsx({ invisible: endPage === numPages })}
+        aria-label="Next Page Link"
+      >
         <ChevronRight className="size-6" />
       </Link>
     </div>

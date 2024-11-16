@@ -27,7 +27,7 @@ const Share = ({ title, description }: ShareProps) => {
       <button
         className="hover:link flex gap-2"
         onClick={handleShareClick}
-        aria-label="share_button"
+        aria-label="Share Button"
       >
         공유하기
         <Share2 className="size-6" />

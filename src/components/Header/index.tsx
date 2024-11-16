@@ -21,7 +21,7 @@ const Header = () => {
       <GNB links={navList} />
       <div className="flex gap-4">
         <ThemeSwitcher />
-        <a href={config.social.github} target="_blank">
+        <a href={config.social.github} target="_blank" aria-label="GitHub Link">
           <Github className="size-6" />
         </a>
         <Menu links={navList} />
