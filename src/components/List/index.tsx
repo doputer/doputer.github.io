@@ -14,7 +14,7 @@ const List = async ({ posts }: ListProps) => {
           key={frontmatter.title}
           className="group flex flex-wrap items-center justify-center gap-4"
         >
-          <div className="box flex w-full items-center justify-center p-12 text-6xl xs:w-fit">
+          <div className="box flex w-full items-center justify-center p-10 text-6xl xs:w-fit">
             <div className="pointer-events-none select-none group-hover:animate-flip">
               {frontmatter.emoji}
             </div>
@@ -30,7 +30,7 @@ const List = async ({ posts }: ListProps) => {
                 </Link>
               ))}
             </div>
-            <div className="mute my-4">{frontmatter.description}</div>
+            <div className="mute my-2">{frontmatter.description}</div>
             <time>{frontmatter.date}</time>
           </div>
         </div>
