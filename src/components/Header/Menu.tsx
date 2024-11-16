@@ -18,12 +18,10 @@ const Menu = ({ links }: MenuProps) => {
   const toggleMenu = () => setOpen(!open);
 
   useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'visible';
+    if (open) document.body.classList.add('overflow-hidden');
+    else document.body.classList.remove('overflow-hidden');
 
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    return () => document.body.classList.remove('overflow-hidden');
   }, [open]);
 
   return (

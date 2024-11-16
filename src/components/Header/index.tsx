@@ -10,7 +10,7 @@ const ThemeSwitcher = dynamic(() => import('@/components/Header/ThemeSwitcher'))
 export type Nav = { name: string; href: string };
 
 const navList = [
-  { name: config.title, href: '/' },
+  { name: config.name, href: '/' },
   { name: 'about', href: '/about' },
   { name: 'tags', href: '/tags' },
 ] satisfies Nav[];
