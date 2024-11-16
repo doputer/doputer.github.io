@@ -5,6 +5,7 @@ import Comment from '@/components/Comment';
 import Post from '@/components/Post';
 import Header from '@/components/Post/header';
 import Share from '@/components/Share';
+import config from '@/configs/config.json';
 import { accessPost, getPost, getPosts } from '@/lib/MDX';
 
 interface PageProps {
@@ -39,7 +40,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { frontmatter } = await getPost(params.slug);
   const { title, description } = frontmatter;
 
-  return { title, description };
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      url: config.siteUrl + '/' + params.slug,
+    },
+  };
 }
 
 export default Page;

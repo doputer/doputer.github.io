@@ -34,10 +34,11 @@ export const metadata: Metadata = {
   title: config.title,
   description: config.description,
   openGraph: {
+    images: '/api/og',
     siteName: config.title,
     title: config.title,
-    description: config.title,
-    images: '/api/og',
+    description: config.description,
+    url: config.siteUrl,
   },
 };
 
