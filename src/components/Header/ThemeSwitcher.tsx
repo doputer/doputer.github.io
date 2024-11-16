@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { Sun, Moon } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 
 const SetTheme = () => {
   const [theme, setTheme] = useState(global.window?.__theme || 'light');

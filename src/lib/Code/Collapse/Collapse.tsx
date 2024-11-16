@@ -2,7 +2,7 @@
 
 import { Children, PropsWithChildren, useState } from 'react';
 
-import { ChevronRight, ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
 interface CollapseProps {
   query?: string;

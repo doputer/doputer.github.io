@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 import { useEffect, useState } from 'react';
 
-import type { Nav } from '@/components/Header';
-
 import { AlignJustify, X } from 'lucide-react';
+
+import type { Nav } from '@/components/Header';
 
 interface MenuProps {
   links: Nav[];

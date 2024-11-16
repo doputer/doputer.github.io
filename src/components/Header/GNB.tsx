@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import clsx from 'clsx';
 
 import type { Nav } from '@/components/Header';
-import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
 
 interface GNBProps {
   links: Nav[];
