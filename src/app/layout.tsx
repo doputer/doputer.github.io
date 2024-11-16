@@ -24,11 +24,11 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
         <ThemeScript />
       </head>
       <body className="min-h-screen px-4 py-8 text-dark transition-colors dark:bg-dark dark:text-light">
-        <main className="mx-auto max-w-2xl space-y-8">
+        <div className="mx-auto max-w-2xl space-y-8">
           <Header />
-          {children}
+          <main className="space-y-8">{children}</main>
           <Footer />
-        </main>
+        </div>
       </body>
       <GoogleAnalytics gaId={config.gtag} />
     </html>

@@ -23,7 +23,7 @@ const TOC = ({ toc }: TOCProps) => {
   }, []);
 
   return (
-    <nav className="absolute left-full hidden h-full xl:block">
+    <aside className="absolute left-full hidden h-full xl:block">
       <ul className="sticky top-32 ml-8 flex flex-col text-nowrap border-l border-light-line pl-4 text-sm">
         <li className="py-1 font-medium">On this page</li>
         {toc.map(({ id, text, depth }) => (
@@ -39,7 +39,7 @@ const TOC = ({ toc }: TOCProps) => {
           </li>
         ))}
       </ul>
-    </nav>
+    </aside>
   );
 };
 
