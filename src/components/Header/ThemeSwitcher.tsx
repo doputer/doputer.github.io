@@ -16,7 +16,7 @@ const SetTheme = () => {
   }, []);
 
   return (
-    <button onClick={toggleTheme}>
+    <button onClick={toggleTheme} aria-label="Theme Button">
       <Sun className="hidden size-6 dark:block" />
       <Moon className="size-6 dark:hidden" />
     </button>

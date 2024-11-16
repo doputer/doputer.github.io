@@ -18,12 +18,10 @@ const Menu = ({ links }: MenuProps) => {
   const toggleMenu = () => setOpen(!open);
 
   useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'visible';
+    if (open) document.body.classList.add('overflow-hidden');
+    else document.body.classList.remove('overflow-hidden');
 
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    return () => document.body.classList.remove('overflow-hidden');
   }, [open]);
 
   return (
@@ -32,7 +30,7 @@ const Menu = ({ links }: MenuProps) => {
         <>
           <div className="fixed left-0 top-0 h-full w-full bg-dimmed backdrop-blur-sm"></div>
           <div className="relative">
-            <button className="flex items-center" onClick={toggleMenu} aria-label="Close">
+            <button className="flex items-center" onClick={toggleMenu} aria-label="Close Button">
               <X className="size-6 text-white" />
             </button>
             <ul className="absolute right-0 top-full mt-2 flex min-w-48 flex-col rounded-lg bg-white p-2 dark:text-dark">
@@ -50,7 +48,7 @@ const Menu = ({ links }: MenuProps) => {
           </div>
         </>
       ) : (
-        <button className="flex items-center" onClick={toggleMenu} aria-label="Open">
+        <button className="flex items-center" onClick={toggleMenu} aria-label="Open Button">
           <AlignJustify className="size-6" />
         </button>
       )}

@@ -11,7 +11,7 @@ const InlineFold = ({ children }: PropsWithChildren) => {
     <button
       onClick={() => setFolded(false)}
       className="rounded bg-light-code-ellipsis dark:bg-dark-code-ellipsis"
-      aria-label="Expand"
+      aria-label="Expand Button"
     >
       ...
     </button>

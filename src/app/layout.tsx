@@ -12,11 +12,6 @@ import ThemeScript from '@/components/Header/ThemeScript';
 import config from '@/configs/config.json';
 import { jetbrains, pretendard } from '@/static/fonts';
 
-export const metadata: Metadata = {
-  title: config.title,
-  description: config.description,
-};
-
 const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
   return (
     <html lang="ko-KR" className={`${pretendard.variable} ${jetbrains.variable}`}>
@@ -24,15 +19,26 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
         <ThemeScript />
       </head>
       <body className="min-h-screen px-4 py-8 text-dark transition-colors dark:bg-dark dark:text-light">
-        <main className="mx-auto max-w-2xl space-y-8">
+        <div className="mx-auto max-w-2xl space-y-8">
           <Header />
-          {children}
+          <main className="space-y-8">{children}</main>
           <Footer />
-        </main>
+        </div>
       </body>
       <GoogleAnalytics gaId={config.gtag} />
     </html>
   );
+};
+
+export const metadata: Metadata = {
+  title: config.title,
+  description: config.description,
+  openGraph: {
+    siteName: config.title,
+    title: config.title,
+    description: config.title,
+    images: '/api/og',
+  },
 };
 
 export default RootLayout;

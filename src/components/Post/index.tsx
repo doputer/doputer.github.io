@@ -9,10 +9,12 @@ interface PostProps {
 
 const Post = ({ toc, MDX }: PostProps) => {
   return (
-    <article className="relative">
+    <div className="relative">
       <TOC toc={toc} />
-      <MDX components={typography} />
-    </article>
+      <article>
+        <MDX components={typography} />
+      </article>
+    </div>
   );
 };
 

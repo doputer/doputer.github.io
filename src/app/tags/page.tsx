@@ -1,6 +1,8 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import Counter from '@/components/Counter';
+import config from '@/configs/config.json';
 import { getPosts } from '@/lib/MDX';
 import { encode } from '@/utils/uri';
 
@@ -29,6 +31,13 @@ const Page = async () => {
       </div>
     </div>
   );
+};
+
+export const metadata: Metadata = {
+  title: [config.title, 'Tags'].join(' | '),
+  openGraph: {
+    title: [config.title, 'Tags'].join(' | '),
+  },
 };
 
 export default Page;
