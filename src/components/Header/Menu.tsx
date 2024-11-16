@@ -4,13 +4,16 @@ import Link from 'next/link';
 
 import { useEffect, useState } from 'react';
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import { AlignJustify, X } from 'lucide-react';
+
+import type { Nav } from '@/components/Header';
 
 interface MenuProps {
-  links: string[];
+  links: Nav[];
 }
 
 const Menu = ({ links }: MenuProps) => {
+  const [, ...restLinks] = links;
   const [open, setOpen] = useState(false);
   const toggleMenu = () => setOpen(!open);
 
@@ -29,17 +32,17 @@ const Menu = ({ links }: MenuProps) => {
         <>
           <div className="fixed left-0 top-0 h-full w-full bg-dimmed backdrop-blur-sm"></div>
           <div className="relative">
-            <button className="flex items-center" onClick={toggleMenu} aria-label="close_button">
-              <XMarkIcon className="size-6 text-white" />
+            <button className="flex items-center" onClick={toggleMenu} aria-label="Close">
+              <X className="size-6 text-white" />
             </button>
             <ul className="absolute right-0 top-full mt-2 flex min-w-48 flex-col rounded-lg bg-white p-2 dark:text-dark">
-              {links.map((link) => (
-                <li key={link} className="text-lg" onClick={toggleMenu}>
+              {restLinks.map(({ name, href }) => (
+                <li key={name} className="text-lg" onClick={toggleMenu}>
                   <Link
-                    href={`/${link.toLowerCase()}`}
-                    className="block w-full rounded-lg px-4 py-2 hover:bg-light-background"
+                    href={href}
+                    className="block w-full rounded-lg px-4 py-2 capitalize hover:bg-light-background"
                   >
-                    {link}
+                    {name}
                   </Link>
                 </li>
               ))}
@@ -47,8 +50,8 @@ const Menu = ({ links }: MenuProps) => {
           </div>
         </>
       ) : (
-        <button className="flex items-center" onClick={toggleMenu} aria-label="menu_button">
-          <Bars3Icon className="size-6" />
+        <button className="flex items-center" onClick={toggleMenu} aria-label="Open">
+          <AlignJustify className="size-6" />
         </button>
       )}
     </div>

@@ -1,30 +1,31 @@
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
 
+import GNB from '@/components/Header/GNB';
 import Menu from '@/components/Header/Menu';
-import meta from '@/configs/metadata.json';
+import Github from '@/components/Icon/github';
+import config from '@/configs/config.json';
 
-const Switcher = dynamic(() => import('@/components/Header/ThemeSwitcher'));
+const ThemeSwitcher = dynamic(() => import('@/components/Header/ThemeSwitcher'));
 
-const LINKS = ['About', 'Tags'];
+export type Nav = { name: string; href: string };
 
-if (process.env.NODE_ENV === 'development') LINKS.unshift('Playground');
+const navList = [
+  { name: config.title, href: '/' },
+  { name: 'about', href: '/about' },
+  { name: 'tags', href: '/tags' },
+] satisfies Nav[];
 
 const Header = () => {
   return (
     <header className="flex items-center justify-between">
-      <Link href="/" className="text-xl font-bold tracking-tight">
-        {meta.title}
-      </Link>
-      <nav className="flex gap-4">
-        {LINKS.map((link) => (
-          <Link key={link} href={`/${link.toLowerCase()}`} className="hidden xs:block">
-            {link}
-          </Link>
-        ))}
-        <Switcher />
-        <Menu links={LINKS} />
-      </nav>
+      <GNB links={navList} />
+      <div className="flex gap-4">
+        <ThemeSwitcher />
+        <a href={config.social.github} target="_blank">
+          <Github className="size-6" />
+        </a>
+        <Menu links={navList} />
+      </div>
     </header>
   );
 };

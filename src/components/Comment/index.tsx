@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Giscus from '@giscus/react';
 
-import meta from '@/configs/metadata.json';
+import config from '@/configs/config.json';
 
 const Comment = () => {
   const [theme, setTheme] = useState(global.window?.__theme || 'light');
@@ -29,10 +29,10 @@ const Comment = () => {
     <div>
       <Giscus
         id="comments"
-        repo={meta.comment.repo as `${string}/${string}`}
-        repoId={meta.comment.repoId}
-        category={meta.comment.category}
-        categoryId={meta.comment.categoryId}
+        repo={config.comment.repo as `${string}/${string}`}
+        repoId={config.comment.repoId}
+        category={config.comment.category}
+        categoryId={config.comment.categoryId}
         mapping="title"
         strict="0"
         reactionsEnabled="1"

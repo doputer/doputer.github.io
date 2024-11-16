@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
 
-import meta from '@/configs/metadata.json';
+import config from '@/configs/config.json';
 
 export default function robots(): MetadataRoute.Robots {
-  const { siteUrl } = meta;
+  const { siteUrl } = config;
 
   return {
     rules: {

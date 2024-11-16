@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import { Moon, Sun } from 'lucide-react';
 
 const SetTheme = () => {
   const [theme, setTheme] = useState(global.window?.__theme || 'light');
@@ -17,8 +17,8 @@ const SetTheme = () => {
 
   return (
     <button onClick={toggleTheme}>
-      <SunIcon className="hidden size-6 dark:block" />
-      <MoonIcon className="size-6 dark:hidden" />
+      <Sun className="hidden size-6 dark:block" />
+      <Moon className="size-6 dark:hidden" />
     </button>
   );
 };

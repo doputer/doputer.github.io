@@ -4,20 +4,22 @@ import 'katex/dist/katex.min.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 
+import type { PropsWithChildren } from 'react';
+
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ThemeScript from '@/components/Header/ThemeScript';
-import meta from '@/configs/metadata.json';
+import config from '@/configs/config.json';
 import { jetbrains, pretendard } from '@/static/fonts';
 
 export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.description,
+  title: config.title,
+  description: config.description,
 };
 
-const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
   return (
-    <html className={`${pretendard.variable} ${jetbrains.variable}`}>
+    <html lang="ko-KR" className={`${pretendard.variable} ${jetbrains.variable}`}>
       <head>
         <ThemeScript />
       </head>
@@ -28,7 +30,7 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
           <Footer />
         </main>
       </body>
-      <GoogleAnalytics gaId={meta.gtag} />
+      <GoogleAnalytics gaId={config.gtag} />
     </html>
   );
 };
