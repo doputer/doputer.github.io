@@ -27,7 +27,9 @@ const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
           <Link
             key={i}
             href={`/pages/${i + 1 + startPage}`}
-            className={clsx('px-2 text-lg', { link: currentPage === i + 1 + startPage })}
+            className={clsx('px-2 text-lg', {
+              'text-secondary': currentPage === i + 1 + startPage,
+            })}
           >
             {i + 1 + startPage}
           </Link>

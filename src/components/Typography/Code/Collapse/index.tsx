@@ -1,6 +1,6 @@
 import { type Extension } from 'bright';
 
-import Collapse from '@/lib/Code/Collapse/Collapse';
+import Collapse from '@/components/Typography/Code/Collapse/Collapse';
 
 export const collapse: Extension = {
   name: 'collapse',

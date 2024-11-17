@@ -3,21 +3,29 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: #191c1f;
+    --color-secondary: #004ec7;
+    --color-background: #ffffff;
+    --color-muted: #6c757d;
+    --color-surface: #f2f4f6;
+    --color-line: #e5e7eb;
+    --color-accent: #818b981f;
+    --color-mark: #fef08a4d;
+  }
+
+  :root[data-theme~='dark'] {
+    --color-primary: #dddddd;
+    --color-secondary: #10b981;
+    --color-background: #191c1f;
+    --color-muted: #b3b3b3;
+    --color-surface: #222527;
+    --color-line: #3a3e42;
+    --color-accent: #656c7633;
+  }
+
   body {
+    @apply bg-background text;
     font-synthesis: none;
-  }
-}
-
-@layer components {
-  .box {
-    @apply rounded-lg bg-light-background dark:bg-dark-background;
-  }
-
-  .link {
-    @apply text-light-link dark:text-dark-link;
-  }
-
-  .mute {
-    @apply text-light-mute dark:text-dark-mute;
   }
 }

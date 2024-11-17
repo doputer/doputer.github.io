@@ -1,6 +1,6 @@
 import { type Extension } from 'bright';
 
-import InlineFold from '@/lib/Code/Fold/InlineFold';
+import InlineFold from '@/components/Typography/Code/Fold/InlineFold';
 
 export const fold: Extension = {
   name: 'fold',
