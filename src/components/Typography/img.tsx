@@ -10,6 +10,7 @@ function img(props: ImageProps) {
       sizes="100vw"
       loading="eager"
       {...props}
+      alt=""
       unoptimized={isUnpotimized}
     />
   );

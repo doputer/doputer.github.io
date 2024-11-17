@@ -10,13 +10,7 @@ Bright.theme = { light: 'github-light', dark: 'github-dark-dimmed' };
 const code = (props: React.HTMLAttributes<HTMLPreElement>) => {
   const extensions = [titlebar, mark, fold, collapse];
 
-  return (
-    <Bright
-      className="!rounded-lg border border-light-line font-mono text-sm leading-6 dark:border-dark-line"
-      extensions={extensions}
-      {...props}
-    />
-  );
+  return <Bright extensions={extensions} {...props} />;
 };
 
 export default code;

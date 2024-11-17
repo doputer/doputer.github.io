@@ -2,9 +2,9 @@ import type { ImageProps } from 'next/image';
 
 import type { MDXComponents } from 'mdx/types';
 
-import code from '@/components/Typography/Code';
+import Code from '@/components/Typography/Code';
 import * as Format from '@/components/Typography/format';
-import Image from '@/components/Typography/img';
+import Img from '@/components/Typography/img';
 
 const components: MDXComponents = {
   h2: (props) => <h2 className={Format.h2} {...props} />,
@@ -20,8 +20,8 @@ const components: MDXComponents = {
   a: (props) => <a className={Format.a} target="_blank" {...props} />,
   strong: (props) => <strong className={Format.strong} {...props} />,
 
-  pre: code,
-  img: (props) => <Image className={Format.img} {...(props as ImageProps)} />,
+  pre: (props) => <Code className={Format.pre} {...props} />,
+  img: (props) => <Img className={Format.img} {...(props as ImageProps)} />,
 };
 
 export default components;
