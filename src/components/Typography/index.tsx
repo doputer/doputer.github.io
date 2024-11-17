@@ -4,7 +4,7 @@ import type { MDXComponents } from 'mdx/types';
 
 import Code from '@/components/Typography/Code';
 import * as Format from '@/components/Typography/format';
-import Img from '@/components/Typography/img';
+import Img from '@/components/Typography/Img';
 
 const components: MDXComponents = {
   h2: (props) => <h2 className={Format.h2} {...props} />,
