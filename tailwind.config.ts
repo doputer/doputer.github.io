@@ -17,6 +17,8 @@ const config: Config = {
         line: 'var(--color-line)',
         accent: 'var(--color-accent)',
         mark: 'var(--color-mark)',
+        info: 'rgb(var(--color-info))',
+        warn: 'rgb(var(--color-warn))',
       },
       screens: {
         xs: '480px',

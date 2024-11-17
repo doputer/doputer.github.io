@@ -3,17 +3,18 @@ import type { PropsWithChildren } from 'react';
 import { cn } from '@/utils/cn';
 
 interface CalloutProps {
-  type?: 'tip';
+  type?: 'info' | 'warn';
   className?: string | undefined;
 }
 
 const calloutClasses = {
-  default: 'bg-[#eab30824]',
-  tip: 'bg-[#2d9cdb24]',
+  info: 'bg-info/15',
+  warn: 'bg-warn/15',
 } as const;
 
 const Callout = (props: PropsWithChildren<CalloutProps>) => {
-  const className = cn(props.className, calloutClasses[props.type ?? 'default']);
+  const type = props.type ?? 'info';
+  const className = cn(props.className, calloutClasses[type]);
 
   return <div {...props} className={className} />;
 };

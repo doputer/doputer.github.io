@@ -11,7 +11,10 @@
     --color-surface: #f2f4f6;
     --color-line: #e5e7eb;
     --color-accent: #818b981f;
+
     --color-mark: #fef08a4d;
+    --color-info: 45 156 219;
+    --color-warn: 234 179 8;
   }
 
   :root[data-theme~='dark'] {
