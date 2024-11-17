@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         light: {
           DEFAULT: '#dddddd',
-          mute: '#595959',
+          mute: '#6c757d',
           link: '#004ec7',
           line: '#e5e7eb',
           background: '#f2f4f6',

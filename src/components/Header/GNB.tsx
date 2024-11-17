@@ -13,7 +13,7 @@ interface GNBProps {
 
 const linkClasses = (enable: boolean) =>
   clsx('capitalize hover:text-dark dark:hover:text-light', {
-    'font-semibold text-dark dark:text-light': enable,
+    'text-dark dark:text-light': enable,
   });
 
 const GNB = ({ links }: GNBProps) => {
@@ -21,7 +21,7 @@ const GNB = ({ links }: GNBProps) => {
   const [link, ...restLinks] = links;
 
   return (
-    <nav className="flex gap-4 font-medium text-light-mute dark:text-dark-mute">
+    <nav className="flex gap-4 font-medium text-dark xs:text-light-mute dark:text-light xs:dark:text-dark-mute">
       <Link
         key={link.name}
         href={link.href}
