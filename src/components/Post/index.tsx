@@ -1,3 +1,4 @@
+import Floating from '@/components/Floating';
 import TOC from '@/components/TOC';
 import type { Post } from '@/lib/MDX/types';
 
@@ -13,6 +14,7 @@ const Post = ({ toc, MDX }: PostProps) => {
       <article>
         <MDX />
       </article>
+      <Floating toc={toc} />
     </div>
   );
 };
