@@ -30,5 +30,9 @@
   body {
     @apply bg-background text;
     font-synthesis: none;
+
+    .katex-display {
+      overflow-x: scroll;
+    }
   }
 }

@@ -1,10 +1,9 @@
 'use client';
 
-import { useCallback } from 'react';
-
 import clsx from 'clsx';
 
 import useObserver from '@/hooks/useObserver';
+import useScroll from '@/hooks/useScroll';
 import type { Post } from '@/lib/MDX/types';
 
 interface TOCProps {
@@ -13,14 +12,7 @@ interface TOCProps {
 
 const TOC = ({ toc }: TOCProps) => {
   const activeId = useObserver();
-
-  const handleClick = useCallback((id: string) => {
-    const element = document.querySelector<HTMLHeadingElement>('#' + id);
-
-    if (!(element instanceof HTMLHeadingElement)) return;
-
-    element.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+  const scrollToTarget = useScroll();
 
   return (
     <aside className="absolute left-full hidden h-full xl:block">
@@ -33,7 +25,7 @@ const TOC = ({ toc }: TOCProps) => {
               'text-secondary': id === activeId,
               'pl-4': depth === 3,
             })}
-            onClick={() => handleClick(id)}
+            onClick={() => scrollToTarget({ id })}
           >
             {text}
           </li>
