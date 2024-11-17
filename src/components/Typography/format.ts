@@ -17,5 +17,5 @@ export const th = 'p-2';
 export const td = 'p-2';
 export const a = 'font-medium text-secondary underline underline-offset-4';
 export const strong = 'font-semibold';
-export const pre = '!rounded-lg border border-line font-mono text-sm leading-6';
+export const pre = '!rounded-lg border border-line font-mono text-sm leading-6 [&_*]:z-0';
 export const img = 'm-auto my-4 h-auto w-fit rounded';
