@@ -1,9 +1,10 @@
+import type { ImageProps } from 'next/image';
+
 import type { MDXComponents } from 'mdx/types';
 
+import code from '@/components/Typography/Code';
 import * as Format from '@/components/Typography/format';
-import code from '@/lib/Code';
 import Image from '@/components/Typography/img';
-import type { ImageProps } from 'next/image';
 
 const components: MDXComponents = {
   h2: (props) => <h2 className={Format.h2} {...props} />,

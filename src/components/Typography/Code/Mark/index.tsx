@@ -1,6 +1,6 @@
 import { type Extension } from 'bright';
 
-import LineMark from '@/lib/Code/Mark/LineMark';
+import LineMark from '@/components/Typography/Code/Mark/LineMark';
 
 export const mark: Extension = {
   name: 'mark',

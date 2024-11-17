@@ -1,9 +1,9 @@
 import { Code as Bright } from 'bright';
 
-import { collapse } from '@/lib/Code/Collapse';
-import { fold } from '@/lib/Code/Fold';
-import { mark } from '@/lib/Code/Mark';
-import { titlebar } from '@/lib/Code/Titlebar';
+import { collapse } from '@/components/Typography/Code/Collapse';
+import { fold } from '@/components/Typography/Code/Fold';
+import { mark } from '@/components/Typography/Code/Mark';
+import { titlebar } from '@/components/Typography/Code/Titlebar';
 
 Bright.theme = { light: 'github-light', dark: 'github-dark-dimmed' };
 
