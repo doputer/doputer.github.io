@@ -8,10 +8,12 @@ const useMenu = () => {
   }, []);
 
   useEffect(() => {
-    if (open) document.body.classList.add('overflow-hidden');
-    else document.body.classList.remove('overflow-hidden');
+    if (open) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'visible';
 
-    return () => document.body.classList.remove('overflow-hidden');
+    return () => {
+      document.body.style.overflow = 'visible';
+    };
   }, [open]);
 
   return [open, toggleMenu] as const;
