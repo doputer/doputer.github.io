@@ -4,20 +4,7 @@
 
 @layer base {
   body {
+    @apply text-dark dark:bg-dark dark:text-light;
     font-synthesis: none;
-  }
-}
-
-@layer components {
-  .box {
-    @apply rounded-lg bg-light-background dark:bg-dark-background;
-  }
-
-  .link {
-    @apply text-light-link dark:text-dark-link;
-  }
-
-  .mute {
-    @apply text-light-mute dark:text-dark-mute;
   }
 }

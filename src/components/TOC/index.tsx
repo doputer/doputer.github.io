@@ -30,7 +30,7 @@ const TOC = ({ toc }: TOCProps) => {
           <li
             key={id}
             className={clsx('cursor-pointer py-1 font-light', {
-              link: id === activeId,
+              'text-light-link dark:text-dark-link': id === activeId,
               'pl-4': depth === 3,
             })}
             onClick={() => handleClick(id)}

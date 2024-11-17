@@ -7,7 +7,8 @@ const LIST = 'my-4 list-inside leading-8 [&_ol]:my-0 [&_ol]:ml-4 [&_ul]:my-0 [&_
 // Element
 export const h2 = clsx(HEADING, 'text-2xl');
 export const h3 = clsx(HEADING, 'text-xl');
-export const blockquote = 'box my-4 space-y-4 p-4 [&>p]:m-0';
+export const blockquote =
+  'rounded-lg bg-light-background dark:bg-dark-background my-4 space-y-4 p-4 [&>p]:m-0';
 export const code = 'rounded bg-light-code-inline px-1 py-0.5 text-sm dark:bg-dark-code-inline';
 export const ol = clsx(LIST, 'list-decimal');
 export const ul = clsx(LIST, 'list-disc');
