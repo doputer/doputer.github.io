@@ -2,13 +2,11 @@
 
 - Responsive Design
 - Dark Theme
+- MDX(Filesystem-Based)
 - TOC
-- MDX
-- GFM (GitHub Flavored Markdown)
-- CD (GitHub Actions)
-- Syntax Highlighting (PrismJS)
-- Comment (Giscus)
-- Math Typesetting (KaTeX)
-- SEO
+- GFM(GitHub Flavored Markdown)
+- Syntax Highlighting(Bright)
+- Math Typesetting(KaTeX)
+- Comment(Giscus)
 - GA
 - Config
