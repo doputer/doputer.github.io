@@ -24,13 +24,13 @@ const TOC = ({ toc }: TOCProps) => {
 
   return (
     <aside className="absolute left-full hidden h-full xl:block">
-      <ul className="sticky top-32 ml-8 flex flex-col text-nowrap border-l border-light-line pl-4 text-sm">
+      <ul className="sticky top-32 ml-8 flex flex-col text-nowrap border-l border-line pl-4 text-sm">
         <li className="py-1 font-medium">On this page</li>
         {toc.map(({ id, text, depth }) => (
           <li
             key={id}
             className={clsx('cursor-pointer py-1 font-light', {
-              'text-light-link dark:text-dark-link': id === activeId,
+              'text-secondary': id === activeId,
               'pl-4': depth === 3,
             })}
             onClick={() => handleClick(id)}

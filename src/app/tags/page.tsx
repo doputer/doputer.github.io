@@ -27,7 +27,7 @@ const Page = async () => {
           <Link
             key={tag}
             href={`/tags/${encode(tag)}`}
-            className="rounded-lg bg-light-background px-2 py-1 text-sm uppercase dark:bg-dark-background"
+            className="rounded-lg bg-surface px-2 py-1 text-sm uppercase"
           >
             {tag} ({totalCount})
           </Link>
