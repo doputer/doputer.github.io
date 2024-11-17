@@ -2,6 +2,7 @@ import type { ImageProps } from 'next/image';
 
 import type { MDXComponents } from 'mdx/types';
 
+import Callout from '@/components/Typography/Callout';
 import Code from '@/components/Typography/Code';
 import * as Format from '@/components/Typography/format';
 import Img from '@/components/Typography/Img';
@@ -22,6 +23,7 @@ const components: MDXComponents = {
 
   pre: (props) => <Code className={Format.pre} {...props} />,
   img: (props) => <Img className={Format.img} {...(props as ImageProps)} />,
+  Callout: (props) => <Callout className={Format.blockquote} {...props} />,
 };
 
 export default components;
