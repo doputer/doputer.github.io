@@ -2,11 +2,10 @@
 
 import Link from 'next/link';
 
-import { useEffect, useState } from 'react';
-
 import { AlignJustify, X } from 'lucide-react';
 
 import type { Nav } from '@/components/Header';
+import useMenu from '@/hooks/useMenu';
 
 interface MenuProps {
   links: Nav[];
@@ -14,21 +13,13 @@ interface MenuProps {
 
 const Menu = ({ links }: MenuProps) => {
   const [, ...restLinks] = links;
-  const [open, setOpen] = useState(false);
-  const toggleMenu = () => setOpen(!open);
-
-  useEffect(() => {
-    if (open) document.body.classList.add('overflow-hidden');
-    else document.body.classList.remove('overflow-hidden');
-
-    return () => document.body.classList.remove('overflow-hidden');
-  }, [open]);
+  const [open, toggleMenu] = useMenu();
 
   return (
     <div className="relative z-10 xs:hidden">
-      {open ? (
+      {open && (
         <>
-          <div className="fixed left-0 top-0 h-full w-full bg-black/40 backdrop-blur-sm"></div>
+          <div className="fixed left-0 top-0 h-full w-full bg-black/40 backdrop-blur-sm" />
           <div className="relative">
             <button className="flex items-center" onClick={toggleMenu} aria-label="Close Button">
               <X className="size-6 text-white" />
@@ -47,7 +38,8 @@ const Menu = ({ links }: MenuProps) => {
             </ul>
           </div>
         </>
-      ) : (
+      )}
+      {!open && (
         <button className="flex items-center" onClick={toggleMenu} aria-label="Open Button">
           <AlignJustify className="size-6" />
         </button>
