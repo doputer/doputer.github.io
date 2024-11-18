@@ -4,7 +4,6 @@ import { ArrowUpIcon, ChatBubbleOvalLeftIcon, TagIcon, XMarkIcon } from '@heroic
 import clsx from 'clsx';
 
 import useMenu from '@/hooks/useMenu';
-import useObserver from '@/hooks/useObserver';
 import useScroll from '@/hooks/useScroll';
 import type { Post } from '@/lib/MDX/types';
 
@@ -13,12 +12,11 @@ interface FloatingProps {
 }
 
 const Floating = ({ toc }: FloatingProps) => {
-  const activeId = useObserver();
   const scrollToTarget = useScroll();
   const [open, toggleMenu] = useMenu();
 
   return (
-    <div className="fixed bottom-4 right-4 space-y-2 xs:hidden">
+    <div className="fixed bottom-4 right-4 space-y-2 xl:hidden">
       <div className="relative">
         <button
           className="rounded-full border border-line bg-white p-2 text-muted dark:bg-black"
@@ -50,8 +48,7 @@ const Floating = ({ toc }: FloatingProps) => {
                 {toc.map(({ id, text, depth }) => (
                   <li
                     key={id}
-                    className={clsx('px-6 py-2 font-light', {
-                      'text-secondary': id === activeId,
+                    className={clsx('cursor-pointer px-6 py-2 font-light', {
                       'pl-10': depth === 3,
                     })}
                     onClick={() => scrollToTarget({ id })}
@@ -62,10 +59,16 @@ const Floating = ({ toc }: FloatingProps) => {
               </ul>
             )}
             <div className="flex justify-end gap-4 px-6 py-2">
-              <button onClick={() => scrollToTarget({ page: 'bottom' })}>
+              <button
+                onClick={() => scrollToTarget({ page: 'bottom' })}
+                aria-label="Scroll Bottom Button"
+              >
                 <ChatBubbleOvalLeftIcon className="size-5 text-muted" />
               </button>
-              <button onClick={() => scrollToTarget({ page: 'top' })}>
+              <button
+                onClick={() => scrollToTarget({ page: 'top' })}
+                aria-label="Scroll Top Button"
+              >
                 <ArrowUpIcon className="size-5 text-muted" />
               </button>
             </div>
