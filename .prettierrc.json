@@ -10,5 +10,6 @@
   "endOfLine": "lf",
   "bracketSpacing": true,
   "proseWrap": "preserve",
+  "tailwindFunctions": ["clsx"],
   "plugins": ["prettier-plugin-packagejson", "prettier-plugin-tailwindcss"]
 }
