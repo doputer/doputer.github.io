@@ -6,6 +6,9 @@ import type { Metadata } from 'next';
 
 import type { PropsWithChildren } from 'react';
 
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ThemeScript from '@/components/Header/ThemeScript';
@@ -24,6 +27,8 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
           <main className="space-y-8">{children}</main>
           <Footer />
         </div>
+        <Analytics />
+        <SpeedInsights />
       </body>
       <GoogleAnalytics gaId={config.gtag} />
     </html>
