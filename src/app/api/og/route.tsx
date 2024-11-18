@@ -1,26 +1,30 @@
 import { ImageResponse } from 'next/og';
 
-const OGOptions = { width: 1200, height: 630 };
+const size = { width: 1200, height: 630 };
 
-export async function GET() {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const hasEmoji = searchParams.has('emoji');
+  const emoji = hasEmoji ? searchParams.get('emoji') : '🏷️';
+
   return new ImageResponse(
     (
       <div
         style={{
-          padding: '50px 200px',
+          display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           width: '100%',
           height: '100%',
-          color: 'black',
           backgroundColor: 'white',
           fontSize: 128,
-          textAlign: 'center',
         }}
       >
-        🏷️
+        {emoji}
       </div>
     ),
-    OGOptions
+    {
+      ...size,
+    }
   );
 }

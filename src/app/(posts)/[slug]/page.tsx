@@ -38,14 +38,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!(await accessPost(params.slug))) notFound();
 
   const { frontmatter } = await getPost(params.slug);
-  const { title, description } = frontmatter;
+  const { emoji, title, description } = frontmatter;
 
   return {
     title,
     description,
     openGraph: {
+      images: `/api/og?emoji=${emoji}`,
       title,
-      url: config.siteUrl + '/' + params.slug,
+      url: [config.siteUrl, params.slug].join('/'),
     },
   };
 }
