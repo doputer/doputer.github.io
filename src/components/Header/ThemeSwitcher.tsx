@@ -1,24 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 
-import { Moon, Sun } from 'lucide-react';
+import useTheme from '@/hooks/useTheme';
 
 const SetTheme = () => {
-  const [theme, setTheme] = useState(global.window?.__theme || 'light');
-
-  const toggleTheme = () => {
-    global.window?.__setPreferredTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
-  useEffect(() => {
-    global.window.__setTheme = setTheme;
-  }, []);
+  const toggleTheme = useTheme();
 
   return (
     <button onClick={toggleTheme} aria-label="Theme Button">
-      <Sun className="hidden size-6 dark:block" />
-      <Moon className="size-6 dark:hidden" />
+      <SunIcon className="hidden size-6 dark:block" />
+      <MoonIcon className="size-6 dark:hidden" />
     </button>
   );
 };

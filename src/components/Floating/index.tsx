@@ -1,7 +1,7 @@
 'use client';
 
+import { ArrowUpIcon, ChatBubbleOvalLeftIcon, TagIcon, XMarkIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
-import { ArrowUpToLine, TableOfContents, X } from 'lucide-react';
 
 import useMenu from '@/hooks/useMenu';
 import useScroll from '@/hooks/useScroll';
@@ -16,18 +16,18 @@ const Floating = ({ toc }: FloatingProps) => {
   const [open, toggleMenu] = useMenu();
 
   return (
-    <div className="fixed bottom-4 right-4 space-y-2 xs:hidden">
+    <div className="fixed bottom-4 right-4 space-y-2 xl:hidden">
       <div className="relative">
         <button
           className="rounded-full border border-line bg-white p-2 text-muted dark:bg-black"
           onClick={toggleMenu}
           aria-label="Open TOC Button"
         >
-          <TableOfContents className="size-5" />
+          <TagIcon className="size-5 text-muted" />
         </button>
 
         {open && (
-          <div className="fixed left-0 top-0 z-10 h-full w-full bg-black/40 backdrop-blur-sm" />
+          <div className="pointer-events-auto fixed left-0 top-0 z-10 h-full w-full bg-black/40 backdrop-blur-sm" />
         )}
 
         {open && (
@@ -36,7 +36,7 @@ const Floating = ({ toc }: FloatingProps) => {
             onClick={toggleMenu}
             aria-label="Close TOC Button"
           >
-            <X className="size-5" />
+            <XMarkIcon className="size-5 text-muted" />
           </button>
         )}
 
@@ -48,7 +48,9 @@ const Floating = ({ toc }: FloatingProps) => {
                 {toc.map(({ id, text, depth }) => (
                   <li
                     key={id}
-                    className={clsx('px-6 py-2 font-light', { 'pl-10': depth === 3 })}
+                    className={clsx('cursor-pointer px-6 py-2 font-light', {
+                      'pl-10': depth === 3,
+                    })}
                     onClick={() => scrollToTarget({ id })}
                   >
                     {text}
@@ -56,11 +58,19 @@ const Floating = ({ toc }: FloatingProps) => {
                 ))}
               </ul>
             )}
-            <div
-              className="flex justify-end px-4 py-2"
-              onClick={() => scrollToTarget({ toTop: true })}
-            >
-              <ArrowUpToLine className="size-6 text-muted" strokeWidth={1} />
+            <div className="flex justify-end gap-4 px-6 py-2">
+              <button
+                onClick={() => scrollToTarget({ page: 'bottom' })}
+                aria-label="Scroll Bottom Button"
+              >
+                <ChatBubbleOvalLeftIcon className="size-5 text-muted" />
+              </button>
+              <button
+                onClick={() => scrollToTarget({ page: 'top' })}
+                aria-label="Scroll Top Button"
+              >
+                <ArrowUpIcon className="size-5 text-muted" />
+              </button>
             </div>
           </div>
         )}

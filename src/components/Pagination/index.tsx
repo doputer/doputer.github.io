@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface PaginationProps {
   totalCount: number;
@@ -20,7 +20,7 @@ const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
         className={clsx({ invisible: startPage === 0 })}
         aria-label="Prev Page Link"
       >
-        <ChevronLeft className="size-6" />
+        <ChevronLeftIcon className="size-5" />
       </Link>
       <div className="space-x-1">
         {Array.from({ length: endPage - startPage }).map((_, i) => (
@@ -40,7 +40,7 @@ const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
         className={clsx({ invisible: endPage === numPages })}
         aria-label="Next Page Link"
       >
-        <ChevronRight className="size-6" />
+        <ChevronRightIcon className="size-5" />
       </Link>
     </div>
   );
