@@ -1,21 +1,17 @@
 import { useEffect, useState } from 'react';
 
-const useTheme = (): [() => void] => {
-  const [theme, setTheme] = useState('');
-
-  const next = (theme: string) => (theme === 'light' ? 'dark' : 'light');
+const useTheme = () => {
+  const [theme, setTheme] = useState(global.window?.__theme || 'light');
 
   const toggleTheme = () => {
-    setTheme(next(theme));
-    window.__setTheme(next(theme));
-    window.dispatchEvent(new StorageEvent('storage', { key: next(theme) }));
+    global.window?.__setPreferredTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   useEffect(() => {
-    setTheme(window.__theme);
+    global.window.__setTheme = setTheme;
   }, []);
 
-  return [toggleTheme];
+  return toggleTheme;
 };
 
 export default useTheme;
