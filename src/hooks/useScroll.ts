@@ -2,13 +2,16 @@ import { useCallback } from 'react';
 
 interface ScrollOption {
   id?: string;
-  toTop?: boolean;
+  page?: 'top' | 'bottom' | false;
 }
 
 const useScroll = () => {
-  return useCallback(({ id, toTop = false }: ScrollOption) => {
-    if (toTop) {
+  return useCallback(({ id, page = false }: ScrollOption) => {
+    if (page === 'top') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    } else if (page === 'bottom') {
+      window.scrollTo({ top: window.document.documentElement.scrollHeight, behavior: 'smooth' });
       return;
     }
 

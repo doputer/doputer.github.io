@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowUpIcon, TagIcon, XMarkIcon } from '@heroicons/react/20/solid';
+import { ArrowUpIcon, ChatBubbleOvalLeftIcon, TagIcon, XMarkIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 
 import useMenu from '@/hooks/useMenu';
@@ -61,8 +61,11 @@ const Floating = ({ toc }: FloatingProps) => {
                 ))}
               </ul>
             )}
-            <div className="flex justify-end px-6 py-2">
-              <button className="" onClick={() => scrollToTarget({ toTop: true })}>
+            <div className="flex justify-end gap-4 px-6 py-2">
+              <button onClick={() => scrollToTarget({ page: 'bottom' })}>
+                <ChatBubbleOvalLeftIcon className="size-5 text-muted" />
+              </button>
+              <button onClick={() => scrollToTarget({ page: 'top' })}>
                 <ArrowUpIcon className="size-5 text-muted" />
               </button>
             </div>
