@@ -4,7 +4,7 @@ import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 
 import useTheme from '@/hooks/useTheme';
 
-const SetTheme = () => {
+const ThemeSwitcher = () => {
   const toggleTheme = useTheme();
 
   return (
@@ -15,4 +15,4 @@ const SetTheme = () => {
   );
 };
 
-export default SetTheme;
+export default ThemeSwitcher;
