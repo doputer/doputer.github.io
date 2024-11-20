@@ -1,24 +1,25 @@
-type Theme = 'light' | 'dark';
+export type Theme = 'light' | 'dark';
+type Listener = (theme: Theme) => void;
 
 declare global {
   interface Window {
     __theme: Theme;
-    __setTheme: (theme: Theme) => void;
     __setPreferredTheme: (theme: Theme) => void;
+    __addThemeListener: (callback: Listener) => void;
+    __removeThemeListener: (callback: Listener) => void;
   }
 }
 
 const script = function () {
-  window.__setTheme = function () {};
-
   function setTheme(newTheme: Theme) {
-    window.__theme = newTheme;
-    preferredTheme = newTheme;
     document.documentElement.dataset.theme = newTheme;
-    window.__setTheme(newTheme);
+
+    window.__theme = newTheme;
+    themeListeners.forEach((listener) => listener(newTheme));
   }
 
   let preferredTheme: Theme;
+  let themeListeners: Listener[] = [];
 
   try {
     preferredTheme = localStorage.getItem('theme') as Theme;
@@ -26,6 +27,14 @@ const script = function () {
     console.error(error);
     return;
   }
+
+  window.__addThemeListener = (listener) => {
+    themeListeners.push(listener);
+  };
+
+  window.__removeThemeListener = (listener) => {
+    themeListeners = themeListeners.filter((l) => l !== listener);
+  };
 
   window.__setPreferredTheme = function (newTheme) {
     setTheme(newTheme);

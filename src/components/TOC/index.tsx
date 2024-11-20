@@ -3,6 +3,7 @@
 import { ArrowUpIcon, ChatBubbleOvalLeftIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 
+import ThemeSwitch from '@/components/ThemeSwitch';
 import useObserver from '@/hooks/useObserver';
 import useScroll from '@/hooks/useScroll';
 import type { Post } from '@/lib/MDX/types';
@@ -34,6 +35,7 @@ const TOC = ({ toc }: TOCProps) => {
           ))}
         </ul>
         <div className="flex justify-start gap-4 px-4 pt-2">
+          <ThemeSwitch position="toc" />
           <button
             onClick={() => scrollToTarget({ page: 'bottom' })}
             aria-label="Scroll Bottom Button"

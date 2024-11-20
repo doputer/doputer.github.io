@@ -11,7 +11,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import ThemeScript from '@/components/Header/ThemeScript';
+import ThemeScript from '@/components/ThemeSwitch/ThemeScript';
 import config from '@/configs/config.json';
 import { jetbrains, pretendard } from '@/static/fonts';
 

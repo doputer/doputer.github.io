@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import type { Theme } from '@/components/ThemeSwitch/ThemeScript';
+
 const useTheme = () => {
   const [theme, setTheme] = useState(global.window?.__theme || 'light');
 
@@ -8,7 +10,15 @@ const useTheme = () => {
   };
 
   useEffect(() => {
-    global.window.__setTheme = setTheme;
+    const handleTheme = (newTheme: Theme) => {
+      setTheme(newTheme);
+    };
+
+    global.window?.__addThemeListener?.(handleTheme);
+
+    return () => {
+      global.window?.__removeThemeListener?.(handleTheme);
+    };
   }, []);
 
   return toggleTheme;

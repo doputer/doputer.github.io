@@ -3,6 +3,7 @@
 import { ArrowUpIcon, ChatBubbleOvalLeftIcon, TagIcon, XMarkIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 
+import ThemeSwitch from '@/components/ThemeSwitch';
 import useMenu from '@/hooks/useMenu';
 import useScroll from '@/hooks/useScroll';
 import type { Post } from '@/lib/MDX/types';
@@ -59,6 +60,7 @@ const Floating = ({ toc }: FloatingProps) => {
               </ul>
             )}
             <div className="flex justify-end gap-4 px-6 py-2">
+              <ThemeSwitch position="floating" />
               <button
                 onClick={() => scrollToTarget({ page: 'bottom' })}
                 aria-label="Scroll Bottom Button"

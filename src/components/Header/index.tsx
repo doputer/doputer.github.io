@@ -5,7 +5,7 @@ import Menu from '@/components/Header/Menu';
 import Github from '@/components/Icon/github';
 import config from '@/configs/config.json';
 
-const ThemeSwitcher = dynamic(() => import('@/components/Header/ThemeSwitcher'));
+const ThemeSwitch = dynamic(() => import('@/components/ThemeSwitch'));
 
 export type Nav = { name: string; href: string };
 
@@ -20,7 +20,7 @@ const Header = () => {
     <header className="flex items-center justify-between">
       <GNB links={navList} />
       <div className="flex gap-4">
-        <ThemeSwitcher />
+        <ThemeSwitch position="header" />
         <a href={config.social.github} target="_blank" aria-label="GitHub Link">
           <Github className="size-6" />
         </a>
