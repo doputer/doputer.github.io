@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import type { Theme } from '@/components/Header/ThemeScript';
+import type { Theme } from '@/components/ThemeSwitch/ThemeScript';
 
 const useTheme = () => {
   const [theme, setTheme] = useState(global.window?.__theme || 'light');

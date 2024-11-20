@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import useTheme from '@/hooks/useTheme';
 
-interface ThemeSwitcherProps {
+interface ThemeSwitchProps {
   position: 'header' | 'toc' | 'floating';
 }
 
@@ -15,7 +15,7 @@ const variants = {
   floating: 'size-5 text-muted',
 };
 
-const ThemeSwitcher = ({ position }: ThemeSwitcherProps) => {
+const ThemeSwitch = ({ position }: ThemeSwitchProps) => {
   const toggleTheme = useTheme();
 
   return (
@@ -26,4 +26,4 @@ const ThemeSwitcher = ({ position }: ThemeSwitcherProps) => {
   );
 };
 
-export default ThemeSwitcher;
+export default ThemeSwitch;
