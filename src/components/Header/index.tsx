@@ -20,7 +20,7 @@ const Header = () => {
     <header className="flex items-center justify-between">
       <GNB links={navList} />
       <div className="flex gap-4">
-        <ThemeSwitcher />
+        <ThemeSwitcher position="header" />
         <a href={config.social.github} target="_blank" aria-label="GitHub Link">
           <Github className="size-6" />
         </a>
