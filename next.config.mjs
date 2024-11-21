@@ -2,6 +2,7 @@ import createMDX from '@next/mdx';
 
 import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -28,7 +29,7 @@ const withMDX = createMDX({
       remarkToc,
       remarkImage,
     ],
-    rehypePlugins: [rehypeSlug, rehypeKatex],
+    rehypePlugins: [rehypeSlug, rehypeKatex, rehypeUnwrapImages],
   },
 });
 

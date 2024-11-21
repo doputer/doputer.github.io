@@ -1,19 +1,23 @@
 import Image, { type ImageProps } from 'next/image';
 
-function img(props: ImageProps) {
-  const isUnpotimized = /.gif$/.test(props.src as string);
+const Img = (props: ImageProps) => {
+  const caption = props?.title;
+  const isUnoptimized = /.gif$/.test(props.src as string);
 
   return (
-    <Image
-      width={0}
-      height={0}
-      sizes="100vw"
-      loading="eager"
-      {...props}
-      alt=""
-      unoptimized={isUnpotimized}
-    />
+    <figure>
+      <Image
+        width={0}
+        height={0}
+        sizes="100vw"
+        loading="eager"
+        {...props}
+        alt=""
+        unoptimized={isUnoptimized}
+      />
+      {caption && <figcaption className="text-center text-sm text-muted">{caption}</figcaption>}
+    </figure>
   );
-}
+};
 
-export default img;
+export default Img;
