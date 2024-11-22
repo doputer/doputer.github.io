@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-import { Post } from '@/lib/MDX/types';
+import type { Post } from '@/lib/MDX/types';
+import { encode } from '@/utils/uri';
 
 interface ListProps {
   posts: Post[];
@@ -12,26 +13,26 @@ const List = async ({ posts }: ListProps) => {
       {posts.map(({ frontmatter, slug }) => (
         <div
           key={frontmatter.title}
-          className="group flex flex-wrap items-center justify-center gap-4"
+          className="group relative flex flex-wrap items-center justify-center gap-4 py-0 before:absolute before:inset-0 before:-z-10 before:hidden before:scale-x-110 before:rounded-lg hover:before:bg-surface xs:gap-8 xs:py-4 xs:before:block"
         >
-          <div className="flex w-full items-center justify-center rounded-lg bg-surface p-10 text-6xl xs:w-fit">
-            <div className="pointer-events-none select-none group-hover:animate-flip">
-              {frontmatter.emoji}
-            </div>
+          <div className="pointer-events-none select-none text-3xl group-hover:animate-flip xs:text-5xl">
+            {frontmatter.emoji}
           </div>
           <div className="flex-1">
-            <Link href={`/${slug}`} className="text-2xl font-semibold">
-              {frontmatter.title}
-            </Link>
-            <div className="flex flex-wrap gap-2 text-sm uppercase text-secondary">
+            <div className="flex items-baseline justify-between gap-2 xs:justify-normal">
+              <Link href={`/${slug}`} className="break-keep text-base font-medium xs:text-2xl">
+                {frontmatter.title}
+              </Link>
+              <time className="text-xs font-light xs:text-sm">{frontmatter.date}</time>
+            </div>
+            <div className="space-x-2 text-xs uppercase text-secondary xs:text-sm">
               {frontmatter.tags.map((tag) => (
-                <Link key={tag} href={`/tags/${tag.replace(/\s/g, '-')}`}>
+                <Link key={tag} href={`/tags/${encode(tag)}`}>
                   {tag}
                 </Link>
               ))}
             </div>
-            <div className="my-2 text-muted">{frontmatter.description}</div>
-            <time>{frontmatter.date}</time>
+            <div className="mt-2 text-sm text-muted xs:text-base">{frontmatter.description}</div>
           </div>
         </div>
       ))}

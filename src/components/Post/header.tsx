@@ -8,7 +8,7 @@ interface HeaderProps {
 const Header = ({ title, date }: HeaderProps) => {
   return (
     <div className="space-y-2">
-      <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+      <h1 className="text-2xl font-bold tracking-tight xs:text-3xl">{title}</h1>
       <time className="block">{date}</time>
     </div>
   );

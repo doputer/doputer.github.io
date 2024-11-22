@@ -21,7 +21,7 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
       <head>
         <ThemeScript />
       </head>
-      <body className="min-h-screen px-4 py-8 transition-colors">
+      <body className="min-h-screen px-4 py-8">
         <div className="mx-auto max-w-2xl space-y-8">
           <Header />
           <main className="space-y-8">{children}</main>
