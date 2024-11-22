@@ -5,7 +5,7 @@ interface CounterProps {
 
 const Counter = ({ label = 'all', count }: CounterProps) => {
   return (
-    <div className="text-3xl font-bold capitalize tracking-tight">
+    <div className="text-2xl font-bold capitalize tracking-tight xs:text-3xl">
       {label}
       <sup className="text-xl font-bold">{count}</sup>
     </div>

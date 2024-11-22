@@ -24,12 +24,9 @@ const Page = async () => {
       <Counter label="tags" count={Object.keys(tagsObject).length} />
       <div className="flex flex-wrap gap-4">
         {sortedTagsArray.map(([tag, totalCount]) => (
-          <Link
-            key={tag}
-            href={`/tags/${encode(tag)}`}
-            className="rounded-lg bg-surface px-2 py-1 text-sm uppercase"
-          >
-            {tag} ({totalCount})
+          <Link key={tag} href={`/tags/${encode(tag)}`} className="flex gap-1 text-sm">
+            <span className="uppercase text-secondary">{tag}</span>
+            <span>{totalCount}</span>
           </Link>
         ))}
       </div>
