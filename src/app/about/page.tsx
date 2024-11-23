@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 
 import config from '@/configs/config.json';
+import Counter from '@/components/Counter';
 
 const Page = async () => {
   return (
     <>
+      <Counter label="me" />
       <p>
         안녕하세요.
         <br />
