@@ -5,7 +5,7 @@ import { getPosts } from '@/lib/MDX';
 
 const Page = async () => {
   const posts = await getPosts();
-  const slicedPosts = posts.slice(0, 5);
+  const slicedPosts = posts.slice(0, 10);
 
   return (
     <>

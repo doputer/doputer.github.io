@@ -9,9 +9,10 @@ interface PaginationProps {
 }
 
 const Pagination = ({ totalCount, currentPage = 1 }: PaginationProps) => {
-  const numPages = Math.ceil(totalCount / 5);
-  const startPage = (Math.ceil(currentPage / 5) - 1) * 5;
-  const endPage = Math.min(startPage + 5, numPages);
+  const itemPerPage = 10;
+  const numPages = Math.ceil(totalCount / itemPerPage);
+  const startPage = (Math.ceil(currentPage / itemPerPage) - 1) * itemPerPage;
+  const endPage = Math.min(startPage + itemPerPage, numPages);
 
   return (
     <div className="flex items-center justify-center gap-1">

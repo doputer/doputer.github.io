@@ -1,11 +1,8 @@
-import dynamic from 'next/dynamic';
-
 import GNB from '@/components/Header/GNB';
 import Menu from '@/components/Header/Menu';
 import Github from '@/components/Icon/github';
+import ThemeSwitch from '@/components/ThemeSwitch';
 import config from '@/configs/config.json';
-
-const ThemeSwitch = dynamic(() => import('@/components/ThemeSwitch'));
 
 export type Nav = { name: string; href: string };
 

@@ -10,8 +10,9 @@ interface PageProps {
 }
 
 const Page = async ({ params: { page } }: PageProps) => {
+  const postPerPage = 10;
   const posts = await getPosts();
-  const slicedPosts = posts.slice((+page - 1) * 5, (+page - 1) * 5 + 5);
+  const slicedPosts = posts.slice((+page - 1) * postPerPage, +page * postPerPage);
 
   if (slicedPosts.length === 0) notFound();
 
