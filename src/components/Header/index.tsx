@@ -1,8 +1,8 @@
 import GNB from '@/components/Header/GNB';
 import Menu from '@/components/Header/Menu';
 import Github from '@/components/Icon/github';
-import config from '@/configs/config.json';
 import ThemeSwitch from '@/components/ThemeSwitch';
+import config from '@/configs/config.json';
 
 export type Nav = { name: string; href: string };
 
