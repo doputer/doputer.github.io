@@ -1,8 +1,0 @@
-{
-  "name": "@doputer/remark-toc",
-  "version": "0.1.0",
-  "private": true,
-  "exports": {
-    ".": "./index.mjs"
-  }
-}
