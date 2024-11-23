@@ -1,7 +1,8 @@
 {
-  "name": "doputer.github.io",
-  "version": "0.1.0",
+  "name": "nextjs-mdx-blog",
+  "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "prebuild": "node ./scripts/pre-script.mjs",
     "build": "next build",
