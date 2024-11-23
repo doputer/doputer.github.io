@@ -2,13 +2,10 @@
   "name": "doputer.github.io",
   "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "prebuild": "node ./scripts/pre.mjs",
+    "prebuild": "node ./scripts/pre-script.mjs",
     "build": "next build",
-    "predev": "node ./scripts/pre.mjs",
+    "predev": "node ./scripts/pre-script.mjs",
     "dev": "next dev",
     "format": "prettier --write '**/*.{mdx,ts,tsx}'",
     "lint": "next lint",
@@ -16,8 +13,6 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@doputer/remark-image": "*",
-    "@doputer/remark-toc": "*",
     "@giscus/react": "^3.0.0",
     "@heroicons/react": "^2.1.5",
     "@mdx-js/loader": "^3.1.0",

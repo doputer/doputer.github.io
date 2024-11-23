@@ -1,6 +1,6 @@
 import { visit } from 'unist-util-visit';
 
-const remarkImage = () => {
+const remarkPublicImage = () => {
   return (tree, file) => {
     const path = file.history.at(0).split('/').at(-2);
 
@@ -11,4 +11,4 @@ const remarkImage = () => {
   };
 };
 
-export default remarkImage;
+export default remarkPublicImage;
