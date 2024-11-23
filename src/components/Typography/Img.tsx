@@ -10,8 +10,8 @@ const Img = (props: ImageProps) => {
         width={0}
         height={0}
         sizes="100vw"
-        loading="eager"
         {...props}
+        priority
         alt=""
         unoptimized={isUnoptimized}
       />

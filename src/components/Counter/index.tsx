@@ -1,13 +1,13 @@
 interface CounterProps {
-  label?: string;
-  count: number;
+  label: string;
+  count?: number;
 }
 
-const Counter = ({ label = 'all', count }: CounterProps) => {
+const Counter = ({ label, count }: CounterProps) => {
   return (
-    <div className="text-3xl font-bold capitalize tracking-tight">
+    <div className="text-2xl font-bold capitalize tracking-tight md:text-3xl">
       {label}
-      <sup className="text-xl font-bold">{count}</sup>
+      {count && <sup className="text-xl font-bold">{count}</sup>}
     </div>
   );
 };

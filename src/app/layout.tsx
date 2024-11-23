@@ -21,10 +21,10 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
       <head>
         <ThemeScript />
       </head>
-      <body className="min-h-screen px-4 py-8 transition-colors">
-        <div className="mx-auto max-w-2xl space-y-8">
+      <body>
+        <div className="mx-auto flex min-h-screen max-w-2xl flex-col gap-8 px-4 py-8">
           <Header />
-          <main className="space-y-8">{children}</main>
+          <main className="flex flex-1 flex-col gap-8">{children}</main>
           <Footer />
         </div>
         <Analytics />

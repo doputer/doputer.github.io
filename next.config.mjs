@@ -8,10 +8,9 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
-import remarkImage from '@doputer/remark-image';
-import remarkToc from '@doputer/remark-toc';
-
 import { redirects } from './scripts/redirects.mjs';
+import remarkPublicImage from './scripts/remark-public-image.mjs';
+import remarkToc from './scripts/remark-toc.mjs';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -27,7 +26,7 @@ const withMDX = createMDX({
       remarkGfm,
       remarkMath,
       remarkToc,
-      remarkImage,
+      remarkPublicImage,
     ],
     rehypePlugins: [rehypeSlug, rehypeKatex, rehypeUnwrapImages],
   },
