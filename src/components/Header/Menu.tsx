@@ -17,7 +17,7 @@ const Menu = ({ links }: MenuProps) => {
   const [open, toggleMenu] = useMenu();
 
   return (
-    <div className="relative xs:hidden">
+    <div className="relative md:hidden">
       <button
         className={clsx('flex items-center', { invisible: open })}
         onClick={toggleMenu}

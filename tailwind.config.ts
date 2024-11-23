@@ -20,9 +20,6 @@ const config: Config = {
         info: 'rgb(var(--color-info))',
         warn: 'rgb(var(--color-warn))',
       },
-      screens: {
-        xs: '480px',
-      },
       animation: {
         flip: 'flip 1s linear infinite',
       },

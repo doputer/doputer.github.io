@@ -18,7 +18,7 @@ const GNB = ({ links }: GNBProps) => {
   const [link, ...restLinks] = links;
 
   return (
-    <nav className="flex gap-4 font-medium text xs:text-muted">
+    <nav className="flex gap-4 font-medium text md:text-muted">
       <Link
         key={link.name}
         href={link.href}
@@ -30,7 +30,7 @@ const GNB = ({ links }: GNBProps) => {
         <Link
           key={name}
           href={href}
-          className={clsx('hidden xs:block', linkClasses(href === pathname))}
+          className={clsx('hidden md:block', linkClasses(href === pathname))}
         >
           {name}
         </Link>
