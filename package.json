@@ -6,9 +6,9 @@
     "packages/*"
   ],
   "scripts": {
-    "prebuild": "node ./scripts/pre.mjs",
+    "prebuild": "node ./scripts/pre-script.mjs",
     "build": "next build",
-    "predev": "node ./scripts/pre.mjs",
+    "predev": "node ./scripts/pre-script.mjs",
     "dev": "next dev",
     "format": "prettier --write '**/*.{mdx,ts,tsx}'",
     "lint": "next lint",
