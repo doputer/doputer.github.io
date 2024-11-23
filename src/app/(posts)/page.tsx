@@ -1,17 +1,22 @@
+import Link from 'next/link';
+
 import Counter from '@/components/Counter';
 import List from '@/components/List';
-import Pagination from '@/components/Pagination';
 import { getPosts } from '@/lib/MDX';
 
 const Page = async () => {
   const posts = await getPosts();
-  const slicedPosts = posts.slice(0, 10);
+  const slicedPosts = posts.slice(0, 5);
 
   return (
     <>
-      <Counter count={posts.length} />
+      <Counter label="Latest" count={slicedPosts.length} />
       <List posts={slicedPosts} />
-      <Pagination totalCount={posts.length} />
+      <div className="text-right text-lg">
+        <Link href={'/pages/1'} className="text-secondary">
+          All Posts →
+        </Link>
+      </div>
     </>
   );
 };

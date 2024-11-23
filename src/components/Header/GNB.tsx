@@ -15,16 +15,26 @@ const linkClasses = (enable: boolean) => clsx('capitalize hover:text', { text: e
 
 const GNB = ({ links }: GNBProps) => {
   const pathname = usePathname();
-  const [link, ...restLinks] = links;
+  const [homeLink, postLink, ...restLinks] = links;
 
   return (
-    <nav className="flex gap-4 font-medium text md:text-muted">
+    <nav className="flex gap-4 text-lg font-medium text md:text-muted">
       <Link
-        key={link.name}
-        href={link.href}
-        className={linkClasses(restLinks.every(({ href }) => href !== pathname))}
+        key={homeLink.name}
+        href={homeLink.href}
+        className={linkClasses(homeLink.href === pathname)}
       >
-        {link.name}
+        {homeLink.name}
+      </Link>
+      <Link
+        key={postLink.name}
+        href={postLink.href}
+        className={clsx(
+          'hidden md:block',
+          linkClasses([homeLink, ...restLinks].every(({ href }) => href !== pathname))
+        )}
+      >
+        {postLink.name}
       </Link>
       {restLinks.map(({ name, href }) => (
         <Link

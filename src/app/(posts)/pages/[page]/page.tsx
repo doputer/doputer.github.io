@@ -18,7 +18,7 @@ const Page = async ({ params: { page } }: PageProps) => {
 
   return (
     <>
-      <Counter count={posts.length} />
+      <Counter label={`Page ${page}`} count={slicedPosts.length} />
       <List posts={slicedPosts} />
       <Pagination totalCount={posts.length} currentPage={+page} />
     </>
