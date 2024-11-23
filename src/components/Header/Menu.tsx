@@ -41,10 +41,7 @@ const Menu = ({ links }: MenuProps) => {
           <ul>
             {restLinks.map(({ name, href }) => (
               <li key={name} onClick={toggleMenu}>
-                <Link
-                  href={href}
-                  className="block size-full px-6 py-2 text-sm font-light capitalize"
-                >
+                <Link href={href} className="block size-full px-6 py-2 font-light capitalize">
                   {name}
                 </Link>
               </li>

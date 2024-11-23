@@ -21,20 +21,20 @@ const List = ({ posts }: ListProps) => {
             </div>
             <div className="flex-1">
               <div className="flex items-baseline justify-between gap-2 md:justify-normal">
-                <Link href={`/${slug}`} className="break-keep text-base font-medium md:text-2xl">
+                <Link href={`/${slug}`} className="break-keep text-lg font-medium md:text-xl">
                   <span className="mr-2 md:hidden">{frontmatter.emoji}</span>
                   {frontmatter.title}
                 </Link>
-                <time className="text-xs font-light md:text-sm">{frontmatter.date}</time>
+                <time className="text-sm font-light">{frontmatter.date}</time>
               </div>
-              <div className="space-x-2 text-xs uppercase text-secondary md:text-sm">
+              <div className="mb-2 mt-1 space-x-2 text-sm uppercase text-secondary">
                 {frontmatter.tags.map((tag) => (
                   <Link key={tag} href={`/tags/${encode(tag)}`}>
                     {tag}
                   </Link>
                 ))}
               </div>
-              <div className="mt-2 text-sm text-muted md:text-base">{frontmatter.description}</div>
+              <div className="text-muted">{frontmatter.description}</div>
             </div>
           </div>
         </div>

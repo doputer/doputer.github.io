@@ -8,6 +8,7 @@ export type Nav = { name: string; href: string };
 
 const navList = [
   { name: config.name, href: '/' },
+  { name: 'posts', href: '/pages/1' },
   { name: 'about', href: '/about' },
   { name: 'tags', href: '/tags' },
 ] satisfies Nav[];
