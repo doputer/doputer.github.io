@@ -11,7 +11,7 @@ const Post = ({ toc, MDX }: PostProps) => {
   return (
     <div className="relative">
       <TOC toc={toc} />
-      <article className="[&>*:first-of-type]:mt-0">
+      <article className="[&>*:first-child]:mt-0">
         <MDX />
       </article>
       <Floating toc={toc} />

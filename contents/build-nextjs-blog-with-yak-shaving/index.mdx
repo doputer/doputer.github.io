@@ -1,0 +1,297 @@
+---
+emoji: '🪒'
+title: 'Next.js 기술 블로그 개발기 (feat. 야크 털 깎기)'
+description: 'Gatsby를 떠나보내며'
+tags:
+  - blog
+  - next
+  - gatsby
+  - yak shaving
+date: 2024-11-21
+---
+
+Tistory와 Velog를 떠돌아다니다가 Gatsby로 블로그를 직접 만들어서 사용했습니다. 하지만 후술할 Gatsby의 아쉬운 점들로 인해 Next.js로 마이그레이션을 결정했습니다.
+
+이 글에서는 마이그레이션 한 이유와 약 2주간의 과정에 대해 남겨보겠습니다.
+
+## 야크 털 깎기의 시작
+
+뒤죽박죽 섞여버린 학습 기록들, 늘어가는 북마크 그리고 이마저도 귀찮아지면 휘발해버리는 지식들을 보면서 다시 블로그에 글을 정리하기로 했습니다.
+
+그렇게 기존 Gatsby 블로그를 다시 둘러보던 중 몇 가지 문제를 발견했습니다.
+
+잊고 있었지만 Gatsby의 개발 환경에는 **새로고침 후 뒤로 가기 혹은 앞으로 가기 시 항상 404 페이지가 나타나는 버그**가 있습니다. - [Refreshing then hitting the back button causes 404](https://github.com/gatsbyjs/gatsby/issues/29469)
+
+![](0.png '메인 페이지 있는데...')
+
+이 문제는 프레임워크 내부 동작에서 발생하기 때문에 제가 직접 수정할 수는 없었습니다. 게다가 해당 이슈가 등록된 지 오랜 시간이 지났음에도 여전히 해결되지 않았습니다.
+
+이뿐만 아니라 **공식 플러그인 버전 관리 문제**도 골치 아팠습니다. 특정 패키지를 업데이트하면 연쇄적으로 다른 패키지들도 업데이트해야 하는데 이 과정에서 충돌이 발생했습니다.
+
+```
+A 버전 업 -> B 버전 업 -> C 버전 업 => A와 C의 충돌💥
+```
+
+이런 상황에서 제가 선택할 수 있는 방법은 두 가지뿐이었습니다.
+
+1. 문제를 무시하고 기존 환경을 유지한다.
+2. 직접 PR을 올려 문제를 해결한다.
+
+하지만 버그를 무시한다고 해서 불편함이 사라지는 것도 아니었고, 계속 이 상태로 사용하기엔 한계가 느껴졌습니다. 그리고 프레임워크의 복잡한 동작을 파헤쳐 수정하기에는 많은 시간이 소요되고 까다로웠습니다. 게다가 제 코드가 머지 된다는 보장도 없었고요.
+
+이런 고민 끝에 Next.js로 마이그레이션을 결정했습니다. React 기반이라 이미 익숙했고, 무엇보다 현재 활발하게 유지 보수되고 있는 프레임워크이기 때문에 Gatsby에서 겪었던 문제들을 만날 가능성이 적다고 판단했습니다.
+
+![](1.png '사라진 Gatsby')
+
+## Next.js로
+
+버전은 Next.js 14(App Router)를 선택했습니다. 마침 신규 프로젝트에서 App Router를 사용할 예정이었기 때문에 좋은 학습 기회가 될 거라고 생각했습니다.
+
+### 계획 세우기
+
+마이그레이션을 잘 마무리하기 위해 사전에 몇 가지 계획을 세웠습니다.
+
+**기존 기능 분석**
+
+기존 블로그에서 사용 중인 필수 기능(MDX 렌더링, SEO 설정, 다크 테마)을 우선적으로 가져오고, 레이아웃 및 컴포넌트는 그대로 가져와서 마이그레이션 이후에 개선하기로 했습니다.
+
+포스트 URL은 유지하려고 했으나 영어 URL로 변경하면서 [redirects](https://nextjs.org/docs/app/api-reference/next-config-js/redirects)를 설정했습니다.
+
+**파일 및 디렉토리 구조**
+
+마이그레이션 후 혼란을 줄이기 위해 기존 구조를 최대한 유지하기로 했습니다. 특히 MDX 파일이 들어가는 `contents` 디렉토리는 편의를 위해 반드시 root 경로에 놓고 싶었습니다.
+
+구상했던 대략적인 구조는 아래와 같습니다.
+
+```
+.
+├── contents -> 포스트 MDX
+├── public -> 포스트 이미지
+└── src
+    └── app -> App Router
+```
+
+**배포 환경**
+
+배포 방식은 크게 달라질 거라 예상했습니다.
+
+Gatsby는 모두 정적 페이지라서 GitHub Actions를 통해 GitHub Pages에 배포했습니다. 그러나 Next.js는 서버가 필요하기 때문에 포기하고, 대신에 매우 편리해 보이는 [Vercel](https://vercel.com/)을 통해 배포하기로 했습니다.
+
+### 기능 정리하기
+
+기능은 조금 더 세분화해서 기존에 있던 기능과 추가로 넣을 기능을 정리했습니다.
+
+**기존**
+
+- 반응형 디자인
+- 다크 테마
+- 댓글(Giscus)
+- TOC
+- GFM(GitHub Flavored Markdown)
+- Code Block + Syntax Highlighting
+- 수식(KaTeX)
+- Google Analytics
+
+**추가**
+
+- 모바일 TOC 지원
+- Scroll Progress Bar
+- Callout
+- 실행 가능한 Code Block
+
+## 마이그레이션 과정
+
+[Next.js 공식 문서](https://nextjs.org/docs/app/building-your-application/configuring/mdx)에 내용이 잘 정리되어 있어서 참고했습니다.
+
+### 기본 설정
+
+먼저 `next.config.mjs`에서 MDX를 설정해 줘야 합니다. 필요한 플러그인이 있다면 추가해 줍니다.
+
+```js
+// title next.config.mjs
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ['ts', 'tsx', 'mdx'],
+};
+
+const withMDX = createMDX({
+  options: {
+    // collapse(1:7) close
+    remarkPlugins: [
+      remarkFrontmatter,
+      remarkMdxFrontmatter,
+      remarkGfm,
+      remarkMath,
+      remarkToc,
+      remarkPublicImage,
+    ],
+    // fold[21:63]
+    rehypePlugins: [rehypeSlug, rehypeKatex, rehypeUnwrapImages],
+  },
+});
+
+export default withMDX(nextConfig);
+```
+
+그리고 `app` 디렉토리와 동일한 곳에 `mdx-components.tsx`를 추가해야 합니다.
+
+```mdx-components.tsx
+// mark
+import typography from '@/components/Typography';
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return Object.assign({}, components, typography);
+}
+```
+
+이곳에서 MDX에서 사용할 컴포넌트를 직접 정의하거나 기존 요소들의 스타일을 정의할 수 있습니다.
+
+스타일링은 [tailwindcss-typography](https://github.com/tailwindlabs/tailwindcss-typography) 같은 걸 이용할 수도 있습니다. 편리해 보였지만 내부에서 TailwindCSS 클래스를 쓸 수 없어서 `format.ts` 파일을 만들어서 이곳에서 스타일링 했습니다.
+
+```Typography/index.tsx
+import * as Format from '@/components/Typography/format';
+
+const components: MDXComponents = {
+  // mark
+  h2: (props) => <h2 className={Format.h2} {...props} />,
+  ...
+};
+
+export default components;
+```
+
+```Typography/format.ts
+const HEADING = clsx('mb-4 mt-8 scroll-mt-4 font-semibold');
+
+// mark
+export const h2 = clsx(HEADING, 'text-2xl');
+...
+```
+
+### MDX 파일 구조 및 관리
+
+파일 시스템 기반에서 간편하게 글을 쓰려면 단순한 구조를 갖는 게 중요합니다.
+
+제가 생각한 구조는 **디렉토리 이름이 포스트 URL**이 되고, MDX에서 **frontmatter**를 작성하면 알아서 페이지가 만들어지는 것입니다. `(root)/contents/포스트 URL/index.mdx`와 같이 구조입니다.
+
+디렉토리를 없애고 `index.mdx` 대신에 `포스트 URL.mdx`로 만들면 더 단순해졌겠지만 한 포스트에서 사용하는 파일과 이미지는 같은 곳에서 관리하고 싶었기 때문에 그러지 않았습니다.
+
+이 글은 아래와 같은 구조로 만들어졌습니다.
+
+```
+.
+└── contents
+    └── build-nextjs-blog-with-yak-shaving
+        ├── index.mdx
+        ├── 0.png
+        └── 1.png
+```
+
+이 구조를 다루기 위해 필요한 함수들을 만들었습니다.
+
+```lib/MDX.ts
+const parseMDX = async (slug: string) => {
+  // mark
+  const MDXModule = await import(`/contents/${slug}/index.mdx`);
+  const { frontmatter, toc, default: MDX } = MDXModule;
+
+  frontmatter.date = frontmatter.date.replace(/-/g, '.');
+
+  return { frontmatter, toc, slug, MDX } as Post;
+};
+```
+
+우선 MDX 파일을 불러서 필요한 정보를 추출하고, 실제 렌더링 되는 `MDX Component`를 만드는 `parseMDX` 함수입니다.
+
+앞서 `next.config.mjs`에 적용한 플러그인 등은 Next.js를 빌드 하거나 개발 서버로 실행할 때 `*.mdx`에 적용됩니다. 위 코드에서 `import`로 불러온 파일은 `default`에 렌더링 할 수 있는 컴포넌트로 만들어집니다.
+
+이외의 `frontmatter`, `toc`는 플러그인을 통해서 추출한 데이터입니다.
+
+<Callout>
+
+`frontmatter`는 마크다운 문서에서 작성한 메타 데이터입니다. 제목, 작성일 등의 정보를 특정한 규칙으로 문서에 작성한 후 활용할 수 있습니다. 이 글은 아래와 같이 작성되었습니다.
+
+```mdx
+---
+emoji: '🪒'
+title: 'Next.js 기술 블로그 개발기 (feat. 야크 털 깎기)'
+description: 'Gatsby를 떠나보내며'
+tags:
+  - blog
+  - next
+  - gatsby
+  - yak shaving
+date: 2024-11-21
+---
+```
+
+</Callout>
+
+`parseMDX` 함수는 외부로 노출시키지 않고, `getPost`와 `getPosts` 함수를 만들어서 이것들을 노출시켰습니다. 이 함수들은 포스트 페이지나 포스트 리스트 페이지 등에서 활용했습니다.
+
+```lib/MDX.ts
+const getPost = async (slug: string) => {
+  // mark
+  const post = await parseMDX(slug);
+
+  return post;
+};
+
+const getPosts = async () => {
+  const allDir = await getMDXDirs();
+  // mark
+  const allPost = await Promise.all(allDir.map(getPost));
+  const allSortedPost = allPost.sort((a, b) => {
+    return new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1;
+  });
+
+  return allSortedPost;
+};
+```
+
+### 코드 블럭
+
+Gatsby에서는 `gatsby-remark-prismjs` 플러그인으로 Syntax Highlighting을 했습니다. 이번에는 여러 가지를 놓고 고민하다가 [Bright](https://bright.codehike.org/)로 결정했습니다.
+
+정식 릴리즈된 패키지는 아니지만 리액트 서버 컴포넌트에서 작동한다는 게 매력적이었고, 기반 패키지인 [Code Hike](https://codehike.org/)의 문서화가 잘 되어있어서 추가 기능을 만드는 것도 간편했습니다.
+
+예를 들어서 코드 블럭에서 특정 라인을 강조하는 기능은 아래와 같이 만들 수 있습니다.
+
+```ts
+import { type Extension } from 'bright';
+
+import LineMark from '@/components/Typography/Code/Mark/LineMark';
+
+export const mark: Extension = {
+  // mark(1:2)
+  name: 'mark',
+  MultilineAnnotation: ({ children }) => <LineMark>{children}</LineMark>,
+};
+```
+
+```tsx
+const LineMark = ({ children }: PropsWithChildren) => {
+  return (
+    <div className="bg-mark flex">
+      <div className="flex-1">{children}</div>
+    </div>
+  );
+};
+```
+
+`name`으로 지정한 것이 키워드가 되고, 코드 블럭에서 키워드와 함께 `inline selector[n:m]` 혹은 `multiline selector(n:m)`을 사용하면 해당하는 부분이 추출됩니다.
+
+## 후기
+
+글을 쓰려다가 뭔가 불편함을 느껴서 마이그레이션까지 하게 되었습니다. 그런데 핑계 같기도 하네요... 그냥 Next.js App Router를 써보고 싶었던 것 같습니다. 제 블로그는 새로운 기술을 시험해 보기 좋으니까요.
+
+2주라고 적긴 했지만 마이그레이션 이후에 레이아웃과 스타일을 개선하고, 기능을 추가하느라 조금 더 시간이 걸렸습니다. 아직도 부족한 부분이 많이 보이네요. 글 영역은 가독성을 더 좋게 하기 위해 여러 공식 문서 스타일들을 참고했습니다.
+
+- [Lucide Docs](https://lucide.dev/guide/)
+- [TailwindCSS Docs](https://tailwindcss.com/docs/installation)
+- [Gatsby Docs](https://www.gatsbyjs.com/docs/)
+- [NestJS Docs](https://docs.nestjs.com/)
+
+사실 모든 일이 순조롭게 진행되지는 않았습니다. Gatsby 플러그인이 자동으로 해주던 기능이 사라져서 생긴 문제들이 있었고, 이 중 일부는 직접 구현해서 해결했는데요. 다른 글에 이어서 적어보겠습니다. 그리고 TOC나 다크 테마에 대한 내용도 같이 정리해 볼 생각입니다.
+
+전체적인 코드는 제 [GitHub](https://github.com/doputer/dohyeon-nextjs-mdx-blog)에서 확인하실 수 있습니다.
