@@ -7,6 +7,9 @@ const TitleBarContent: Extension['TitleBarContent'] = (props) => {
 };
 
 export const titlebar: Extension = {
-  name: 'titlebar',
+  name: 'title',
   TitleBarContent,
+  beforeHighlight: (props, annotations) => {
+    if (annotations.length > 0) return { ...props, title: annotations[0].query };
+  },
 };
