@@ -57,7 +57,7 @@ function Bar() {
 
 ```tsx
 function Bar() {
-  // mark
+  // !mark
   const { b } = useStore((state) => state);
 
   return (
@@ -126,7 +126,7 @@ const { a, b, c } = useStore(useShallow((state) => ({ a: state.a, b: state.b, c:
 
 아래는 Zustand의 [useShallow](https://github.com/pmndrs/zustand/blob/main/src/react/shallow.ts) 구현 코드입니다.
 
-```react/shallow.ts
+```ts react/shallow.ts
 import React from 'react';
 import { shallow } from '../vanilla/shallow.ts';
 

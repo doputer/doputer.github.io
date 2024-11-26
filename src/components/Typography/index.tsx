@@ -21,9 +21,9 @@ const components: MDXComponents = {
   a: (props) => <a className={Format.a} target="_blank" {...props} />,
   strong: (props) => <strong className={Format.strong} {...props} />,
 
-  pre: (props) => <Code className={Format.pre} {...props} />,
   img: (props) => <Img className={Format.img} {...(props as ImageProps)} />,
   Callout: (props) => <Callout className={Format.blockquote} {...props} />,
+  Code: (props) => <Code {...props} />,
 };
 
 export default components;

@@ -25,7 +25,7 @@ Zustand 4.4.7 이하 버전에서는 Persist 미들웨어를 사용하는 경우
 
 버그 발생 상황을 구체적으로 구성해 보면 Persist 미들웨어를 사용하는 스토어의 초깃값과 로컬 스토리지(혹은 세션 스토리지)의 값이 달라지는 순간 발생합니다.
 
-```store.ts
+```ts store.ts
 const store = create()(
   persist(
     (set) => ({
@@ -72,11 +72,11 @@ test-storage { value: 1 }
 
 `Persist`는 어디까지나 Zustand의 미들웨어입니다. 뒤에 자세히 설명하겠지만 앞서 말씀드린 `useSyncExternalStore`의 동작이 일어나기 전에 Persist가 먼저 동작합니다. 이는 구현체를 보면 알 수 있습니다.
 
-```src/react.ts
+```ts src/react.ts
 const createImpl = <T>(createState: StateCreator<T, [], []>) => {
   ...생략
 
-  // mark
+  // !mark
   const api = typeof createState === 'function' ? createStore(createState) : createState;
 
   const useBoundStore: any = (selector?: any, equalityFn?: any) =>
@@ -88,7 +88,7 @@ const createImpl = <T>(createState: StateCreator<T, [], []>) => {
 };
 
 export const create = (<T>(createState: StateCreator<T, [], []> | undefined) =>
-  // mark
+  // !mark
   createState ? createImpl(createState) : createImpl) as Create;
 ```
 
@@ -98,7 +98,7 @@ export const create = (<T>(createState: StateCreator<T, [], []> | undefined) =>
 
 ```ts
 const store = create(persist());
-// mark
+// !mark
 const store = create()(persist());
 ```
 
@@ -106,7 +106,7 @@ const store = create()(persist());
 
 이 부분을 길게 얘기한 이유는 Persist가 존재하는 경우 클라이언트에서 스토어의 초깃값이 스토리지를 불러온 이후의 값이기 때문입니다. 초깃값의 실체는 `api`에 값이 할당된 이후에 `useStore` 내부에 있는 `useSyncExternalStore`의 반환 값입니다.
 
-```src/middleware/persist.ts
+```ts src/middleware/persist.ts
 // a workaround to solve the issue of not storing rehydrated state in sync storage
 // the set(state) value would be later overridden with initial state by create()
 // to avoid this, we merge the state from localStorage into the initial state.
@@ -120,12 +120,12 @@ const store = create()(persist());
 
 아래는 Zustand 4.4.7 버전의 코드입니다.
 
-```src/react.ts
+```ts src/react.ts
 // v4.4.7
 const slice = useSyncExternalStoreWithSelector(
   api.subscribe,
   api.getState,
-  // mark
+  // !mark
   api.getServerState || api.getState,
   selector,
   equalityFn
@@ -142,17 +142,17 @@ const slice = useSyncExternalStoreWithSelector(
 
 그렇다면 Zustand는 이 문제를 어떻게 해결했을까요? 의외로 간단합니다.
 
-```src/middleware/persist.ts
-// mark
+```ts src/middleware/persist.ts
+// !mark
 api.getInitialState = () => configResult;
 ```
 
-```src/react.ts
+```ts src/react.ts
 // v4.5.0
 const slice = useSyncExternalStoreWithSelector(
   api.subscribe,
   api.getState,
-  // mark
+  // !mark
   api.getServerState || api.getInitialState,
   selector,
   equalityFn

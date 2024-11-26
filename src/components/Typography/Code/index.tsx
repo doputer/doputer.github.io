@@ -1,16 +1,37 @@
-import { Code as Bright } from 'bright';
+import type { PropsWithChildren } from 'react';
 
-import { collapse } from '@/components/Typography/Code/Collapse';
-import { fold } from '@/components/Typography/Code/Fold';
-import { mark } from '@/components/Typography/Code/Mark';
-import { titlebar } from '@/components/Typography/Code/Titlebar';
+import { type HighlightedCode, Pre } from 'codehike/code';
 
-Bright.theme = { light: 'github-light', dark: 'github-dark-dimmed' };
+import collapse from '@/components/Typography/Code/handlers/Collapse';
+import fold from '@/components/Typography/Code/handlers/Fold';
+import mark from '@/components/Typography/Code/handlers/Mark';
 
-const code = (props: React.HTMLAttributes<HTMLPreElement>) => {
-  const extensions = [titlebar, mark, fold, collapse];
+interface CodeProps {
+  codeblock: HighlightedCode;
+}
 
-  return <Bright extensions={extensions} {...props} />;
+const Code = (props: CodeProps) => {
+  const meta = props.codeblock.meta;
+  const handlers = [mark, fold, collapse];
+
+  return (
+    <Wrapper title={meta}>
+      <Pre code={props.codeblock} handlers={handlers} />
+    </Wrapper>
+  );
 };
 
-export default code;
+interface WrapperProps {
+  title: string;
+}
+
+const Wrapper = ({ title, children }: PropsWithChildren<WrapperProps>) => {
+  return (
+    <div className="my-4 rounded-lg border border-line bg-background font-mono text-sm leading-6">
+      {title && <div className="border-b border-line px-4 py-2">{title}</div>}
+      <div className="overflow-auto py-4">{children}</div>
+    </div>
+  );
+};
+
+export default Code;

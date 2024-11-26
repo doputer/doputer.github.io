@@ -182,7 +182,7 @@ lighthouse:
 
 **Run Lighthouse CI** 스텝에서 Lighthouse 검사를 수행합니다.
 
-```.lighthouserc.js
+```js .lighthouserc.js
 module.exports = {
   ci: {
     collect: {
@@ -203,7 +203,7 @@ module.exports = {
 
 검사를 수행했다면 다음과 같은 요약 보고서 파일을 확인할 수 있습니다.
 
-```lighthouse_reports/manifest.json
+```json lighthouse_reports/manifest.json
 [
   {
     "url": "http://localhost:3000/",

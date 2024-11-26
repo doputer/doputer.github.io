@@ -1,5 +1,6 @@
 import createMDX from '@next/mdx';
 
+import { remarkCodeHike } from 'codehike/mdx';
 import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
@@ -18,6 +19,11 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
 };
 
+const codehikeConfig = {
+  components: { code: 'Code' },
+  syntaxHighlighting: { theme: 'github-from-css' },
+};
+
 const withMDX = createMDX({
   options: {
     remarkPlugins: [
@@ -27,6 +33,7 @@ const withMDX = createMDX({
       remarkMath,
       remarkToc,
       remarkPublicImage,
+      [remarkCodeHike, codehikeConfig],
     ],
     rehypePlugins: [rehypeSlug, rehypeKatex, rehypeUnwrapImages],
   },
