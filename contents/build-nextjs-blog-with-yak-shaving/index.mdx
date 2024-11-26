@@ -248,37 +248,27 @@ const getPosts = async () => {
 };
 ```
 
-### 코드 블럭
+### 코드 블록
 
-Gatsby에서는 `gatsby-remark-prismjs` 플러그인으로 Syntax Highlighting을 했습니다. 이번에는 여러 가지를 놓고 고민하다가 [Bright](https://bright.codehike.org/)로 결정했습니다.
+Gatsby에서는 `gatsby-remark-prismjs` 플러그인을 사용해 코드 블록에 Syntax Highlighting을 적용했습니다. 이번에는 다양한 옵션을 놓고 고민한 끝에 [Code Hike](https://codehike.org/)를 선택했습니다.
 
-정식 릴리즈된 패키지는 아니지만 리액트 서버 컴포넌트에서 작동한다는 게 매력적이었고, 기반 패키지인 [Code Hike](https://codehike.org/)의 문서화가 잘 되어있어서 추가 기능을 만드는 것도 간편했습니다.
+Code Hike는 여러 테마를 제공하고 간단하게 적용할 수 있다는 장점 외에도, **Annotation Handler**라는 유용한 기능을 제공합니다. 이 기능을 활용하면 코드 블록에서 주석을 통해 특정 라인이나 텍스트를 선택하고, 선택한 부분을 커스터마이징할 수 있습니다. 자세한 내용은 [공식 문서](https://codehike.org/docs/concepts/annotations)를 참고해 주세요.
 
-예를 들어서 코드 블럭에서 특정 라인을 강조하는 기능은 아래와 같이 만들 수 있습니다.
+예를 들어서 코드 블록에서 특정 라인을 강조하려면 아래와 같이 만들 수 있습니다.
 
-```ts
-import { type Extension } from 'bright';
+```tsx handlers/Mark/index.tsx
+import { type AnnotationHandler, InnerLine } from 'codehike/code';
 
-import LineMark from '@/components/Typography/Code/Mark/LineMark';
-
-export const mark: Extension = {
-  // !mark(1:2)
+const mark: AnnotationHandler = {
+  // !mark
   name: 'mark',
-  MultilineAnnotation: ({ children }) => <LineMark>{children}</LineMark>,
+  Line: (props) => <InnerLine merge={props} className="px-4" />,
+  // !mark
+  AnnotatedLine: (props) => <InnerLine merge={props} className="bg-mark px-4" />,
 };
-```
 
-```tsx
-const LineMark = ({ children }: PropsWithChildren) => {
-  return (
-    <div className="bg-mark flex">
-      <div className="flex-1">{children}</div>
-    </div>
-  );
-};
+export default mark;
 ```
-
-`name`으로 지정한 것이 키워드가 되고, 코드 블럭에서 키워드와 함께 `inline selector[n:m]` 혹은 `multiline selector(n:m)`을 사용하면 해당하는 부분이 추출됩니다.
 
 ## 후기
 
