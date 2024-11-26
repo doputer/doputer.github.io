@@ -107,8 +107,7 @@ Gatsby는 모두 정적 페이지라서 GitHub Actions를 통해 GitHub Pages에
 
 먼저 `next.config.mjs`에서 MDX를 설정해 줘야 합니다. 필요한 플러그인이 있다면 추가해 줍니다.
 
-```js
-// title next.config.mjs
+```js next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'mdx'],
@@ -116,7 +115,7 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    // collapse(1:7) close
+    // !collapse(1:7) collapsed
     remarkPlugins: [
       remarkFrontmatter,
       remarkMdxFrontmatter,
@@ -125,7 +124,7 @@ const withMDX = createMDX({
       remarkToc,
       remarkPublicImage,
     ],
-    // fold[21:63]
+    // !fold[21:63]
     rehypePlugins: [rehypeSlug, rehypeKatex, rehypeUnwrapImages],
   },
 });
@@ -135,8 +134,8 @@ export default withMDX(nextConfig);
 
 그리고 `app` 디렉토리와 동일한 곳에 `mdx-components.tsx`를 추가해야 합니다.
 
-```mdx-components.tsx
-// mark
+```tsx mdx-components.tsx
+// !mark
 import typography from '@/components/Typography';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -148,11 +147,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
 스타일링은 [tailwindcss-typography](https://github.com/tailwindlabs/tailwindcss-typography) 같은 걸 이용할 수도 있습니다. 편리해 보였지만 내부에서 TailwindCSS 클래스를 쓸 수 없어서 `format.ts` 파일을 만들어서 이곳에서 스타일링 했습니다.
 
-```Typography/index.tsx
+```tsx Typography/index.tsx
 import * as Format from '@/components/Typography/format';
 
 const components: MDXComponents = {
-  // mark
+  // !mark
   h2: (props) => <h2 className={Format.h2} {...props} />,
   ...
 };
@@ -160,10 +159,10 @@ const components: MDXComponents = {
 export default components;
 ```
 
-```Typography/format.ts
+```ts Typography/format.ts
 const HEADING = clsx('mb-4 mt-8 scroll-mt-4 font-semibold');
 
-// mark
+// !mark
 export const h2 = clsx(HEADING, 'text-2xl');
 ...
 ```
@@ -189,9 +188,9 @@ export const h2 = clsx(HEADING, 'text-2xl');
 
 이 구조를 다루기 위해 필요한 함수들을 만들었습니다.
 
-```lib/MDX.ts
+```ts lib/MDX.ts
 const parseMDX = async (slug: string) => {
-  // mark
+  // !mark
   const MDXModule = await import(`/contents/${slug}/index.mdx`);
   const { frontmatter, toc, default: MDX } = MDXModule;
 
@@ -229,9 +228,9 @@ date: 2024-11-21
 
 `parseMDX` 함수는 외부로 노출시키지 않고, `getPost`와 `getPosts` 함수를 만들어서 이것들을 노출시켰습니다. 이 함수들은 포스트 페이지나 포스트 리스트 페이지 등에서 활용했습니다.
 
-```lib/MDX.ts
+```ts lib/MDX.ts
 const getPost = async (slug: string) => {
-  // mark
+  // !mark
   const post = await parseMDX(slug);
 
   return post;
@@ -239,7 +238,7 @@ const getPost = async (slug: string) => {
 
 const getPosts = async () => {
   const allDir = await getMDXDirs();
-  // mark
+  // !mark
   const allPost = await Promise.all(allDir.map(getPost));
   const allSortedPost = allPost.sort((a, b) => {
     return new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1;
@@ -263,7 +262,7 @@ import { type Extension } from 'bright';
 import LineMark from '@/components/Typography/Code/Mark/LineMark';
 
 export const mark: Extension = {
-  // mark(1:2)
+  // !mark(1:2)
   name: 'mark',
   MultilineAnnotation: ({ children }) => <LineMark>{children}</LineMark>,
 };

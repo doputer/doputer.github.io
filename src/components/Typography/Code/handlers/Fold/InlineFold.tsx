@@ -1,8 +1,10 @@
 'use client';
 
-import { PropsWithChildren, useState } from 'react';
+import { useState } from 'react';
 
-const InlineFold = ({ children }: PropsWithChildren) => {
+import { AnnotationHandler } from 'codehike/code';
+
+const InlineFold: AnnotationHandler['Inline'] = ({ children }) => {
   const [folded, setFolded] = useState(true);
 
   if (!folded) return children;

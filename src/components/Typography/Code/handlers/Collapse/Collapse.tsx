@@ -1,31 +1,28 @@
 'use client';
 
-import { Children, PropsWithChildren, useState } from 'react';
+import { Children, useState } from 'react';
 
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
+import { AnnotationHandler } from 'codehike/code';
 
-interface CollapseProps {
-  query?: string;
-}
-
-const Collapse = ({ query, children }: PropsWithChildren<CollapseProps>) => {
-  const [isOpen, setIsOpen] = useState(query !== 'close');
+const Collapse: AnnotationHandler['Block'] = ({ annotation, children }) => {
+  const [isCollapsed, setCollapsed] = useState(annotation.query !== 'collapsed');
   const firstLine = Children.toArray(children)[0];
 
   return (
     <div className="relative">
       <button
         className="absolute left-0 m-0 border-none bg-transparent p-0"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setCollapsed((prev) => !prev)}
         aria-label="Expand Button"
       >
-        {isOpen ? (
+        {isCollapsed ? (
           <ChevronDownIcon className="inline-block size-4 align-middle" />
         ) : (
           <ChevronRightIcon className="inline-block size-4 align-middle" />
         )}
       </button>
-      {isOpen ? children : <div>{firstLine}</div>}
+      {isCollapsed ? children : <div>{firstLine}</div>}
     </div>
   );
 };

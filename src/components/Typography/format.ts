@@ -17,5 +17,4 @@ export const th = clsx('p-2');
 export const td = clsx('p-2');
 export const a = clsx('font-medium text-secondary underline underline-offset-4');
 export const strong = clsx('font-semibold');
-export const pre = clsx('!rounded-lg border border-line font-mono text-sm leading-6 [&_*]:z-0');
 export const img = clsx('m-auto my-4 h-auto w-fit rounded');

@@ -32,7 +32,7 @@ date: 2022-12-21
 
 이러한 기능들을 재사용 가능하도록 훅으로 만들어 글쓰기 페이지 외에도 댓글 기능 등에서 활용할 수 있도록 했습니다.
 
-```useCodeMirror.tsx
+```tsx useCodeMirror.tsx
 import { useCallback, useEffect, useState } from 'react';
 
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
@@ -91,7 +91,7 @@ export default function useCodeMirror() {
 
 코드미러 익스텐션에 추가할 이벤트 핸들러를 작성해줍니다.
 
-```useCodeMirror.tsx
+```tsx useCodeMirror.tsx
 const eventHandler = () => { ... }
 
 const editorState = EditorState.create({
@@ -106,7 +106,7 @@ const editorState = EditorState.create({
 
 에디터에 포커스가 위치한 상태에서 붙여넣기 이벤트가 발생하면 `clipboardData`를 가져올 수 있는데 이 데이터가 이미지 파일인지 검사해서 서버에 전송합니다. 서버에서는 이미지 파일을 `Object Storage`에 저장하고, 저장된 `URL`을 반환합니다.
 
-```useCodeMirror.tsx
+```tsx useCodeMirror.tsx
 const handleImage = (imageFile: File) => {
   if (!/image\/[png,jpg,jpeg,gif]/.test(imageFile.type)) return;
 
@@ -135,7 +135,7 @@ const eventHandler = () => {
 
 저장된 URL을 반환받았다면 마크다운 이미지 문법인 `![image](path)` 형식으로 에디터에 추가합니다. 이때 자연스러운 UX를 위해서 붙여넣은 커서의 위치에 추가합니다.
 
-```useCodeMirror.tsx
+```tsx useCodeMirror.tsx
 const insertCursor = (text: string) => {
   if (!editorView) return;
 
@@ -168,7 +168,7 @@ useEffect(() => {
 
 이미지를 드롭할 때 마우스 커서에서 가장 가까운 곳에 이미지가 첨부될 수 있도록 에디터 커서의 위치를 조정해줍니다. 코드미러의 `posAtCoords` 메서드로 현재 마우스 커서와 가장 가까운 에디터 커서의 위치를 알아낼 수 있습니다.
 
-```useCodeMirror.tsx
+```tsx useCodeMirror.tsx
 const eventHandler = () => {
   return EditorView.domEventHandlers({
     ...,
@@ -193,7 +193,7 @@ const eventHandler = () => {
 
 이 방법은 input 태그를 통해 이미지 파일을 받아오는 방식이기 때문에 코드미러 익스텐션을 이용하지 않고, 직접 HTML 태그를 작성합니다. 이후에는 앞서 작성한 함수들을 재사용합니다.
 
-```Editor/index.tsx
+```tsx Editor/index.tsx
 <input
   id="image"
   type="file"
@@ -223,7 +223,7 @@ const eventHandler = () => {
 
 코드미러에서 제공하는 `lineAt` 메서드로 현재 커서가 위치한 라인의 정보를 얻을 수 있습니다.
 
-```useCodeMirror.tsx
+```tsx useCodeMirror.tsx
 // symbol -> '# ', '## ', '### ' 등
 const insertStartToggle = (symbol: string) => {
   if (!editorView) return;
@@ -270,7 +270,7 @@ const insertStartToggle = (symbol: string) => {
 
 만약 선택된 텍스트가 없다면 `defaultText`와 함께 선택한 마크다운 문법을 적용해서 에디터에 표시해줍니다.
 
-```useCodeMirror.tsx
+```tsx useCodeMirror.tsx
 // symbol -> '**', '_', '`' 등
 const insertBetweenToggle = (symbol: string, defaultText = '텍스트') => {
   if (!editorView) return;
