@@ -3,9 +3,8 @@ emoji: '🐻'
 title: 'Zustand의 불필요한 리렌더링 막기'
 description: '의도한대로 렌더링 해봅시다'
 tags:
-  - article
-  - react
   - zustand
+  - react
 date: 2024-11-14
 ---
 
@@ -114,7 +113,7 @@ const b = useStore((state) => state.b);
 const c = useStore((state) => state.c);
 
 // Oh 😆
-// fold[55:88]
+// !fold[55:88]
 const { a, b, c } = useStore(useShallow((state) => ({ a: state.a, b: state.b, c: state.c })));
 ```
 
